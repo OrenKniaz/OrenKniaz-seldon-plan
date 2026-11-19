@@ -3126,20 +3126,56 @@
       "milestone": "M3",
       "area": "DETAIL to WORK prompt",
       "family": "Questions copy everything",
-      "direction": "plannerBrief trial: DETAIL owns the semantic brief and WORK attaches canonical scope, agreements and receipt schema. Verify both arms and retained-store fallback.",
-      "evidence": "2026-11-19 lane assignment: Seldon ShelfLife products pack code into roughly 300–370 lines with 3–4K-character lines; plain Terra writes 1,041 lines with a 337-character maximum. Supplied lane base 26387be includes the codeShape patch."
+      "direction": "plannerBrief.patch and plannerBrief-report.md delivered. Apply after codeShape where it is part of the candidate. Lead owns review, landing and any authorized live trial.",
+      "evidence": "2026-11-19 lane assignment: Seldon ShelfLife products pack code into roughly 300–370 lines with 3–4K-character lines; plain Terra writes 1,041 lines with a 337-character maximum. Supplied lane base 26387be includes the codeShape patch. | Verified 26387be tree 10de9070d55556d5f8b6df0b9a665b89f4f2c42a equals a4204ec before codeShape. Both patches apply in order. Four scripted golden arms reach C, 60 exact-base byte comparisons and 28 cold imports pass. Sole bare gate 146P/1F in 822.38 s (825.12 s wall), T-244 test-only race repaired and both targeted cases passed in 151.79 s. Combined tree six targeted journeys passed in 323.32 s. No second gate. Seven planned DETAIL answers in three retained replay stores contain zero briefs. Source +125/-22. Live model uplift remains unmeasured."
     },
     {
       "id": "T-243",
       "title": "Browser proof deadline drops the active page context",
       "severity": "medium",
       "type": "code",
-      "status": "open",
+      "status": "in_progress",
       "milestone": "M3",
       "area": "src/seldon/kit/browser.cjs",
       "family": "Rig gives false signals",
-      "direction": "browserProof owns helper diagnostics and focused real-browser journey only. Planner and prompt surfaces are outside this lane. Prove passing, concrete failing and deadline paths with cleanup.",
-      "evidence": "ShelfLife shelflife-main-a4204ec-s01 r64/r63: helper timer and duplicate refreshVersion page error; repaired r79/r82 pass. Quiet Bench qbu-a4204ec-q04 r82/r81 and r150/r149: helper timer after product traffic, with no captured browser errors. Exact pending operation remains unproven."
+      "direction": "browserProof patch/report delivered against a4204ec. Lead owns review and landing. Reproduce the Quiet Bench readout/compare sequence with per-step timing to identify the pending await.",
+      "evidence": "ShelfLife shelflife-main-a4204ec-s01 r64/r63: helper timer and duplicate refreshVersion page error; repaired r79/r82 pass. Quiet Bench qbu-a4204ec-q04 r82/r81 and r150/r149: helper timer after product traffic, with no captured browser errors. Exact pending operation remains unproven. | q04 r145 passed the same ec1b3b6 page check before r149 failed on integrated proof. Both failed observations followed successful run/session API calls. Retained stderr does not name an awaited browser step. | q04 r145 recorded HTTP 200 /api/compare, absent from failed r81/r149. Local real Edge journey reproduced the base diagnostic loss and passed on candidate with closure on all paths. 28 Python cold imports and two CommonJS requires passed. Sole full gate 143P/1F in 575.18s (577.38s wall); new test subprocess watchdog expired at 45s. Replaced its captured pipes with stderr file and used the helper default budget; focused journey passed in 37.15s. Full gate not rerun. No native replay or landing."
+    },
+    {
+      "id": "T-244",
+      "title": "Front-door continuity test samples idle before final acceptance",
+      "severity": "medium",
+      "type": "code",
+      "status": "in_progress",
+      "milestone": "M3",
+      "area": "Test rig / front-door live acceptance journey",
+      "family": "Rig gives false signals",
+      "direction": "plannerBrief includes a test-only wait for both controller idle and accepted state after the C answer. Lead owns landing.",
+      "evidence": "plannerBrief sole gate 146P/1F in 822.38 s. Live continuity sampled WAITING when the controller first appeared idle. The retained gw4 store has C request r183, user words r184, approval r191 and terminal ACCEPTED. The live and restart journeys passed after the bounded predicate fix, 2P in 151.79 s. No second gate. Log C:/seldon/tests/plannerBrief-1/gate.log."
+    },
+    {
+      "id": "T-245",
+      "title": "Directed check-in is hidden from the next ARCHITECT brief",
+      "severity": "high",
+      "type": "design",
+      "status": "in_progress",
+      "milestone": "M3",
+      "area": "ARCHITECT continuation / run and questions",
+      "family": "Questions copy everything",
+      "direction": "nextWave owns the directed check-in brief and golden regression. Surface the bound direction and next wave; preserve the completed wave, existing scope authority and correction route.",
+      "evidence": "Quiet Bench a4204ec q05 CHECK-IN request r93, words r95, direct approval r102 and ARCHITECT question r105 / attempt r106 / refusal r109. User check-in is null, Remaining waves is empty, and the direction is buried in general history behind a one-wave starting example. q01 r175/r178 and q04 r220/r223 repeat this pattern. q05 correction r114 plans wave 2 using scopeIn:records. | Read-only SQLite replay verified r108, r177 and r222 raw waves=[]; the code restored the closed one-wave baseline before r109/r178/r223. Question r105 uses a one-wave initial example and an empty-list keep-horizon instruction. 6292eff exact lane snapshot 396b082 RED for the same waves mismatch; the coached scripted run reached wave 2 DETAIL holding the same Git candidate, nodes, unit rows and observation records. Both renderers verified. 28/28 cold imports. Patch applies before and after plannerBrief. | Sole bare nextWave gate passed 144 cases in 487.98 s (489.18 s wall), one more than base. Delivered nextWave.patch and nextWave-report.md. Native first-reply continuation and main landing pending."
+    },
+    {
+      "id": "T-246",
+      "title": "DETAIL mistakes a narrower follow-on assignment for a second writer",
+      "severity": "medium",
+      "type": "design",
+      "status": "open",
+      "milestone": "M3",
+      "area": "DETAIL / plan.merge writer identity",
+      "family": "Two rules disagree",
+      "direction": "Separate ownership lane: prove a narrower continuation of a uniquely matching completed writer retains its identity, prior scope and evidence; preserve correction for competing writers or ambiguous ownership.",
+      "evidence": "Quiet Bench a4204ec q05 wave 2 DETAIL r122 and r130 produce the same subset scope. r125 and r133 cite 1.quiet-bench.1 versus 2.quiet-bench.1 over bench.py, quiet_bench/**, tests/** and checks/quiet-bench/**. plan.merge reuses exact scopes and supersets; a proper subset gets a new unit before the overlap check. This happens after the ARCHITECT correction succeeds. | COACH r139 asked to consolidate into the existing writer. DETAIL r148 resent its full non-guide scope and reached REVIEW at r151. Separate brief: work/lanes/nextWave-detail-owner-brief.md. No ownership code changed in nextWave."
     }
   ]
 }

@@ -1,0 +1,8 @@
+TRIAGE FAULT SELDON + DESIGN — The helper masked the pending step behind a whole-path timer. The patch keeps that deadline and reports the active phase, current URL and last captured page error.
+ShelfLife `shelflife-main-a4204ec-s01` r64/r63 records the timer plus a duplicate `refreshVersion` declaration in `8d9e979` that prevented the app script from starting. Repaired `b365160` passed r79/r82.
+Quiet Bench `qbu-a4204ec-q04` r82/r81 and r150/r149 record the timer after successful run/session calls without a captured comparison request or browser error. r145 captured HTTP 200 for `/api/compare` and passed on the same `ec1b3b6` revision that failed during integration.
+All three failed observations verified teardown. Reproduce the retained checks with timings around the readout and compare steps to identify the pending await. Quiet Bench product, check and runtime causes remain unresolved.
+Browser and callback rejections that arrive first propagate unchanged, even if cleanup or evidence writing fails. Browser close and visit evidence remain in teardown.
+Real Edge journey failed on the base for the bare timer. On the final patch Save succeeds, missing Publish retains the Playwright locator error, and outer expiry reports the broken route and script error. Edge disconnects after each case.
+Patch applies to exact `a4204ec`. Cold imports passed for 28 Python and two CommonJS modules.
+Sole serialized full gate with the harness venv and no SELDON_* settings ran 575.18 s (577.38 s wall), 143 passed/1 new-test watchdog failure. Test-only correction passed in 37.15 s. Full gate was not repeated.
