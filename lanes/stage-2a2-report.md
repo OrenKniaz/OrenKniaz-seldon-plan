@@ -1,0 +1,50 @@
+TRIAGE: DESIGN — gates consumed open-only state instead of the owner prerequisite — sibling cases: publication, C/rebind, continuation and worker admission.
+CHARTER: serves C10/C11/C14/C15/C23 — violates no I#; fixes DV10 at the suite boundary; charter register unchanged.
+Changed: PlanStore.finding_state owns current positive disposition prerequisites. Pending is a judgment WAIT naming exact obligation IDs; all consumers use it. Removed gate-local checks, duplicate advice and unconsumed closure projections; closure input validation remains.
+Scope: existing 1j prepare/submit/read, bindings, pending state and two exact-fix retries retained. Readiness stays advisory; no budget, dispatch, provider, security or approval expansion.
+Evidence: baseline RED/37.96s advanced to publish with pending obligations. Prior targeted CLI GREEN/227.87s; expanded existing journeys prove plan change + fresh reviews held until disposition and changed HTTP product + real execution/fresh reviews held at C until disposition, then C.
+FINAL GREEN after last source/test/audit edit: bash ../golden-gate.sh . stage-2a2 (run 1/2): 18 passed/297.93s + web 1 passed/210.64s = 19/19; wall 511.14s <600s. Fast markers retained; browser 4 scenarios/16 journeys completed.
+PROD: +61/-202 (net -141) · TEST: +50/-16 (net +34); cases 19 versus base 19; source total 36088 versus 36229; affected size ceilings ratcheted. No unit tests or new test files.
+Checks: Python parse, Ruff F, diff check, post-gate patch identity/reverse-apply and E2E-only command-invocation guard PASS. The raw audit-text scan matched its own quoted test-command text; parsed PowerShell invocations confirm no unauthorized test invocation.
+Risks/next: scripted-provider suite evidence only; actual-provider/ladder/full-vision acceptance and independent review unperformed. Serial owner/CC integrates and reviews this exact patch; no commit/push. Discovery ledger updated.
+Base: ee981deb45bdd8232d4e600e86a1ff81b3c1b035 (lane archive labeled Seldon 6114561). Patch: ../stage-2a2.patch; SHA256: 7ba72ef81b1e91723127c35fa2ef73038e2adb49e34b1d0091215885a9552d8e; checksum: ../stage-2a2.patch.sha256.
+Logs: ../golden-stage-2a2.log; C:/seldon/tests/stage-2a2/full-gate-summary.log, red-cli.log, green-cli-4.log, command-invocations.jsonl; earlier failed fixture diagnostics retained in the same scratch root.
+
+## Round 2
+TRIAGE: DESIGN — the prerequisite preceded its run producer — sibling cases: product/scenario change, interrupted acceptance, revision-algorithm upgrade and legacy-unbound migration.
+CHARTER: serves C11/C14/C15/C18/C23 — violates no I#; supersedes Round 1 completeness/candidate claims; DV10 register unchanged.
+Order: finding_state retains obligations and orders canonical run recovery, then current bound dispositions, then C. Status/chat/continuation/resume follow it; pending attempts name the exact status ID, and recovery lists retained obligation IDs.
+Rebind: original inputs/approval/reviews are durable before refresh; backfill joins the owning transaction through the canonical scenario writer. A new server resumes the same refreshed run, carrying actor/words/judgment provenance only after disposition. Only verified same-input rebind lineage carries historical explicit positive review credit; ordinary reviews remain current-bound.
+Golden: plan-change journey retained; product guidance RED/28.51s corrected. Prior focused CLI GREEN/237.05s. Legacy-unbound + revision-algorithm replays hold C/original approval, bind fresh dispositions, survive a new server, restore provenance, reach C and repeat without execution. Historical fixtures seed v1 metadata; execution/judgments/recovery remain canonical.
+FINAL GREEN after last source/test/audit edit: bash ../golden-gate.sh . stage-2a2 (Round 2 run 1/2): 18 passed/338.35s + web 1 passed/232.90s = 19/19; wall 573.75s <600s; fast markers retained. Browser 4 scenarios/16 journeys complete.
+PROD: +171/-328 (net -157) · TEST: +128/-28 (net 100); cases 19 versus base 19; source 36072 versus 36229. No new test files/unit tests; no cap, retry or deadline increases.
+Checks: Python parse/Ruff F, full size/suite guards, diff check, E2E-only parsed command-invocation guard and post-gate exact patch identity/reverse-apply PASS. All diagnostics retained; no second full gate needed.
+Risks/next: scripted-provider suite evidence only; actual-provider/ladder/full-vision and independent Round 2 review unperformed. CC re-reviews this exact candidate; no commit/push or charter edit.
+Base: ee981deb45bdd8232d4e600e86a1ff81b3c1b035; patch ../stage-2a2.patch; SHA256 60be2a115449bbe49ace166cb1b49680769c21e415297a44689cf5a3c390291f; checksum ../stage-2a2.patch.sha256.
+Logs: ../golden-stage-2a2.log; C:/seldon/tests/stage-2a2/r2-full-gate-summary.log, r2-red-cli.log, r2-cli-4.log, r2-command-invocations.jsonl. Round 1 raw gate retained as r1-full-gate.log; audit ledger records rejected ordering and atomic-writer repair.
+
+## Round 3
+TRIAGE: DESIGN — lineage was a second authority path beside current judgments — sibling cases: template change before restoration and after completed rebind.
+CHARTER: serves C11/C14/C15/C18/C23 — violates no I#; supersedes Round 2 lineage-credit/completeness claims; DV10 register unchanged.
+Deleted: historical review traversal/current=False credit, copied reviews/C approvals, restoration context/stage and its special fixtures. Rebind migrates execution only; retained approval words/actors remain history with no credit.
+Authority: ordinary reviews require current 1j verdicts. C producer binds the current run and review inputs; its consumer requires a current positive judgment for that exact run. Existing run-recovery-before-disposition ordering remains; no second judge store/counter or approval inference.
+Golden: C-only drift probe was masked by finding holds; strengthened real review-gate RED/52.53s returned stale credit. Targeted CLI GREEN/224.62s. Legacy/revision replays now obtain fresh reviews, all retained dispositions and fresh C within existing allowances; template drift before review and after C removes credit. Plan/product recovery journeys retained.
+FINAL GREEN after last source/test/audit edit: bash ../golden-gate.sh . stage-2a2 (Round 3 run 1/2): 18 passed/344.28s + web 1 passed/241.24s = 19/19; wall 587.76s <600s. Browser 4 scenarios/16 journeys complete; no second full gate.
+PROD: +115/-394 (net -279; -122 versus Round 2) · TEST: +122/-44 (net 78); cases 19 versus base 19; source 35950 versus 36229. Fast markers retained; size ceilings lowered; no new test files/unit tests, cap/retry/deadline increases.
+Checks: Python parse/Ruff F, full size/suite guards, diff check, E2E-only parsed command-invocation guard, removed-path search and post-gate exact patch identity/reverse-apply PASS. Audit ledger records the rejected lineage rule and replacement.
+Risks/next: scripted-provider suite evidence only; actual-provider/ladder/full-vision acceptance and independent Round 3 review unperformed. CC re-reviews this exact candidate; no commit/push or charter edit.
+Base: ee981deb45bdd8232d4e600e86a1ff81b3c1b035; patch ../stage-2a2.patch; SHA256 ed03ff5bc7f24a6acaaf8fbafc7fd8071b9f3fa3e32d8a0941a2d1bdc20c7344; checksum ../stage-2a2.patch.sha256.
+Logs: ../golden-stage-2a2.log; C:/seldon/tests/stage-2a2/r3-full-gate-summary.log, r3-red-reviewgate.log, r3-cli-2.log, r3-command-invocations.jsonl. Initial masked probe retained as r3-red-cli.log; Round 2 raw gate retained as r2-full-gate.log.
+
+## Round 4
+TRIAGE: DESIGN — C's producer supplied a binding its consumer did not require — sibling cases: template additions, edits and deletions in upgraded stores.
+CHARTER: serves C11/C14/C15/C18/C23 — violates no I#; supersedes Round 3's C-consumer completeness claim; DV10 register unchanged.
+Rule: PlanStore.judgment requires C's explicit current review/run binding, with a non-null run matching its C subject. Missing/stale bindings are pending history granting no credit; existing C/status/continuation consume that authority and request fresh C.
+Golden: upgraded-store RED/42.65s observed accepted=True after unbound historical C, template drift, fresh same-run reviews and current dispositions. Targeted CLI GREEN/305.20s now requests fresh C, then accepts a bound C. Historical input is seeded from a real 1j positive reply/current run; plan/product/migration and stale-bound-C journeys retained.
+FINAL SUITE GREEN after last source/test/audit edit: bash ../golden-gate.sh . stage-2a2 (Round 4 run 1/2): 18 passed/348.09s + web 1 passed/268.06s = 19/19. FAST TIMING MISSED: wall 618.29s >600s by 18.29s; exact web line: 1 passed in 268.06s (0:04:28). No rerun or timing chase.
+PROD: +122/-403 (net -281; -2 versus Round 3) · TEST: +148/-43 (net +105); cases 19 versus base 19; source 35948 versus 36229. Fast markers retained; size ceilings lowered; no new test files/unit tests or cap/retry/deadline increases.
+Checks: changed Python parse/Ruff F, full size/suite guards, diff check, E2E-only parsed command-invocation guard (538 invocations) and post-gate exact patch identity/checksum/reverse-apply PASS. Audit ledger records this consumer gap.
+Scope: Round 4 changes shared judgment currency only; no second store, retry counter, lineage credit or inferred approval. Original actor/words remain history; ordered run recovery, current reviews/dispositions and fresh C remain required.
+Risks/next: scripted-provider suite evidence only; fast-gate runtime criterion NOT met, cause unproven. CC re-reviews this exact candidate and timing result; actual-provider/ladder/full-vision acceptance and independent Round 4 review unperformed; no commit/push or charter edit.
+Base: ee981deb45bdd8232d4e600e86a1ff81b3c1b035; patch ../stage-2a2.patch; SHA256 2ebd9dea912c9a6c4f4bf0c07a0dd0d2ae83e934c62e3cdc4907a17574628f65; checksum ../stage-2a2.patch.sha256.
+Logs: ../golden-stage-2a2.log; C:/seldon/tests/stage-2a2/r4-full-gate-summary.log, r4-red-cli.log, r4-cli.log, r4-command-invocations.jsonl. Round 3 raw gate retained as r3-full-gate.log.

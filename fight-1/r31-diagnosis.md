@@ -1,0 +1,15 @@
+CHARTER: serves C14/C16/C18/C23; diagnoses phase and recovery handling against I1/I2/I5. Read-only; no tests or edits.
+
+1. **Outcome:** `BLOCKED-external`, **1,601.5 seconds (26m42s)** on `6448db1`. **A → Spec → positive plan reviews → B committed → Build (tests only) → Judge/Steer → held Judge.** Implementation never launched; no C or delivered product files. **16 planner MCP calls**, 32 total MCP calls; internally **18 completed calls: 4 planner, 11 judge, 3 mechanical**. No reported MCP refusals; **4 exact-fix citation rejections**. Simulated-user replies: **“yes”, “yes”, “Please continue.”** A/B were approved, with `human_identity_verified=false`. [Report](~/codex-harness/work/fight-1/fight-seldon-r31.json). The [oracle](~/codex-harness/work/fight-1/oracle-seldon-r31.json) records startup failure; API/importer/UI remain unverified.
+
+2. **First observable departure: event 184.** All ten tests skipped because prerequisites were absent, yet exit-code observations produced four raw **PASS** results—neither meaningful RED nor GREEN. Overall proof remained unadmitted; **202 correctly rejected it**. After supported repair/readmission (**208**), all four checks exited **2** before product assertions (**219**). The decisive stall is **237–238**: inconclusive judgment becomes `semanticHeld=true`, `repairRequired=false`, `resumeRun=null`. Implementation depends on that test bead and remains blocked. Evidence: [event database](C:/seldon/runs/fight-1/seldon/20261109T171636-f1497a-001-shelflife/.codex-harness/plan.sqlite3), [worker run](C:/seldon/runs/fight-1/seldon/20261109T171636-f1497a-001-shelflife/.codex-harness/worker-jobs/25b84682f9f8/runs/65910994de0d/evidence/run.json).
+
+3. **TRIAGE: DESIGN** — an inconclusive baseline judgment has no effective repair/replan transition, so test readiness blocks the implementation needed to resolve it. **Sibling cases:** unchanged evidence is rejudged at **262/280–281** and **307/325–326**; browser verification requires interactive operation that its invocation never supplies; file citations trigger identical exact-fix rejections at **193/228/271/316**. The initial skipped-test PASS is a concrete producer defect; changing its exit status alone demonstrably failed to restore progress.
+
+4. **ONE simplest rule:**
+
+   | Owner | Rule | Pros / cons |
+   |---|---|---|
+   | **CODE** | Consume every execution judgment as a phase-specific transition: judge-approved RED releases implementation; blocked/invalid RED schedules bounded same-scope repair or replanning; integrated GREEN gates later Validation. | Removes the dependency hold without weakening RED or acceptance; requires correcting the existing judgment-to-scheduler boundary. |
+
+5. **Improved versus [r30](~/codex-harness/work/fight-1/r30-diagnosis.md):** B now survives and commits (**169–170**), publication and worker execution begin, four test files are produced, and quiescent readmission is demonstrated (**208**). Exact-fix rejections fall **7 → 4**. However, time rises **969 → 1,602 seconds**, planner MCP calls **15 → 16**, and working-product delivery remains unproven.

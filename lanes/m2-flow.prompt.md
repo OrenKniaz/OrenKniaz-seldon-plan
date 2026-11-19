@@ -1,0 +1,17 @@
+LANE m2-flow (M2 lane 2 of 5: wave proof + flow review; work/ladder/M2-PLAN.md). Runs in parallel with lane m2-fixups (lane 3) on disjoint files. Worktree ~/codex-harness/work/lanes/m2-flow-20261112 (Seldon main after judge-minimal). Temp only under C:/seldon/tests/m2flow-<n>. Do not commit. No new dependencies. Do not edit CHARTER.md or BLUEPRINT.md. Behaviour-only journeys. No real provider calls. Tickets per work/ladder/TRACKING.md.
+
+Read CHARTER.md v1.7, BLUEPRINT.md v1.5 (3.2 Wave: WAVE-VERIFY and flow review is the only cross-unit judge; R2 behaviour after integration; R4; R7; R9; R12; 8.4), work/ladder/M2-PLAN.md, then src/seldon and tests/seldon.
+
+YOUR FILES ONLY: new src/seldon/wave_verify.py, new src/seldon/flow_review.py, src/seldon/proof.py, and new journeys in a new file tests/seldon/test_flow.py. Do NOT edit run.py, states.py, store.py, questions.py, judgment.py, units.py or test_journey.py: list the exact wiring you need (function names, state rows, cursor fields, question kind and schema) in your report; the lead wires them. Lane 3 owns fixups.py and units.py.
+
+DESIGN (decided by the lead; if wrong, stop and say where):
+1. wave_verify.verify(store, candidate) -> list of observations: every check in the product so far (unit and wave level) runs on one candidate commit (move today's run.wave_verify logic here, unchanged in behaviour, guide walk included).
+2. Flow review replaces DEMO-JUDGE. A flow is one feature (story + acceptance) traced through its requirements. One FLOW question per feature: the feature, its requirements, the final observations and screenshots of their traced checks, the text of the contracts those requirements cross (architecture.crossed_contracts), and one code fact summarising the reached units' source verdicts and unchanged scope trees. No source text. The feature verdict is the code AND over its requirement assessments; size bounded by the feature, flat from 1 to 50 units.
+3. Quality criteria stay as today: one behaviour-only PRODUCT question per criterion after flow review (no change in this lane).
+4. The failure interface (frozen; lane 3 consumes it): flow_review and wave_verify never rework anything themselves. They return Gap records: {"subject": feature or check id, "kind": "flow" | "check", "commit": candidate, "units": [owning unit ids from the trace], "correction": text, "source": record ref}. Uncertain after one bounded re-ask = "not judged" (as today), never a Gap.
+DO NOT: source text in FLOW; product-sized questions; classifiers; rework or fixup logic (lane 3); prompt sentences per answer.
+LEAD DECISIONS THAT MUST SURVIVE: everything listed in the judge-minimal brief plus judge-minimal itself (no criterion routing; standing unit-source obligations; not judged at C).
+
+JOURNEYS in tests/seldon/test_flow.py (outcome only, using the existing journey helpers by import): a 3-unit product with a shared page contract gets one FLOW question per feature carrying the contract text and screenshots, no source; a feature whose check fails on the candidate yields a check Gap naming the owning unit; a flow judged gap yields a flow Gap naming the units its requirements reach; FLOW question size equal at 1 and 50 units.
+
+DELIVER in ~/codex-harness/work/lanes: m2-flow.patch, m2-flow-report.md at most 10 lines: files and lines; the exact wiring the lead must add; journeys and seconds; FLOW bytes at 1 and 50 units; anything wrong.

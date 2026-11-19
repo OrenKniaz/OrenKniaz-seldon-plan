@@ -1,0 +1,15 @@
+CHARTER: serves C1/C8/C20/C23; identifies a C8/C20 conflict. Read-only; no tests or edits.
+
+1. **Outcome:** `STALLED-no-progress`, 78.14 seconds, two turns. Furthest phase: **Align, before A**; Spec/B/Build/Judge/Steer/C were not reached. **4 outer planner MCP calls**: two status, two chat; **zero internal planner invocations** recorded. One reported refusal, labelled `gpt-6-astra`, reflects the permission block—not a model-generated refusal. One simulated user decision: **“yes”**; no approval was recorded. No product files delivered. The oracle reports server exit **2**, leaving API/importer/UI checks unverified. [Run report](/~/codex-harness/work/fight-1/fight-seldon-r19.json:15), [oracle](/~/codex-harness/work/fight-1/oracle-seldon-r19.json).
+
+2. **First deviation:** event **10**, `confirmation-requested`, inserts **P / invocation permission** before understanding and A. It advertises “Reply in your own words.” Event **13** records `"yes"` against the correct request token, but produces no confirmation or judgment; Seldon instead requires `/authorize`. These are the final events in the [slot database](/C:/seldon/runs/fight-1/seldon/20261108T080230-ab4558-001-shelflife/.codex-harness/plan.sqlite3). At `c7219cb`, the contradiction is explicit: [approvals.py:294](/~/codex-harness/work/sprint-20261027/semantic-cc/src/codex_harness/core/approvals.py:294) renders own-words instructions; [run_chat.py:54](/~/codex-harness/work/sprint-20261027/semantic-cc/src/codex_harness/core/run_chat.py:54) accepts only the exact command. C8 specifies the product decision points; C20 leaves permissions with the provider host.
+
+3. **TRIAGE: DESIGN.** The immediate bug is contradictory instructions; the shared design problem is adding Seldon consent machinery around provider invocation, then presenting structural permission as semantic approval. Siblings: planner/judge/reviewer bootstrap, newly selected provider/model permission, and generic approval cards whose advertised answers differ from their consumer. Merely adding `"yes"` to an allowlist preserves the class.
+
+4. **ONE simplest rule:**
+
+   | Owner | Rule | Tradeoff |
+   |---|---|---|
+   | **CODE** | Provider invocation permission comes from existing host/setup authorization; Seldon adds no separate P product gate. Preserve model restrictions and actual host denials. | Removes duplicate consent and interpreter bootstrap recursion; requires truthful host authorization handling. |
+
+5. **Improved versus r18:** event **7** now records a purpose-specific `author / understanding` question, schema and example—a structural improvement over r18’s universal mutation envelope. **Recovery improvement remains unproven:** r19 never reached r18’s failing graph/disposition path. Product progress regressed: **r18 passed A; r19 stopped before its first internal planner call.** [r18 diagnosis](/~/codex-harness/work/fight-1/r18-diagnosis.md).

@@ -1,0 +1,7 @@
+Independent bounded re-review (Sol high, read-only; no tests or edits). Exact patch: ~/codex-harness/work/lanes/stage-trace1b-ad604a02.patch — verify SHA256 ad604a02f3f939aff1263de4304c9bb4bf7fe34cb8461326f4f9d8c156dc78cb. It is cumulative vs Seldon 2a833b6; current GitHub main is 4cdafbb (RESUME1, disjoint source files). Applied tree lanes/stage-trace1. Prior: lanes/stage-trace1-reviewH.md, stage-trace1b-reviewH.md. Report: lanes/stage-trace1b-report.md Round 3. Charter CHARTER.md.
+Only concrete reachable P1/P2 with file:line and scenario; do not reopen closed items; no nitpicks. Focus:
+1. Prior two P2s closed: emitted schemas are strict-valid (properties==required, additionalProperties false, nested objects, $defs usage) for codex and acceptable to claude; the check is at the single emission owner and covers every shared-path question; a schema failing the check is a surfaced defect, not a silent stall on a user's run.
+2. Fresh iteration without results is answerable and reaches B; the deferred requirement is enforced once results can exist, by the same one definition.
+3. New risk from nullable-required optional fields: can a null overwrite accepted content on a merge, or be read downstream as a supplied value? Can typed empty arrays delete existing references?
+4. Copilot (no schema flag) still gets the contract via the shared decoder.
+Output: first line VERDICT APPROVE|REJECT; CHARTER/TRIAGE/SIMPLEST lines; ≤8 bullets.

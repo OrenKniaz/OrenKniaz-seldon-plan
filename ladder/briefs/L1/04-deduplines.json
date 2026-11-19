@@ -1,0 +1,75 @@
+{
+  "id": "deduplines",
+  "kind": "cli",
+  "message": "Build Deduplines in deduplines.py: read UTF-8 stdin and print each distinct line once, preserving first-seen order, case and internal spaces. Treat LF and CRLF as line endings, always output LF. Support --ignore-case for comparison only, keeping original first text. Invalid UTF-8 exits 1; unknown flags exit 2. Python stdlib; no runtime files.",
+  "profile": {
+    "audience": "Analysts cleaning pasted lists",
+    "care": "Stable ordering",
+    "tone": "concise, practical, predictable",
+    "colours": "no terminal colour",
+    "fonts": "system fonts only",
+    "sections": "help, examples, concise diagnostics",
+    "platform": "local Windows and Python 3 stdlib for CLI; modern desktop/mobile browser for web",
+    "defaults": "Smallest solution described; no accounts, network, deployment or paid assets. Ask before scope or budget changes."
+  },
+  "files": [
+    "deduplines.py"
+  ],
+  "oracle": [
+    {
+      "name": "order-case-spaces",
+      "type": "cli",
+      "argv": [],
+      "stdin_b64": "QgphICBiCkIKYgphICBiCg==",
+      "exit": 0,
+      "stdout": {
+        "exact": "B\na  b\nb\n"
+      },
+      "stderr": null
+    },
+    {
+      "name": "ignore-case",
+      "type": "cli",
+      "argv": [
+        "--ignore-case"
+      ],
+      "stdin_b64": "T25lCm9uZQpUV08KdHdv",
+      "exit": 0,
+      "stdout": {
+        "exact": "One\nTWO\n"
+      },
+      "stderr": null
+    },
+    {
+      "name": "crlf-to-lf",
+      "type": "cli",
+      "argv": [],
+      "stdin_b64": "eA0KeAp5DQo=",
+      "exit": 0,
+      "stdout": {
+        "exact": "x\ny\n"
+      },
+      "stderr": null
+    },
+    {
+      "name": "invalid-utf8",
+      "type": "cli",
+      "argv": [],
+      "stdin_b64": "/w==",
+      "exit": 1,
+      "stdout": null,
+      "stderr": null
+    },
+    {
+      "name": "unknown-flag",
+      "type": "cli",
+      "argv": [
+        "--bogus"
+      ],
+      "stdin_b64": "",
+      "exit": 2,
+      "stdout": null,
+      "stderr": null
+    }
+  ]
+}

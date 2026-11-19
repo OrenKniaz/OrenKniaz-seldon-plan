@@ -1,0 +1,32 @@
+{
+  "id": "notes-api",
+  "kind": "http",
+  "message": "Build a small JSON notes API. Python standard library only; no runtime network assets or build step. Serve on 127.0.0.1 using python server.py --port PORT --store PATH (JSON file, initially absent). GET /api/notes returns a JSON array, initially []; POST /api/notes with {\"text\":\"...\"} creates a note (201) and returns {\"id\":integer,\"text\":text}; GET /api/notes/ID returns that note; DELETE /api/notes/ID returns 204. Text must be nonempty, at most 200 characters. IDs are unique and stable. File-store data survives restart. Invalid or malformed JSON returns 400 with a nonempty JSON error string; unknown resource returns 404. README.md explains startup.",
+  "profile": {
+    "audience": "Local users",
+    "care": "Exact behavior and clear errors",
+    "tone": "concise and practical",
+    "colours": "calm neutral palette",
+    "fonts": "system fonts only",
+    "sections": "Only the requested features",
+    "platform": "Windows, Python 3 standard library; desktop and mobile browser",
+    "defaults": "Smallest solution described; no accounts, network assets, deployment or paid services."
+  },
+  "files": [
+    "server.py",
+    "README.md"
+  ],
+  "oracle": [
+    {
+      "name": "notes-contract",
+      "type": "external",
+      "script": "~/codex-harness/work/ladder/oracle.py",
+      "argv": [
+        "{product}",
+        "{evidence}",
+        "notes"
+      ],
+      "timeout": 150
+    }
+  ]
+}

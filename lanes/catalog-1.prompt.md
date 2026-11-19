@@ -1,0 +1,13 @@
+Lane CATALOG-1 (Seldon; this folder = main 3fdb69a, golden-only copy + own git). ONE bug, from 47 of 150 real farm runs today:
+After A, B is blocked with `reviewer-catalog-producer-unavailable` / `reviewer-catalog-required`: preflight finds the Codex executable but cannot discover the models it offers, so Seldon demands a "genuine reviewer catalog" no tool can produce, and the run stalls forever. Verbatim planner text: "Seldon blocked execution because its required reviewer model catalog is missing (`reviewer-catalog-producer-unavailable`). Preflight found the Codex executable but cannot discover offered models." Captured runs: ~\codex-harness\work\run-farm\20261101T100128Z-d4f633-001-hashslip and 20261101T111738Z-af1b82-002-linecount (turn02.md / turn02.jsonl).
+Owner rule (binding, "never block delivery"): a missing verifier degrades to a labelled tier, never blocks. When model discovery is unavailable, B proceeds with the reviewer provider/model/effort the planner proposes from available executables (and any user restriction), labelled `catalog: unverified` in B and the acceptance packet; the user's plain yes on B authorizes it. A real launch failure of that model is handled by existing recovery inside B. No catalog question, no separate decision, no new refusal.
+Start at: src/codex_harness/core/preflight.py (catalog producer), approvals.py:~132 and planner_review.py:~33 (catalog records), planner_schema.py producerLimits text, planner_refusals.py. One rule, at the owner; remove the dead refusal paths it replaces.
+Prove it by extending the golden path: its stub environment must have NO model catalog (discovery unavailable) and still reach C with three decisions.
+FAST-LANE RULES (append to every Seldon fix brief; binding — Oren: NO unit tests, ever)
+- Lane folder comes from work/lanes/make-lane.sh: it contains NO tests except the golden path. Do not write new test files.
+- The ONLY test you may run: bash ~/codex-harness/work/lanes/golden-gate.sh <lane> <tag> (stub golden path CLI+web). Run it once at the end, at most twice. Prove behavior by extending golden-path scenarios, never with unit tests.
+- Timebox 45 min, effort medium. One or two failure clusters per lane; the brief names the refusal code and the owning file/function — start there.
+- Report <=12 lines; exact patch + sha256; no pushes.
+- CC rejects any patch whose command log ran another pytest (work/lanes/check-lane-log.sh).
+- All scratch/temp/basetemp goes under C:\seldon\tests\<lane> (add it with --add-dir). Never create folders at the C:\ root or under ~\t.
+Report ../catalog-1-report.md; patch ../catalog-1.patch + sha256. Scratch: C:\seldon\tests\catalog-1.

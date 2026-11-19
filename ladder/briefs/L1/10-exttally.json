@@ -1,0 +1,127 @@
+{
+  "id": "exttally",
+  "kind": "cli",
+  "message": "Build ExtTally in exttally.py. Accept one directory, inspect only its immediate regular files without following symlinks. Print a sorted JSON object counting lowercase final extensions, using '(none)' for no suffix. Ignore directories. Missing/unreadable directory exits 1; bad arguments exit 2. Python stdlib; read-only filesystem access.",
+  "profile": {
+    "audience": "Developers tidying download folders",
+    "care": "No recursive surprises",
+    "tone": "concise, practical, predictable",
+    "colours": "no terminal colour",
+    "fonts": "system fonts only",
+    "sections": "help, examples, concise diagnostics",
+    "platform": "local Windows and Python 3 stdlib for CLI; modern desktop/mobile browser for web",
+    "defaults": "Smallest solution described; no accounts, network, deployment or paid assets. Ask before scope or budget changes."
+  },
+  "files": [
+    "exttally.py"
+  ],
+  "oracle": [
+    {
+      "name": "immediate-files",
+      "type": "cli",
+      "argv": [
+        "{fixture}"
+      ],
+      "stdin_b64": "",
+      "exit": 0,
+      "stdout": {
+        "json": {
+          "(none)": 2,
+          ".gz": 1,
+          ".txt": 2
+        }
+      },
+      "stderr": null,
+      "fixture": {
+        "files": [
+          "a.TXT",
+          "b.txt",
+          "README",
+          ".hidden",
+          "archive.tar.GZ"
+        ],
+        "dirs": [
+          "subdir.txt"
+        ],
+        "nested": [
+          "subdir.txt/ignored.csv"
+        ]
+      }
+    },
+    {
+      "name": "empty-directory",
+      "type": "cli",
+      "argv": [
+        "{fixture}"
+      ],
+      "stdin_b64": "",
+      "exit": 0,
+      "stdout": {
+        "json": {}
+      },
+      "stderr": null,
+      "fixture": {}
+    },
+    {
+      "name": "ignore-symlink",
+      "type": "cli",
+      "argv": [
+        "{fixture}"
+      ],
+      "stdin_b64": "",
+      "exit": 0,
+      "stdout": {
+        "json": {
+          ".txt": 1
+        }
+      },
+      "stderr": null,
+      "fixture": {
+        "files": [
+          "a.txt"
+        ],
+        "symlink": [
+          "alias.csv",
+          "a.txt"
+        ]
+      }
+    },
+    {
+      "name": "missing-directory",
+      "type": "cli",
+      "argv": [
+        "{fixture}/missing"
+      ],
+      "stdin_b64": "",
+      "exit": 1,
+      "stdout": {
+        "exact": ""
+      },
+      "stderr": {
+        "not_empty": true
+      },
+      "fixture": {}
+    },
+    {
+      "name": "missing-argument",
+      "type": "cli",
+      "argv": [],
+      "stdin_b64": "",
+      "exit": 2,
+      "stdout": null,
+      "stderr": null
+    },
+    {
+      "name": "extra-argument",
+      "type": "cli",
+      "argv": [
+        "a",
+        "b"
+      ],
+      "stdin_b64": "",
+      "exit": 2,
+      "stdout": null,
+      "stderr": null
+    }
+  ]
+}

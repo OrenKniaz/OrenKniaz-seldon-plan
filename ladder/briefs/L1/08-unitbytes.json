@@ -1,0 +1,108 @@
+{
+  "id": "unitbytes",
+  "kind": "cli",
+  "message": "Build UnitBytes in unitbytes.py. Accept a nonnegative integer byte count, print the largest binary unit B/KiB/MiB/GiB/TiB with two decimal places except integer B. 1024 gives 1.00 KiB; 0 gives 0 B. Values above TiB stay in TiB. Invalid/missing/extra arguments exit 2. Python stdlib, no I/O beyond terminal.",
+  "profile": {
+    "audience": "People checking backup sizes",
+    "care": "Explicit binary units",
+    "tone": "concise, practical, predictable",
+    "colours": "no terminal colour",
+    "fonts": "system fonts only",
+    "sections": "help, examples, concise diagnostics",
+    "platform": "local Windows and Python 3 stdlib for CLI; modern desktop/mobile browser for web",
+    "defaults": "Smallest solution described; no accounts, network, deployment or paid assets. Ask before scope or budget changes."
+  },
+  "files": [
+    "unitbytes.py"
+  ],
+  "oracle": [
+    {
+      "name": "zero",
+      "type": "cli",
+      "argv": [
+        "0"
+      ],
+      "stdin_b64": "",
+      "exit": 0,
+      "stdout": {
+        "exact": "0 B\n",
+        "normalize_newlines": true
+      },
+      "stderr": null
+    },
+    {
+      "name": "binary-boundary",
+      "type": "cli",
+      "argv": [
+        "1024"
+      ],
+      "stdin_b64": "",
+      "exit": 0,
+      "stdout": {
+        "exact": "1.00 KiB\n",
+        "normalize_newlines": true
+      },
+      "stderr": null
+    },
+    {
+      "name": "fractional-unit",
+      "type": "cli",
+      "argv": [
+        "1536"
+      ],
+      "stdin_b64": "",
+      "exit": 0,
+      "stdout": {
+        "exact": "1.50 KiB\n",
+        "normalize_newlines": true
+      },
+      "stderr": null
+    },
+    {
+      "name": "above-tib",
+      "type": "cli",
+      "argv": [
+        "2251799813685248"
+      ],
+      "stdin_b64": "",
+      "exit": 0,
+      "stdout": {
+        "exact": "2048.00 TiB\n",
+        "normalize_newlines": true
+      },
+      "stderr": null
+    },
+    {
+      "name": "invalid",
+      "type": "cli",
+      "argv": [
+        "-1"
+      ],
+      "stdin_b64": "",
+      "exit": 2,
+      "stdout": null,
+      "stderr": null
+    },
+    {
+      "name": "missing",
+      "type": "cli",
+      "argv": [],
+      "stdin_b64": "",
+      "exit": 2,
+      "stdout": null,
+      "stderr": null
+    },
+    {
+      "name": "extra",
+      "type": "cli",
+      "argv": [
+        "1",
+        "2"
+      ],
+      "stdin_b64": "",
+      "exit": 2,
+      "stdout": null,
+      "stderr": null
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+TRIAGE: DESIGN — one bound semantic judge was missing from the shared harness — sibling cases: A/B/C consent, AST audit tier, Contracts admission, correct RED and qualitative pending.
+CHARTER: serves C2-C10/C14/C24/C26 — uses existing DV4/DV8/DV9; introduces no additional I# violation. Stub-provider suite proof, not live product acceptance.
+PROD: +877/-884 (net -7) · TEST: +450/-75 versus 57288da; 19 cases (+0), no new test files.
+Final golden gate GREEN: 18 batch + 1 web = 19 passed, 0 failed/skipped; 441.11s total (batch 197.75s, web 241.49s). No source/test/ledger edits after gate launch.
+Gate invocations 3/3: first failed before pytest on its log path; two actually ran tests. Other pytest commands were authorized single golden/journey files with scratch under C:/seldon/tests/stage-1i.
+Closed planning rows: intake.propose/expansion_status, record_approval/_chat_evidence/PlanStore.accept, intent/_classify_vision_edit — size override, one traced upgrade, own-words decline/change/reconnect/replay, visible narrowing and B freshness after a non-vision plan edit.
+Closed execution rows: semantic_runner.run/execute, candidate validation/judgment and executable schema admission — compiled worker argv gives real RED exit 2 then GREEN; baseline GREEN/marker preservation, concrete startup gap, pending/unsupported/qualitative and stale credit; public 1j has exactly two fixes; judged Contracts continues Build under its original worker PID.
+Relevance row PARTIAL: acceptance and roundtable consume execution_witnesses without Python/direct-call relevance gates; actual-provider finding closure remains unproven and upstream dispatch finding-witness admission retains its legacy contract.
+Old rules replaced: keyword consent, AST semantic tier, marker-authorized RED, unsupported=ERROR and mid-capture static verdicts. Verdicts finish before fresh acceptance capture; delivery resolves to the recorded validation worktree and consumers reference canonical 1j facts.
+Remains: real providers/usage, L0-L3/full-dream acceptance, later review rows and Stage 2c post-exit continuation. One 745.17s preview-delay outlier is unreproduced; measured repeat/final previews were 20.12s; no causal fix claimed.
+Patch: ../stage-1i.patch — exact diff versus 57288da, all Stage 1b + 1c + integration. No workspace commit, pushes or real provider launches.
+SHA256: d4b76a97e32b5b6d40159987f1fc0464c18e98ef18a262052b0d8734184e064f

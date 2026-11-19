@@ -1,0 +1,3 @@
+# CC addendum for the 2e brief (Oren, 11-07), to fold in at review
+1. Copilot CLI 1.0.100 is installed: `copilot -p <prompt> --model <m> --output-format json` (JSONL). It has NO schema flag, so Seldon validates the answer against the question schema and uses C4's two exact-fix retries. Codex (`--output-schema`) and Claude Code (`--json-schema`) enforce the schema natively.
+2. Per-question role → provider+model: who thinks/plans, who writes, who reviews, who judges, who does mechanical work. Pick per role to cut cost and latency, and prefer cross-provider for independent review (C11). Judges/acceptance stay at owner tier; downshifts need paired-run proof (memory: model-tiering 10-30).

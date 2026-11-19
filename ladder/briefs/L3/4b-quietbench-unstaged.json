@@ -1,0 +1,88 @@
+{
+ "id": "quietbench-unstaged",
+ "kind": "fullstack",
+ "profile": {
+  "audience": "an audio engineer trying ideas before buying hardware",
+  "care": "numbers I can trust and a bench that never blasts",
+  "tone": "calm, exact, instrument-like",
+  "platform": "local Windows, Python 3.12 stdlib, modern desktop browser",
+  "defaults": "no accounts, network, deployment or paid assets; ask before scope changes"
+ },
+ "message": "Build Quiet Bench, a noise-cancelling test bench that runs on this PC with no audio hardware. Python 3.12 standard library plus Node 20\nfor the page checks; no third-party runtime packages, no network. I can generate a noise signal (tones, band noise) or import a WAV\nfile; the bench simulates the acoustic path from the noise source to the ear, runs an adaptive canceller (LMS family) against it and\ntells me how much was cancelled in each frequency band. Every session is saved on a small local storage server\n(`python server.py --port PORT --data DIR`) with its settings and results, and a web page on that server lets me start a run, browse\nsaved sessions, reload one and compare two. A command line (`python bench.py run|list|show|export`) does the same without the page.\nA limiter must hold the output inside a safe level when the filter diverges, and a stop switch ends a run at once.",
+ "scriptedUser": {
+  "A": [
+   "first"
+  ],
+  "B": [
+   "first"
+  ],
+  "CHECK-IN": [
+   "Other: also let me export a session as CSV",
+   "Go on and do not stop again"
+  ],
+  "C": [
+   "first"
+  ]
+ },
+ "interrupt": {
+  "wave": 2,
+  "resume": true
+ },
+ "files": [
+  "server.py",
+  "bench.py",
+  "docs/try-it.md"
+ ],
+ "oracle": [
+  {
+   "name": "quietbench",
+   "type": "external",
+   "script": "C:\\Users\\oren\\codex-harness\\work\\ladder\\oracle.py",
+   "argv": [
+    "{product}",
+    "{evidence}",
+    "quietbench"
+   ],
+   "timeout": 240
+  }
+ ],
+ "oracleInterface": {
+  "note": "Black-box fight interface, supplied equally to both contenders; message above is verbatim. No extra runtime dependencies.",
+  "cli": "bench.py run --data DIR --settings JSON; list --data DIR; show ID --data DIR; export ID --data DIR. run/show emit session JSON; list emits an array; export emits CSV.",
+  "api": "POST /api/runs with settings -> session (asynchronous allowed); GET /api/sessions -> array; GET /api/sessions/ID -> session; POST /api/runs/ID/stop; GET /api/compare?a=ID&b=ID -> array of bands with low, high, delta_db = b minus a.",
+  "settings": {
+   "sample_rate": 8000,
+   "samples": 8192,
+   "signal": {
+    "kind": "tones",
+    "frequencies": [
+     500,
+     1500
+    ],
+    "amplitude": 0.2
+   },
+   "path": [
+    0.8,
+    0,
+    0.2
+   ],
+   "filter": "lms",
+   "step_size": 0.05,
+   "limit": 0.8,
+   "block_size": 128,
+   "bands": [
+    [
+     0,
+     1000
+    ],
+    [
+     1000,
+     4000
+    ]
+   ]
+  },
+  "wav": "signal = {kind: wav, path: absolute WAV path}; 16-bit mono, same sample rate.",
+  "session": "id, settings, status (running/completed/stopped), limited (boolean), processed_samples, bands [{low, high, attenuation_db}], desired/residual/output sample arrays (before cancellation, error, limited anti-noise). Preserve this JSON as wave-1 legacy input.",
+  "page": "Accessible labelled textarea[name=settings] (JSON), Start run button, [data-session-id=ID] saved session buttons, select[name=compare-a], select[name=compare-b], Compare button and [data-comparison] result. Show session id and band numbers. docs/try-it.md gives actual start/stop and CLI commands."
+ }
+}

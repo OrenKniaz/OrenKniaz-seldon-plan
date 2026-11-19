@@ -1,0 +1,10 @@
+Base de607dac317925d24ba1554859e227ee21661795 (golden-only base over 2ddc91e); four owned files; no commit. Src lines judgment 263->263, guide 32->35, plan 202->202.
+T-95: artifact path keys, full byte counts and commit retained; text uses observation tail-4096-byte UTF-8 policy (this base has no truncation marker); images stay images.
+T-96: links resolve relative to docs/try-it.md, normalized through safe_path and confined to delivery; argv runs at product root; GUIDE_WORK says both in one sentence.
+RED observed for both bugs; scoped GREEN: ../index.html and directory links walk, wrong link fails, escape refused; guide gap/path/command/format and traced-evidence deliveries pass (jb-5, 80.89s including scale).
+Lossless inline recorded-question fixtures (owned-file limit): final c02 164779->41611 bytes, c03 176138->38901 (jb-8); c02 keeps its guide subject/text; real observer artifact equals the brief tail.
+Golden gate attempt: 7 passed/1 failed, base 8 tests; 106.49s (jb-4/gate.log), inherited T-99 trusted-bootstrap failure in timeout twin; no full pass. Timing asserts unchanged; scoped scale50 passes 57.45s <90.
+Retained real replay exact 1/50 equality: JUDGE 55396, PRODUCT 5778 bytes; M2 records/contracts/obligations repair/reopen passed; judge-minimal decisions preserved.
+c02 repairs (5), calls: e9c86357/1fb69afe two u001 provider timeouts; 85f7ed12 guide ../index.html rejected; 73e4764e PRODUCT flags docs-relative broken links; dca253ae guide worker blocked by our contradictory rule (r54/62/226/342/354).
+c03 repairs (4), calls: 4e6ccb01 integrated check rejects ERR_BLOCKED_BY_CLIENT.Inspector; a31d2ee1 guide ../index.html rejected; 47b924bf final check rejects inspector; e2cd52b9 guide scripts/ rejected (r153/238/245/296).
+Opened T-97 native WORK stalls and T-98 generated browser diagnostic-string overfitting; appended inherited reproduction to T-99. No dependencies/providers/publication; lead reviews/integrates, resolves T-99, then validates on main; T-95/T-96 remain in_progress.

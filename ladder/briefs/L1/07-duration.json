@@ -1,0 +1,137 @@
+{
+  "id": "duration",
+  "kind": "cli",
+  "message": "Build Duration in duration.py with Python stdlib. Accept a nonnegative integer number of seconds and print H:MM:SS, allowing hours above 23. 0 gives 0:00:00, 3661 gives 1:01:01. Negative, fractional, missing or extra arguments exit 2 with stderr and no stdout. Include --help.",
+  "profile": {
+    "audience": "Editors totaling clip lengths",
+    "care": "No timezone surprises",
+    "tone": "concise, practical, predictable",
+    "colours": "no terminal colour",
+    "fonts": "system fonts only",
+    "sections": "help, examples, concise diagnostics",
+    "platform": "local Windows and Python 3 stdlib for CLI; modern desktop/mobile browser for web",
+    "defaults": "Smallest solution described; no accounts, network, deployment or paid assets. Ask before scope or budget changes."
+  },
+  "files": [
+    "duration.py"
+  ],
+  "oracle": [
+    {
+      "name": "zero",
+      "type": "cli",
+      "argv": [
+        "0"
+      ],
+      "stdin_b64": "",
+      "exit": 0,
+      "stdout": {
+        "exact": "0:00:00\n",
+        "normalize_newlines": true
+      },
+      "stderr": null
+    },
+    {
+      "name": "example",
+      "type": "cli",
+      "argv": [
+        "3661"
+      ],
+      "stdin_b64": "",
+      "exit": 0,
+      "stdout": {
+        "exact": "1:01:01\n",
+        "normalize_newlines": true
+      },
+      "stderr": null
+    },
+    {
+      "name": "hours-above-23",
+      "type": "cli",
+      "argv": [
+        "90061"
+      ],
+      "stdin_b64": "",
+      "exit": 0,
+      "stdout": {
+        "exact": "25:01:01\n",
+        "normalize_newlines": true
+      },
+      "stderr": null
+    },
+    {
+      "name": "negative",
+      "type": "cli",
+      "argv": [
+        "-1"
+      ],
+      "stdin_b64": "",
+      "exit": 2,
+      "stdout": {
+        "exact": ""
+      },
+      "stderr": {
+        "not_empty": true
+      }
+    },
+    {
+      "name": "fraction",
+      "type": "cli",
+      "argv": [
+        "1.5"
+      ],
+      "stdin_b64": "",
+      "exit": 2,
+      "stdout": {
+        "exact": ""
+      },
+      "stderr": {
+        "not_empty": true
+      }
+    },
+    {
+      "name": "missing",
+      "type": "cli",
+      "argv": [],
+      "stdin_b64": "",
+      "exit": 2,
+      "stdout": {
+        "exact": ""
+      },
+      "stderr": {
+        "not_empty": true
+      }
+    },
+    {
+      "name": "extra",
+      "type": "cli",
+      "argv": [
+        "1",
+        "2"
+      ],
+      "stdin_b64": "",
+      "exit": 2,
+      "stdout": {
+        "exact": ""
+      },
+      "stderr": {
+        "not_empty": true
+      }
+    },
+    {
+      "name": "help-with-open-stdin",
+      "type": "cli",
+      "argv": [
+        "--help"
+      ],
+      "stdin_b64": "",
+      "exit": 0,
+      "stdout": {
+        "not_empty": true
+      },
+      "stderr": {
+        "exact": ""
+      },
+      "stdin_open": true
+    }
+  ]
+}

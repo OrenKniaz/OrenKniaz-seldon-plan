@@ -1,0 +1,34 @@
+{
+  "id": "rnc",
+  "kind": "fullstack",
+  "profile": {
+    "audience": "an ANC engineer working with a recording from a demo car",
+    "care": "being able to tell what helped at the ears and reproduce it tomorrow",
+    "tone": "practical and direct",
+    "platform": "the local Windows PC, any language and libraries",
+    "defaults": "work offline with the recordings; no hardware is connected"
+  },
+  "message": "I've got a recording from our demo car at C:/Tuning data/RNC/AKM HV Tesla Y/EU Model Y March 2024 - Ford/Day1/Tuning 1/Cal1. I'd like to use it to try road noise cancellation ideas before I get back in the car. Everything is at 3 kHz. Each rmic is one accelerometer axis. The pmics are the physical error mics, 1–4 in the headliner and 5–12 in the headrests. The eight emics were recorded at the ears. For virtual-mic adaptation I want to estimate what happens at the ears from the physical mics. We have the actual ear recordings to see how well that works. For the secondary paths we swept each of the nine speakers and recorded all twenty mics. Can you make sense of the files, work out the paths from those sweeps and use them to simulate multichannel NFxLMS on the drive? I'd like to try a learning-based method on the same stretch and see whether it buys me anything on data it hasn't trained on. The screen is a big part of this for me. I want to pick the algorithm, change things like step size, filter length and regularisation, pick channels, bands and a stretch of the recording, and run it again right there. Let me plot the speaker paths, see how cancellation settles, compare the before and after spectra and see what I gained or lost at each mic in the bands I care about. I want to put two runs side by side and understand why they differ. If I push the tuning too hard, keep the simulated speaker output safe and tell me what happened. I'd rather see a loss at an ear than an optimistic average. Keep the settings and results together so I can browse my sessions, open one tomorrow and get the same numbers and plots back. Give me a documented way to start from a fresh copy and try the recording on this PC. Use whatever language and libraries make sense.",
+  "scriptedUser": {
+    "persona": {
+      "goal": "Choose a tuning to take back to the car and explain what happened at the ears.",
+      "priorities": [
+        "Change a setting on the bench and see which microphones benefit or get worse.",
+        "Be able to find and compare the exact runs behind a tuning decision."
+      ],
+      "preference": "When I compare runs I usually look at the worst ear first.",
+      "exclusion": "Keep the whole exercise on recorded data. I don't want anything that writes tuning to the car."
+    },
+    "A": ["first"],
+    "B": ["first"],
+    "CHECK-IN": [
+      "Other: on the comparison screen, let me jump straight to the ear that got worse the most.",
+      "Go on and do not stop again"
+    ],
+    "C": ["first"]
+  },
+  "interrupt": {
+    "wave": 2,
+    "resume": true
+  }
+}

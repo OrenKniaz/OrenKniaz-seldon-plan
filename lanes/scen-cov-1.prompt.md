@@ -1,0 +1,15 @@
+Lane SCEN-COV-1 (Seldon; this folder = main 6b2ba9a + own git). ONE blocker that stopped ShelfLife fight round 3 (stdlib HTTP server + SQLite + UI + CSV importer).
+Run folder: C:\seldon\runs\fight-1\seldon\20261104T131037-acc663-001-shelflife; planner receipts: ~\codex-harness\work\fight-1\receipts\20261104T131037-acc663\20261104T131037-acc663-001-shelflife (turn01..turn12 .md/.jsonl).
+After A (2 decisions), the planner could not save acceptance scenarios for R1, R2, R3, R5: plan-semantic-scenarios-invalid / semantic-scenarios-invalid (5x), acceptance-scenarios-required (6x), tool-input-or-operation-error (6x). The Requirements gate then refused with requirements-have-tests (12x) for the uncovered requirements. The planner spent turns 03-12 asking the user for "supported recovery" or to bypass Seldon; no product, BLOCKED-requirements at 9 min.
+First read the receipts to get the exact invalid-scenario messages: which scenario shape did the planner submit for HTTP/UI/importer requirements, and why was it rejected?
+Owner rules (binding): (1) never block delivery — a requirement whose scenario Seldon cannot validate is recorded with a labelled lower evidence tier ("scenario: unvalidated") and planning proceeds; RED->GREEN at execution and acceptance still decide. requirements-have-tests must never deadlock a run whose requirements all have a planned proof or a labelled-tier scenario. (2) If the rejection was a real schema mismatch for a common shape (HTTP request/response, UI action, file import), the validator accepts that shape. (3) Refusals that remain must self-explain the one fix in the message.
+Start at src/codex_harness/core/plan_store.py (~2300 scenario validation raising plan-semantic-scenarios-invalid; ~3323-3340 requirements gate gaps) and plan_cli.py:128. One rule at the owner; remove refusal paths it makes dead.
+Prove it by extending the golden path: replay the round-3 scenario submissions (HTTP + importer requirements) and reach C in three decisions.
+FAST-LANE RULES (append to every Seldon fix brief; binding — Oren: NO unit tests, ever)
+- Lane folder comes from work/lanes/make-lane.sh: it contains NO tests except the golden path. Do not write new test files.
+- The ONLY test you may run: bash ~/codex-harness/work/lanes/golden-gate.sh <lane> <tag> (stub golden path CLI+web). Run it once at the end, at most twice. Prove behavior by extending golden-path scenarios, never with unit tests.
+- Timebox 45 min, effort medium. One or two failure clusters per lane; the brief names the refusal code and the owning file/function — start there.
+- Report <=12 lines; exact patch + sha256; no pushes.
+- CC rejects any patch whose command log ran another pytest (work/lanes/check-lane-log.sh).
+- All scratch/temp/basetemp goes under C:\seldon\tests\<lane> (add it with --add-dir). Never create folders at the C:\ root or under ~\t.
+Report ../scen-cov-1-report.md; patch ../scen-cov-1.patch + sha256. Scratch: C:\seldon\tests\scen-cov-1.

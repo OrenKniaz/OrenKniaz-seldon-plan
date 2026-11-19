@@ -1,0 +1,11 @@
+{
+  "jobId": "d4e589643095d5175a483f20c193b5ab981d5b945e2936e03b5df42c8c378c68",
+  "segmentId": "e58c37cb12dc488ba62a2bbdce035c7a",
+  "generation": 0,
+  "deadlineAt": "2026-11-08T12:00:49.858075+00:00",
+  "resumeRun": "C:\\seldon\\tests\\publish-rev1\\w\\w0\\.codex-harness\\worker-jobs\\a9a21e1a333f\\runs\\7e3fbe0f86ab",
+  "work": {
+    "be_30830a6934": "146bce8147076ab46423e468501eb77010235cc6da0666f7f18ea512074423dc",
+    "be_48dbcdb5ed": "8688cc64e4c9c2ea4a99e6cd2f10b063929011c8138b57e129149861958c1ee3"
+  }
+}

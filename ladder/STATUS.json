@@ -1,0 +1,739 @@
+{
+  "updated": "2026-11-19",
+  "lead": "Opus 5.5 (Fable at its 5-hour limit until ~03:10 Jerusalem; Astra covers design consults)",
+  "main": "ff7ea98",
+  "docs": "charter v1.8, blueprint v1.12",
+  "milestone": "M3 integrated candidate delivered; main review/landing pending",
+  "now": "M3 m3wire integrates all six lanes and the named wiring; composite64 semantic cases GREEN,25 cold imports PASS. Sole gate62P/2 test-fixture failures corrected and narrowly verified2P without re-gating; patch/report delivered uncommitted, main landing and native acceptance remain.",
+  "lanes": [
+    {
+      "name": "browserProof",
+      "owner": "Codex",
+      "state": "in progress",
+      "what": "T-243 on a4204ec. Helper deadline diagnosis, local browser proof and serialized gate."
+    },
+    {
+      "name": "plannerBrief",
+      "owner": "Codex",
+      "state": "in progress",
+      "what": "T-242 on 26387be. Trial of planner-authored assignments through DETAIL and WORK; verify byte-identical controls and retained stores."
+    },
+    {
+      "name": "codeShape",
+      "owner": "Codex",
+      "state": "delivered, awaiting lead review and landing",
+      "what": "T-241 on a4204ec. Recorded twins prove shape delivery and must-fix owner routing. Sole bare gate 145 passed/623.26 s (624.48 s wall, over 10 min), 28 cold imports. Live Terra recall remains unmeasured."
+    },
+    {
+      "name": "productLoop",
+      "owner": "Codex",
+      "state": "delivered, awaiting lead review and landing",
+      "what": "T-239/T-240. PRODUCT replay RED to scripted C or plain user question, 28 cold imports. Sole bare gate 142P/1 test guard timeout in 917.81 s; corrected scale journey passed alone in 117.89 s. Native Quiet Bench C remains pending."
+    },
+    {
+      "name": "refuseSweep",
+      "owner": "Codex",
+      "state": "delivered, awaiting lead review and landing",
+      "what": "T-238 on 0f41344. Patch/report delivered. Recorded WORK/ARCHITECT twins RED→scripted C, sole bare gate 140P/403.89 s, 28 cold imports. Three narrow test-only checks pass after gate. Real qualification pending."
+    },
+    {
+      "name": "featureReq",
+      "owner": "Codex",
+      "state": "delivered, awaiting lead review and landing",
+      "what": "T-236. Exact 7be4158 patch and report. Recorded ALIGN and DETAIL reach EXECUTE, correction and repeat journeys pass. Bare gate 129P in 426.39 s. 28 cold imports."
+    },
+    {
+      "name": "prompts2b",
+      "owner": "Codex",
+      "state": "delivered, awaiting lead review and paired replay",
+      "what": "T-234. Trial WORK wording patch and report on 04f8de0. 18 rendering passes, 27 cold imports, control bytes identical for Q and S. Sole gate 122P/1 fixture F in 548.00 s. Shared T-231 test-only pin fixture passed in 5.81 s. No re-gate."
+    },
+    {
+      "name": "evidence",
+      "owner": "Codex",
+      "state": "delivered; awaiting lead review and judge replay",
+      "what": "T-233. evidence.patch and evidence-report.md on 04f8de0. Two retained twins RED/GREEN. Sole gate 123P/2 fixture failures; both fixed test-only, 3 focused passes, 28 cold imports."
+    },
+    {
+      "name": "replayAB",
+      "owner": "Codex",
+      "state": "delivered; awaiting lead review and native experiment",
+      "what": "T-231. Patch and ten-line report against 21b6381. Five WORKs and twelve semantic pairs dry-prepared plus one render-only repair. Final focused 1P in 7.98 s. Sole gate 122P/1F (T-211), 642.44 s."
+    },
+    {
+      "name": "prompts2",
+      "owner": "Codex",
+      "state": "delivered, awaiting lead review and landing",
+      "what": "T-230, 6beb500. Patch and ten-line report delivered. 18 focused passes, 27 cold imports. Sole gate 115P/1 stale test fixture failure, explicit control rerun passed. Golden test allows the old format when its own arm is selected. Lead owns the out-of-scope fixture."
+    },
+    {
+      "name": "microLean",
+      "owner": "Codex",
+      "state": "delivered, awaiting lead review and landing",
+      "what": "T-229, dbc5db9. microLean.patch and report delivered. Sole gate 101 passed and 3 stale fixture failures, then focused 3 passed after test-only fixes. Paired real run pending."
+    },
+    {
+      "name": "checkKit",
+      "owner": "Codex",
+      "state": "integrate22 delivered; lead gate pending",
+      "what": "integrate22 on ee02415 reconciles merged planFix/checkKit; work/lanes/integrate22.patch + ten-line report. One source-line replacement net0,5 files. 10 focused passes (3+5+2); sole full golden failed295.49s on additional stale peer-path assertion, then TEST-only fix validated by area/scripted-C and50-unit journeys; full golden not rerun/not claimed GREEN. Both full test trees scanned; AST/diff/reverse-apply pass. No gate.sh/commit/providers/dependencies. Original lane source growth unchanged; lead review/full gate/landing remain."
+    },
+    {
+      "name": "planFix",
+      "owner": "Codex",
+      "state": "integrate22 delivered; lead gate pending",
+      "what": "integrate22 on ee02415 reconciles merged planFix/checkKit; work/lanes/integrate22.patch + ten-line report. One source-line replacement net0,5 files. 10 focused passes (3+5+2); sole full golden failed295.49s on additional stale peer-path assertion, then TEST-only fix validated by area/scripted-C and50-unit journeys; full golden not rerun/not claimed GREEN. Both full test trees scanned; AST/diff/reverse-apply pass. No gate.sh/commit/providers/dependencies. Original lane source growth unchanged; lead review/full gate/landing remain."
+    },
+    {
+      "name": "provenOnce",
+      "owner": "Codex",
+      "state": "delivered; narrow journeys GREEN, lead gate pending",
+      "what": "T-163 Fable S2 on d704c7a: work/lanes/provenOnce.patch + eight-line provenOnce-report.md. Canonical scoped proof map replaces REVIEW/JUDGE coverage; DETAIL levels replaced; src+18/-18 net0, journeys98->101. Seven narrow checks pass (provenOnce-3/4/5), including duplicate-peer repair to scripted C, unchanged golden slice/50-unit, foreign-proof/recovery and retained REVIEW repair. Both full test trees scanned; AST/diff/reverse-apply pass. No gate.sh, real providers, commit, dependencies or >5min hang. Lead gate/cohort pending; tracking retains inherited duplicate T-159-T-163 IDs."
+    },
+    {
+      "name": "base-only-20261113",
+      "owner": "Codex",
+      "state": "delivered; focused journey GREEN; fixture label mismatch awaits lead",
+      "what": "T-126 on d8083bc (base e699ff8 golden-only); base-only.patch + base-only-report.md, four files +98/-5 net+93, no commit/providers/dependencies. bonly-1 RED48.78s -> bonly-2 test_blocked_owner_journeys 1 passed/14 deselected51.23s. Blocks false owner handoff when its integration is absent from the blocked unit base; original sibling repair retained. Golden parallel native stub needs one WORK fact-key rename in test_journey.py outside assigned scope; no gate run."
+    },
+    {
+      "name": "M2 exit cohort #3",
+      "what": "T-116 landing + Foundation x10",
+      "state": "running",
+      "owner": "lead"
+    },
+    {
+      "name": "agreed-literals-20261113",
+      "what": "T-119 absorbs T-63/T-98; work/lanes/agreed-literals.patch + agreed-literals-report.md; gate alit-2 14 passed, 239.96s wall; no commits/providers",
+      "state": "delivered; awaiting lead review/landing",
+      "owner": "Codex"
+    },
+    {
+      "name": "owner-fixup",
+      "what": "T-118 owner-fixup.patch + report; ofix-4 gate14 passed/234.95s; uncommitted 548086a candidate, no real providers",
+      "state": "delivered; awaiting lead review/landing",
+      "owner": "Codex"
+    },
+    {
+      "name": "hermetic-checks-20261113",
+      "what": "T-12 / T-56 evidence part; hermetic-checks.patch + hermetic-checks-report.md in work/lanes; herm-4 gate 14 passed/298.00s; wave4 0.563 -> 0.703s; no commits/providers",
+      "state": "delivered; awaiting lead review/landing",
+      "owner": "Codex"
+    },
+    {
+      "name": "check-owner-20261113",
+      "owner": "Codex",
+      "state": "delivered; RED integration boundary; awaiting owner-only lane",
+      "what": "work/lanes/check-owner.patch + check-owner-report.md; Rule 1 part A on f8c8081 (base 050f3e8 golden-only), no commit. cown-5: 13 passed/1 failed, 60.21s. Requested ownership/level/binary/WORK retry journeys pass; REVIEW 5582 bytes at 1/50. Valid owner answer reaches forbidden fixups.py:64 KeyError(target); later lane must consume owner. Remaining golden/replays unproven."
+    },
+    {
+      "name": "owner-repair",
+      "owner": "Codex",
+      "state": "delivered; awaiting lead review/landing",
+      "what": "work/lanes/owner-repair.patch + owner-repair-report.md, whole A+C diff on f8c8081, 10 files +399/-120 net+279; no commit. orep-6 gate14 passed296.55s suite/297.82s wall, same14 collected, all size/timing assertions and recorded B/C replays retained. Owner-only wave/blocked repair, fresh recovery and strengthened check integration pass; T-123 scopes-only owner lookup. No real providers; protected observer files untouched."
+    },
+    {
+      "name": "front-door-20261113",
+      "owner": "Codex",
+      "state": "delivered; awaiting lead review/landing",
+      "what": "T-21/T-22; work/lanes/front-door.patch + front-door-report.md, four allowed files +414/-2 on8961a898; no commit/core edits/providers. fdoor-3 gate15 passed/335.62s, MCP journey30.77s, golden/replays untouched. Final fresh plain-install cold82.44s, mcp2.3.0 MCPServer (FastMCP absent), six tools, exit0/0.094s after closure, installed status=MCP. Module237 lines vs~150 target. M4 owner/L3 use remains unproven."
+    },
+    {
+      "name": "provider-call-20261113",
+      "owner": "Codex",
+      "state": "delivered RED; awaiting process-owner T-99 diagnosis and lead review",
+      "what": "Core-review batch C on6bf515c; provider-call.patch12284B +10-line report in work/lanes,4files+39/-56 net-17/source-21. pcall-2:13 passed/1 failed193.92s wall; unchanged authorized timing rerun pcall-3:13 passed/1 failed248.99s. Both existing350ms bootstrap-private-gate miss, cleanupVerified=true, ordinary recovery succeeds; full golden/scale unproven. T-99/T-124 updated. No commits/providers/dependencies; batch E owns callback adoption/proof."
+    },
+    {
+      "name": "scale-reads-20261113",
+      "owner": "Codex",
+      "state": "delivered; timing RED; awaiting lead",
+      "what": "T-125 batch A on6e704a25: scale-reads.patch + 10-line report,4files+63/-66 net-3,no commit/providers. Final srd-5:13P/1F360.91s suite/362.29s wall,scale100.86>90; prior post-fix116.61. All semantics/replays reach scripted B/C, zero completed worktrees; worktree-manager race guarded. Stale-consumer path kept; E index wiring and timing qualification remain."
+    },
+    {
+      "name": "user-words-20261113",
+      "owner": "Codex",
+      "state": "delivered; focused journeys GREEN; awaiting lead serial gate and landing",
+      "what": "T-130; user-words.patch + 8-line report in work/lanes; 8 files +149/-16 net+133. Lead authorized detail.py caller. uwords-5 twin/fault -> B, 1 passed in4.09s suite/5.52s wall; uwords-6 existing size journey 1 passed in5.53s suite/6.81s wall, same-area REVIEW5918/5918 at1/50. No commit/providers/dependencies/full gate/replay fixture changes. Baseline b2965c1 (ad3a8a6 golden-only)."
+    },
+    {
+      "name": "judge-split",
+      "owner": "Codex",
+      "state": "in progress; narrow journeys only; lead gates serially",
+      "what": "T-131 Fix B on 2b5ff9e; assigned five files, no commit/providers/dependencies. First immutable patch retains T-86 first base; patch-bound JUDGE split and AND, semantic twins in progress."
+    },
+    {
+      "name": "guideRun",
+      "owner": "Codex",
+      "state": "delivered; focused journeys GREEN; awaiting lead gate/landing",
+      "what": "T-154/T-147 speed S1, guideRun.patch + 8-line guideRun-report.md in work/lanes; 4 source files net 0 + journey updates on 0ee2a2a (3c56782 golden-only). guideRun-6: 7P/116.86s; clean/wrong launch guide tails9.42/13.08s, SCRIPTED_C, cleanup observed. Initial golden+FLOW1P/1F312.62s: stale final-rework fixture corrected; narrow replay passes; full golden not rerun. Both test trees scanned. No commit/real providers/gate.sh/dependencies/deadline changes; lead gates once, then real qualification."
+    },
+    {
+      "name": "fanOut",
+      "owner": "Codex",
+      "state": "delivered; narrow journeys GREEN; awaiting lead gate/landing",
+      "what": "T-155 speed S2; work/lanes/fanOut.patch (25992B) + 8-line fanOut-report.md on313d281 (3c56782 golden-only), five files. Source +106/-106 net0. Eight fan-out cases pass across reused fanOut-4/5/7; fanOut-7 4 passed71.50s (real changed candidate gaps and persistent uncertainty). fanOut-8 5 passed/57 deselected170.91s incl unchanged50 SCRIPTED_C and flow/fixup integration. Complete lane+main test assertion audit fixed interrupted unanswered-call count. No commits, gate, real providers or dependencies; real speed/acceptance unproven."
+    },
+    {
+      "name": "gapOwner",
+      "owner": "Codex",
+      "state": "delivered; awaiting lead gate/landing",
+      "what": "T-156 S3; work/lanes/gapOwner.patch + eight-line report. Explicit FLOW correction owners; failing screenshots/output and original RED in repair briefs; contract-owner correction reuses T-149; one proof path. src+63/-63 net0; three one-round scripted C twins, unchanged50 and affected journeys green. No commit/providers/gate."
+    },
+    {
+      "name": "depGraph",
+      "owner": "Codex",
+      "state": "delivered; narrow journeys GREEN; awaiting lead gate/landing",
+      "what": "T-157 S4 on f820eca (ef048d4 golden-only), depGraph.patch16601B +8-line report; src net0; h02/read twins2P34.42s, affected8P175.39s incl unchanged50, boundary/recovery9P60.04s; no commit/gate/providers/dependencies. Both test trees swept; real-model duplicate commissioning unproven."
+    },
+    {
+      "name": "callRoute",
+      "owner": "Codex",
+      "state": "delivered; narrow journeys GREEN; awaiting lead gate/landing",
+      "what": "T-160 callRoute.patch + 8-line report on a29c554 (b2f0f13 golden-only); 3 files, src net0, cases74->83. Composite14P: callRoute-3 7P34.11s, -4 5P49.17s, -5 2P28.68s. Own-call exhaustion asks/recovers; usage/offline/down survive12 injected waits then resume; uncertainty not judged; fresh fallback and crash resume pass. Both test trees swept; no commit/gate/providers/dependencies/hang; lead gate and L2 acceptance pending."
+    },
+    {
+      "name": "lineage",
+      "owner": "Codex",
+      "state": "delivered uncommitted; lead gate and flat-target disposition pending",
+      "what": "T-159/T-158, lineage.patch + lineage-report.md; source +112 above flat target. lineage-22: 19P/187.26s; 74->86 collected; actual 694acce tree=b2f0f13. New recurrence/answer-reopen/transfer/contract/planning/final-proof twins pass. Full golden remains lead-owned; callRoute files untouched. No real providers, commits, new dependencies or >5min hang."
+    },
+    {
+      "name": "guideUnit",
+      "owner": "Codex",
+      "state": "delivered; awaiting lead gate/landing",
+      "what": "T-161 Fable S1; guideUnit.patch + 8-line report. Source net0; guide/wrong-command/owner/scale50/timeout selected checks GREEN, full golden RED on corrected timeout fixture, no full rerun; no commit/real providers."
+    },
+    {
+      "name": "askNow",
+      "owner": "Codex",
+      "state": "delivered; narrow journeys GREEN; awaiting lead gate/landing",
+      "what": "T-162 on cefecc8 (b2f0f13 golden-only): work/lanes/askNow.patch9093B + eight-line report; scheduler/run + golden journey, src+24/-24 net0, cases74->76. Old delay RED98.76s; immediate answer + dev WAITING2P17.67s; unchanged50/reopen/contract-user3P148.85s, SCRIPTED_C. Both full test trees audited; no stale assertions. No commit/gate/providers/dependencies/>5min hang; real latency unproven."
+    },
+    {
+      "name": "integrate18",
+      "owner": "Codex",
+      "state": "delivered; focused GREEN; fresh full golden remains unproven",
+      "what": "T-159..T-162 on b95766b: integrate18.patch12175B + 10-line report, six files, src+18/-18 net0, collection98 unchanged. Final focused evidence: integrate18-9 5P59.00s; -10 golden component replays3P22.40s; -11 askNow/guide/lineage-transfer/scale50 6P130.07s. Single full golden -8 RED177.74s caught first-repair WORK growth, corrected and replayed narrowly; no second full run. Both test trees audited. No commit/provider/gate.sh/dependencies/>5min hang. Lead gates final candidate; tracking now validates after external duplicate-ID reconciliation."
+    },
+    {
+      "name": "hermetic",
+      "owner": "Codex",
+      "state": "delivered; narrow journeys GREEN; awaiting lead gate/landing",
+      "what": "T-165 on 3bc2a3a (d567328 golden-only): hermetic.patch + 8-line report; providers.py net -1 source line, golden +2 cases. hermetic-2 2 passed/98 deselected in 11.60s; scripted C with same-session repair; printed hermetic flags and high/medium/A-B efforts inspected. Both test trees scanned. No commit, real provider, dependencies or gate.sh; native cohort qualification remains."
+    },
+    {
+      "name": "repairConverge",
+      "owner": "Codex",
+      "state": "delivered; focused GREEN; awaiting lead gate/landing",
+      "what": "T-166 on 7d451d8 (03694dc golden-only): repairConverge.patch + 8-line report, src +9/-9 net0, cases103->106. New3P4.92s; retained11P129.10s including golden component/review/fixed points/50-unit SCRIPTED_C. Both full test trees audited. j04 Waiting exits before rig callback; resume delivers same pending question once. No commit/gate/providers/dependencies/hang; full gate/native convergence unproven."
+    },
+    {
+      "name": "stageProof",
+      "owner": "Codex",
+      "state": "delivered; narrow journeys GREEN; lead gate/landing pending",
+      "what": "T-169 section 10 on 94b2d0c (03694dc golden-only): work/lanes/stageProof.patch + 8-line stageProof-report.md; 9 files, src +40/-40 net0, tests103->104. Eleven distinct targeted cases GREEN incl J1-J4, tiny golden, unchanged50; FLOW3425/4022 and3271/3868 bytes. Both full test trees scanned, stale assertions fixed in lane. No commits, gate.sh, real providers, dependencies or >5min hang. Lead gate/landing then authorized cohort signal still required."
+    },
+    {
+      "name": "guideStage",
+      "owner": "Codex",
+      "state": "delivered; lead review/landing pending",
+      "what": "T-176 on b7b613a archive cca0ced: guideStage.patch + ten-line report. Shared no-local-check self-block normalization; WORK quality facts scoped, walkthrough authored for WAVE-VERIFY. Src net0; 119 tests unchanged. Base regression RED; narrow2 passed27.83s; single golden2 passed/117 deselected588.01s. Both test trees scanned; diff/AST/reverse-apply/tracking pass. No providers, delivery commit, gate.sh, dependencies or .env reads; authorized Terra validation remains."
+    },
+    {
+      "name": "unitClosed",
+      "owner": "Codex",
+      "state": "A-only delivered; scripted GREEN; lead landing pending",
+      "what": "Oren/lead 11-15 follow-up supersedes A+B: B entirely dropped, A retained on b95331c/archive986d686. unitClosed.patch + nine-line report overwritten. src+30/-38 net-8; 11 changed files; B-only cases removed, 126 collected (+7 vs base). Focused A8P/118D84.05s; golden ONCE2P/124D561.19s on frozen source. One independent read-only review PASS; AST/diff/patch checks PASS. No commit/gate.sh/real Seldon providers/dependencies; baseline judgment/recovery routes restored; real cohort unproven."
+    },
+    {
+      "name": "thinPlan",
+      "owner": "Codex",
+      "state": "delivered; lead cohort pending",
+      "what": "T-179 b95331c: work/lanes/thinPlan.patch + 15-line report. src 4943->4470 net -473; journeys119->17. Golden once10 passed/1 fixture failure150.12s; focused retry exposed nondeterministic PRODUCT fault target; test-only correction, affected+unrun7 passed163.73s. Composite17/17, fresh full golden false. MCP/50-unit/reopen/hermetic/Edge included. No new commits/dependencies/real providers; lead five Sol ShelfLife vs main pending."
+    },
+    {
+      "name": "thinEdges",
+      "owner": "Codex",
+      "state": "delivered; composite journeys GREEN; lead review/landing pending",
+      "what": "T-180 on86ae95b: work/lanes/thinEdges.patch + ten-line report. src4470->4440(-30), unique-writer edges derived, read policing removed, derived cycles deferred. Narrow1P17.02s; sole golden9P/1 fixture F135.88s; test-only fixture ordering repair + affected/unreached10P247.52s. Composite18/18, not a fresh full gate; no commit/providers/dependencies. Real Sol readout remains unproven."
+    },
+    {
+      "name": "thinCoach",
+      "owner": "Codex",
+      "state": "delivered; lead review/landing pending",
+      "what": "T-181 on b98b3a0: thinCoach.patch + 12-line report; src4440->4440, thin golden14->15. Eight-run snapshot331 COACH/393 WORK, classes180/82/69; code facts/cache + wave proof. Sole golden15P281.71s; final payload-only projection affected2P28.56s, composite evidence. Factual SCRIPTED_C0 COACH/7 WORK; repeated semantic1/4. No commit/providers/dependencies/ticket rows; native effectiveness unproven."
+    },
+    {
+      "name": "thinChecks",
+      "owner": "Codex",
+      "state": "delivered; thin golden GREEN; lead review/landing pending",
+      "what": "T-182 on8604470; thinChecks.patch + ten-line report. src Python4440->4430(-10), journeys19 unchanged. Narrow3P33.04s; sole final golden19P306.24s, scripted C zero UNIT questions with unlinked/module/kit declarations, guide final-only and real GREEN rework. Five slots read SQLite mode=ro; no commit/real providers/dependencies; native confirmation unproven."
+    },
+    {
+      "name": "guideEvidence",
+      "owner": "Codex",
+      "state": "delivered; lead review/landing pending",
+      "what": "T-183: guideEvidence.patch + main variant from b95331c archive + ten-line report. Both net src -1 (thin4430->4429/main4943->4942). Focused 3/3 thin and main; relevant base RED; thin golden once20/20 in307.63s. PRODUCT now carries real JSON/argv guide execution with output/artifacts/images; broken walkthrough returns real gap. Main patch apply-check passes; no real providers/commits/new dependencies; main full golden unrun; inherited B905 tracked. Lead review, landing and real validation remain. | thinGuide port delivered vs7c0e141: src net0, mixed-fence dependent walkthrough RED->GREEN; exact selection4P17D76.78s (no clean_core_golden in thin). thinGuide.patch + six-line report; lead landing pending, no real providers/commit."
+    },
+    {
+      "name": "mainGuideFix",
+      "owner": "Codex",
+      "state": "delivered; awaiting lead landing",
+      "what": "T-183 SELDON BUG: restore ordered guide steps and path check in one disposable checkout, retain real argv records and PRODUCT exclusion of paths; full patch against5afdbc8, net src0. Specified proof6/6 in757.70s including full golden. work/lanes/mainGuideFix.patch + eight-line report; no commit/providers."
+    },
+    {
+      "name": "thinOneWayBack",
+      "owner": "Codex",
+      "state": "delivered; lead landing pending",
+      "what": "T-184 Lane B on ee762c2: thinOneWayBack.patch + eight-line report; only units.py/inference.py and golden journeys. src -18; four affected journeys pass; sole full tests/seldon 23 passed/305.90s (+2 vs base). One user question, siblings DONE, reopen/resume to scripted C; wave-owned JUDGE gap integrates before WAVE-VERIFY repair. No real providers, commit or publication."
+    },
+    {
+      "name": "thinParallel",
+      "owner": "Codex",
+      "state": "delivered; awaiting lead landing",
+      "what": "T-180 Lane A vs b654008: thinParallel.patch + eight-line report. Scoped four src files; src4429->4389 net-40; discoveries validator retained for B. Two contract peers simultaneously WORKING/no dependency wait/DONE, provider normalization,3000-char/free-kind agreement,conditional craft; focused4P+1P; sole full tests/seldon21P283.54s. No providers/commit; lead landing/cohort remain."
+    },
+    {
+      "name": "thinAB",
+      "owner": "Codex",
+      "state": "delivered; tests/seldon GREEN; awaiting lead landing",
+      "what": "A+B merge in work/lanes/thinAB; report thinAB-report.md. Rejected journeys adapted to parallel contracts without reads; unused validator and .rej removed. thinAB-2: 23 passed/327.84s (21 -> 23), src 4389 -> 4365. Initial thinAB-1 setup parent error corrected. No providers, gate.sh or commit; real-provider validation remains with lead."
+    },
+    {
+      "name": "thinJudgePlain",
+      "owner": "Codex",
+      "state": "delivered; lead review/landing pending",
+      "what": "Lane C vs c8cc0f0: work/lanes/thinJudgePlain.patch + eight-line report. Shackles11/12, obligations and no-op ARCH-REVIEW removed; src net-128. Focused5P55.87s; full tests/seldon ONCE24P491.55s (base23), no skips; no real providers/commit. T-179 remains in_progress."
+    },
+    {
+      "name": "landThin",
+      "owner": "Codex",
+      "state": "delivered; single gate GREEN; lead landing pending",
+      "what": "Local d8b1cb2 copy of main858244d, supplied thin source unchanged4943->4191. All14 legacy files invoked;7 deleted/7 adapted. Single gate34P391.61s; final fanout behavior assertion affected2P24.32s, no re-gate. work/lanes/landThin-report.md; no commit/providers/.env reads. T-186 remains unlanded."
+    },
+    {
+      "name": "defectOwner",
+      "owner": "Codex",
+      "state": "delivered; single full gate GREEN; awaiting lead landing",
+      "what": "T-187 Fable 11-16 implemented. defectOwner.patch + eight-line report; src4193->4196 (+3), cases34->37; sole gate37P492.22s. Base RED finder wait, owner done/question to scripted C, ineffective owner fix WAITING/reopen/resume. No providers/commit/.env reads; lead landing and authorized Terra ShelfLife validation remain."
+    },
+    {
+      "name": "seeProof",
+      "owner": "Codex",
+      "state": "delivered; composite GREEN; awaiting lead review/landing",
+      "what": "T-188 seeProof.patch + eight-line report; supplied snapshot5c3b4b5 (ab2ae1f absent). Source4200->4183, cases37->39. Sole gate39P591.50s; recovery fix during gate plus final affected2P26.13s: composite, no fresh final full pass. Integrated JUDGE/actual source findings/rework/uncertainty preserved; no providers/commit; lead landing/native acceptance remain."
+    },
+    {
+      "name": "guideParallel",
+      "owner": "Codex",
+      "state": "delivered; lead review/landing pending",
+      "what": "T-189 vs supplied af6c10f; guideParallel.patch + eight-line report. Source4200->4196; tests37 unchanged. Concurrent guide/product start, guide baseline RED/final GREEN -> scripted C. Sole gate36P1F486.99s; stale consumer assertion fixed test-only, affected1P11.60s; composite37/37, no re-gate. AST/diff/reverse-apply pass; no providers/commit/.env reads/hang. ab2ae1f unavailable; real speed/acceptance unproven."
+    },
+    {
+      "name": "promptOrder",
+      "owner": "Codex",
+      "state": "delivered; single gate GREEN; lead landing/native cache validation pending",
+      "what": "T-190 cut4: promptOrder.patch + eight-line report; providers.py only + existing contract golden. src4200->4199; sole gate37P592.66s, no skips/fixes. Stable prefix and lossless sections proven; no providers/commit/.env reads. Supplied b3598dd snapshot; named ab2ae1f absent."
+    },
+    {
+      "name": "judgeOnce",
+      "owner": "Codex",
+      "state": "delivered; composite journey evidence; lead review/landing pending",
+      "what": "T-191: judgeOnce.patch + 8-line report vs supplied c2acea0 (f69003d absent). src4184->4182; sole gate43P/1F494.41s, test-only frontdoor wait/contract fixture corrections2P43.22s; no re-gate. All fault twins scripted C, uncertainty honest; no real providers/commit/.env. Protected source untouched; native cache/speed unproven."
+    },
+    {
+      "name": "seePeers",
+      "owner": "Codex",
+      "state": "delivered; gate GREEN; lead landing/native validation pending",
+      "what": "T-192 C4: work/lanes/seePeers.patch + eight-line report. Snapshot25f2437 tree verified equal f69003d; architecture/plan + existing contract journey, src net0. RED missing sibling API contract then scripted C without fixup/rework; unrelated provider excluded. Sole final gate39P466.71s, no post-gate edits/skips. No commit/providers/.env reads; lead landing and small-model reliability probe remain."
+    },
+    {
+      "name": "mergeFix",
+      "owner": "Codex",
+      "state": "delivered; lead landing pending",
+      "what": "T-193 TEST BUG: native contracts stub now follows canonical consumer instead of unit ordinal; stale fresh-brief assert removed, outside-contract trace assertion strengthened. Snapshot36bba61 tree equals canonical915cb06. Artifacts work/lanes/mergeFix.patch and six-line report; +3/-2 test only, no source changes. Focused24P256.46s; sole gate44P374.09s exit0; unchanged cases. No real providers/commits/.env reads/>5min hang. Lead review/landing remain."
+    },
+    {
+      "name": "freeze",
+      "owner": "Codex",
+      "state": "delivered; awaiting lead review/landing",
+      "what": "T-194 freeze.patch/report on 7ee32618; sole gate43P1F, front-door readiness race fixed test-only after gate; not re-gated. Shared contracts only; CHECK-IN approve bridge retained until wiring."
+    },
+    {
+      "name": "door",
+      "owner": "Codex",
+      "state": "delivered; composite journeys GREEN; lead landing/integration pending",
+      "what": "T-195; door.patch + eight-line door-report.md vs supplied d17135f (2946398 absent). Only frontdoor source changed, src4199->4215. Sole gate45P1F605.08s; stale live-controller WAITING assertion fixed test-only in test_journey.py, affected1P16.84s; no re-gate. Cases44->46; live/no-reopen, stale-ID, crash replay and legacy paths pass. No providers/commit/.env reads; sibling R17 producer/polling integration unproven."
+    },
+    {
+      "name": "wavePlan",
+      "owner": "Codex",
+      "state": "delivered; lead review and runtime wiring pending",
+      "what": "T-196: wavePlan.patch + eight-line report delivered vs supplied f69cc3f (named2946398 absent). Sole gate46P476.05s; two-wave accumulation/partial STEER/changed-consumer DETAIL/canonical contracts/reopen/vision B proven. 4src+7journey files, src4278->4369 (+91). No protected runtime edits, providers, commit, .env reads or post-gate changes; native probe unproven."
+    },
+    {
+      "name": "askUser",
+      "owner": "Codex",
+      "state": "delivered; full fake-provider gate GREEN; lead integration pending",
+      "what": "T-197: askUser.patch + eight-line report in work/lanes; supplied snapshot f69cc3f (assigned2946398 absent). Sole gate52 passed471.46s suite/473.01s wall; base44. Src4199->4334 (+135), six files; post-gate internal-field assertion deleted, syntax checked/no rerun. Drop-to-C/waived progression/unit-stop return guard remain cross-lane integration; real acceptance unproven. No delivery commit, real providers or .env reads."
+    },
+    {
+      "name": "validate",
+      "owner": "Codex",
+      "state": "partial delivered; owning-lane integration blocked by file exclusions",
+      "what": "T-198: validate.patch + eight-line report vs f8c8ec2; source+39, single gate47P627.27s (10min target exceeded). Commitment fault twins scripted C; no-check local verdict retained to C entry. Protected C guards/drop/last-wave acceptance still block full requested outcome. No provider/commit/.env reads; lead integration and requested multiwave/dropped C proofs remain."
+    },
+    {
+      "name": "rig",
+      "owner": "Codex",
+      "state": "delivered; source-blocked five-wave journey; lead integration pending",
+      "what": "rig.patch + eight-line rig-report.md vs supplied ca7ebeb (2946398 absent); no src, 4199 unchanged, cases44->45. Single gate44P/1F489.96s: missing gate-A ask; source P/S/W integration needed. Post-gate test-only reporting/fixture/guide corrections, affected question1P12.17s; no re-gate. Quiet Bench brief/oracle and plain-Terra command supplied; live oracle/legacy/craft unverified, four section2 metrics unknown. No providers/commit/.env reads."
+    },
+    {
+      "name": "waveLoop",
+      "owner": "Codex",
+      "state": "delivered; blocked on protected decision integration",
+      "what": "T-199: waveLoop.patch + eight-line report vs9fe54fd (wavePlan applied); 3src+3journey files, Python4290->4334. Sole gate49F55.00s missing decisions.holds; no re-gate. Composite actual askUser sources in memory prove two-wave C/real kill-reopen/fresh extension/old-check owner repair/per-wave review/C steer to wave3; scope and retained planning pass. Protected files unchanged. Lead integrates T-197 and resolves waiver words vs plan.built (T-196/T-197); no landing/real acceptance claimed. No provider, commit or .env reads."
+    },
+    {
+      "name": "m3wire",
+      "owner": "Codex",
+      "state": "delivered; main review/landing pending",
+      "what": "2026-11-17 m3wire FINAL uncommitted: six lanes integrated in requested order; canonical ff7ea98 tree95477e8121cae36921228cfd03766ca84065f83b verified equal supplied f8470b6. Named wiring resolved, no new persistent fields/caps; fixed display labels plus semantic Waive only at check-in preserves C8 own-word waiver. Composite 64 green vs44 base; five-wave50-unit kill3/live label/planner failure/DONE retention PASS, waived three-wave C steer and last-work acceptance PASS, omitted/kept-gap and no-check C PASS, front-door3P. 25 separate cold imports PASS. Sole full gate 62P/2 stale PRODUCT dispatch fixture failures351.47s; test-only canonical check-in consumption fix, affected2P9.68s; no re-gate or post-gate src edits. Source4278->4627(all),4199->4548(Python);29 files. Patch applicability against base index and AST/diff checks PASS. Artifacts work/lanes/m3wire.patch and ten-line report. External rig ladder hunks already present reverse-check. No delivery commit/providers/.env reads or >5min hang; all temp under m3wire-0..7. Main landing, actual provider/coaching efficacy and Quiet Bench real oracle remain unproven."
+    },
+    {
+      "name": "strictSchema",
+      "owner": "Codex",
+      "state": "delivered; lead review/main landing pending",
+      "what": "T-201 strictSchema.patch + eight-line report vs verified8fd8743 (snapshot26e185c). Strict-stub STEER and repeated invocation fault pause/reopen proven; sole gate64P381.23s,25 cold imports; src+17. No commit/providers/.env reads; native validation remains."
+    },
+    {
+      "name": "judgeEval",
+      "owner": "Codex",
+      "state": "delivered; source gate GREEN, eval limited",
+      "what": "T-202: judgeEval.patch + ten-line report; source+27 lines,66P390.30s,cold imports25. Terra tune19 attempted/18 valid/1 timeout: recall0/3,FA0/15. Corpus34 has6catch not8(T-204); sealed holdout unrun. No commits/retries/.env reads; lead review/landing pending. Timeout T-205."
+    },
+    {
+      "name": "wave2Detail",
+      "owner": "Codex",
+      "state": "delivered; lead landing pending",
+      "what": "T-203 DESIGN: wave2Detail.patch/report; recorded remaining-horizon replay and two-wave regression, structured step failure location. Gate64P429.99s,cold imports25P; uncommitted/no providers."
+    },
+    {
+      "name": "notTree",
+      "owner": "Codex",
+      "state": "delivered; awaiting lead review/landing",
+      "what": "T-206 notTree.patch + eight-line report; canonical15682aa tree equals supplied63a2791. questions.py:299 cwd=None repaired with canonical product repo; real-slot offline replay and recorded regression GREEN. Single gate66P362.74s vs64base;25cold imports PASS;src4657->4660. No commit/providers/.env; live resumed execution unproven."
+    },
+    {
+      "name": "answerRepair",
+      "owner": "Codex",
+      "state": "delivered; lead review/landing pending",
+      "what": "T-207 answerRepair.patch + eight-line report; sole gate73P/base68 in364.72s,27cold imports; consumed-answer exact correction/rollback/repeat-user and switch-off journeys GREEN. Source4705->4821; no providers/commit/.env reads. switch: answerRepair."
+    },
+    {
+      "name": "checkIdentity",
+      "owner": "Codex",
+      "state": "delivered; review and landing pending",
+      "what": "T-208 on fd51495: checkIdentity.patch and report. Shortened and explicit-retirement journeys reach scripted C. Sole gate 74P/4 stale test assertions, affected correction 4P, 27 cold imports. Production validation pending."
+    },
+    {
+      "name": "areaJoin",
+      "owner": "Codex",
+      "state": "delivered; awaiting lead landing",
+      "what": "T-209: areaJoin.patch + seven-line report vs fd51495. u01 replay RED→GREEN in REVIEW and PRODUCT, 77 gate passes, 27 cold imports. Main landing and live confirmation pending."
+    },
+    {
+      "name": "qbDetail",
+      "owner": "Codex",
+      "state": "delivered uncommitted; lead review pending",
+      "what": "T-210 and T-211: qbDetail.patch and eight-line report against 750a352. Recorded RED then strict-scripted EXECUTE, repeat pauses, 27 cold imports. Sole gate 81P/2 front-door waits in 815.67 s, test-only guards then 3P in 68.82 s. Landing and native validation pending."
+    },
+    {
+      "name": "checkContract",
+      "owner": "Codex",
+      "state": "delivered; lead review pending",
+      "what": "T-212. checkContract.patch and checkContract-report.md from d56dc7b. Five focused strict-schema journeys, 27 cold imports, and sole gate 84P in 362.60 s. Patch-only; native validation pending."
+    },
+    {
+      "name": "growPersona",
+      "owner": "Codex",
+      "state": "delivered; merged gate pending",
+      "what": "T-213 patch/report and Repair Café brief delivered. Three strict scripted journeys, 27 cold imports and lane gate 86 passed in 326.67 s. Grouped product integration and blinded Terra comparison pending."
+    },
+    {
+      "name": "growChat",
+      "owner": "Codex",
+      "state": "delivered; lane gate passed, integration pending",
+      "what": "T-214 on 0bf6cb9; work/lanes/growChat.patch and growChat-report.md. MCP grouped-reply reconnect and r10/r170 controls passed with a loop contract twin; 84 gate passes in 337.43 s, 27 cold imports. Next: growLoop binds the receipt and proves real round flow on the merge."
+    },
+    {
+      "name": "growVision",
+      "owner": "Codex",
+      "state": "delivered; merged gate and landing pending",
+      "what": "T-215 pinned base 0bf6cb9. growVision.patch and eight-line report delivered. Strict recorded/counterfactual RED/GREEN through B; full lane gate 84P in 337.98s, 27 cold imports. growLoop owns durable A, switch and integration."
+    },
+    {
+      "name": "growLoop",
+      "owner": "Codex",
+      "state": "delivered; awaiting lead landing",
+      "what": "T-216 growLoop.patch and report against a827513. Strict recorded/counterfactual replay to B, 27 cold imports, and sole merged gate 91 passed in 355.41 s. Paired Terra comparison pending."
+    },
+    {
+      "name": "askContracts",
+      "owner": "Codex",
+      "state": "delivered; lead merge and authorized replay pending",
+      "what": "T-217. askContracts.patch and report apply to exact 555101a. Sole gate 94 passed in 670.22 s; final transition wording narrowly verified. No provider run or main landing."
+    },
+    {
+      "name": "sizeChoice",
+      "state": "patch delivered; focused GREEN; combined gate pending",
+      "owner": "Codex",
+      "what": "T-218 in work/lanes/sizeChoice.patch and sizeChoice-report.md. Named strict RED to GREEN with sibling scratch wiring, one-owner walkthrough GREEN. Full lane gate 16P/78F with legacy scalar fixture setting omitted, reproduced on base, five focused scalar controls passed with growAlign off. Integration needs size_first=kickoff[\"setup\"].get(\"sizeFirst\", False) in Run.align calls to questions.align_round_brief and decisions.round_ask. Lead combined gate pending."
+    },
+    {
+      "name": "sizeProof",
+      "owner": "Codex",
+      "state": "delivered; lead combined gate pending",
+      "what": "T-219. sizeProof.patch/report delivered; base RED, recorded twin and four-patch strict GREEN. Sole gate 16P/78F (T-225); 7 focused checks GREEN. Lead cold imports, combined gate and paired evidence pending."
+    },
+    {
+      "name": "sizeGuide",
+      "owner": "Codex",
+      "state": "delivered; lead integration pending",
+      "what": "T-220. sizeGuide.patch and sizeGuide-report.md on tree 158f751. Real CLI base RED, focused 2 GREEN through fresh checkout and reopened peer planning, sole gate 94 passed in 398.88s. Plan lookup ready for sizeProof and sizeChoice, integrated gate and paired real evidence pending."
+    },
+    {
+      "name": "sizeFight",
+      "owner": "Codex",
+      "state": "patch delivered; recorded replay GREEN; lead gate pending",
+      "what": "T-221 on b97dc91. sizeFight.patch and sizeFight-report.md. Sole gate 17P/78F with inherited scalar setting omitted (T-225); exact-base reproduction and three focused passes with SELDON_OFF=growAlign. Lead combined gate and five real matched starts pending."
+    },
+    {
+      "name": "sizeRoute",
+      "owner": "Codex",
+      "state": "delivered; lead integration pending",
+      "what": "T-222 on b97dc91. sizeRoute.patch/report delivered. Exact B RED; strict twin GREEN, 9 focused passes and 2 sibling-overlay passes. Sole gate 18P/78F on inherited ALIGN fixture mismatch (T-225). T-223 tracks staged guide-area drift. Combined gate and paired runs pending."
+    },
+    {
+      "name": "sizeWire",
+      "owner": "Codex",
+      "state": "delivered; lead landing pending",
+      "what": "T-226 and T-225 on b97dc91. sizeWire.patch and sizeWire-report.md delivered. Bare merged gate 101 pass / 348.53s, all five named journeys, 27 cold imports. Main landing and native paired evidence pending."
+    },
+    {
+      "name": "sizeCalib",
+      "owner": "Codex",
+      "state": "delivered; main landing and live calibration pending",
+      "what": "T-227 on 6433526. sizeCalib.patch and eight-line report delivered. Strict golden replay passes through A and reopen, 27 cold imports passed, sole bare gate 102 passed in 332.64 s."
+    },
+    {
+      "name": "guideReserve",
+      "owner": "Codex",
+      "state": "delivered; lead landing pending",
+      "what": "T-228, related to T-223. Patch applies to canonical 6433526. Strict recorded twins proved the mixed reply reaches EXECUTE with guide ownership intact and a repeated guide-only reply pauses with a concrete correction. Sole bare gate 103 passed in 352.09 s, 27 cold imports pass. Main landing and real Terra rerun pending."
+    },
+    {
+      "name": "codeSeverity",
+      "owner": "Codex",
+      "state": "delivered, awaiting lead review and real-run measurement",
+      "what": "T-235. Patch and seven-line report on 3b527e6. Retained twins RED to GREEN, 28 cold imports, sole bare gate 125 passed in 389.07 s."
+    },
+    {
+      "name": "alignNormalise",
+      "owner": "Codex",
+      "state": "delivered, awaiting lead review and landing",
+      "what": "T-237. Patch and report against exact dee914f. Five base REDs, 11 focused passes, 28 cold imports. Sole gate 134P/1 stale fixture; isolated correction passed."
+    }
+  ],
+  "next": [
+    "Review/land T-117 arch-review.patch; then authorized M2 canonical Foundation x10 (exit 8 of 10, P4 on one named commit).",
+    "First ShelfLife attempt and the plain-agent fight on the same oracle (P5); M2 exit needs ShelfLife C in 3 of 5 scoring at least the plain agent.",
+    "T-94: Seldon builds its own Prime Radiant page from the mock.",
+    "Simplify detail.step (T-110); fixtures out of the journey file (T-101); FLOW prompt location (T-103)."
+  ],
+  "decisionsForOren": [],
+  "recentRuns": [
+    {
+      "date": "2026-11-19",
+      "run": "qbu-a4204ec-q05",
+      "commit": "a4204ec",
+      "outcome": "SCRIPTED_C",
+      "furthest": "C",
+      "repairs": "1",
+      "gaps": "2",
+      "uncertain": "0",
+      "wall": "1349.954",
+      "flags": "4"
+    },
+    {
+      "date": "2026-11-19",
+      "run": "qbu-a4204ec-q02",
+      "commit": "a4204ec",
+      "outcome": "SCRIPTED_C",
+      "furthest": "C",
+      "repairs": "2",
+      "gaps": "2",
+      "uncertain": "0",
+      "wall": "1164.447",
+      "flags": "4"
+    },
+    {
+      "date": "2026-11-19",
+      "run": "shelflife-main-a4204ec-s05",
+      "commit": "a4204ec",
+      "outcome": "SCRIPTED_C",
+      "furthest": "C",
+      "repairs": "0",
+      "gaps": "0",
+      "uncertain": "0",
+      "wall": "1130.848",
+      "flags": "0"
+    },
+    {
+      "date": "2026-11-19",
+      "run": "shelflife-main-a4204ec-s03",
+      "commit": "a4204ec",
+      "outcome": "SCRIPTED_C",
+      "furthest": "C",
+      "repairs": "0",
+      "gaps": "0",
+      "uncertain": "0",
+      "wall": "606.502",
+      "flags": "0"
+    },
+    {
+      "date": "2026-11-19",
+      "run": "shelflife-main-a4204ec-s04",
+      "commit": "a4204ec",
+      "outcome": "SCRIPTED_C",
+      "furthest": "C",
+      "repairs": "0",
+      "gaps": "0",
+      "uncertain": "0",
+      "wall": "591.509",
+      "flags": "0"
+    },
+    {
+      "date": "2026-11-19",
+      "run": "shelflife-main-a4204ec-s01",
+      "commit": "a4204ec",
+      "outcome": "SCRIPTED_C",
+      "furthest": "C",
+      "repairs": "1",
+      "gaps": "0",
+      "uncertain": "0",
+      "wall": "574.310",
+      "flags": "1"
+    },
+    {
+      "date": "2026-11-19",
+      "run": "shelflife-main-a4204ec-s02",
+      "commit": "a4204ec",
+      "outcome": "SCRIPTED_C",
+      "furthest": "C",
+      "repairs": "0",
+      "gaps": "0",
+      "uncertain": "0",
+      "wall": "538.483",
+      "flags": "0"
+    },
+    {
+      "date": "2026-11-19",
+      "run": "foundation-a4204ec-f05",
+      "commit": "a4204ec",
+      "outcome": "SCRIPTED_C",
+      "furthest": "C",
+      "repairs": "0",
+      "gaps": "0",
+      "uncertain": "0",
+      "wall": "204.272",
+      "flags": "0"
+    },
+    {
+      "date": "2026-11-19",
+      "run": "foundation-a4204ec-f02",
+      "commit": "a4204ec",
+      "outcome": "SCRIPTED_C",
+      "furthest": "C",
+      "repairs": "0",
+      "gaps": "0",
+      "uncertain": "0",
+      "wall": "188.962",
+      "flags": "0"
+    },
+    {
+      "date": "2026-11-19",
+      "run": "foundation-a4204ec-f03",
+      "commit": "a4204ec",
+      "outcome": "SCRIPTED_C",
+      "furthest": "C",
+      "repairs": "0",
+      "gaps": "0",
+      "uncertain": "0",
+      "wall": "182.193",
+      "flags": "0"
+    },
+    {
+      "date": "2026-11-19",
+      "run": "foundation-a4204ec-f04",
+      "commit": "a4204ec",
+      "outcome": "SCRIPTED_C",
+      "furthest": "C",
+      "repairs": "0",
+      "gaps": "0",
+      "uncertain": "0",
+      "wall": "168.899",
+      "flags": "0"
+    },
+    {
+      "date": "2026-11-19",
+      "run": "foundation-a4204ec-f01",
+      "commit": "a4204ec",
+      "outcome": "SCRIPTED_C",
+      "furthest": "C",
+      "repairs": "0",
+      "gaps": "0",
+      "uncertain": "0",
+      "wall": "166.630",
+      "flags": "0"
+    },
+    {
+      "date": "2026-11-19",
+      "run": "hello-a4204ec-h04",
+      "commit": "a4204ec",
+      "outcome": "SCRIPTED_C",
+      "furthest": "C",
+      "repairs": "0",
+      "gaps": "0",
+      "uncertain": "0",
+      "wall": "96.469",
+      "flags": "0"
+    },
+    {
+      "date": "2026-11-19",
+      "run": "hello-a4204ec-h03",
+      "commit": "a4204ec",
+      "outcome": "SCRIPTED_C",
+      "furthest": "C",
+      "repairs": "0",
+      "gaps": "0",
+      "uncertain": "0",
+      "wall": "94.313",
+      "flags": "0"
+    },
+    {
+      "date": "2026-11-19",
+      "run": "hello-a4204ec-h01",
+      "commit": "a4204ec",
+      "outcome": "SCRIPTED_C",
+      "furthest": "C",
+      "repairs": "0",
+      "gaps": "0",
+      "uncertain": "0",
+      "wall": "92.168",
+      "flags": "0"
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+LANE flow-scope (ticket T-102). Worktree ~/codex-harness/work/lanes/flow-scope-20261113 (Seldon main 5800d4a). Another lane (m2-architect) runs in parallel: YOUR FILES ONLY src/seldon/flow_review.py and new tests/seldon/test_flow_scope.py (import existing journey helpers). Temp only under C:/seldon/tests/fscope-<n>. Do not commit. No new dependencies. No real provider calls. Tickets per work/ladder/TRACKING.md.
+Read BLUEPRINT.md R7 and src/seldon/flow_review.py, fixups.py, plan.py (traced_checks, traced_units).
+PROBLEM: flow_review.review builds one flow Gap with units = every unit the feature's checks reach, so a gap on one requirement reopens all of a feature's units (R7: failure is local).
+FIX: one Gap per failing requirement target: units = plan.traced_units(document, plan.traced_checks(document, requirement)) and correction = that requirement's correction(s). Gaps with identical unit sets may merge. A target that is not a requirement of the feature is already refused by validate.
+JOURNEY (outcome only): a feature with two requirements owned by different units; FLOW names a gap on one requirement; only that requirement's owning unit reopens, the other unit keeps its verdict and DONE state, run reaches C.
+LEAD DECISIONS THAT MUST SURVIVE: everything in main; timing asserts unchanged.
+DELIVER in ~/codex-harness/work/lanes: flow-scope.patch, flow-scope-report.md at most 6 lines.

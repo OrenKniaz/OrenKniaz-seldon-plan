@@ -1,0 +1,74 @@
+CHARTER: serves C1–C21 — uses existing DV1–DV9 during restoration; proposes no additional I1–I9 exception.
+Read the full ratified charter, both prior reviews, raw answers and retained capability audit. HEAD remains `df5de82`; no edits, tests or provider launches. This is a proposed reset for Oren’s approval under Q56.
+
+1. Target architecture — ONE execution model
+
+- **Canonical truth:** `plan_store.py` persists typed, revision-bound plans, decisions, verdicts and evidence. Views consume these records; they never decide admission. C2/C4, I6.
+- **Trace:** `spine.py` owns graph structure, coverage and deterministic impact; `graph.py` supplies dependency readiness. Include architecture, contracts, tests, code/results and decision/research side nodes. C9/C10.
+- **Loop:** a small `run_loop.py` owns deterministic continuation; existing job/dispatch owners execute its actions. No second state store or planner-controlled transition sequence. C1/C2.
+- **Semantic work:** intake/vision, steering and candidate owners request typed planner/judge verdicts through existing provider transports; retain rationale and evidence links. Two exact-fix retries, then judge/steer. C3/C4/C16.
+- **Intent:** `intake.py`/`planner_vision.py` handle size recommendation plus override, macro/micro improvement, research and the UX quality bar. Vision Lock is the user’s charter. C5–C7/C21.
+- **Decisions:** approvals/confirmations own A → B → wave check-ins → C, interpreting the user’s own words. B approves the plan; product spending/call budgets disappear. C8.
+- **Plan review:** `roundtable.py` reviews vision and plan completeness only; consequence-scaled depth, roughly three rounds, planner convergence judgment, truthful same-model labels. C11.
+- **Execution:** `dispatch.py` schedules every dependency/ownership-ready bead, selects models respecting pins, runs headless isolated worktrees and integrates serially. Workers write tests and implementation. C12/C13/C19/C20.
+- **Proof:** runners record actual RED/GREEN; semantic judges assess meaningfulness. `acceptance.py` owns trace completeness, explicit no-stubs/mocks/missing and UX-versus-Vision-Lock judgments on the integrated candidate. C14/C15.
+- **Continuation:** integrate → observe/judge → repair or resync → user check-in → next wave; failures/discoveries invoke steering. Two bead recoveries then steer; every attempt releases ownership. C16–C18.
+- **Continuity/interface:** provenance-backed project memory and cross-project lessons, typed trace-linked mail, provider-pin/quality-bar settings; provider app remains primary, cockpit read-only. C19/C20.
+- **Finish:** complete trace and judgments → live demo/walkthrough + try-it guide → user C. Unavailable evidence stays pending; it never becomes product failure or acceptance. C8/C15, I2/I4.
+
+2. Stages and lane-sized steps
+
+File stems below mean `src/codex_harness/core/*.py`. Deletions are estimated **gross obsolete lines**, excluding replacement code; they are not net-reduction commitments.
+Steps are sequential except the explicitly parallel pair. One integration owner serializes **`plan_store`, `roundtable`, `dispatch` and `tests/python/core/test_golden_path.py`**. Each behavioral patch includes its golden extension; foundations alone earn no ladder promotion.
+
+**Stage 1 — establish the contracts the first real dream needs.**
+
+- **1a — Restore the full trace contract.** C4/C9/C10, DV1/DV4/DV9. Own `spine`, `graph`, `semantic_schema`, `planner_schema`. Harvest legacy test nodes, graph traversal and impact calculation; generalize architecture/contracts/research links and worker-authored test execution descriptions. Delete mode-specific topology, product vocabulary and unit-test assumptions: **250–500 lines**. Proof: L0’s collapsed trace and L1’s full trace compile through the real producer/consumer, preserving IDs, evidence links and exact stale descendants.
+- **1b — Route size and lock intent; parallel with 1c.** C5–C8/C21, DV8. Own `intake`, `planner_vision`, `approvals`, `approval_migration`, `planner_confirmations`, `planner_consent_views`. Harvest durable intent/confirmation binding. Delete fixed expansion counts, affirmative-word classification and budget-bearing approval subjects: **150–300 lines**. Proof: L0 shows tiny sizing plus override, accepted improvement, own-words A/B and a visible scope-deviation decision.
+- **1c — Make tests ordinary executable behavior.** C2–C4/C13/C14, DV4. Own `runners`, `semantic_runner`, `semantic_web.cjs`, `test_audit`, `proof_imports`. Harvest process observations, execution receipts and cleanup. Delete stub-marker RED, scenario interpreters used as product eligibility and AST meaningfulness classifiers: **600–1,000 lines**. Proof: L0 observes a worker-authored test fail for its named missing behavior, then pass; L1 preserves existing GREEN behavior while proving the changed requirement RED→GREEN.
+
+**Stage 2 — finish one autonomous, truthful L0 dream, then L1.**
+
+- **2a — Separate plan review from semantic judgment.** C3/C4/C11/C16, DV4/DV7. Own `roundtable`, `planner_review`, `review_instructions`, `reviewer_evidence`, `steering`, `plan_quality`. Harvest provider review transport, recorded disagreements and candidate provenance. Delete semantic regex/AST grading and code-review routing: **300–600 lines**. Proof: L0 receives typed test-meaningfulness and plan-completeness verdicts; a tautological GREEN test is rejected with a concrete gap, duplicated model tuples receive the lower label.
+- **2b — Remove product budgets without losing launch authority.** C8/C18/C20, DV8. Own `provider_call_budget`, `planner_jobs`, `planner_execution`; serialize affected `approvals`, `roundtable`, `dispatch`, `mcp_planner` and `planner_schema` call sites. Harvest job/run/attempt binding into their existing owners. Delete the budget module and cap/reservation/renewal plumbing: **450–750 lines**. Proof: L0 needs no budget decision or renewal; stale/unapproved launch subjects still fail with one remedy. Keep bounded attempt timeouts and provider context-capacity handling.
+- **2c — Put Seldon in charge of continuation.** C1/C2/C4/C8/C16, DV5. Own new `run_loop`, `plan_store`, `mcp_planner`, `plan_cli`. Harvest phase history, canonical admission and existing dispatch operations. Delete caller-managed compile/advance/publish choreography and duplicate next-action inference: **500–900 lines**. Proof: L0 advances from semantic submissions and job events to A, B, check-in and C without planner scheduling; malformed output gets exactly two fixes before steering.
+- **2d — Bound every owner’s lifetime.** C18, I5/I6. Own `planner_acceptance`, `planner_audits`, `planner_recovery`, `acceptance_recovery`, `planner_resume`, `attempt_control`; queue persistence changes through `plan_store`. Harvest supported stop/quarantine and recovery receipts. Delete indefinite holds and competing retry rules: **150–350 lines**. Proof: L1 crash/stall/transport-loss twins retire claims, exclude abandoned work, recover twice then steer, and reach a truthful end. Awaiting the user holds no running attempt and never implies consent.
+- **2e — Complete the first dream through C.** C8/C15/C21, DV6 foundation. Own `acceptance`, `planner_candidate`, `planner_views`, `planner_refusals`, `planner_refusal_events`; serialize store integration. Harvest delivered-candidate binding and actual observations. Delete post-build multi-model review machinery, duplicate completion predicates and projection-derived blockers: **600–1,000 lines**. Proof: L0 delivers a usable hello-CLI with trace, no-stubs and UX judgments, demo, guide and actual user C; L1 repeats on an existing small CLI.
+
+**Stage 3 — make the same model concurrent, adaptive and multi-wave; then retire legacy.**
+
+- **3a — Dispatch the graph.** C12/C13/C19, DV2. Own `dispatch`, `worker_packet`, `graph`, `planner_jobs`. Harvest legacy readiness scheduling, isolated worktrees, ownership checks and serial integration. Delete exactly-two-bead and `max_parallel=1` restrictions: **150–300 lines**. Proof: L2 web+HTTP overlaps three independent ready beads, respects real dependencies/file conflicts and proves the integrated result; no fixed product concurrency ceiling replaces the old one.
+- **3b — Resync and continue waves.** C7/C10/C16/C17/C21, DV3/DV5. Own `waves`, `wave_refine`, `spine`, `run_loop`, `plan_store`. Harvest wave maps, result accounting and refinement provenance. Delete semantic wave rejection and language-specific interface inference as an authority: **300–600 lines**. Proof: L2 wave N+1 cites N’s integrated results; a discovery changes the plan, a vision edit stale-marks only affected descendants, and check-in precedes continuation. Narrowing waits for user approval.
+- **3c — Carry knowledge across workers and projects.** C19/C20. Own `project_memory`, `memory_promotion`, `mail`, `worker_packet`, `intake`. Harvest existing provenance, mail delivery and memory retrieval. Add typed blocker/question/discovery/handoff links and the small settings record; delete duplicated packet assembly where replaced: **0–150 lines**. Proof: L2 uses a trace-linked discovery and handoff; L3 consumes a prior project’s sourced lesson and respects a provider pin. No general user-memory subsystem.
+- **3d — Remove the second execution path.** C2/C9/C12/C17/C20, DV9. Own remaining branches in `spine`, `graph`, `dispatch`, `runners`, `plan_store`, `mcp_planner`, `plan_cli` and superseded golden support. Harvest only capabilities already proven in 1a/3a/3b. Delete legacy/semantic mode selectors, duplicate compilation/proof routes and obsolete fixtures: **800–1,400 lines**. Proof: retained legacy and semantic inputs enter the same model and complete L2; historical approvals/evidence remain historical, never silently reauthorized.
+
+**Stage 4 — establish full-dream acceptance and the complete provider experience.**
+
+- **4a — Challenge completeness, not just test success.** C9/C14–C17/C21, DV6. Own `acceptance`, `planner_candidate`, `steering`, `run_loop`. Harvest integrated evidence and repair-wave scheduling. Delete residual finite-scenario completeness and web-only judgment restrictions: **150–300 lines**. Proof: L3 full-stack deliberately omits an accepted feature while existing tests stay GREEN; the judge identifies the omission. Separate stub/mock and UX gaps trigger repair, next check-in, renewed integrated proof, demo/guide and user C.
+- **4b — Prove research, providers and readable trace together.** C5–C8/C19/C20. Own `provider_launch`, `project_init`, `init_hosts/*.py`, `status_api`, `cockpit.js`, `spine_render`, `spine_diagrams`; serialize intake/view integration. Harvest native provider wrappers and read-only projections; delete redundant projections: **100–250 lines**. Proof: authorized L3 runs cover Codex, Claude Code and Copilot; research records criteria→exploration→measurement→user decision→replan, with explicit approval before any pre-B prototype. Trace, mail and lessons remain understandable and sourced.
+
+The serial golden owner proves each behavior once through canonical producers and real consumers; fake providers supply worker outputs, never fabricated test observations. Each extension names its realistic regression and the existing coverage gap. Remove superseded/unit/source-shape tests; retain suite accounting as development policy. First gate remains golden; suite ceiling stays **≤19**, fast gate **≤10 minutes**, with actual counts/timing measured after authorization.
+
+3. Deviation closure and expected date order
+
+| Proposed gate date, 2026 | Stage | Deviation closure only after the stated proof |
+|---|---|---|
+| Nov 5 | 1 | Restoration foundations; no closure claimed from schemas alone. |
+| Nov 6–7 | 2: L0→L1 | DV1, DV7, DV8; DV4/DV5/DV6 remain partial. |
+| Nov 8–10 | 3: L2 | DV2, DV3, DV4, DV5, DV9. |
+| Nov 11 | 4: L3 | DV6; complete charter acceptance remains contingent on actual evidence. |
+
+These are aggressive, approval-dependent target dates, not validated effort estimates. CC must attach owner, expiry and restore plan to each existing DV and notify Oren; none receives an implied extension beyond seven days. If restoration cannot finish by expiry, restore compliance or obtain Oren’s ratified charter change. ShelfLife versus plain Codex and Oren’s own real project follow L3; their dates depend on authorization and project scope.
+
+4. Risks, uncertainty and first measurement
+
+- **TRIAGE: DESIGN — authority is mixed with policy.** Budget code also verifies native job/run/attempt provenance; siblings include approval subjects, dispatch starts and review admission. Measure those dependencies first; preserve provenance before deleting quotas.
+- **TRIAGE: DESIGN — two models encode different truths.** Siblings are test-node admission, runner selection, wave scope and publication identity. Harvest into the existing graph path without introducing a third mode; preserve persisted history through the owning migration contract.
+- One optional **four-hour spike** after authorization: canonical test node → worker-authored opaque test command → observed RED → implementation → integrated GREEN → typed semantic verdict. Measure missing interfaces, elapsed time, total provider calls and recovery behavior; keep efficiency metrics outside the product.
+- The spike earns no product-completion credit. If it temporarily narrows a charter requirement, CC must first register a Deviation with owner, same-day notification, restoration plan and expiry ≤7 days; no such deviation is registered by this read-only report.
+- Provider access, semantic-judge reliability, Windows cleanup/recovery and deletion estimates remain unproven. The retained audit reports fixture journeys reaching C, not current actual-provider/full-dream acceptance. No ladder promotion with unresolved blockers; unavailable verification routes to judgment and releases attempt ownership without inventing success.
+
+5. Charter-compliance self-check
+
+Every C1–C21 has an implementation owner and planned proof above; none is intentionally excluded. I1–I9 govern every promoted patch: structural code versus recorded meaning, pending unknowns, domain-open schemas, observed blockers, bounded ownership, canonical truth, product neutrality, concrete remedies and shared-rule repairs.
+**Not yet established:** restoration of DV1–DV9, the complete composed loop, actual three-provider execution, L3 acceptance, ShelfLife comparison and Oren’s real-project proof. This review executed **zero tests**; current suite count/runtime were not measured. The next unproven outcome is a complete autonomous L0 dream through user C—not another isolated judge or lifecycle demonstration.

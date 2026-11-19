@@ -1,0 +1,26 @@
+CHARTER: serves C11/C18/C26 — violates no I#. Read-only; no changes, tests, or provider launches.
+
+1. **Review launched successfully.** `harness_roundtable` ran reviewer-a/b (`codex`, `gpt-6.1-sol`, medium) in turns 3 and 4: four provider calls, all exit 0, `didRunProvider=true`, `packetBound=true`.
+Turn 3 returned **inconclusive** for missing concrete scenarios/targets. Turn 4 returned **inconclusive**, with two major T4 findings: no supported browser path for the served HTTP/API workflow; the advertised runner supports offline `file://`. See [review_instructions.py:10](/~/codex-harness/work/lanes/stage-exec1/src/codex_harness/core/review_instructions.py:10).
+**The planner** attempted browser access: `cua.getState()` → **“The browser access host is unavailable”**; `cua.getApp({windowId:4394798})` → **“Computer Use was not approved to use Microsoft Edge”**. Reviewers were packet-only; Seldon’s gate checks successful review, not browser permission.
+Planner-side Playwright attempts separately failed with `EPERM` on daemon/temp/browser-registry paths, then **“Session closed”** after workspace-local configuration. Farm configuration disables Playwright MCP and excludes external temp writes.
+**R4 encountered the same runner gap**, then added an explicit native Comet observation path, owner, and unresolved UI-acceptance condition. Reviewers approved that *plan*, leaving actual browser feasibility unproven. R5 never supplied that repaired path in its packet.
+2. **TRIAGE: DESIGN — planning/runner contract mismatch**, compounded by planner escalation from “identify a feasible observation path” to “restore permission before review can proceed.” Siblings: server-backed UIs, other observation adapters, graph tests without historical controller scenarios. Genuine environment errors occurred, but no reviewer-provider permission failure occurred.
+
+3. **Five generic tool errors, all turn 3; separate from browser failures:**
+- **#1 `harness_upsert_node(V1)`:** “Missing/malformed scenarios; author vision.fields.scenarios as an object.”
+- **#2 same tool:** “Invalid scenarios/targets: Use unique ids and verdict all”.
+- **#3 same tool:** setup rejected unknown `database`, `runtime`, `target`; allowed `dirs`, `files`, `snapshots`.
+- **#4 `harness_schema(tool="semanticScenarios")`:** “Unknown tool: semanticScenarios” — a response section was mistaken for a tool name; this refusal was not persisted, explaining five receipt errors versus four status-counter errors.
+- **#5 `harness_accept_scenarios`:** “Semantic scenarios belong to vision.fields.scenarios; use upsert_node” — wrong writer route.
+- **`spine-trace-invalid`:** batch omitted required `execution.testRoots`; independent malformed input, rejected by [semantic_schema.py:134](/~/codex-harness/work/lanes/stage-exec1/src/codex_harness/core/semantic_schema.py:134).
+- **`plan-b-prerequisites-missing`:** B requested before exact delivery reviewers were selected; ordinary ordering failure.
+- **`plan-spine-stale`:** reviewer-choice supplied an outdated spine revision; ordinary stale-write protection.
+- **`plan-b-consent-required`:** scenario/test repairs changed the approved revision; fresh B was required.
+- **`successful-review-required`:** final status lacked successful current-revision review; discovery D1 also changed the revision. This is a gate/status label, not another browser exception.
+4. **Yes, avoidable loops:** turns 5–12 consumed another ~164 seconds after the browser blocker was established. All 11 simulated replies were “Please continue”; “0 decisions” counts reply categories, not demonstrated gate semantics. Twelve turns is reasonable as a watchdog, inadequate as a success criterion; increasing it would prolong this loop.
+5. **Fix—Seldon schema owner:** expose accepted nested scenario/setup examples matching the validator in [planner_schema.py:670](/~/codex-harness/work/lanes/stage-exec1/src/codex_harness/core/planner_schema.py:670); stop forcing callers to infer shapes from successive errors.
+**Fix—Seldon review packet/planner:** make graph test plans authoritative in `_scenario_section`; supply the retained full brief and an explicit HTTP-browser owner/path. Require live observations at validation, without treating offline rendering as integrated UI proof.
+**Fix—planner caller:** include `testRoots`, select reviewers before B, refresh revisions before writes, and obtain renewed B after semantic changes; preserve existing rejection guards.
+**Fix—fight harness/environment:** provision and preflight one supported loopback-browser session with writable artifact locations before a real run; report unavailable capability explicitly. No OS security changes.
+**Fix—fight simulator:** replace unconditional blocked→“continue” at [farm.py:182](/~/codex-harness/work/run-farm/farm.py:182) with an unresolved-external-blocker outcome and unchanged-progress stop. Last proven outcome: reviews completed; product unbuilt. Next: repair the review packet and establish the observation path.

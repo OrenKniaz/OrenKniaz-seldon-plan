@@ -1,0 +1,14 @@
+{
+  "ab2ae1f-s04/call-09dc54caded04367a0ceb496f359fd09": {
+    "matches_key": false,
+    "reason": "No must-fix finding was returned; the answer remains uncertain about startup and integrated checks."
+  },
+  "e57b218-z08/call-3165ac714887421cb8d3ebdc724c55aa": {
+    "matches_key": false,
+    "reason": "The must-fix findings ask to diagnose startup and rerun API/persistence/concurrency checks; none identifies unclosed SQLite connection handles or the missing closure in initialization."
+  },
+  "e57b218-z14/call-db56a106bf9b407e9ab4d1ed913ddc77": {
+    "matches_key": false,
+    "reason": "The must-fix findings ask to diagnose startup and rerun API/persistence/concurrency checks; none identifies unclosed SQLite connection handles or the missing closure in initialization."
+  }
+}

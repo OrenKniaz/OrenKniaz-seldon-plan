@@ -1,0 +1,22 @@
+{
+  "id": "door-count",
+  "kind": "fullstack",
+  "profile": {
+    "audience": "the volunteer who closes the books for a two-screen community cinema",
+    "care": "a total I can explain to the film society treasurer",
+    "tone": "plain and practical"
+  },
+  "message": "I close the books for our little cinema. Build me Door Count so I can drop in the CSV batches from the box office, look through the individual entries when something seems off, and send the film society a CSV settlement for the dates they ask about. Their settlement is by film: how many tickets we sold, how many we refunded, and what we actually took after refunds. We charge different prices, so counting heads doesn't tell you the money. A refund belongs to the day we paid it back. Each entry has its own box-office reference, and the files we get overlap. I need to be able to bring in Tuesday's file without counting Monday twice. I want to use it in my browser, come back next week to the same books, and pull a settlement from the terminal for the treasurer's spreadsheet. Give me enough of a guide to do the close myself.",
+  "scriptedUser": {
+    "persona": {
+      "goal": "Settle a film society's ticket receipts and explain any total from the underlying entries.",
+      "priorities": ["Preserve the original transaction trail", "Make the weekly close repeatable"],
+      "preference": "When I look up entries I usually have the crumpled receipt with its reference in my hand.",
+      "exclusion": "Please leave concession sales out of this."
+    },
+    "A": ["first"],
+    "B": ["first"],
+    "CHECK-IN": ["Other: The treasurer just asked for the number of paid admissions left after refunds as another figure on each film's settlement. Can you include that?", "Go on and do not stop again"],
+    "C": ["first"]
+  }
+}

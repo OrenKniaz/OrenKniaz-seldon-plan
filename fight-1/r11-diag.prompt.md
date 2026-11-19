@@ -1,0 +1,9 @@
+DIAGNOSIS (read-only; Seldon delivery). Real-provider ShelfLife round 11 on Seldon main 36b1aa7 (source ~/codex-harness/work/sprint-20261027/semantic-cc; NOTE main is now ef3b87e = same product code + faster golden). Summary ./fight-seldon.json: BLOCKED-execute at the 90-min fight cap, only 2 user decisions (consent envelope worked), 286 planner MCP calls; refusals plan-b-prerequisites-missing, plan-publish-phase-required, recovery-already-resolved, tool-input-or-operation-error x3. Final planner message: Seldon did not capture successful 204 responses as matching declarations; validation failed on the deletion diagnostic; the planner then chose to CHANGE THE PRODUCT API (204 → 200 + JSON) to satisfy Seldon. Log ./run-seldon-r11.log; slot C:/seldon/runs/fight-1/seldon/20261106T074200-45fb98-001-shelflife. Prior diagnosis ./r9-diag.md.
+Answer ≤28 lines:
+1. Timeline: minutes in align/plan/review/B/execute; each worker attempt (start/end/outcome); each validation run and its failing check.
+2. The 204 issue exactly: which Seldon code (semantic_web.cjs / semantic_runner.py file:line) mishandles 204/empty bodies or declared expected responses for successful non-error statuses; is it a console error from the browser (e.g. JSON parse of empty body by the product's own JS) or Seldon's own capture? TRIAGE BUG|DESIGN + siblings (other 2xx/3xx, HEAD, empty bodies).
+3. Did the first worker's product work (which semantic tests GREEN, served UI)? Where is the best candidate; would it start?
+4. Every other distinct failure/time sink: TRIAGE + owner (Seldon module, planner caller, worker quality, harness).
+5. Is Seldon pushing the planner to distort the product to fit Seldon anywhere else (I7)?
+6. One concrete fix per distinct Seldon cause.
+No files changed, no tests, no provider launches.

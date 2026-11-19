@@ -1,0 +1,13 @@
+Lane RECOVERY-1 (Seldon; this folder = main 068a864 + own git). ONE design bug that sank today's ShelfLife fight run (C:\seldon\runs\fight-1\seldon\20261101T145704-2c0e74-001-shelflife; receipts ~\codex-harness\work\fight-1\receipts\20261101T145704-2c0e74\20261101T145704-2c0e74-001-shelflife turn03-07.md/.jsonl):
+The Build worker's tool calls stalled. Seldon then held recovery forever: `recovery-readmit-requires-VERIFIED-QUIESCENT; UNKNOWN stays held` (src/codex_harness/core/planner_recovery.py ~117 and ~173). The planner retried for 5 turns, then asked the user to bypass Seldon. Nothing was delivered.
+Owner rule (binding, "never block delivery"): UNKNOWN is never a permanent state. Seldon itself must reach a verdict: it owns the worker it launched (job object / process tree / pid + start time), so on recovery it terminates that tree, confirms no member is alive, and records VERIFIED-QUIESCENT; if the tree cannot be found after a bounded wait, it records the attempt as ABANDONED and quarantines that attempt's uncommitted writes (the worker's workspace changes are discarded or moved aside, never merged) — then readmits a fresh attempt under the same B. Recovery stays inside B: no new user decision, no new refusal the planner cannot act on. A stalled worker (no tool progress for a bounded time) is detected and ended by the same path.
+Start at planner_recovery.py and the dispatch/worker-launch owner that records the worker process (search execution/dispatch modules). One rule at the owner; remove the dead UNKNOWN-hold path.
+Prove it by extending the golden path: a stub worker that stalls mid-Build (hangs without exiting) -> Seldon ends it, records the verdict, readmits, and the run still reaches C in three decisions.
+FAST-LANE RULES (append to every Seldon fix brief; binding — Oren: NO unit tests, ever)
+- Lane folder comes from work/lanes/make-lane.sh: it contains NO tests except the golden path. Do not write new test files.
+- The ONLY test you may run: bash ~/codex-harness/work/lanes/golden-gate.sh <lane> <tag> (stub golden path CLI+web). Run it once at the end, at most twice. Prove behavior by extending golden-path scenarios, never with unit tests.
+- Timebox 45 min, effort medium. One or two failure clusters per lane; the brief names the refusal code and the owning file/function — start there.
+- Report <=12 lines; exact patch + sha256; no pushes.
+- CC rejects any patch whose command log ran another pytest (work/lanes/check-lane-log.sh).
+- All scratch/temp/basetemp goes under C:\seldon\tests\<lane> (add it with --add-dir). Never create folders at the C:\ root or under ~\t.
+Report ../recovery-1-report.md; patch ../recovery-1.patch + sha256. Scratch: C:\seldon\tests\recovery-1.

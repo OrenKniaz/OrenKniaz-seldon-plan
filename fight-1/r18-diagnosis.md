@@ -1,0 +1,30 @@
+CHARTER: serves C1/C4/C18/C23; diagnosis only, no edits.  
+**TRIAGE: DESIGN — a generic mutation envelope turns structural validation failures into semantic questions without supplying their subjects.** Last proven transition: A granted, event **87**. Next unproven transition: persist the detailed plan.
+
+Source links below use the requested `semantic-cc` checkout; the cited causal code matches `a3f1e2e`. Event IDs refer to the slot’s read-only `plan.sqlite3`.
+
+1. **Which question, and who answered?**  
+   Final loop-question **384**: family **`direction`**, purpose **`Supply known member id, disposition and nonempty resolution`**; judgment **`ed2ddaf9d4d34d73b84485941d6b64ae`**.  
+   Internal **planner** `codex / gpt-6.1-sol / medium` answered—not the internal judge or outer chat planner. Event **390** records the invocation; **392–394** record its `ask_user` answer; **395** creates the clarification. Role selection follows [run_questions.py:51](/~/codex-harness/work/sprint-20261027/semantic-cc/src/codex_harness/core/run_questions.py:51).
+   Exact supplied facts: context **`{"jobId":null,"observation":null,"publicationRevision":null}`**; subjectRefs contained complete **`V1`** and **`REVIEWERS_63ac472ab297478a93b2b430aef1845c`** nodes; evidenceRefs **`[]`**; sourceRefs were **87** (A confirmation, quoted `"yes"`, unverified chat provenance) and **384** (question/schema/context). Candidate was null.  
+   It supplied **no finding member, rejected payload, failed relationship, or prior repair direction**. Assembly: [run_questions.py:77](/~/codex-harness/work/sprint-20261027/semantic-cc/src/codex_harness/core/run_questions.py:77).
+
+2. **Why was the target missing; which CODE owner?**  
+   **There was no legitimate finding member awaiting disposition.** The model used `content.findings` to *report* a planning defect, but that field calls **`resolve_findings`**, which expects existing member dispositions: [run_content.py:73](/~/codex-harness/work/sprint-20261027/semantic-cc/src/codex_harness/core/run_content.py:73), [plan_acceptance.py:594](/~/codex-harness/work/sprint-20261027/semantic-cc/src/codex_harness/core/plan_acceptance.py:594).
+   Latest chain: trace question **359** → graph rejection **367/375**, `"Invalid parent kind for R_ACCEPTANCE"` → response **382** reports that defect as `{node_id:"R_ACCEPTANCE",severity:"blocker",finding:...,suggestion:...,resolved:false}` → **383** rejects it with the member-disposition error.
+   **`run_loop._record_answer → _steering` owns the loss:** it forwards only `result["error"]`, then constructs the three-null context, dropping failed request/payload/diagnostics: [run_loop.py:171](/~/codex-harness/work/sprint-20261027/semantic-cc/src/codex_harness/core/run_loop.py:171), [run_loop.py:40](/~/codex-harness/work/sprint-20261027/semantic-cc/src/codex_harness/core/run_loop.py:40).
+   CODE should distinguish authoring failure from disposition work; for genuine disposition work it must supply the canonical member. Asking the user to choose `V1` cannot repair this mismatch.
+
+3. **Why do reviewer-selection nodes remain after fix17?**  
+   **Intentional canonical writer, not leftover planner negotiation.** `run_setup.initialize` calls `select_reviewers`; that writer materializes the code-selected decision from frozen kickoff/defaults: [run_setup.py:22](/~/codex-harness/work/sprint-20261027/semantic-cc/src/codex_harness/core/run_setup.py:22), [run_setup.py:130](/~/codex-harness/work/sprint-20261027/semantic-cc/src/codex_harness/core/run_setup.py:130). Event **3** created it.
+   Fix17 removed structural *negotiation*, not the stored selection consumed by review. The packet mentions it because question preparation indiscriminately captures all spine IDs.
+
+4. **Why repeat; same packet; no-progress rule?**  
+   Questions **225, 314, 384** have the same family/purpose/context, identical subject-node revisions, empty evidence, and A event **87**. Request IDs, bindings and question-event metadata differ; **the substantive facts are unchanged**.
+   The outer planner supplied corrective direction in **242**, but later questions reference **87 plus their own question event**, omitting that repair. Planning payloads failed and were rolled back: [plan_judgments.py:201](/~/codex-harness/work/sprint-20261027/semantic-cc/src/codex_harness/core/plan_judgments.py:201).
+   C4 bounds retries **per request**; exhaustion creates another steering request with a fresh allowance. Events **121→147→173→199→225** demonstrate this recursion. There is **no cross-request semantic-progress guard**: [plan_judgments.py:211](/~/codex-harness/work/sprint-20261027/semantic-cc/src/codex_harness/core/plan_judgments.py:211). Final `WAIT_USER` stops automatic invocation; the repetition is renewed steering, not polling one unchanged request.
+
+5. **One rule; does Stage 2e cover it?**  
+   **CODE asks only an answerable, purpose-specific question: it supplies canonical targets, relevant failure evidence and the matching answer schema; structural recovery never asks the user to invent internal identity.** Siblings: clarification answers, assumption confirmation, graph parent links, finding creation versus resolution.
+   Stage 2e already covers this architecturally: separate disposition question ([brief:27](/~/codex-harness/work/ladder/design-review/astra-2e-brief-full.md:27)), code-owned IDs (**48**), bounded nonrecursive steering (**49**), sufficient context (**53**), and deletion of the universal envelope (**68**).
+   **No separate feature is needed; explicitly include r18 as an acceptance case.** Schema enforcement alone cannot supply missing facts. Require graph-error recovery with the rejected relationship/allowed links, forbid disposition questions without a canonical member, and prove failed steering cannot recursively restart the same unresolved question.

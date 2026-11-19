@@ -1,0 +1,8 @@
+CHARTER: serves C8/C14/C18/C23/C24/C26 — violates no I#; no new features or product-acceptance claim.
+TRIAGE: BUG — unchanged UX6 S4 runner/deadline ERROR; siblings S1-S3 PASS; timing cause unestablished. Stopped per assignment; owner semantic_runner/timing.
+BASE: 05917ca5fe1113645a108e3c0d05d21c39fdc3ec (import 0e06813); approved consent1 SHA256 b7e4c1d090abb3207e1df5e188c3fd4e676691bc56924e6efe6e5f50a6c4eae3, review5 APPROVE.
+CONFLICTS: golden keeps exec3 incomplete-candidate recovery/owned headless preview and rvshape1 first-try examples plus consent1; ordered Build verifier ownership preserves fault/repair; WHAT/HOW example uses existing generator. All audit rows retained; actual ceiling 34844 -> 34804.
+PROD: +168/-205 (net -37); TEST: +360/-50; suite ceiling 19 -> 19; no new test files/unit tests. Main higher-timeout and consent1 changed-model assertions both retained.
+GATES: focused CLI GREEN 464.21s (before final fixture-only Unicode/retained-timeout edit); focused web RED 171.63s, headless preview 5.96s. FINAL_TESTS_GREEN=false; full gate NOT RUN (0/2), stop-on-timing instruction; no retry.
+EVIDENCE/RISK: C:/seldon/tests/stage-int4/{cli,web}.log. S4 inner Job quiescent=true/remaining=0; outer acceptance quiescence=UNVERIFIED. Next: runtime-owner diagnosis then authorized quiet-machine final gate. Scripted-provider only; no real-provider/ladder, commit/push or screen/window control.
+PATCH: ../stage-int4.patch; SHA256 d42f82fbe942c0eb3fb6a7b56f6aa4cb6dbd636cbd219833b457c6379ff14261 (../stage-int4.patch.sha256); diff-check/reverse-apply-check PASS; integration BLOCKED pending final full GREEN.

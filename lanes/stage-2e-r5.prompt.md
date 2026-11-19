@@ -1,0 +1,9 @@
+CC (delivery lead) — round 5, final port. Answers to your question: yes, one more fresh gate is granted, but CC runs the authority gate itself; you run focused checks only.
+
+Context: recov1 was finalized after your base (Seldon 144d6ed). Final Seldon main is 4e2c055 (sweep1 676e26b + recov1 4e2c055, approved patch b896df64). CC created a new lane: ~/codex-harness/work/lanes/stage-2e3 (base commit "base 4e2c055 golden-only") and applied your approved patch ef03f1aa with --reject. Production and all other hunks applied cleanly. Three hunks in tests/python/core/test_golden_path.py were rejected (see tests/python/core/test_golden_path.py.rej) — they overlap recov1's final recovery twins (write-ahead launch certainty: entered-without-outcome HOLD, not-entered readmit, denial zero readmissions).
+
+Do:
+1. Resolve the 3 rejects in stage-2e3 so BOTH hold: recov1's final twins/assertions exactly as in 4e2c055, and your ef03 consolidation (moved proofs, gate-chain, worker placement). Do not touch src/codex_harness/core/planner_recovery.py, planner_jobs.py, plan_store.py, record_io.py or run_loop._recover (recov1-owned). Delete the .rej file.
+2. QUIET HOST: do NOT run any pytest until the file C:/seldon/tests/2e3/GO exists (CC creates it when its publish gate finishes). Poll for it with a short loop (check every 60s, up to 90 minutes). Read-only inspection is fine meanwhile.
+3. After GO: run only the recovery twins and the ShelfLife journey standalone (focused), basetemp under C:/seldon/tests/2e3. No full gate.
+4. Write stage-2e3.patch (git diff of all changes vs lane base) + stage-2e3.patch.sha256 in work/lanes, update stage-2e2-report.md with a short "Round 5 port" section (rejects resolved how, focused timings). Final message: patch SHA, focused results, one line per resolved hunk. No commit/push, no screen control, NO LANE-LOCAL SHAS.

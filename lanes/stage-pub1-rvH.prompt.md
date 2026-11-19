@@ -1,0 +1,8 @@
+Independent review (Sol high, read-only; do not run tests or edit). Exact patch: ~/codex-harness/work/lanes/stage-pub1-af0e0cd6.patch — verify SHA256 af0e0cd6d224f23b4f3e494e16acbd48f206e1dafcb4bf7fd5802f30be8d39d7 first. Base = Seldon GitHub main aee12fe (~/codex-harness/work/sprint-20261027/semantic-cc). Applied tree: lanes/stage-pub1. Spec: work/ladder/design-review/partial-publication-audit.md; brief lanes/stage-pub1.prompt.md + stage-pub1-r2.prompt.md; report lanes/stage-pub1-report.md. Charter CHARTER.md (C2/C14/C18/C23/C26; I1/I6/I9).
+Check (P1/P2 with file:line only):
+1. Rule actually holds: each covered fact (admission binding, segment outcome+cleanup, revalidation consumption, validation/delivery selection) has ONE owner publishing a terminal identity-bound outcome LAST; no remaining reader infers completion from an intermediate record or root mirror; crash between any two writes leaves "pending", never a wrong claim or a permanent stall.
+2. recov1 semantics preserved: write-ahead launch certainty, entered-without-outcome HOLD, denial zero readmissions, two-recovery bound across amendments/generations, _recover sole decider.
+3. The revalidation change: execution verdicts advance only an active JUDGE cursor; can a legitimate verdict now be dropped or can a stale one still advance/bypass a renewed B? Any double consumption after interruption?
+4. Delivery: VALIDATED never implies delivery; pointer identity checks (runId, candidate root, hash map) intact; C cannot bind to a partially published candidate.
+5. Simplicity: new state, duplicated truth, compensating code; net src −4 vs audit estimate; tests behavior-only, no weakened assertions or unit tests.
+Output: first line VERDICT APPROVE|REJECT; CHARTER/TRIAGE/SIMPLEST lines; ≤12 bullets.

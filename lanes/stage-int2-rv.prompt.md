@@ -1,0 +1,6 @@
+NARROW INTEGRATION REVIEW (read-only; you are not the author). This folder = lane tree: base 019055a = Seldon main 015dcda (Stage 2a + exec1 + 2a2, all independently approved). Candidate = `git diff 019055a` (= ../stage-int2.patch, SHA256 e82ba79dd34b59d161aa91172d745e4a890187aba077be35f97f2c0488df1f18) = two independently APPROVED lane patches (../stage-2b.patch budgets deleted, ../stage-2d.patch bounded lifetimes; reviews ../stage-2b-review2.md, ../stage-2d-review2.md) re-applied with conflict resolution. Report: ../stage-int2-report.md.
+Do NOT re-review 2b/2d design. Check ONLY whether conflict resolution dropped or weakened an approved authority rule from any side:
+- main: finding_state single owner; ordered prerequisite (run recovery → bound dispositions → C); C requires current review/run binding; no lineage credit; exec1 trace-based RED, one-build admission, exact hashed test bundle.
+- 2b: whole-reviewer preflight before any launch (roundtable + readiness); launch checks via planner_jobs.verify_job / attempt_provenance.
+- 2d: release/quarantine without late credit; per-bead recovery counts then 1j steering; stale-product recheck before scenarios.
+First line `VERDICT: APPROVE | REJECT`. ≤15 lines, file:line + what was lost. No files changed, no tests run.

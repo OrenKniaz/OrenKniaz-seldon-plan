@@ -1,0 +1,6 @@
+FINAL ROUND (timebox 45 min; if not done, stop and report — remainder moves to Stage 2e). Independent re-review #3 REJECTED f6c40795 (../stage-fix17-reviewH3.md), authority otherwise improved:
+P1 Copied judgment status remains: run_questions.py:60 embeds the full judgment in the cursor; status_api.py:25 returns it unchanged → a closed request can still be advertised as outstanding. Store ONLY the judgment/request ID in the cursor; presentation (status/baton) and consumption both read the current canonical disposition; a closed one is never shown as outstanding. Delete the copy — no sync code, no cache.
+Extend the closed-request twin (test_golden_path.py ~:2800) to assert status/baton presentation too (outcome-only).
+P2 Report row "Actual user words"/IDs: acknowledge the retained I10 gap — run_content.py:16 / planner_nodes.py:20 still take planner-supplied node IDs (owned by 2e). Do not fix in this lane.
+Then full gate, regenerate patch + sha256, update report. HOST gate result on the previous tree will be appended below if it arrives first.
+HOST GATE on f6c40795 tree (authority): GREEN — CLI 18 passed/609s (host loaded by a parallel lane), web PASS/225s. The race is fixed; keep that behavior while removing the copy.

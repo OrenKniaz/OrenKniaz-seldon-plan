@@ -1,0 +1,97 @@
+{
+  "id": "linecount",
+  "kind": "cli",
+  "message": "Build LineCount in linecount.py using Python stdlib. Read UTF-8 stdin, print JSON with lines and nonempty_lines. Count a final unterminated line; whitespace-only lines are empty. Empty input gives zero. Invalid UTF-8 exits 1 with a useful stderr message and no stdout. --help exits 0 without reading input.",
+  "profile": {
+    "audience": "Developers inspecting text pipelines",
+    "care": "Predictable newline handling",
+    "tone": "concise, practical, predictable",
+    "colours": "no terminal colour",
+    "fonts": "system fonts only",
+    "sections": "help, examples, concise diagnostics",
+    "platform": "local Windows and Python 3 stdlib for CLI; modern desktop/mobile browser for web",
+    "defaults": "Smallest solution described; no accounts, network, deployment or paid assets. Ask before scope or budget changes."
+  },
+  "files": [
+    "linecount.py"
+  ],
+  "oracle": [
+    {
+      "name": "empty",
+      "type": "cli",
+      "argv": [],
+      "stdin_b64": "",
+      "exit": 0,
+      "stdout": {
+        "json": {
+          "lines": 0,
+          "nonempty_lines": 0
+        }
+      },
+      "stderr": {
+        "exact": ""
+      }
+    },
+    {
+      "name": "unterminated-whitespace",
+      "type": "cli",
+      "argv": [],
+      "stdin_b64": "YQogCQpsYXN0",
+      "exit": 0,
+      "stdout": {
+        "json": {
+          "lines": 3,
+          "nonempty_lines": 2
+        }
+      },
+      "stderr": {
+        "exact": ""
+      }
+    },
+    {
+      "name": "crlf",
+      "type": "cli",
+      "argv": [],
+      "stdin_b64": "YQ0KDQo=",
+      "exit": 0,
+      "stdout": {
+        "json": {
+          "lines": 2,
+          "nonempty_lines": 1
+        }
+      },
+      "stderr": {
+        "exact": ""
+      }
+    },
+    {
+      "name": "invalid-utf8",
+      "type": "cli",
+      "argv": [],
+      "stdin_b64": "/w==",
+      "exit": 1,
+      "stdout": {
+        "exact": ""
+      },
+      "stderr": {
+        "not_empty": true
+      }
+    },
+    {
+      "name": "help-with-open-stdin",
+      "type": "cli",
+      "argv": [
+        "--help"
+      ],
+      "stdin_b64": "",
+      "exit": 0,
+      "stdout": {
+        "not_empty": true
+      },
+      "stderr": {
+        "exact": ""
+      },
+      "stdin_open": true
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+TRIAGE FAULT SELDON — supplied source has no gate-A ask/options; the five-wave journey remains RED, not accepted.
+DESIGN — label answers and restart-safe scripts, five-wave kill/failure/question journey, Quiet Bench black-box oracle; four §2 timing/intent signals unknown; live oracle, legacy fixture and craft unverified.
+Removed: model-backed simulated owner and two-answer ceiling; ladder fixed brief count and closed-key refusal. Existing scale coverage retained until its replacement runs.
+Files (9): scripts/gate.sh; tests/seldon/{test_journey.py,scale_journey.py,real_hello.py,run_report.py}; work/ladder/{ladder.py,oracle.py,quietbench_oracle.py,briefs/L3/4-quietbench.json}.
+Src lines 4199 -> 4199; cases 44 -> 45; base ca7ebeb (requested 2946398 absent). Gate scratch suffix honors rig-1. No src edits, real providers, commits or .env reads.
+PROOF: bash scripts/gate.sh rig ONCE, venv first: 44 passed / 1 failed, 489.96s; only new scale fails on missing ask. Post-gate test-only report/fixture/guide fixes: affected question journey 1 passed, 12.17s; syntax checked; no re-gate.
+DELIVER: ~/codex-harness/work/lanes/rig.patch + rig-report.md; external Quiet Bench brief/oracle updated. Lead must integrate wave/options producers, run the blocked journey and validate the oracle on a real product.
+Plain-Terra baseline (UNRUN, same brief): `New-Item -ItemType Directory -Force C:/seldon/tests/rig-3/plain-quietbench | Out-Null; Get-Content -Raw ~/codex-harness/work/ladder/briefs/L3/4-quietbench.json | codex exec --model gpt-6.1-terra -c 'model_reasoning_effort="medium"' --sandbox workspace-write --skip-git-repo-check -C C:/seldon/tests/rig-3/plain-quietbench --json - > C:/seldon/tests/rig-3/plain-terra.jsonl`

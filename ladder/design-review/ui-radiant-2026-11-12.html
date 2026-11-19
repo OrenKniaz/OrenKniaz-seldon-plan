@@ -1,0 +1,905 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Seldon · Prime Radiant (design mockup 2026-11-12)</title>
+<style>
+/* Seldon read-only run page. Mockup: self-contained, no external requests. Charter C20: this page only shows. */
+:root{
+  --serif:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+  --sans:"Segoe UI Variable Text","Segoe UI",system-ui,-apple-system,"Helvetica Neue",sans-serif;
+  --mono:"Cascadia Code","Cascadia Mono",Consolas,"SF Mono",ui-monospace,monospace;
+}
+#root{
+  --bg:#070b14;--bg2:#0a101c;--s1:#0d1422;--s2:#121b2d;--line:rgba(232,178,90,.15);--line2:rgba(232,178,90,.34);
+  --ink:#efe7d6;--dim:#aaa18d;--faint:#8a8272;--amber:#e8b25a;--gold:#ffd98a;--core:#fff6dc;--glow:#ffc861;
+  --mule:#e868ab;--fail:#ff8a70;--cool:#86b9da;--shadow:rgba(0,0,0,.55);
+  color-scheme:dark;
+}
+#root.light{
+  --bg:#f5eedf;--bg2:#efe6d3;--s1:#fbf6ea;--s2:#f1e8d4;--line:rgba(122,78,8,.2);--line2:rgba(122,78,8,.45);
+  --ink:#2a2013;--dim:#5c503d;--faint:#6f624b;--amber:#925400;--gold:#7a4200;--core:#4a2600;--glow:#f2a11c;
+  --mule:#a81c66;--fail:#b83312;--cool:#2a6890;--shadow:rgba(80,50,0,.22);
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0}
+body{background:#03050a;font:14px/1.5 var(--sans);-webkit-font-smoothing:antialiased}
+#root{height:100%;background:var(--bg2);color:var(--ink)}
+button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer;text-align:left}
+button:focus-visible,[tabindex]:focus-visible,summary:focus-visible,select:focus-visible,input:focus-visible{outline:2px solid var(--amber);outline-offset:2px;border-radius:4px}
+.shell{height:100%;display:flex;justify-content:flex-end}
+.hint{flex:1;display:flex;flex-direction:column;justify-content:center;padding:0 9vw;color:var(--faint);min-width:0}
+.hint h1{font:400 30px/1.25 var(--serif);color:var(--dim);margin:0 0 14px;max-width:17em}
+.hint p{margin:0 0 6px;font-size:13px;max-width:36em}
+.hint kbd{font:11px var(--mono);border:1px solid var(--line2);border-radius:4px;padding:1px 5px;color:var(--dim)}
+.frame{position:relative;width:400px;max-width:100%;height:100%;background:var(--bg);border-left:1px solid var(--line);overflow:hidden;display:flex;flex-direction:column}
+.full .frame{width:100%;border:0}.full .hint{display:none}
+@media (max-width:760px){.hint{display:none}.frame{width:100%;border:0}}
+
+/* ---------- app ---------- */
+.app{flex:1;min-height:0;overflow-y:auto;overflow-x:hidden;scrollbar-width:thin;scrollbar-color:var(--line2) transparent}
+.hd{padding:14px 16px 12px;background:radial-gradient(120% 140% at 50% -40%,color-mix(in srgb,var(--glow) 9%,transparent),transparent 70%)}
+.hd-top{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.mark{font:600 10.5px var(--mono);letter-spacing:.32em;color:var(--amber)}
+.mark i{font-style:normal;color:var(--faint);letter-spacing:.08em;margin-left:8px;font-weight:400}
+.tools{margin-left:auto;display:flex;gap:4px}
+.tool{min-width:30px;height:26px;padding:0 7px;border:1px solid var(--line);border-radius:13px;font:11px var(--mono);color:var(--dim);text-align:center}
+.tool:hover{border-color:var(--line2);color:var(--ink)}.tool[aria-pressed=true]{color:var(--amber);border-color:var(--line2)}
+.dream{font:400 30px/1.1 var(--serif);letter-spacing:.005em;margin:0}
+.vis{color:var(--dim);font-size:13px;margin:5px 0 14px;max-width:46em}
+.jb-track{position:relative;height:2px;background:var(--line);border-radius:2px;margin:0 2px}
+.jb-track i{position:absolute;left:0;top:0;bottom:0;background:linear-gradient(90deg,var(--amber),var(--gold));border-radius:2px;box-shadow:0 0 10px var(--glow);transition:width .8s ease}
+.jb-track b{position:absolute;top:50%;width:9px;height:9px;margin:-4.5px;border-radius:50%;background:var(--core);box-shadow:0 0 0 2px var(--bg),0 0 14px 2px var(--glow);transition:left .8s ease}
+.jb-track u{position:absolute;top:-3px;width:1px;height:8px;background:var(--line2)}
+.jb-st{display:grid;grid-template-columns:repeat(4,1fr);margin-top:7px;font:10.5px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--faint)}
+.jb-st .done{color:var(--dim)}.jb-st .on{color:var(--gold)}
+.where{margin-top:10px;font:400 17px/1.3 var(--serif)}
+.where em{color:var(--dim);font-size:15px}
+.now{margin-top:6px;display:grid;grid-template-columns:38px 1fr;gap:2px 8px;font-size:12.5px}
+.now dt{font:10px/1.9 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--faint)}
+.now dd{margin:0;color:var(--dim)}.now dd.k{color:var(--ink)}
+.health{display:inline-flex;gap:6px;align-items:center;margin-top:8px;font-size:12px;color:var(--mule);border:1px solid color-mix(in srgb,var(--mule) 45%,transparent);border-radius:12px;padding:2px 10px}
+.band{margin-top:12px;border-radius:10px;padding:9px 12px;font-size:12.5px;color:var(--dim);border:1px solid var(--line);display:flex;gap:8px;align-items:center}
+.band.calm{border:0;padding:0;margin-top:10px}
+.band.calm::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--dim);opacity:.6}
+.band.crisis{display:block;border:1px dashed var(--amber);background:color-mix(in srgb,var(--amber) 7%,transparent);color:var(--ink);padding:12px 14px;animation:crisis 3.2s ease-in-out infinite}
+.band.term{border-color:var(--gold);color:var(--ink);box-shadow:0 0 22px -6px var(--glow)}
+.eyebrow{display:flex;flex-wrap:wrap;gap:2px 8px;align-items:baseline;font:600 10.5px var(--mono);letter-spacing:.2em;text-transform:uppercase;color:var(--amber)}
+.eyebrow .pn{font:400 11.5px var(--sans);letter-spacing:0;text-transform:none;color:var(--dim)}
+.band h3{font:400 18px/1.25 var(--serif);margin:5px 0 4px}
+.band p{margin:0 0 8px;color:var(--dim)}
+.say{display:flex;flex-wrap:wrap;gap:6px;align-items:center;font-size:12px;color:var(--dim)}
+.say code{font:12px var(--mono);color:var(--gold);border:1px solid var(--line2);border-radius:5px;padding:2px 7px;user-select:all;background:var(--bg)}
+.say small{flex-basis:100%;color:var(--faint)}
+
+.tabs{position:sticky;top:0;z-index:5;display:flex;gap:2px;padding:0 10px;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(8px);border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow-x:auto;scrollbar-width:none}
+.tab{padding:10px 7px 9px;font:11px var(--mono);letter-spacing:.07em;text-transform:uppercase;color:var(--faint);border-bottom:2px solid transparent;white-space:nowrap}
+.tab[aria-selected=true]{color:var(--gold);border-color:var(--amber)}
+.tab sup{font-size:9px;color:var(--amber);margin-left:3px}
+.view{display:none;padding:18px 16px 40px}
+.view.on{display:block}
+.vh{margin:0 0 14px}
+.vh .tn{display:block}.vh .tn,.vh .pt{font:400 23px/1.15 var(--serif)}
+.vh .pn{display:block;color:var(--dim);font-size:12.5px;margin-top:2px}
+.pt{display:none}
+.plain .tn,.plain .pn{display:none!important}.plain .pt{display:revert}.plain .vh .pt{display:block}
+.plain .eyebrow .pt{display:inline}
+.h3{font:600 10.5px var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--faint);margin:22px 0 8px;display:flex;gap:8px;align-items:baseline}
+.h3 b{color:var(--amber);font-weight:600}
+.empty{color:var(--faint);font:italic 14px var(--serif);padding:6px 0}
+
+/* ---------- ladder dots (one vocabulary everywhere) ---------- */
+.d{display:inline-block;width:9px;height:9px;border-radius:50%;border:1.5px solid var(--amber);flex:none;vertical-align:middle}
+.d.lv0{border-style:dashed}.d.lv1{opacity:.45}.d.lv2{opacity:.85}
+.d.lv3{background:radial-gradient(var(--amber) 0 30%,transparent 36%)}
+.d.lv4{background:color-mix(in srgb,var(--amber) 40%,transparent)}
+.d.lv5{background:color-mix(in srgb,var(--amber) 68%,transparent)}
+.d.lv6{background:var(--amber)}
+.d.lv7{background:var(--gold);border-color:var(--gold);box-shadow:0 0 8px var(--glow)}
+.d.lv8{background:var(--core);border-color:var(--gold);box-shadow:0 0 0 2px var(--bg),0 0 0 3px var(--gold),0 0 12px 1px var(--glow)}
+.d.lvx{opacity:.22;border-style:dotted}
+.d.ov-blocked{border-color:var(--mule);background:var(--mule);border-radius:1px;transform:rotate(45deg);box-shadow:0 0 8px var(--mule)}
+.d.ov-failing{border-color:var(--fail);background:color-mix(in srgb,var(--fail) 35%,transparent)}
+.d.proxy{box-shadow:0 0 0 2px var(--bg),0 0 0 3px var(--faint)}
+
+/* ---------- the Radiant ---------- */
+.map-top{display:flex;align-items:flex-start;gap:10px}
+.map-top .vh{margin:0;flex:1}
+.seg{display:flex;border:1px solid var(--line);border-radius:14px;overflow:hidden;flex:none}
+.seg button{padding:4px 10px;font:10.5px var(--mono);letter-spacing:.06em;color:var(--faint)}
+.seg button[aria-pressed=true]{background:color-mix(in srgb,var(--amber) 14%,transparent);color:var(--gold)}
+.map{position:relative;aspect-ratio:1/1;margin:6px -8px 0}
+.map svg{display:block;width:100%;height:100%;overflow:visible}
+.orb{fill:none;stroke:var(--amber);stroke-opacity:.14;stroke-width:1;transition:rx .7s ease,ry .7s ease}
+.tick{stroke:var(--amber);stroke-opacity:.22;stroke-width:1}
+.star{fill:var(--ink);opacity:.22}
+.light .star{opacity:.12}
+.rad{transition:opacity 1.2s ease}
+.e{fill:none;stroke:var(--amber);stroke-width:1;opacity:0;stroke-dasharray:1;stroke-dashoffset:1;transition:opacity .7s ease,stroke-dashoffset 1.1s ease,d .7s ease,stroke .7s}
+.e.on{stroke-dashoffset:0}
+.e.l0{opacity:.5;stroke-dasharray:.035 .035}.e.l1{opacity:.16}.e.l2{opacity:.26}.e.l3{opacity:.34}.e.l4{opacity:.46}.e.l5{opacity:.56}.e.l6{opacity:.7}
+.e.l7{opacity:.9;stroke:var(--gold)}.e.l8{opacity:1;stroke:var(--gold);stroke-width:1.5}
+.e.sup{stroke-dasharray:.02 .03}
+.ctr{fill:none;stroke:var(--cool);stroke-width:1;opacity:0;stroke-dasharray:2 4;transition:opacity .7s,d .7s}
+.ctr.on{opacity:.3}.ctr.on.fixed{opacity:.6;stroke-dasharray:1 3}
+svg.nt *{transition:none!important}
+.n{cursor:pointer;transition:transform .7s cubic-bezier(.3,.7,.2,1),opacity .6s;outline:none}
+.n.off{opacity:0;pointer-events:none}
+.n .halo{opacity:0;transition:opacity .9s;pointer-events:none}
+.n .core{fill:var(--amber);fill-opacity:0;stroke:var(--amber);stroke-width:1.4;transition:fill .7s,fill-opacity .7s,stroke .7s,stroke-opacity .7s}
+.n .crown,.n .rays,.n .ping,.n .selr{fill:none;opacity:0;pointer-events:none}
+.n .crown{stroke:var(--gold);stroke-width:1;transition:opacity .8s}
+.n .rays{stroke:var(--gold);stroke-width:1.2;stroke-linecap:round;transition:opacity .9s}
+.n .ping{stroke:var(--gold);stroke-width:1.5;transform-box:fill-box;transform-origin:center}
+.n .selr{stroke:var(--ink);stroke-width:1;stroke-dasharray:2 3}
+.n.sel .selr{opacity:.9}
+.n.lv0 .core{stroke-dasharray:3 3;stroke-opacity:.95;animation:spin 14s linear infinite;transform-box:fill-box;transform-origin:center}
+.n.lv1 .core{stroke-opacity:.42}
+.n.lv2 .core{stroke-opacity:.85}
+.n.lv3 .core{fill-opacity:.2}
+.n.lv4 .core{fill-opacity:.42;animation:breathe 2.6s ease-in-out infinite}.n.lv4 .halo{opacity:.22}
+.n.lv5 .core{fill-opacity:.7}.n.lv5 .halo{opacity:.28}
+.n.lv6 .core{fill-opacity:1}.n.lv6 .halo{opacity:.42}
+.n.lv7 .core{fill:var(--gold);stroke:var(--gold);fill-opacity:1}.n.lv7 .halo{opacity:.8}
+.n.lv8 .core{fill:var(--core);stroke:var(--gold);fill-opacity:1}.n.lv8 .halo{opacity:1}.n.lv8 .crown{opacity:1}
+.n.k-vision.lv6 .rays{opacity:.4}.n.k-vision.lv7 .rays{opacity:.75}.n.k-vision.lv8 .rays{opacity:1}
+.n.proxy .crown{opacity:.8;stroke:var(--faint);stroke-dasharray:2 3}
+.n.new .ping{animation:ping 1.3s ease-out 1}
+.n.up .ping{animation:ping 1s ease-out 1}
+.n .mk{opacity:0;transition:opacity .4s}
+.n.ov-blocked .mk{opacity:1;fill:var(--mule)}
+.n.ov-failing .mk{opacity:1;fill:var(--fail)}
+.n.ov-gap .mk{opacity:1;fill:var(--bg);stroke:var(--dim);stroke-width:1.2}
+.n.k-unit.ov-blocked .core{fill:var(--mule);stroke:var(--mule);fill-opacity:.85}.n.k-unit.ov-blocked .halo{opacity:.0}
+.n.k-unit.ov-failing .core{stroke:var(--fail)}
+.n .sg{fill:none;stroke:var(--amber);stroke-width:2.2;stroke-opacity:.14;transition:stroke .7s,stroke-opacity .7s}
+.n .sg.s4{stroke-opacity:.45}.n .sg.s5{stroke-opacity:.65}.n .sg.s6{stroke-opacity:1}.n .sg.s7,.n .sg.s8{stroke:var(--gold);stroke-opacity:1}
+.n .sg.sb{stroke:var(--mule);stroke-opacity:1}
+.n text{font:11px var(--sans);fill:var(--dim);paint-order:stroke;stroke:var(--bg);stroke-width:4px;stroke-linejoin:round;pointer-events:none;transition:opacity .5s}
+.n text.t-cap{font:14px var(--serif);fill:var(--ink)}
+.n text.t-vis{font:16px var(--serif);fill:var(--ink)}
+.n text.t-id{font:9.5px var(--mono);fill:var(--faint)}
+.n text.t-sub{font:10px var(--mono);fill:var(--amber)}
+.n text.hid{opacity:0}.n:hover text.hid,.n:focus text.hid,.n.sel text.hid{opacity:1}
+svg.dimmed .n:not(.rel){opacity:.22}svg.dimmed .n.off{opacity:0}svg.dimmed .e:not(.rel){opacity:.06}
+.vmo{position:absolute;inset:0;display:none;flex-direction:column;align-items:center;justify-content:center;pointer-events:none;text-align:center;background:radial-gradient(closest-side,color-mix(in srgb,var(--bg) 88%,transparent),transparent)}
+.vmo.on{display:flex;animation:vfade 3s ease both}
+.mono-g{width:46px;height:104px;border:1px solid var(--gold);background:linear-gradient(90deg,var(--s2) 0 calc(50% - var(--seam,1px)),var(--core) calc(50% - var(--seam,1px)) calc(50% + var(--seam,1px)),var(--s2) calc(50% + var(--seam,1px)));box-shadow:0 0 40px -4px var(--glow);position:relative}
+.vmo.on .mono-g::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent 0 35%,var(--core) 50%,transparent 65% 100%);transform:scaleX(.04);opacity:.95;animation:seam 3s ease both}
+.vmo.star .mono-g{width:14px;height:14px;border-radius:50%;background:var(--core);border:0;box-shadow:0 0 0 6px var(--bg),0 0 0 7px var(--gold),0 0 70px 14px var(--glow)}
+.vmo.star .mono-g::after{display:none}
+.vmo b{font:400 24px var(--serif);margin-top:16px;color:var(--ink)}
+.vmo span{font-size:12.5px;color:var(--dim)}
+.map-bot{display:flex;align-items:flex-end;gap:12px;margin-top:2px}
+.pct{font:400 40px/1 var(--serif);color:var(--gold);font-variant-numeric:tabular-nums}
+.pct small{font:11px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--dim);margin-left:6px}
+.pct-s{font:11px var(--mono);color:var(--faint);margin-top:5px}
+.key{margin-left:auto;font-size:11.5px;color:var(--dim);max-width:230px}
+.key summary{list-style:none;cursor:pointer;display:flex;gap:4px;align-items:center;justify-content:flex-end;font:10.5px var(--mono);letter-spacing:.08em;color:var(--faint)}
+.key summary::-webkit-details-marker{display:none}
+.key ul{list-style:none;margin:8px 0 0;padding:10px 12px;border:1px solid var(--line);border-radius:8px;background:var(--s1)}
+.key li{display:flex;gap:8px;align-items:center;padding:1.5px 0}
+.caplist{margin-top:18px;border-top:1px solid var(--line)}
+.cap-row{display:grid;grid-template-columns:1fr auto;gap:2px 10px;width:100%;padding:12px 2px;border-bottom:1px solid var(--line)}
+.cap-row:hover .cap-t{color:var(--gold)}
+.cap-t{font:400 16.5px/1.25 var(--serif)}
+.cap-p{font:12px var(--mono);color:var(--gold);align-self:center}
+.lad{display:flex;gap:5px;align-items:center;flex-wrap:wrap;padding:5px 0 2px}
+.cap-s{grid-column:1/-1;font-size:12px;color:var(--dim)}
+
+/* ---------- crew + board ---------- */
+.crew{display:grid;gap:6px}
+.chip{display:grid;grid-template-columns:auto 1fr auto;gap:0 10px;align-items:center;width:100%;padding:9px 12px;border:1px solid var(--line);border-radius:10px;background:var(--s1)}
+.chip.stuck{border-color:var(--mule)}
+.chip .pv{grid-row:1/3;width:26px;height:26px;border-radius:50%;border:1px solid var(--line2);display:grid;place-items:center;font:600 11px var(--mono);color:var(--amber)}
+.chip .w1{font-size:13.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.chip .w2{font:10.5px var(--mono);color:var(--faint);grid-column:2}
+.chip .el{grid-row:1/3;grid-column:3;font:12px var(--mono);color:var(--dim);text-align:right}
+.chip .el b{display:block;font:600 9.5px var(--mono);letter-spacing:.1em;color:var(--mule)}
+.slots{display:inline-flex;gap:3px;margin-left:auto}.slots i{width:14px;height:4px;border-radius:2px;background:var(--line)}.slots i.on{background:var(--amber);box-shadow:0 0 6px var(--glow)}
+.board{display:grid;gap:4px 12px}
+.col-h{font:600 10.5px var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--faint);margin:20px 0 8px;display:flex;justify-content:space-between;border-bottom:1px solid var(--line);padding-bottom:5px}
+.col-h b{color:var(--dim);font-weight:400}
+.col.act .col-h{color:var(--gold)}
+.kc{display:block;width:100%;padding:10px 12px;margin-bottom:6px;border:1px solid var(--line);border-radius:10px;background:var(--s1)}
+.kc:hover{border-color:var(--line2)}
+.col.act .kc{background:var(--s2);border-color:var(--line2);box-shadow:0 0 24px -14px var(--glow)}
+.kc.you{border:1px dashed var(--amber)}.kc.mule{border-color:var(--mule)}
+.kc-t{display:block;font:400 15.5px/1.25 var(--serif)}
+.kc-m{display:flex;gap:7px;align-items:center;font:10.5px var(--mono);color:var(--dim);margin-top:5px;letter-spacing:.03em}
+.kc-m .st{color:var(--amber)}.kc-m .t{margin-left:auto;color:var(--faint)}
+.kc-s{display:block;font-size:12px;color:var(--dim);margin-top:4px}
+.pips{display:flex;gap:3px;margin-top:7px}.pips i{flex:1;height:2px;border-radius:2px;background:var(--line)}.pips i.on{background:var(--amber)}.pips i.cur{background:var(--gold);box-shadow:0 0 8px var(--glow);animation:breathe 2s infinite}
+.more{font-size:12px;color:var(--faint);padding:2px 0 0}
+.lnk{font:10.5px var(--mono);letter-spacing:.06em;color:var(--amber);border:1px solid var(--line);border-radius:12px;padding:3px 10px;display:none}
+
+/* ---------- waves ---------- */
+.wave{position:relative;padding:14px 14px 14px 16px;margin-bottom:10px;border:1px solid var(--line);border-radius:12px;background:var(--s1)}
+.wave.cur{border-color:var(--line2);background:var(--s2);box-shadow:0 0 34px -18px var(--glow)}
+.wave.sk{border-style:dashed;background:none}.wave.sk .wv-g{color:var(--dim)}
+.wv-n{display:flex;gap:8px;align-items:baseline;font:600 10.5px var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--faint)}
+.wv-n b{color:var(--gold);font-weight:600}
+.wv-g{font:400 18px/1.25 var(--serif);margin:4px 0 8px}
+.wsteps{display:flex;flex-wrap:wrap;gap:2px 6px;font-size:11.5px;color:var(--faint);margin:8px 0 2px}
+.wsteps span.done{color:var(--dim)}.wsteps span.on{color:var(--gold)}.wsteps span+span::before{content:"→ ";opacity:.5}
+.urow{display:grid;grid-template-columns:12px 34px 1fr auto;gap:8px;align-items:center;width:100%;padding:6px 0;border-top:1px solid var(--line);font-size:13px}
+.urow .id{font:10.5px var(--mono);color:var(--faint)}.urow .s{font:10px var(--mono);letter-spacing:.06em;color:var(--dim)}
+.urow:first-of-type{margin-top:8px}
+
+/* ---------- chronicle ---------- */
+.since{font-size:12px;color:var(--gold);margin:-6px 0 12px}
+.cr{position:relative;padding:0 0 18px 26px}
+.cr::before{content:"";position:absolute;left:5px;top:14px;bottom:-4px;width:1px;background:var(--line)}
+.cr:last-child::before{display:none}
+.cr .g{position:absolute;left:0;top:5px}
+.cr time{font:10.5px var(--mono);color:var(--faint);letter-spacing:.04em}
+.cr time b{color:var(--gold);font-weight:400;margin-left:6px}
+.cr p{margin:1px 0 2px;font-size:14px;line-height:1.45}
+.cr .why{font:italic 13.5px/1.45 var(--serif);color:var(--dim)}
+.cr .eyebrow{margin-top:2px}
+.cr.mule p{color:var(--mule)}.cr.mule .eyebrow{color:var(--mule)}
+.chap{font:600 10.5px var(--mono);letter-spacing:.2em;text-transform:uppercase;color:var(--amber);margin:6px 0 14px;display:flex;gap:10px;align-items:center}
+.chap::after{content:"";flex:1;height:1px;background:var(--line)}
+
+/* ---------- proof ---------- */
+.verd{font:400 19px/1.3 var(--serif);margin:0 0 4px}
+.led{border-top:1px solid var(--line);padding:12px 0}
+.led-h{display:flex;gap:10px;align-items:baseline;width:100%}
+.led-h .cap-t{flex:1}
+.rq{display:grid;grid-template-columns:12px 1fr;gap:2px 9px;padding:7px 0 0;width:100%;font-size:13px;align-items:baseline}
+.rq .w{display:block;font:10px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--amber)}
+.rq .w.no{color:var(--faint)}.rq .w.bad{color:var(--fail)}
+.rq .evd{grid-column:2;font:11px/1.5 var(--mono);color:var(--faint);overflow-wrap:anywhere}
+.tr{font:11.5px/1.6 var(--mono);background:var(--s1);border:1px solid var(--line);border-radius:10px;padding:12px 14px;color:var(--dim);white-space:pre-wrap;overflow-wrap:anywhere;margin:0}
+.tr b{color:var(--gold);font-weight:400}
+.gap{border-left:2px solid var(--dim);padding:2px 0 2px 12px;margin:0 0 10px;font-size:13px}
+.gap small{display:block;color:var(--dim);font-size:12px}
+.acc{display:flex;gap:10px;align-items:center;padding:6px 0;font-size:13px}
+
+/* ---------- vault ---------- */
+.vc{display:grid;grid-template-columns:22px 1fr;gap:0 14px;padding:14px 0;border-top:1px solid var(--line)}
+.vc .mono{width:16px;height:44px;border:1px solid var(--line2);background:linear-gradient(90deg,transparent calc(50% - .5px),var(--line2) calc(50% - .5px) calc(50% + .5px),transparent calc(50% + .5px));margin-top:3px}
+.vc.done .mono{border-color:var(--gold);background:linear-gradient(90deg,var(--s2) 0 30%,var(--gold) 50%,var(--s2) 70%);box-shadow:0 0 14px -2px var(--glow)}
+.vc.open .mono{border:1px dashed var(--amber);background:linear-gradient(90deg,transparent 0 20%,var(--core) 50%,transparent 80%);animation:breathe 2.4s infinite}
+.vc.sealed{opacity:.55}
+.vc h4{font:400 18px/1.2 var(--serif);margin:0}
+.vc .by{font:10.5px var(--mono);letter-spacing:.06em;color:var(--dim);margin:3px 0 6px}
+.vc .by .y{color:var(--gold)}.vc .by .p{color:var(--mule)}
+.kv{display:grid;grid-template-columns:54px 1fr;gap:3px 10px;font-size:12.5px;margin:0}
+.kv dt{font:10px/1.9 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--faint)}.kv dd{margin:0;color:var(--dim)}
+
+/* ---------- inspector ---------- */
+.insp{position:absolute;left:0;right:0;bottom:44px;max-height:74%;overflow-y:auto;background:var(--s1);border-top:1px solid var(--line2);border-radius:16px 16px 0 0;padding:16px 16px 22px;transform:translateY(105%);transition:transform .35s ease;z-index:20;box-shadow:0 -18px 50px var(--shadow);visibility:hidden}
+.insp.on{transform:none;visibility:visible}
+.insp .x{position:sticky;float:right;top:0;width:28px;height:28px;border:1px solid var(--line);border-radius:50%;text-align:center;color:var(--dim)}
+.insp .kd{font:600 10.5px var(--mono);letter-spacing:.18em;text-transform:uppercase;color:var(--amber)}
+.insp h3{font:400 22px/1.2 var(--serif);margin:4px 30px 6px 0}
+.insp .stt{display:flex;gap:8px;align-items:center;font-size:13px;color:var(--ink);margin-bottom:6px}
+.insp .stt small{color:var(--dim)}
+.hist{display:flex;flex-wrap:wrap;gap:4px 12px;font:10.5px var(--mono);color:var(--faint)}
+.hist span{display:inline-flex;gap:5px;align-items:center}
+.chips{display:flex;flex-wrap:wrap;gap:5px}
+.chipb{display:inline-flex;gap:6px;align-items:center;border:1px solid var(--line);border-radius:14px;padding:3px 10px;font-size:12px;color:var(--dim);max-width:100%}
+.chipb:hover{border-color:var(--line2);color:var(--ink)}
+.ro{font:10.5px var(--mono);color:var(--faint);margin-top:16px;border-top:1px solid var(--line);padding-top:10px}
+
+/* ---------- replay (mockup control, not part of the page) ---------- */
+.replay{height:44px;flex:none;display:flex;align-items:center;gap:6px;padding:0 10px;background:#020308;border-top:1px dashed #3a3524;font:10.5px var(--mono);color:#a59c86}
+.replay .rl{letter-spacing:.16em;color:#d7a650}
+.replay button{width:26px;height:26px;border:1px solid #3a3524;border-radius:6px;text-align:center;color:#e9dfc8}
+.replay button:hover{border-color:#d7a650}
+.replay input{flex:1;min-width:40px;accent-color:#d7a650}
+.replay select{font:10.5px var(--mono);background:#0b0e16;color:#e9dfc8;border:1px solid #3a3524;border-radius:6px;height:26px;max-width:108px}
+.replay output{min-width:38px;text-align:right}
+
+/* ---------- wide: the map takes the stage ---------- */
+.app.wide{display:grid;grid-template-columns:minmax(0,1fr) 440px;grid-template-rows:auto auto minmax(0,1fr);overflow:hidden}
+.app.wide .hd{grid-column:1/-1;display:grid;grid-template-columns:minmax(0,1fr) 440px;gap:0 28px;padding:16px 28px 14px;align-items:start}
+.app.wide .hd-top{grid-column:1/-1}
+.app.wide .dream{font-size:40px}
+.app.wide .hd-r{align-self:end;padding-bottom:2px}.app.wide .now{margin-top:0}
+.app.wide .view[data-v=map]{position:relative}.app.wide .map-top{position:absolute;left:28px;right:28px;top:16px;z-index:2;pointer-events:none}.app.wide .map-top>*{pointer-events:auto}
+.app.wide .tabs{grid-column:2;grid-row:2;position:static;border-left:1px solid var(--line);padding:0 14px}
+.app.wide .tab[data-t=map]{display:none}
+.app.wide .view{overflow-y:auto;scrollbar-width:thin;scrollbar-color:var(--line2) transparent}
+.app.wide .view[data-v=map]{display:flex;flex-direction:column;grid-column:1;grid-row:2/4;padding:0 28px 18px;border-top:1px solid var(--line);overflow:hidden}
+.app.wide .view:not([data-v=map]){grid-column:2;grid-row:3;border-left:1px solid var(--line);padding:20px 22px 40px}
+.app.wide .map{flex:1;min-height:0;aspect-ratio:auto;margin:0}
+.app.wide .caplist{display:none}
+.app.wide .map-bot{margin-top:-46px;position:relative;pointer-events:none}.app.wide .map-bot>*{pointer-events:auto}
+.app.wide .pct{font-size:56px}
+.app.wide .lnk{display:inline-block}
+.app.wide.bstage{grid-template-columns:0 minmax(0,1fr)}
+.app.wide.bstage .view[data-v=map]{display:none}
+.app.wide.bstage .tabs{border-left:0;padding:0 28px}
+.app.wide.bstage .view[data-v=crew]{padding:20px 28px 40px;border-left:0}
+.app.wide.bstage .board{grid-template-columns:repeat(5,minmax(0,1fr));align-items:start}
+.app.wide.bstage .crew{grid-template-columns:repeat(3,minmax(0,1fr))}
+.wide~.insp{left:auto;top:0;bottom:44px;width:440px;max-height:none;border-radius:0;border-top:0;border-left:1px solid var(--line2);transform:translateX(105%);padding:22px}
+.wide~.insp.on{transform:none}
+
+@keyframes breathe{50%{opacity:.55}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes ping{0%{opacity:.9;transform:scale(1)}100%{opacity:0;transform:scale(3.4)}}
+@keyframes crisis{50%{box-shadow:0 0 26px -8px var(--glow)}}
+@keyframes vfade{0%{opacity:0}14%{opacity:1}78%{opacity:1}100%{opacity:0}}
+@keyframes seam{0%,12%{transform:scaleX(.04)}60%,100%{transform:scaleX(1)}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.vmo.on{opacity:1}}
+</style>
+</head>
+<body>
+<div id="root">
+ <div class="shell">
+  <aside class="hint">
+   <h1>Your conversation with Seldon lives here, in the provider app&rsquo;s chat. The pane on the right only shows.</h1>
+   <p>Design mockup, 2026-11-12. The pane is the page at its default width (about 400 px). <kbd>&#10530;</kbd> opens it full screen, where the map takes the stage.</p>
+   <p><kbd>&#9680;</kbd> light or dark &nbsp; <kbd>Aa</kbd> plain words, no Foundation names &nbsp; The dashed bar at the bottom replays a run and is not part of the page.</p>
+  </aside>
+  <div class="frame" id="frame">
+   <div class="app" id="app">
+    <header class="hd" id="hd"></header>
+    <nav class="tabs" id="tabs" role="tablist" aria-label="Views"></nav>
+    <section class="view" data-v="map">
+     <div class="map-top"><h2 class="vh" id="mapH"></h2><div class="seg" id="zoom" role="group" aria-label="Map zoom"></div></div>
+     <div class="map" id="map"><svg id="svg" role="group" aria-label="Map of the product"></svg><div class="vmo" id="vmo"><div class="mono-g"></div><b></b><span></span></div></div>
+     <div class="map-bot"><div><div class="pct" id="pct"></div><div class="pct-s" id="pctS"></div></div><details class="key" id="key"></details></div>
+     <div class="caplist" id="caplist"></div>
+    </section>
+    <section class="view" data-v="crew" id="vCrew"></section>
+    <section class="view" data-v="waves" id="vWaves"></section>
+    <section class="view" data-v="chron" id="vChron"></section>
+    <section class="view" data-v="proof" id="vProof"></section>
+    <section class="view" data-v="vault" id="vVault"></section>
+   </div>
+   <aside class="insp" id="insp" aria-label="Details"></aside>
+   <div class="replay" aria-label="Replay (mockup control)">
+    <span class="rl">REPLAY</span>
+    <button id="rpPrev" aria-label="Previous step" title="Previous step">&#9664;</button>
+    <button id="rpPlay" aria-label="Play or pause" title="Play or pause">&#9654;</button>
+    <button id="rpNext" aria-label="Next step" title="Next step">&#9654;&#9654;</button>
+    <input id="rpT" type="range" min="0" value="0" aria-label="Step">
+    <output id="rpN"></output>
+    <select id="rpS" aria-label="Sample run"></select>
+   </div>
+  </div>
+ </div>
+</div>
+<script>
+'use strict';
+/* ====================================================================================================
+   DATA. A run is a list of steps; the page state at step k is steps 0..k applied in order.
+   In the product this is Seldon's projection (state.js), rewritten after each transition. There is no write path.
+   Step: s stage (U Understand, S Shape, B Build, P Prove) · t seconds · k kind · say / why / nx
+         op "+id" show (drafted) · "-id" remove · "a,b=3" plan level · "u01>W" unit state (R W P J I D X B F)
+         gate (waits on you) · ans [by, words] · wv wave status · flow wave id · open / mule / stuck / ru / accept
+   ==================================================================================================== */
+const m=n=>n*60, seq=(p,a,b)=>Array.from({length:b-a+1},(_,i)=>p+String(a+i).padStart(p==='u'?2:1,'0')).join(',');
+const WORDS={approve:['approve','go ahead'],change:['change: …','say what to change'],notnow:['not now','hold here'],cont:['continue','start the next wave'],pause:['pause','hold here'],accept:['accept','the product is what you asked for']};
+
+const SHELF={key:'shelf',label:'ShelfLife (illustrative)',dream:'ShelfLife',real:false,
+ vision:'A kitchen shelf that tells you what to eat before it spoils.',
+ note:'Illustrative sample: the shape of a medium dream (4 areas, 3 waves, 15 work items). Not a real run.',
+ crewSize:3,provs:[['codex','sol 6.1'],['claude','sonnet'],['codex','terra 6.1']],
+ areas:{store:'storage: one table and its migrations',api:'the local API',web:'the page you use',notify:'nudges'},
+ caps:[{id:'f1',title:'Add what you bought',plain:'Put an item on the shelf with its expiry date, fix it, or remove it.'},
+  {id:'f2',title:'See what expires soon',plain:'One shelf, soonest first, with a clear "use soon" band.'},
+  {id:'f3',title:'Get nudged in time',plain:'A daily nudge inside the app for what is about to spoil.'},
+  {id:'f4',title:'Yours, and it just runs',plain:'Your data stays on your machine and one command starts it.'}],
+ reqs:[{id:'r1',f:['f1'],title:'Add an item with name, amount and expiry date'},{id:'r2',f:['f1'],title:'An item with no date is refused with a clear message'},
+  {id:'r3',f:['f1'],title:'Edit or remove an item'},{id:'r4',f:['f2'],title:'The shelf lists items soonest first'},
+  {id:'r5',f:['f2'],title:'Items within 3 days are marked "use soon"; expired items are marked'},{id:'r6',f:['f2'],title:'Filter by place: fridge, pantry, freezer'},
+  {id:'r7',f:['f3'],title:'A daily digest lists what expires within 3 days'},{id:'r8',f:['f3'],title:'Snooze a nudge for one item'},
+  {id:'r9',f:['f4'],title:'Data survives a restart'},{id:'r10',f:['f4'],title:'One command starts it on a clean machine'}],
+ units:[{id:'u01',title:'Item storage',area:'store',wave:'w1',reqs:['r9'],deps:[]},
+  {id:'u02',title:'Items API: add and list',area:'api',wave:'w1',reqs:['r1','r4'],deps:['u01']},
+  {id:'u03',title:'Shelf page',area:'web',wave:'w1',reqs:['r4'],deps:['u02']},
+  {id:'u04',title:'Add-item form',area:'web',wave:'w1',reqs:['r1'],deps:['u02']},
+  {id:'u05',title:'Start command and test harness',area:'api',wave:'w1',reqs:['r10'],deps:[]},
+  {id:'u06',title:'Refuse items without a date',area:'api',wave:'w2',reqs:['r2'],deps:[]},
+  {id:'u07',title:'Edit and remove in the API',area:'api',wave:'w2',reqs:['r3'],deps:[]},
+  {id:'u08',title:'Edit and remove on the shelf',area:'web',wave:'w2',reqs:['r3'],deps:['u07']},
+  {id:'u09',title:'Expiry bands',area:'web',wave:'w2',reqs:['r5'],deps:[]},
+  {id:'u10',title:'Place filter',area:'web',wave:'w2',reqs:['r6'],deps:[]},
+  {id:'u15',title:'Fixup: dates carry a time zone',area:'api',wave:'w2',reqs:['r5'],deps:[]},
+  {id:'u11',title:'Daily digest job',area:'notify',wave:'w3',reqs:['r7'],deps:[]},
+  {id:'u12',title:'Digest view',area:'web',wave:'w3',reqs:['r7'],deps:['u11']},
+  {id:'u13',title:'Snooze, per browser',area:'notify',wave:'w3',reqs:['r8'],deps:[]},
+  {id:'u14',title:'Try-it guide and clean-install walkthrough',area:'web',wave:'w3',reqs:['r10'],deps:[]}],
+ contracts:[{id:'c1',name:'items table',from:'u01',to:['u02','u07','u11']},{id:'c2',name:'/api/items JSON',from:'u02',to:['u03','u04','u09','u10']},
+  {id:'c3',name:'shelf row markup',from:'u03',to:['u08','u09']},{id:'c4',name:'digest JSON',from:'u11',to:['u12','u13']}],
+ qs:[{id:'q1',parent:'f3',title:'Nudges: by email, or inside the app?'},{id:'q2',parent:'f3',title:'Snooze without accounts: per browser, or drop it?'}],
+ waves:[{id:'w1',goal:'Add one item and see it on the shelf, end to end'},{id:'w2',goal:'The shelf becomes useful: expiry bands, edit, places'},{id:'w3',goal:'Nudges arrive in time, and anyone can run it'}],
+ tryit:'npm start   then open http://127.0.0.1:5173',
+ realuse:['<b>clean machine · fresh clone · no prior data</b>','$ npm start','  ShelfLife is listening on 127.0.0.1:5173','open /            the shelf is empty and says so','add  "Milk, 1 l, expires in 2 days"','     appears first, marked <b>use soon</b>','add  "Rice" with no date','     refused: "When does it expire?"','restart the app  both the item and its band are still there','open /digest     "1 item to use soon: Milk"','<b>7 of 7 real-use checks passed</b>'],
+ steps:[
+ {s:'U',t:0,k:'go',say:'Seldon reads your dream, in your words.',why:'Nothing is planned until we agree on what the dream is.',op:'+V'},
+ {s:'U',t:m(1),k:'plan',say:'Four capabilities emerge: add, see, be nudged, and keep it yours.',why:'Each one is something you will be able to do, not a piece of code.',op:'+f1 +f2 +f3 +f4'},
+ {s:'U',t:m(2),k:'q',say:'One thing your words did not settle: should nudges arrive by email, or inside the app?',why:'A guess here would change what gets built, so it stays a question for you.',op:'+q1'},
+ {s:'U',t:m(2),k:'gate',say:'The Vision Lock is ready for you.',why:'It becomes your charter: the rest of the run is measured against it.',nx:'Your answer in chat',
+  gate:{id:'A',title:'Vision Lock',q:'Is this the product you meant? One open question: nudges by email, or inside the app.',words:['approve','change','notnow'],
+   sum:[['Heard','A local shelf of food with expiry dates, soonest first, with nudges.'],['In','Add, edit, remove, expiry bands, places, a daily digest.'],['Out','Accounts, sync, barcode scanning, shopping lists.'],['Bar','Works from a clean machine with one command.']]}},
+ {s:'U',t:m(6),k:'you',say:'You agreed the vision, with one change: nudges stay inside the app. No email.',why:'Your words are recorded as a decision; the question on the map is closed.',ans:['you','change: nudges inside the app only, then approve'],op:'-q1 V,f1,f2,f3,f4=2'},
+ {s:'S',t:m(9),k:'plan',say:'The product is cut into four areas, with four agreements between them.',why:'An agreement (a contract) lets separate workers build parts that fit together.',op:'+r1 +r2 +r3 +r4 +r5'},
+ {s:'S',t:m(11),k:'plan',say:'Ten requirements are written. Each is something you can watch work.',why:'Every requirement gets a check that fails before the work and passes after.',op:'+r6 +r7 +r8 +r9 +r10'},
+ {s:'S',t:m(14),k:'plan',say:'Three waves are outlined. Wave 1 is the skeleton: the thinnest product that runs end to end.',why:'Every later wave then lands on something real instead of on a promise.',op:'+u01 +u02 +u03 +u04 +u05',wv:{w1:'detailed',w2:'outlined',w3:'outlined'}},
+ {s:'S',t:m(17),k:'second',say:'A fresh reviewer found a gap: nothing proved that data survives a restart.',why:'Plan corrected: item storage now carries a restart check.'},
+ {s:'S',t:m(21),k:'second',say:'Review, round 2: the plan leads to the whole dream.',why:'An independent provider read it cold, without the planner\'s reasoning.'},
+ {s:'S',t:m(21),k:'gate',say:'The plan is ready for you.',why:'Nothing is built before you approve the plan.',nx:'Your answer in chat',
+  gate:{id:'B',title:'The plan',q:'4 capabilities, 10 requirements, 3 waves. Wave 1 builds the skeleton with 5 work items. Go ahead?',words:['approve','change','notnow'],
+   sum:[['Plan','4 areas, 4 agreements, 3 waves outlined; wave 1 detailed (5 work items).'],['Proof','Each check fails before the work and passes after; a fresh judge reads each one.'],['Review','Adequate in round 2, by an independent provider.'],['Changed','Restart check added to item storage.']]}},
+ {s:'S',t:m(25),k:'you',say:'You approved the plan.',why:'Wave 1 is now planned in full; later waves are detailed when their turn comes, from the product as it then exists.',ans:['you','approve'],op:seq('r',1,9)+',r10,f1,f2,f3,f4,V=3 u01>R u02>R u03>R u04>R u05>R'},
+ {s:'B',w:'w1',t:m(26),k:'go',say:'Wave 1 begins. Two workers start; three work items wait for what they depend on.',why:'Work runs side by side wherever the plan allows it.',op:'u01>W u05>W',wv:{w1:'running'}},
+ {s:'B',w:'w1',t:m(34),k:'ok',say:'Item storage came back. Its check failed before the work and passes with it.',why:'That is what makes a check proof and not decoration.',op:'u01>P'},
+ {s:'B',w:'w1',t:m(36),k:'go',say:'A fresh judge is reading the storage checks; the start command is being proven.',why:'The judge asks one thing: do these checks really show the requirement?',op:'u01>J u05>P'},
+ {s:'B',w:'w1',t:m(38),k:'merge',say:'Item storage is in. The API starts on top of it.',why:'Its dependency is integrated, so it no longer waits.',op:'u01>I u01>D u02>W u05>J'},
+ {s:'B',w:'w1',t:m(41),k:'merge',say:'The start command and test harness are in.',why:'From here on, every check runs against a product that starts.',op:'u05>I u05>D'},
+ {s:'B',w:'w1',t:m(52),k:'bad',say:'The API check passed even before the API existed, so it proved nothing. It goes back to its own worker.',why:'A check that cannot fail is not proof. Recovery 1 of 2; nothing else is touched.',op:'u02>P u02>X'},
+ {s:'B',w:'w1',t:m(58),k:'ok',say:'Reworked: the API check now fails without the API and passes with it.',why:'Same worker, exact failure handed back, fixed in six minutes.',op:'u02>W u02>P u02>J'},
+ {s:'B',w:'w1',t:m(61),k:'merge',say:'The API is in. The shelf page and the add form start together.',why:'Both consume the API agreement, which is now real.',op:'u02>I u02>D u03>W u04>W'},
+ {s:'B',w:'w1',t:m(75),k:'go',say:'Both page parts are back and being checked.',why:'Each is proven and judged alone before it may join the others.',op:'u03>P u03>J u04>P'},
+ {s:'B',w:'w1',t:m(80),k:'merge',say:'All five work items of wave 1 are integrated. Every check now runs on one commit.',why:'Parts that pass alone must also pass together.',op:'u03>I u03>D u04>J u04>I u04>D',wv:{w1:'verifying'}},
+ {s:'B',w:'w1',t:m(84),k:'second',say:'An independent judge walked "add an item and see it on the shelf" across storage, API and page. It holds.',why:'This is the only check that crosses work items: one user flow, on the integrated product.',flow:'w1',wv:{w1:'check-in'}},
+ {s:'B',w:'w1',t:m(85),k:'gate',say:'Wave 1 is integrated, running and proven.',why:'A wave ends in a product you could use, not in a pile of parts.',nx:'Your answer in chat',
+  gate:{id:'check-in w1',title:'Wave 1 checkpoint',q:'You can add an item and see it on the shelf. Continue to wave 2: expiry bands, edit, places?',words:['cont','change','pause'],
+   sum:[['Built','Storage, items API, shelf page, add form, start command.'],['Proven','Add an item and see it on the shelf, walked end to end.'],['Bumps','One API check proved nothing and was reworked (recovery 1 of 2).'],['Next','Wave 2: the shelf becomes useful.']]}},
+ {s:'B',w:'w2',t:m(88),k:'you',say:'You said continue. Wave 2 is detailed from the product as it now exists.',why:'Five new work items, written against the real API and the real page.',ans:['you','continue'],op:'u06>R u07>R u08>R u09>R u10>R',wv:{w1:'done',w2:'detailed'}},
+ {s:'B',w:'w2',t:m(89),k:'go',say:'Wave 2 begins. Three workers start.',why:'All three slots are in use; two work items wait their turn.',op:'u06>W u07>W u09>W',wv:{w2:'running'}},
+ {s:'B',w:'w2',t:m(101),k:'ok',say:'The no-date refusal is proven and with its judge.',why:'It fails without the work, passes with it.',op:'u06>P u06>J'},
+ {s:'B',w:'w2',t:m(104),k:'bad',say:'The no-date refusal is in; the place filter starts. One worker has made no progress for 9 minutes.',why:'A stalled session is recovered automatically, twice, before anyone is asked.',op:'u06>I u06>D u10>W',stuck:'u07'},
+ {s:'B',w:'w2',t:m(106),k:'ok',say:'The stalled worker was replaced and picked up the same work item from its last safe point.',why:'Recovery 1 of 2. Nothing was lost; nothing needed you.',unstuck:'u07',op:'u07>W'},
+ {s:'B',w:'w2',t:m(112),k:'mule',say:'Expiry bands cannot be computed. The API sends dates without a time zone, so "within 3 days" differs from machine to machine.',why:'The plan did not foresee this. It is a fault in an agreement, not in the work item. The other workers keep building.',op:'u09>B',mule:'u09'},
+ {s:'B',w:'w2',t:m(115),k:'ok',say:'Plan corrected: the API agreement now carries a time zone. A small fixup is added; expiry bands wait for it.',why:'One rule repaired at its source, so every consumer of the agreement gets the fix.',op:'u15>R u15>W u09>R u10>P',fix:'c2',unmule:'u09',dep:['u09','u15']},
+ {s:'B',w:'w2',t:m(124),k:'merge',say:'The fixup, the place filter and edit-and-remove in the API are in. Expiry bands resume.',why:'What was blocked 12 minutes ago is building again.',op:'u15>P u15>J u15>I u15>D u10>J u10>I u10>D u07>P u07>J u07>I u07>D u09>W u08>W'},
+ {s:'B',w:'w2',t:m(140),k:'merge',say:'Wave 2 is integrated. Every check in the product so far runs on one commit.',why:'That includes all of wave 1: nothing earlier was broken.',op:'u09>P u09>J u09>I u09>D u08>P u08>J u08>I u08>D',wv:{w2:'verifying'}},
+ {s:'B',w:'w2',t:m(144),k:'second',say:'An independent judge walked "see what expires soon" and "fix a mistake" on the integrated product. Both hold.',why:'Flow review, on the real paths a person would take.',flow:'w2',wv:{w2:'check-in'}},
+ {s:'B',w:'w2',t:m(145),k:'gate',say:'Wave 2 is integrated, running and proven.',why:'The shelf is now useful on its own.',nx:'Your answer in chat',
+  gate:{id:'check-in w2',title:'Wave 2 checkpoint',q:'The shelf shows what to use soon, and items can be fixed. Continue to wave 3: nudges?',words:['cont','change','pause'],
+   sum:[['Built','Date refusal, edit and remove, expiry bands, place filter.'],['Proven','See what expires soon; fix a mistake.'],['Bumps','An unforeseen blocker: dates had no time zone. The agreement was corrected and one fixup added. One stalled worker recovered.'],['Next','Wave 3: nudges, and the try-it guide.']]}},
+ {s:'B',w:'w3',t:m(149),k:'you',say:'You said continue.',why:'Seldon now reads the product again before writing wave 3.',ans:['you','continue'],wv:{w2:'done'}},
+ {s:'B',w:'w3',t:m(151),k:'gate',say:'Planning wave 3 raised a question only you can answer.',why:'Snooze must remember who snoozed, and accounts are outside your vision. Narrowing scope is yours to decide.',nx:'Your answer in chat',op:'+q2',
+  gate:{id:'scope',title:'Snooze without accounts',crisis:true,q:'Keep snooze, remembered per browser? Or leave snooze out of this version?',words:[['keep snooze per browser','works on this device only'],['drop snooze','leave it out and note the gap']],
+   sum:[['Why','Snooze needs to remember who snoozed. Accounts are out of scope.'],['Options','Per browser (this device only), or leave snooze out.'],['Seldon','Would keep it per browser: small, and honest about its limit.']]}},
+ {s:'B',w:'w3',t:m(155),k:'you',say:'You chose: keep snooze, per browser. Wave 3 is detailed with that decision.',why:'Recorded as your decision. Four work items are written.',ans:['you','keep snooze per browser'],op:'-q2 u11>R u12>R u13>R u14>R',wv:{w3:'detailed'}},
+ {s:'B',w:'w3',t:m(156),k:'go',say:'Wave 3 begins. Three workers start.',why:'The digest view waits for the digest it will show.',op:'u11>W u13>W u14>W',wv:{w3:'running'}},
+ {s:'B',w:'w3',t:m(170),k:'merge',say:'The daily digest job is in; its view starts. Snooze is with its judge.',why:'',op:'u11>P u11>J u11>I u11>D u12>W u13>P u13>J'},
+ {s:'B',w:'w3',t:m(181),k:'merge',say:'Snooze, the digest view and the try-it guide are in.',why:'One thing stays honestly open: the digest was judged with a simulated clock, not across a real day.',op:'u13>I u13>D u14>P u14>J u14>I u14>D u12>P u12>J u12>I u12>D',open:{id:'g1',node:'r7',text:'Digest timing across a real day',why:'Judged with a simulated clock. Not judged over 24 real hours.'},wv:{w3:'verifying'}},
+ {s:'B',w:'w3',t:m(186),k:'second',say:'An independent judge walked "get nudged in time" on the integrated product. It holds.',why:'Flow review for wave 3.',flow:'w3',wv:{w3:'check-in'}},
+ {s:'B',w:'w3',t:m(187),k:'gate',say:'Wave 3 is integrated, running and proven.',why:'Every wave has now ended in a working product.',nx:'Your answer in chat',
+  gate:{id:'check-in w3',title:'Wave 3 checkpoint',q:'Nudges work inside the app. Continue to the final proof of the whole product?',words:['cont','change','pause'],
+   sum:[['Built','Digest job, digest view, snooze per browser, try-it guide.'],['Proven','Get nudged in time.'],['Bumps','None.'],['Next','The whole dream is walked once more, capability by capability, on a clean machine.']]}},
+ {s:'P',t:m(190),k:'you',say:'You said continue. The whole dream is now validated, capability by capability.',why:'Waves prove their own slice. This proves the product you asked for.',ans:['you','continue'],wv:{w3:'done'}},
+ {s:'P',t:m(197),k:'second',say:'First use on a clean machine: 7 of 7 real-use checks passed.',why:'A product that only works where it was built is not done.',ru:1},
+ {s:'P',t:m(199),k:'gate',say:'Everything you asked for is built and proven in real use. One known gap is shown.',why:'Only you can accept it.',nx:'Your answer in chat',
+  gate:{id:'C',title:'Acceptance',q:'ShelfLife is ready to try. Is this the product you asked for?',words:['accept','change','notnow'],
+   sum:[['Try it','npm start, then open 127.0.0.1:5173.'],['Built','4 capabilities, 10 requirements, 15 work items in 3 waves.'],['Proven','10 of 10 requirements in real use, on a clean machine.'],['Gaps','Digest timing not judged across a real day.']]}},
+ {s:'P',t:m(214),k:'done',say:'You accepted ShelfLife.',why:'Accepted by you, in your own words. The one known gap stays on the record.',ans:['you','accept'],accept:'you'}]};
+SHELF.checks=SHELF.units.map(u=>({id:'k'+u.id.slice(1),unit:u.id,cmd:'node checks/'+u.title.toLowerCase().replace(/[^a-z]+/g,'-').replace(/^-|-$/g,'').slice(0,22)+'.cjs'}));
+
+/* Foundation: ids, commits, failure text and timings are from the real M1 run foundation-59d3a56-c02.
+   Sub-step boundaries inside the plan call are approximate. Gates A, B and check-in were answered by the dev runner's scripted yes. */
+const FOUND={key:'foundation',label:'Foundation (real M1 run)',dream:'Foundation',real:true,
+ vision:'A polished, entirely local page whose three Play buttons each reveal one fixed message.',
+ note:'Real run foundation-59d3a56-c02 (tiny: 1 area, 1 wave, 5 work items). Gates A, B and check-in were answered by a scripted yes, shown as "by proxy".',
+ crewSize:3,provs:[['codex','gpt-6.1-sol']],
+ areas:{page:'the one static page and its three message pairs'},
+ caps:[{id:'n001',title:'Three independent messages',plain:'Three side-by-side Play buttons each reveal exactly one message beneath them.'},
+  {id:'n002',title:'Local, accessible, distinctive page',plain:'Works from a local file, with native controls, clear focus and the agreed look.'}],
+ reqs:[{id:'n003',f:['n001'],title:'First button and message pair, usable on its own'},{id:'n004',f:['n001'],title:'Second button and message pair, usable on its own'},
+  {id:'n005',f:['n001'],title:'Third button and message pair, usable on its own'},{id:'n006',f:['n001','n002'],title:'Static page, mount layout, local wiring, shared accessible presentation'}],
+ units:[{id:'u001',title:'hello pair',area:'page',wave:'w1',reqs:['n003'],deps:[],wk:'worker-2884',commit:'29c687b'},
+  {id:'u002',title:'name pair',area:'page',wave:'w1',reqs:['n004'],deps:[],wk:'worker-753c',commit:'58fad99'},
+  {id:'u003',title:'foundation pair',area:'page',wave:'w1',reqs:['n005'],deps:[],wk:'worker-b4e4',commit:'871ffa1'},
+  {id:'u004',title:'page shell',area:'page',wave:'w1',reqs:['n006'],deps:['u001','u002','u003'],wk:'worker-c0a4',commit:'5b04c3b'},
+  {id:'guide',title:'try-it guide',area:'page',wave:'w1',reqs:[],sup:'n002',deps:['u001','u002','u003','u004'],wk:'worker-5617',commit:'90077ac'}],
+ checks:[{id:'n007',unit:'u001',cmd:'node checks/hello.cjs'},{id:'n008',unit:'u002',cmd:'node checks/name.cjs'},{id:'n009',unit:'u003',cmd:'node checks/foundation.cjs'},
+  {id:'n010',unit:'u004',cmd:'node checks/page-shell.cjs'},{id:'n011',unit:'u004',cmd:'node checks/product.cjs (wave level, 12 screenshots)'}],
+ contracts:[{id:'c1',name:'hello pair in #hello-piece',from:'u001',to:['u004']},{id:'c2',name:'name pair in #name-piece',from:'u002',to:['u004']},
+  {id:'c3',name:'foundation pair in #foundation-piece',from:'u003',to:['u004']},{id:'c4',name:'page shell: mounts and wiring',from:'u004',to:['u001','u002','u003']}],
+ qs:[],waves:[{id:'w1',goal:'The whole page: three message pairs and their shell, integrated and proven'}],
+ tryit:'open index.html   (a local file; no server)',
+ realuse:['<b>real user path · file:// · no server</b>','open index.html     title "Foundation", three Play buttons side by side','click  Play 1       "Hello, world!" appears beneath it','Enter  on Play 2    "My name is Seldon" appears; the first stays','Space  on Play 3    "This is the Foundation" appears','remove hello.js     the other two pairs still work','narrow to 390 px    readable, focus ring visible','<b>5 of 5 quality criteria satisfied · 12 screenshots</b>'],
+ steps:[
+ {s:'U',t:0,k:'go',say:'Seldon reads the dream: a Foundation page with three Play buttons.',why:'No planning starts before the dream is agreed.',op:'+V'},
+ {s:'U',t:28,k:'gate',say:'The Vision Lock is ready.',why:'It is the charter the rest of the run is measured against.',nx:'An answer in chat',
+  gate:{id:'A',title:'Vision Lock',q:'A local Foundation page; three independent Play buttons, one fixed message each. Size: tiny. Is this what you meant?',words:['approve','change','notnow'],
+   sum:[['Heard','A polished, entirely local page whose three Play buttons each reveal one fixed message.'],['In','One static page, three independent scripts, local styling, native buttons.'],['Out','Servers, accounts, dependencies, external assets, audio, persistence.'],['Bar','Five quality criteria, each judged on real evidence.']]}},
+ {s:'U',t:29,k:'proxy',say:'The Vision Lock was approved by the dev runner\'s scripted yes.',why:'Recorded as accepted by proxy. It is not the owner\'s acceptance, and the page keeps saying so.',ans:['proxy','scripted yes'],op:'V=2',open:{id:'o1',text:'Owner decisions at A, B and check-in',why:'Answered by the dev runner\'s scripted yes. Not owner acceptance.'}},
+ {s:'S',t:90,k:'plan',say:'Two capabilities are written from the vision.',why:'What a visitor can do, before any talk of files.',op:'+n001 +n002'},
+ {s:'S',t:150,k:'plan',say:'Four requirements: one per message pair, one for the page that holds them.',why:'Each pair must work on its own, so each gets its own requirement.',op:'+n003 +n004 +n005 +n006'},
+ {s:'S',t:194,k:'plan',say:'Plan written: 5 checks and 5 work items in one wave.',why:'A tiny dream needs one wave. The three pairs can be built side by side.',op:'+u001 +u002 +u003 +u004 +guide',wv:{w1:'detailed'}},
+ {s:'S',t:214,k:'second',say:'A fresh reviewer named a gap: quality criterion 2 mixed source facts with integrated behaviour.',why:'A product-level judge cannot establish facts about source files. Each owning work item must be judged on its own files. Repairing.'},
+ {s:'S',t:615,k:'second',say:'Review rounds 2 and 3 each named one more gap in the trace of criterion 2. Repaired.',why:'Same design rule, followed to its end.'},
+ {s:'S',t:809,k:'second',say:'Review round 4: adequate.',why:'The reviewer was a fresh call to the same provider as the planner, so this is labelled a same-provider review, not an independent one.',open:{id:'o2',text:'Plan review independence',why:'Fresh same-provider call. Not an independent review.'}},
+ {s:'S',t:809,k:'gate',say:'The plan is ready.',why:'Nothing is built before the plan is approved.',nx:'An answer in chat',
+  gate:{id:'B',title:'The plan',q:'2 capabilities, 4 requirements, 5 checks, 5 work items in one wave. Go ahead?',words:['approve','change','notnow'],
+   sum:[['Plan','1 area, 4 agreements, 1 wave, 5 work items.'],['Proof','Each check fails on the base commit and passes on the patch.'],['Review','Adequate in round 4. Fresh same-provider call.'],['Changed','Criterion 2 split into source judgment per work item and product behaviour.']]}},
+ {s:'S',t:810,k:'proxy',say:'The plan was approved by the scripted yes.',why:'Accepted by proxy, not by the owner.',ans:['proxy','scripted yes'],op:'n003,n004,n005,n006,n001,n002,V=3 u001>R u002>R u003>R u004>R guide>R'},
+ {s:'B',w:'w1',t:810,k:'go',say:'The three message pairs start in parallel. The page shell waits for all three.',why:'The pairs do not depend on each other; the shell consumes all of them.',op:'u001>W u002>W u003>W',wv:{w1:'running'}},
+ {s:'B',w:'w1',t:981,k:'ok',say:'The hello pair is proven: its check fails on the base and passes on the patch. The name pair is being proven.',why:'The worker also noted that its own inspection does not replace the judge. Carried to check-in.',op:'u001>P u001>J u002>P'},
+ {s:'B',w:'w1',t:1003,k:'ok',say:'Hello and name pairs judged: satisfied. The foundation pair is being proven.',why:'The judge found the real script loaded into a mount-only fixture; no stub, mock or missing behaviour.',op:'u002>J u002>I u001>I u003>P'},
+ {s:'B',w:'w1',t:1008,k:'merge',say:'The name pair is integrated at 58fad99 and the hello pair at 29c687b.',why:'Each merge reruns the affected checks on the new commit.',op:'u002>D u001>D u003>J'},
+ {s:'B',w:'w1',t:1017,k:'merge',say:'The foundation pair is integrated at 871ffa1. The page shell starts.',why:'Its three dependencies are in.',op:'u003>I u003>D u004>W'},
+ {s:'B',w:'w1',t:1437,k:'ok',say:'The page shell is proven: two checks fail on the base and pass on the patch. 12 screenshots taken.',why:'One of them drives the integrated page the way a visitor would.',op:'u004>P u004>J'},
+ {s:'B',w:'w1',t:1451,k:'merge',say:'The page shell is judged satisfied and integrated at 5b04c3b. The try-it guide starts.',why:'The shell holds presentation only; each pair still owns itself.',op:'u004>I u004>D guide>W'},
+ {s:'B',w:'w1',t:1628,k:'bad',say:'With everything integrated, one check failed on the guide: \'../index.html\' is not a project-relative path.',why:'The failure is local, so it returns to its own worker with the exact text. Recovery 1 of 2. Nothing else is touched.',op:'guide>P guide>J guide>I guide>D guide>X',wv:{w1:'verifying'}},
+ {s:'B',w:'w1',t:1691,k:'bad',say:'The guide failed once more: \'scripts/\' is rejected too.',why:'Recovery 2 of 2. One more failure would go to the planner to steer.',op:'guide>W guide>D guide>X'},
+ {s:'B',w:'w1',t:1752,k:'merge',say:'The guide is integrated at 90077ac.',why:'Second recovery succeeded.',op:'guide>W guide>P guide>J guide>I guide>D'},
+ {s:'B',w:'w1',t:1758,k:'gate',say:'Every check in the product passes on one commit, 90077ac. Wave 1 is integrated, running and proven.',why:'7 observations on the same commit.',nx:'An answer in chat',wv:{w1:'check-in'},
+  gate:{id:'check-in w1',title:'Wave 1 checkpoint',q:'The whole page is built and every check passes on one commit. Continue to validation?',words:['cont','change','pause'],
+   sum:[['Built','Three message pairs, the page shell, the try-it guide.'],['Proven','Every check on 90077ac; 12 screenshots.'],['Bumps','The guide needed both recoveries (two path errors).'],['Next','No further wave. The whole dream is validated, then acceptance.']]}},
+ {s:'B',w:'w1',t:1760,k:'proxy',say:'The checkpoint was approved by the scripted yes.',why:'Accepted by proxy, not by the owner.',ans:['proxy','scripted yes'],wv:{w1:'flow review'}},
+ {s:'P',t:1868,k:'second',say:'A judge walked both capabilities on the integrated page: satisfied.',why:'The real user path opens index.html through file:// and uses click, Enter and Space. In M1 this judgment stands in for the flow review.',flow:'w1',wv:{w1:'done'},ru:1},
+ {s:'P',t:1953,k:'gate',say:'Product verdict: 5 of 5 quality criteria satisfied. Everything is proven in real use.',why:'What remains is the one thing a proxy cannot give: your acceptance.',nx:'Your answer in chat',
+  gate:{id:'C',title:'Acceptance',q:'Foundation is ready to try. Is this the product you asked for?',words:['accept','change','notnow'],
+   sum:[['Try it','Open index.html. No server.'],['Built','2 capabilities, 4 requirements, 5 work items.'],['Proven','5 of 5 quality criteria; 12 screenshots.'],['Not judged','Owner decisions so far were a scripted yes; plan review was same-provider.']]}}]};
+const SAMPLES={shelf:SHELF,foundation:FOUND};
+
+/* ---------- vocabulary: Foundation name on top, plain words always underneath; plain mode removes the theme ---------- */
+const VOC={radiant:['Prime Radiant','the living map of your product','Product map'],crew:['The Crew','who is building right now, and the work board','Work in progress'],
+ waves:['Waves','the build, one proven outcome at a time','Waves'],chron:['Chronicle','what happened, and why','What happened, and why'],
+ second:['Second Foundation','independent checks that keep the plan honest','Proof'],vault:['The Vault','checkpoints: what each wave achieved and what is next','Checkpoints'],
+ crisis:['Seldon Crisis','a turning point that needs you','Waiting on you'],mule:['The Mule','a blocker the plan did not foresee','Unforeseen blocker'],
+ terminus:['Terminus','done: accepted by you','Done: accepted by you'],vopen:['The Vault opens','a checkpoint','Checkpoint']};
+const tw=k=>`<span class="tn">${VOC[k][0]}</span><span class="pn">${VOC[k][1]}</span><span class="pt">${VOC[k][2]}</span>`;
+const TABS=[['map','Radiant','Map'],['crew','Crew','Work'],['waves','Waves','Waves'],['chron','Chronicle','Story'],['proof','Proof','Proof'],['vault','Vault','Checkpoints']];
+const LV=['question','drafted','agreed','planned','building','built','tested','proven in real use','accepted by you'];
+const STG={U:'Understand',S:'Shape',B:'Build',P:'Prove'},STO=['U','S','B','P'];
+const UST={R:'READY',W:'WORKING',P:'PROVING',J:'JUDGING',I:'INTEGRATING',D:'DONE',X:'REWORK',B:'BLOCKED',F:'FAILED'};
+const ULV={READY:3,WORKING:4,PROVING:5,JUDGING:5,INTEGRATING:5,DONE:6,REWORK:4,FAILED:4,BLOCKED:3};
+const UPL={READY:'Waiting for its turn',WORKING:'A worker is writing its checks and the product',PROVING:'Code confirms the checks fail without the work and pass with it',JUDGING:'A fresh judge asks whether the checks really prove it',INTEGRATING:'Merging into the wave; affected checks rerun',DONE:'Integrated',REWORK:'Back with its own worker, with the exact failure',BLOCKED:'Blocked',FAILED:'Recoveries spent; the planner is steering'};
+const WST=[['running','build','EXECUTE'],['verifying','verify together','WAVE-VERIFY'],['flow review','walk the flows','FLOW REVIEW'],['steer','adjust the plan','STEER'],['check-in','check in with you','CHECK-IN']];
+const $=(s,e=document)=>e.querySelector(s),$$=(s,e=document)=>[...e.querySelectorAll(s)];
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const fmt=t=>t>=3600?Math.floor(t/3600)+'h '+String(Math.floor(t%3600/60)).padStart(2,'0')+'m':Math.floor(t/60)+':'+String(t%60).padStart(2,'0');
+const dur=t=>t>=3600?Math.floor(t/3600)+'h '+Math.floor(t%3600/60)+'m':t>=60?Math.floor(t/60)+'m':t+'s';
+const hash7=s=>{let h=2166136261;for(const c of s)h=Math.imul(h^c.charCodeAt(0),16777619);return (h>>>0).toString(16).padStart(8,'0').slice(0,7)};
+
+/* ---------- index a sample: nodes, links, angles ---------- */
+function prep(D){
+ if(D.N)return D;const N=D.N={},E=D.E=[];
+ const add=(id,kind,o)=>N[id]=Object.assign(o,{id,kind,up:[],down:[]});
+ const link=(a,b,c)=>{E.push({a,b,c:c||''});N[a].down.push(b);N[b].up.push(a)};
+ add('V','vision',{title:D.dream,plain:D.vision});
+ D.caps.forEach(c=>{add(c.id,'cap',c);link('V',c.id)});
+ D.reqs.forEach(r=>{add(r.id,'req',r);r.f.forEach(f=>link(f,r.id))});
+ D.units.forEach(u=>{add(u.id,'unit',u);u.reqs.forEach(r=>link(r,u.id));if(!u.reqs.length)link(u.sup,u.id,'sup');u.pc=u.reqs.length?N[u.reqs[0]].f[0]:u.sup;u.pr=u.reqs[0]||u.sup;u.commit=u.commit||hash7(D.key+u.id)});
+ D.checks.forEach(c=>{add(c.id,'chk',Object.assign(c,{title:c.cmd}));link(c.unit,c.id);c.pc=N[c.unit].pc;c.pr=c.unit});
+ D.qs.forEach(q=>{add(q.id,'q',q);link(q.parent,q.id,'q')});
+ D.reqs.forEach(r=>{r.pc=r.f[0]});
+ const w=D.caps.map(c=>Math.max(2,D.units.filter(u=>u.pc===c.id).length)),tot=w.reduce((a,b)=>a+b,0);let a=-Math.PI*.78;
+ D.caps.forEach((c,i)=>{const sw=w[i]/tot*Math.PI*2,pad=sw*.1;c.a=a+sw/2;
+  const rs=D.reqs.filter(r=>r.pc===c.id);rs.forEach((r,j)=>r.a=a+pad+(sw-2*pad)*(j+.5)/rs.length);
+  const us=D.units.filter(u=>u.pc===c.id).sort((x,y)=>D.reqs.findIndex(r=>r.id===x.pr)-D.reqs.findIndex(r=>r.id===y.pr));
+  us.forEach((u,j)=>{u.a=a+pad*.6+(sw-1.2*pad)*(j+.5)/us.length;const ks=D.checks.filter(k=>k.unit===u.id);ks.forEach((k,n)=>k.a=u.a+(n-(ks.length-1)/2)*.07)});
+  c.units=us.map(u=>u.id);a+=sw});
+ D.qs.forEach((q,i)=>{q.a=(N[q.parent].a??-2.2)+.42+i*.3});
+ D.gates=D.steps.filter(s=>s.gate).map(s=>s.gate);
+ D.stageIdx={};D.steps.forEach((s,i)=>{(D.stageIdx[s.s]=D.stageIdx[s.s]||[]).push(i)});
+ return D}
+
+/* ---------- state at step k ---------- */
+function compute(D,k){
+ const S={k,stage:'U',wave:null,now:0,plan:{},u:{},gate:null,vault:[],ev:[],open:[],flow:{},wv:{},mule:{},stuck:{},fixed:{},accept:null,proxy:false,ru:false,lv:{},ov:{},hist:{},xdep:{},wkn:0};
+ for(let i=0;i<=k;i++){const st=D.steps[i];S.now=st.t;S.stage=st.s;S.wave=st.w||(st.s==='P'?null:S.wave);S.step=st;
+  (st.op||'').split(/\s+/).filter(Boolean).forEach(o=>{let mm;
+   if(o[0]==='+'){S.plan[o.slice(1)]=D.N[o.slice(1)].kind==='q'?0:1}
+   else if(o[0]==='-'){delete S.plan[o.slice(1)]}
+   else if(mm=o.match(/^(.+)=(\d)$/)){mm[1].split(',').forEach(id=>S.plan[id]=+mm[2])}
+   else if(mm=o.match(/^(.+)>(\w)$/)){const id=mm[1],n=UST[mm[2]],U=D.N[id],p=S.u[id]||{att:1};if(S.plan[id]==null||S.plan[id]<3)S.plan[id]=3;
+    const nu=S.u[id]=Object.assign({},p,{st:n,since:st.t,last:st.say});
+    if(n==='WORKING'&&!nu.wk){const pv=D.provs[S.wkn%D.provs.length];nu.wk=U.wk||'worker-'+hash7(id+S.wkn).slice(0,4);nu.prov=pv[0];nu.model=pv[1];S.wkn++}
+    if(n==='REWORK'){nu.att=p.att+1;nu.note=st.say}if(n==='BLOCKED')nu.note=st.say;
+    D.checks.filter(c=>c.unit===id).forEach(c=>{if(S.plan[c.id]==null)S.plan[c.id]=3})}});
+  if(st.ans&&S.gate){S.vault.push(Object.assign({},S.gate,{by:st.ans[0],said:st.ans[1],t:st.t}));if(st.ans[0]==='proxy')S.proxy=true;S.gate=null}
+  if(st.gate)S.gate=Object.assign({t:st.t},st.gate);
+  if(st.wv)Object.assign(S.wv,st.wv);if(st.flow)S.flow[st.flow]=st.t;
+  if(st.mule)S.mule[st.mule]=1;if(st.unmule)delete S.mule[st.unmule];if(st.stuck)S.stuck[st.stuck]=st.t;if(st.unstuck){delete S.stuck[st.unstuck];S.u[st.unstuck].att++}
+  if(st.fix)S.fixed[st.fix]=1;if(st.dep)(S.xdep[st.dep[0]]=S.xdep[st.dep[0]]||[]).push(st.dep[1]);
+  if(st.open)S.open.push(st.open);if(st.ru)S.ru=true;if(st.accept)S.accept=st.accept;
+  S.ev.push(Object.assign({i},st));derive(D,S);
+  for(const id in S.lv){const h=S.hist[id]=S.hist[id]||[],l=S.lv[id],o=S.ov[id]||'';if(!h.length||h[h.length-1].lv!==l||h[h.length-1].ov!==o)h.push({t:st.t,lv:l,ov:o})}}
+ return S}
+function derive(D,S){
+ const lv=S.lv={},ov=S.ov={},rank={gap:1,failing:2,blocked:3};
+ const mark=(id,o)=>{if(o&&(!ov[id]||rank[o]>rank[ov[id]]))ov[id]=o};
+ S.open.forEach(o=>o.node&&mark(o.node,'gap'));
+ D.units.forEach(u=>{const st=S.u[u.id];let l=S.plan[u.id];if(l==null)return;
+  if(st){l=ULV[st.st];if(st.st==='DONE'&&S.flow[u.wave])l=7;if(st.st==='DONE'&&S.accept==='you')l=8;
+   if(st.st==='BLOCKED')mark(u.id,'blocked');if(st.st==='REWORK'||st.st==='FAILED')mark(u.id,'failing')}
+  lv[u.id]=l;
+  D.checks.filter(c=>c.unit===u.id).forEach(c=>{if(S.plan[c.id]!=null||l!=null)lv[c.id]=st&&(st.st==='JUDGING'||st.st==='INTEGRATING')?6:Math.min(l,st&&st.st==='WORKING'?3:l)})});
+ const agg=(id,kids)=>{let l=S.plan[id];if(l==null)return;
+  if(l>=3&&kids.length){const ls=kids.map(k=>lv[k]??3),mn=Math.min(...ls),mx=Math.max(...ls);l=mn>=4?mn:mx>=4?4:l}
+  lv[id]=l;kids.forEach(k=>mark(id,ov[k]))};
+ D.reqs.forEach(r=>agg(r.id,D.units.filter(u=>u.reqs.includes(r.id)).map(u=>u.id)));
+ D.caps.forEach(c=>agg(c.id,D.reqs.filter(r=>r.f.includes(c.id)).map(r=>r.id)));
+ agg('V',D.caps.map(c=>c.id));
+ D.qs.forEach(q=>{if(S.plan[q.id]!=null)lv[q.id]=0});
+ const rs=D.reqs.filter(r=>lv[r.id]!=null);S.nReq=D.reqs.length;S.nProven=rs.filter(r=>lv[r.id]>=7).length;S.pct=S.nReq&&lv.V>=3?S.nProven/S.nReq:0;
+ const us=D.units.filter(u=>S.u[u.id]);S.nBuilt=us.filter(u=>lv[u.id]>=6).length;S.nUnits=D.units.filter(u=>lv[u.id]!=null).length}
+
+/* ---------- app state ---------- */
+let D,S,prevS=null,k=0,tab='map',side='crew',zoom='macro',zoomManual=false,sel=null,timer=null,seenK=-1,wide=false,geo=null;
+const root=$('#root'),app=$('#app'),svg=$('#svg'),mapEl=$('#map'),insp=$('#insp');
+const NS='http://www.w3.org/2000/svg';
+const el=(t,a,p)=>{const e=document.createElementNS(NS,t);for(const n in a)e.setAttribute(n,a[n]);p&&p.appendChild(e);return e};
+const dot=(l,o,x)=>`<i class="d ${l==null?'lvx':'lv'+l}${o&&o!=='gap'?' ov-'+o:''}${x||''}"></i>`;
+const stWord=id=>{const l=S.lv[id],o=S.ov[id];if(l==null)return 'not yet on the map';const u=S.u[id];
+ if(u&&u.st==='BLOCKED')return S.mule[id]?'blocked: the plan did not foresee this':'blocked';
+ return LV[l]+(o==='failing'?' · a check is failing':o==='blocked'?' · one part is blocked':o==='gap'?' · with a known gap':'')};
+
+/* ---------- build the map once per sample ---------- */
+function buildMap(){
+ svg.innerHTML='';
+ const defs=el('defs',{},svg);
+ defs.innerHTML='<radialGradient id="gh"><stop offset="0" style="stop-color:var(--glow);stop-opacity:.75"/><stop offset=".35" style="stop-color:var(--glow);stop-opacity:.22"/><stop offset="1" style="stop-color:var(--glow);stop-opacity:0"/></radialGradient>'+
+  '<radialGradient id="gc"><stop offset="0" style="stop-color:var(--glow);stop-opacity:.5"/><stop offset=".5" style="stop-color:var(--glow);stop-opacity:.12"/><stop offset="1" style="stop-color:var(--glow);stop-opacity:0"/></radialGradient>';
+ const bg=el('g',{id:'gBg'},svg);el('ellipse',{id:'rad',class:'rad',fill:'url(#gc)',opacity:0},bg);
+ for(let i=0;i<46;i++)el('circle',{class:'star',r:(i%5===0?1.1:.7)},bg);
+ for(let i=0;i<4;i++)el('ellipse',{class:'orb',id:'orb'+i},bg);
+ for(let i=0;i<72;i++)el('line',{class:'tick'},bg);
+ const gc=el('g',{},svg),ge=el('g',{},svg),gn=el('g',{},svg);
+ D.contracts.forEach(c=>c.to.forEach(t=>{c.els=c.els||[];c.els.push({t,p:el('path',{class:'ctr'},gc)})}));
+ D.E.forEach(e=>e.p=el('path',{class:'e'+(e.c?' '+e.c:''),pathLength:1},ge));
+ Object.values(D.N).forEach(n=>{
+  const g=n.g=el('g',{class:'n k-'+n.kind+' off',tabindex:-1,role:'button','data-id':n.id},gn);
+  n.halo=el('circle',{class:'halo',fill:'url(#gh)'},g);
+  if(n.kind==='vision'){n.rays=el('path',{class:'rays'},g)}
+  if(n.kind==='cap'){n.sgs=n.units.map(u=>({u,p:el('path',{class:'sg'},g)}))}
+  n.ping=el('circle',{class:'ping'},g);n.core=el('circle',{class:'core'},g);n.crown=el('circle',{class:'crown'},g);n.selr=el('circle',{class:'selr'},g);
+  n.mk=el('path',{class:'mk'},g);n.tt=el('title',{},g);
+  n.t1=el('text',{},g);n.t2=el('text',{},g);n.t3=el('text',{class:'t-sub'},g)});
+}
+const RAD={vision:[13,19],cap:[9,12],req:[5,6.5],unit:[4,5],chk:[1.8,2.3],q:[5,6]};
+function layout(){
+ const W=mapEl.clientWidth,H=mapEl.clientHeight;if(!W||!H)return;
+ svg.setAttribute('viewBox',`0 0 ${W} ${H}`);
+ const big=W>=720,R=Math.min(W,H)/2-(big?50:20),ax=big?Math.max(1,Math.min((W/2-150)/R,1.8)):1,cx=W/2,cy=H/2-(big?8:0);
+ const rg=zoom==='macro'?{cap:.6,req:.6,unit:.6,chk:.6}:zoom==='mid'?{cap:.36,req:.78,unit:.78,chk:.78}:{cap:.25,req:.52,unit:.82,chk:.94};
+ geo={W,H,big,R,ax,cx,cy,rg};
+ const P=(r,a)=>[cx+Math.cos(a)*r*R*ax,cy+Math.sin(a)*r*R];
+ const N=D.N,angle=n=>zoom==='macro'&&n.kind!=='cap'&&n.kind!=='q'?N[n.pc].a:zoom==='mid'&&(n.kind==='unit'||n.kind==='chk')?N[n.kind==='chk'?N[n.unit].pr:n.pr].a??N[n.pc].a:n.a;
+ Object.values(N).forEach(n=>{const r=RAD[n.kind][big?1:0];n.R=r;
+  if(n.kind==='vision'){n.r=0;n.ang=0}else if(n.kind==='q'){n.r=rg.cap*(N[n.parent].kind==='vision'?.5:.52);n.ang=n.a}else{n.r=rg[n.kind];n.ang=angle(n)}
+  [n.x,n.y]=P(n.r,n.ang);n.g.style.transform=`translate(${n.x.toFixed(1)}px,${n.y.toFixed(1)}px)`;
+  n.core.setAttribute('r',r);n.halo.setAttribute('r',r*(n.kind==='chk'?2.4:n.kind==='vision'?4.2:3.4));n.ping.setAttribute('r',r);n.crown.setAttribute('r',r+4);n.selr.setAttribute('r',r+7);
+  n.mk.setAttribute('transform',`translate(${r*.95},${-r*.95})`);
+  if(n.rays){let d='';for(let i=0;i<12;i++){const a=i*Math.PI/6,l=i%3?4:8;d+=`M${Math.cos(a)*(r+7)},${Math.sin(a)*(r+7)}L${Math.cos(a)*(r+7+l)},${Math.sin(a)*(r+7+l)}`}n.rays.setAttribute('d',d)}
+  if(n.sgs){const c=n.sgs.length,rr=r+5,gap=.16;n.sgs.forEach((s,i)=>{const a0=-Math.PI/2+i/c*Math.PI*2+gap/2,a1=-Math.PI/2+(i+1)/c*Math.PI*2-gap/2;
+   s.p.setAttribute('d',`M${Math.cos(a0)*rr},${Math.sin(a0)*rr}A${rr},${rr} 0 ${a1-a0>Math.PI?1:0} 1 ${Math.cos(a1)*rr},${Math.sin(a1)*rr}`)})}});
+ const setD=(p,d)=>{p.setAttribute('d',d);p.style.d=`path("${d}")`};
+ D.E.forEach(e=>{const a=N[e.a],b=N[e.b],rm=(a.r+b.r)/2,[x1,y1]=P(rm,a.kind==='vision'?b.ang:a.ang),[x2,y2]=P(rm,b.ang);
+  setD(e.p,`M${a.x.toFixed(1)},${a.y.toFixed(1)}C${x1.toFixed(1)},${y1.toFixed(1)} ${x2.toFixed(1)},${y2.toFixed(1)} ${b.x.toFixed(1)},${b.y.toFixed(1)}`)});
+ D.contracts.forEach(c=>c.els.forEach(o=>{const a=N[c.from],b=N[o.t],mx=(a.x+b.x)/2,my=(a.y+b.y)/2;
+  setD(o.p,`M${a.x.toFixed(1)},${a.y.toFixed(1)}Q${(mx+(cx-mx)*.55).toFixed(1)},${(my+(cy-my)*.55).toFixed(1)} ${b.x.toFixed(1)},${b.y.toFixed(1)}`)}));
+ const rings=zoom==='macro'?[rg.cap,rg.cap,rg.cap,1.04]:zoom==='mid'?[rg.cap,rg.req,rg.req,1.04]:[rg.cap,rg.req,rg.unit,1.04];
+ rings.forEach((r,i)=>{const o=$('#orb'+i);o.setAttribute('cx',cx);o.setAttribute('cy',cy);o.setAttribute('rx',r*R*ax);o.setAttribute('ry',r*R);o.style.rx=r*R*ax+'px';o.style.ry=r*R+'px'});
+ const rad=$('#rad');rad.setAttribute('cx',cx);rad.setAttribute('cy',cy);rad.setAttribute('rx',R*ax*1.05);rad.setAttribute('ry',R*1.05);
+ $$('.tick',svg).forEach((t,i)=>{const a=i*Math.PI/36,l=i%6?3:7,[x1,y1]=P(1.04,a),[x2,y2]=[cx+Math.cos(a)*(1.04*R*ax+l),cy+Math.sin(a)*(1.04*R+l)];t.setAttribute('x1',x1);t.setAttribute('y1',y1);t.setAttribute('x2',x2);t.setAttribute('y2',y2)});
+ $$('.star',svg).forEach((s,i)=>{const h=parseInt(hash7('s'+i),16);s.setAttribute('cx',(h%1000)/1000*W);s.setAttribute('cy',((h>>10)%1000)/1000*H)});
+ labels()}
+function wrap(s,n){if(s.length<=n)return[s];const w=s.split(' ');let a='',i=0;while(i<w.length&&(a+' '+w[i]).trim().length<=n){a=(a+' '+w[i]).trim();i++}let b=w.slice(i).join(' ');if(b.length>n+5)b=b.slice(0,n+4)+'…';return[a,b]}
+function labels(){
+ if(!geo||!S)return;const{W,big,cx}=geo;
+ const put=(t,x,y,anchor,cls,txt)=>{t.setAttribute('x',x);t.setAttribute('y',y);t.setAttribute('text-anchor',anchor);t.setAttribute('class',cls);t.textContent=txt};
+ Object.values(D.N).forEach(n=>{const vis=S.lv[n.id]!=null,r=n.R;[n.t1,n.t2,n.t3].forEach(t=>t.textContent='');
+  n.tt.textContent=n.title+(vis?' · '+stWord(n.id):'');
+  if(!vis)return;
+  if(n.kind==='vision'){if(big&&zoom==='macro'){put(n.t1,0,r+34,'middle','t-vis',D.dream);if(S.accept==='you')put(n.t3,0,r+50,'middle','t-sub',root.classList.contains('plain')?'accepted by you':'TERMINUS · accepted by you')}}
+  else if(n.kind==='cap'){const hid=zoom==='micro'?' hid':'';const ls=wrap(n.title,big?24:16),below=Math.sin(n.a)>=-.05,lh=big?17:15;
+   const wpx=Math.max(...ls.map(l=>l.length))*(big?7:6.3)/2+4,dx=Math.max(wpx-n.x,Math.min(W-wpx-n.x,0));let y=below?r+22:-(r+12)-(ls.length-1)*lh-(zoom==='macro'?14:0);
+   put(n.t1,dx,y,'middle','t-cap'+hid,ls[0]);if(ls[1])put(n.t2,dx,y+lh,'middle','t-cap'+hid,ls[1]);
+   if(zoom==='macro'&&S.lv[n.id]>=3){const us=n.units,pv=us.filter(u=>S.lv[u]>=7).length,b=us.filter(u=>S.lv[u]>=6).length;put(n.t3,dx,y+ls.length*lh-1,'middle','t-sub',pv?`${pv} of ${us.length} proven`:b?`${b} of ${us.length} built`:`${us.length} parts planned`)}}
+  else if(n.kind==='req'){if(zoom!=='macro')side_(n,wrap(n.title,30)[0]+(n.title.length>30?'…':''),big&&zoom==='mid'?'':'hid')}
+  else if(n.kind==='unit'){if(zoom!=='micro')return;const u=S.u[n.id],act=u&&u.st!=='DONE'&&u.st!=='READY';side_(n,big&&(act||sel===n.id)?n.id+' · '+n.title:n.id,'t-id')}
+  else if(n.kind==='q'){if(big||sel===n.id)side_(n,'? '+wrap(n.title,26)[0],'')}});
+ function side_(n,txt,cls){const c=Math.cos(n.ang),s=Math.sin(n.ang),r=n.R+8;let an=c>.25?'start':c<-.25?'end':'middle';
+  let x=an==='middle'?0:c>0?r:-r,y=an==='middle'?(s>0?r+10:-r-3):4;
+  if(!geo.big){const est=txt.length*5.6;if(an==='start'&&n.x+x+est>geo.W)an='end',x=-r;else if(an==='end'&&n.x+x-est<0)an='start',x=r}
+  put(n.t1,x,y,an,cls,txt)}}
+function updateMap(){
+ if(!geo)layout();const N=D.N,fwd=prevS&&prevS.k===S.k-1;
+ const show=n=>S.lv[n.id]!=null&&(n.kind==='vision'||n.kind==='cap'||n.kind==='q'||(n.kind==='req'&&zoom!=='macro')||((n.kind==='unit'||n.kind==='chk')&&zoom==='micro'));
+ let rel=null;if(sel&&N[sel]){rel=new Set([sel]);const walk=(id,dir)=>N[id][dir].forEach(x=>{if(!rel.has(x)){rel.add(x);walk(x,dir)}});walk(sel,'up');rel.delete(sel);rel.add(sel);const s2=new Set([sel]);const w2=id=>N[id].down.forEach(x=>{if(!s2.has(x)){s2.add(x);w2(x)}});w2(sel);s2.forEach(x=>rel.add(x))}
+ svg.classList.toggle('dimmed',!!rel);
+ Object.values(N).forEach(n=>{const l=S.lv[n.id],on=show(n),o=S.ov[n.id];
+  let c='n k-'+n.kind+(on?'':' off')+(l!=null?' lv'+l:'')+(o?' ov-'+o:'')+(sel===n.id?' sel':'')+(rel&&rel.has(n.id)?' rel':'');
+  if(n.kind==='vision'&&S.proxy&&S.accept!=='you')c+=' proxy';
+  if(fwd&&on){const pl=prevS.lv[n.id];if(pl==null)c+=' new';else if(l>pl)c+=' up'}
+  n.g.setAttribute('class',c);n.g.setAttribute('tabindex',on?0:-1);n.g.setAttribute('aria-label',`${n.kind==='chk'?'check':n.kind==='cap'?'capability':n.kind==='req'?'requirement':n.kind==='unit'?'work item':n.kind==='q'?'open question':'vision'}: ${n.title}. ${stWord(n.id)}`);
+  n.mk.setAttribute('d',o==='blocked'?'M0,-6L1.6,-1.6 6,0 1.6,1.6 0,6 -1.6,1.6 -6,0 -1.6,-1.6Z':o?'M-3,0a3,3 0 1,0 6,0a3,3 0 1,0 -6,0':'');
+  if(n.sgs)n.sgs.forEach(s=>{const ul=S.lv[s.u];s.p.setAttribute('class','sg'+(S.ov[s.u]==='blocked'?' sb':ul!=null?' s'+ul:''))})});
+ D.E.forEach(e=>{const a=N[e.a],b=N[e.b],on=show(a)&&show(b),l=Math.min(S.lv[e.a]??0,S.lv[e.b]??0);
+  e.p.setAttribute('class','e'+(e.c?' '+e.c:'')+(on?' on l'+(e.c==='q'?0:Math.max(1,l)):'')+(rel&&rel.has(e.a)&&rel.has(e.b)?' rel':''))});
+ D.contracts.forEach(c=>c.els.forEach(o=>o.p.setAttribute('class','ctr'+(zoom==='micro'&&S.lv[c.from]!=null&&S.lv[o.t]!=null?' on':'')+(S.fixed[c.id]?' fixed':''))));
+ $('#rad').setAttribute('opacity',(.1+S.pct*.75+(S.accept==='you'?.15:0)).toFixed(2));
+ labels();
+ $('#pct').innerHTML=`${Math.round(S.pct*100)}<small>% proven</small>`;
+ $('#pctS').textContent=S.lv.V==null?'':S.lv.V<3?`${D.caps.filter(c=>S.lv[c.id]!=null).length} capabilities · ${D.reqs.filter(r=>S.lv[r.id]!=null).length} requirements on the map`:`${S.nProven} of ${S.nReq} requirements proven in real use · ${S.nBuilt} of ${S.nUnits} work items built`;
+ $('#caplist').innerHTML=D.caps.filter(c=>S.lv[c.id]!=null).map(c=>{const us=c.units,b=us.filter(u=>S.lv[u]>=5).length,t=us.filter(u=>S.lv[u]>=6).length,p=us.filter(u=>S.lv[u]>=7).length;
+  const rq=D.reqs.filter(r=>r.f.includes(c.id)),rp=rq.filter(r=>S.lv[r.id]>=7).length;
+  return `<button class="cap-row" data-id="${c.id}"><span class="cap-t">${esc(c.title)}</span><span class="cap-p">${S.lv[c.id]>=3?Math.round(rp/rq.length*100)+'%':LV[S.lv[c.id]]}</span>
+  <span class="lad">${dot(S.lv[c.id],S.ov[c.id])}<span style="width:6px"></span>${us.map(u=>dot(S.lv[u],S.ov[u])).join('')}</span>
+  <span class="cap-s">${S.lv[c.id]<3?esc(c.plain):`${b} of ${us.length} parts built · ${t} tested · ${p} proven`+(S.ov[c.id]==='blocked'?' · 1 blocked':'')}</span></button>`}).join('')}
+
+/* ---------- header ---------- */
+function renderHd(){
+ const st=S.step,si=STO.indexOf(S.stage),idx=D.stageIdx[S.stage]||[k],fr=(idx.indexOf(k)+1)/idx.length;
+ const x=S.accept==='you'?100:Math.min(99,(si+fr*.96)*25);
+ const wv=D.waves.findIndex(w=>w.id===S.wave),g=S.gate;
+ const where=S.accept==='you'?`<span class="tn">Terminus</span><span class="pt">Done</span> <em>accepted by you</em>`:
+  STG[S.stage]+(S.stage==='B'&&wv>=0?` · Wave ${wv+1} of ${D.waves.length} <em>${esc(D.waves[wv].goal)}</em>`:'');
+ const blocked=D.units.filter(u=>S.u[u.id]&&S.u[u.id].st==='BLOCKED'),stuck=Object.keys(S.stuck);
+ const health=blocked.length?`<div class="health">${dot(3,'blocked')} ${blocked.length} unforeseen blocker${blocked.length>1?'s':''}; the rest keeps building</div>`:stuck.length?`<div class="health">${dot(3,'blocked')} 1 worker stalled; recovering by itself</div>`:'';
+ let band;
+ if(g){const ws=g.words.map(w=>typeof w==='string'?WORDS[w]:w);
+  band=`<div class="band crisis" role="status"><div class="eyebrow">${tw('crisis')}</div><h3>${esc(g.q)}</h3>
+  <div class="say"><span>Answer in chat. Type</span>${ws.map(w=>`<code title="${esc(w[1])}">${esc(w[0])}</code>`).join('<span>or</span>')}<small>or answer in your own words. Nothing can be decided on this page.</small></div></div>`}
+ else if(S.accept==='you')band=`<div class="band term">${dot(8)}<span><span class="tn" style="font:16px var(--serif)">Terminus.</span> ${esc(D.dream)} is accepted by you.</span></div>`;
+ else band=`<div class="band calm">Nothing needs you.</div>`;
+ $('#hd').innerHTML=`<div class="hd-top"><span class="mark">SELDON<i>read-only${D.real?'':' · sample'}</i></span><span class="tools">
+   <button class="tool" id="bPlain" aria-pressed="${root.classList.contains('plain')}" title="Plain words: hide the Foundation names" aria-label="Plain words">Aa</button>
+   <button class="tool" id="bTheme" title="Light or dark" aria-label="Light or dark theme">&#9680;</button>
+   <button class="tool" id="bFull" aria-pressed="${root.classList.contains('full')}" title="Full screen: the map takes the stage" aria-label="Full screen">${root.classList.contains('full')?'&#10529;':'&#10530;'}</button></span></div>
+  <div><h1 class="dream">${esc(D.dream)}</h1><p class="vis">${esc(D.vision)}</p>
+   <div class="jb-track" aria-hidden="true"><u style="left:25%"></u><u style="left:50%"></u><u style="left:75%"></u><i style="width:${x}%"></i><b style="left:${x}%"></b></div>
+   <div class="jb-st">${STO.map((s,i)=>`<span class="${i<si||S.accept==='you'?'done':i===si?'on':''}">${STG[s]}</span>`).join('')}</div>
+   <div class="where">${where}</div>
+   </div><div class="hd-r"><dl class="now"><dt>Now</dt><dd class="k">${esc(st.say)}</dd>${st.why?`<dt>Why</dt><dd>${esc(st.why)}</dd>`:''}${st.nx&&S.gate?`<dt>Next</dt><dd>${esc(st.nx)}</dd>`:''}</dl>${health}${band}</div>`;
+ const act=D.units.filter(u=>S.u[u.id]&&!['DONE','READY'].includes(S.u[u.id].st)).length;
+ const cur=wide&&tab==='map'?side:tab;
+ $('#tabs').innerHTML=TABS.map(t=>`<button class="tab" role="tab" data-t="${t[0]}" aria-selected="${cur===t[0]}"><span class="tn">${t[1]}</span><span class="pt">${t[2]}</span>${t[0]==='crew'&&act?`<sup>${act}</sup>`:t[0]==='vault'&&g?'<sup>&#9670;</sup>':t[0]==='chron'&&S.k>seenK&&seenK>=0&&cur!=='chron'?`<sup>${S.k-seenK}</sup>`:''}</button>`).join('')}
+
+/* ---------- crew + board ---------- */
+function kcard(u,cls){const s=S.u[u.id],act=['WORKING','PROVING','JUDGING','INTEGRATING'],ai=act.indexOf(s.st);
+ const waits=u.deps.concat(S.xdep[u.id]||[]).filter(d=>!S.u[d]||S.u[d].st!=='DONE');
+ const status=s.st==='READY'?(waits.length?'Waits for '+waits.join(', '):'Next in line; all '+D.crewSize+' workers are busy'):s.st==='DONE'?'Integrated at '+u.commit+(S.lv[u.id]>=7?' · proven in real use':''):s.st==='REWORK'||s.st==='BLOCKED'?s.note:UPL[s.st];
+ return `<button class="kc ${cls||''}" data-id="${u.id}"><span class="kc-t">${esc(u.title)}</span>
+  <span class="kc-m">${dot(S.lv[u.id],S.ov[u.id])}<span>${u.id}</span><span class="st">${s.st}${s.att>1?' · try '+s.att:''}</span><span class="t">${s.st==='DONE'?'':dur(S.now-s.since)}</span></span>
+  ${ai>=0?`<span class="pips">${act.map((a,i)=>`<i class="${i<ai?'on':i===ai?'cur':''}" title="${a}"></i>`).join('')}</span>`:''}
+  <span class="kc-s">${esc(status)}${s.wk&&ai>=0?` <span style="color:var(--faint)">· ${s.prov} ${s.model}</span>`:''}</span></button>`}
+function renderCrew(){
+ const us=D.units.filter(u=>S.u[u.id]),by=f=>us.filter(u=>f(S.u[u.id].st));
+ const working=by(s=>s==='WORKING'||s==='REWORK'),active=by(s=>['WORKING','PROVING','JUDGING','INTEGRATING','REWORK'].includes(s)),blocked=by(s=>s==='BLOCKED'||s==='FAILED'),ready=by(s=>s==='READY'),done=by(s=>s==='DONE').sort((a,b)=>S.u[b.id].since-S.u[a.id].since);
+ const n=by(s=>s==='WORKING').length;
+ const crew=by(s=>s==='WORKING').map(u=>{const s=S.u[u.id],stuck=S.stuck[u.id]!=null;return `<button class="chip${stuck?' stuck':''}" data-id="${u.id}"><span class="pv" title="${s.prov}">${s.prov[0].toUpperCase()+s.prov[1]}</span><span class="w1">${esc(u.title)}</span><span class="w2">${s.prov} · ${s.model} · ${s.wk}${s.att>1?' · try '+s.att:''}</span><span class="el">${stuck?'<b>STALLED</b>':''}${dur(S.now-s.since)}</span></button>`}).join('');
+ const g=S.gate;
+ const col=(name,cnt,body,cls)=>`<div class="col ${cls||''}"><div class="col-h"><span>${name}</span><b>${cnt}</b></div>${body||'<div class="more">none</div>'}</div>`;
+ $('#vCrew').innerHTML=`<div style="display:flex;align-items:flex-start;gap:10px"><h2 class="vh" style="flex:1">${tw('crew')}</h2><button class="lnk" id="bStage">${app.classList.contains('bstage')?'back to the map':'board to the stage'}</button></div>
+  ${!us.length?`<p class="empty">The crew starts when the plan is agreed. Until then, the map is where things happen.</p>`:`
+  <div class="h3"><span><b>${n}</b> working now</span><span class="slots" title="${n} of ${D.crewSize} worker slots in use">${Array.from({length:D.crewSize},(_,i)=>`<i class="${i<n?'on':''}"></i>`).join('')}</span></div>
+  <div class="crew">${crew||`<div class="more">${g?'Paused at a checkpoint: waiting for your answer in chat.':'No worker session is open right now.'}</div>`}</div>
+  <div class="board">
+   ${col('Waiting on you',g?1:0,g?`<button class="kc you" data-tab="vault"><span class="kc-t">${esc(g.title)}</span><span class="kc-s">${esc(g.q)}</span><span class="kc-m"><span class="st">answer in chat</span><span class="t">${dur(S.now-g.t)}</span></span></button>`:'')}
+   ${col('Blocked',blocked.length,blocked.map(u=>kcard(u,'mule')).join(''))}
+   ${col('Active',active.length,active.map(u=>kcard(u)).join(''),'act')}
+   ${col('Up next',ready.length,ready.map(u=>kcard(u)).join(''))}
+   ${col('Done',done.length,done.slice(0,5).map(u=>kcard(u)).join('')+(done.length>5?`<div class="more">and ${done.length-5} more, all integrated</div>`:''))}
+  </div>`}`}
+
+/* ---------- waves ---------- */
+function renderWaves(){
+ const any=Object.keys(S.wv).length;
+ $('#vWaves').innerHTML=`<h2 class="vh">${tw('waves')}</h2>`+(!any?`<p class="empty">Waves are outlined while the plan takes shape.</p>`:D.waves.map((w,i)=>{
+  const st=S.wv[w.id]||'outlined',us=D.units.filter(u=>u.wave===w.id&&S.lv[u.id]!=null),cur=S.wave===w.id&&st!=='done',sk=st==='outlined';
+  const wi=WST.findIndex(x=>x[0]===st),dn=us.filter(u=>S.lv[u.id]>=6).length;
+  const word=st==='done'?(S.flow[w.id]?'integrated, running, proven':'done'):st==='outlined'?'sketched; detailed when its turn comes':st==='detailed'?'planned in detail':st==='check-in'?'at its checkpoint':st;
+  return `<div class="wave${cur?' cur':''}${sk?' sk':''}"><div class="wv-n"><span>Wave ${i+1}${i===0&&D.waves.length>1?' · skeleton':''}</span>${cur?'<b>now</b>':''}<span style="margin-left:auto;letter-spacing:.04em;text-transform:none">${word}</span></div>
+   <div class="wv-g">${esc(w.goal)}</div>
+   ${us.length?`<div class="lad">${us.map(u=>dot(S.lv[u.id],S.ov[u.id])).join('')}<span style="font:10.5px var(--mono);color:var(--faint);margin-left:6px">${dn} of ${us.length} integrated</span></div>`:''}
+   ${!sk?`<div class="wsteps">${WST.map((x,j)=>`<span class="${st==='done'||j<wi?'done':j===wi?'on':''}" title="${x[2]}">${x[1]}</span>`).join('')}</div>`:''}
+   ${(cur||st==='detailed')&&us.length?us.map(u=>`<button class="urow" data-id="${u.id}">${dot(S.lv[u.id],S.ov[u.id])}<span class="id">${u.id}</span><span>${esc(u.title)}</span><span class="s">${S.u[u.id]?S.u[u.id].st:'DRAFT'}</span></button>`).join(''):us.length&&!sk?`<div class="more">${us.length} work items, all integrated</div>`:''}
+  </div>`}).join(''))}
+
+/* ---------- chronicle ---------- */
+function renderChron(){
+ const G={go:3,plan:1,q:0,gate:0,you:8,proxy:2,second:7,ok:6,merge:6,bad:4,mule:3,done:8};let h='',last=null;const nw=seenK>=0?S.ev.filter(e=>e.i>seenK).length:0;
+ [...S.ev].reverse().forEach(e=>{const chap=STG[e.s]+(e.w?' · wave '+(D.waves.findIndex(w=>w.id===e.w)+1):'');if(chap!==last){h+=`<div class="chap">${chap}</div>`;last=chap}
+  const eb=e.k==='mule'?tw('mule'):e.k==='gate'?(e.gate.id.startsWith('check-in')?tw('vopen'):tw('crisis')):e.k==='second'?tw('second'):e.k==='done'?tw('terminus'):e.k==='proxy'?'<span>accepted by proxy, not by you</span>':'';
+  h+=`<div class="cr ${e.k}"><span class="g">${dot(G[e.k],e.k==='mule'?'blocked':e.k==='bad'?'failing':'')}</span><time>${fmt(e.t)}${e.i>seenK&&seenK>=0?'<b>new</b>':''}</time>${eb?`<div class="eyebrow">${eb}</div>`:''}<p>${esc(e.say)}</p>${e.why?`<div class="why">${esc(e.why)}</div>`:''}</div>`});
+ $('#vChron').innerHTML=`<h2 class="vh">${tw('chron')}</h2>${nw?`<div class="since">${nw} new since you last looked</div>`:''}${h}`}
+
+/* ---------- proof ledger ---------- */
+function renderProof(){
+ const pv=S.nProven,tested=D.reqs.filter(r=>S.lv[r.id]===6).length,fail=D.reqs.filter(r=>S.ov[r.id]==='failing'||S.ov[r.id]==='blocked').length;
+ const verdict=S.lv.V==null||S.lv.V<3?'Nothing is built yet, so nothing is claimed.':pv===S.nReq?`Everything you asked for is proven in real use.`:`${pv} of ${S.nReq} requirements are proven in real use${tested?`, ${tested} tested only`:''}${fail?`, ${fail} in trouble`:''}. The rest is not yet claimed.`;
+ const led=D.caps.filter(c=>S.lv[c.id]!=null).map(c=>`<div class="led"><button class="led-h" data-id="${c.id}">${dot(S.lv[c.id],S.ov[c.id])}<span class="cap-t">${esc(c.title)}</span><span class="cap-p">${LV[S.lv[c.id]]}</span></button>
+  ${D.reqs.filter(r=>r.f.includes(c.id)&&S.lv[r.id]!=null).map(r=>{const l=S.lv[r.id],o=S.ov[r.id],w=o==='failing'?'failing':o==='blocked'?'blocked':l>=7?'proven in real use':l===6?'tested only':l>=4?'in progress':'not yet';
+   const ev=D.units.filter(u=>u.reqs.includes(r.id)&&S.u[u.id]).map(u=>{const s=S.u[u.id],ck=D.checks.filter(x=>x.unit===u.id).map(x=>x.cmd).join(' + ');
+    return `${u.id} ${ck||'no check of its own'}: ${['JUDGING','INTEGRATING','DONE'].includes(s.st)?'fails before, passes after':s.st==='PROVING'?'being proven':s.st==='REWORK'?'sent back':'not run yet'}${s.st==='DONE'?' · judged satisfied · '+u.commit:''}${S.flow[u.wave]&&s.st==='DONE'?' · flow walked':''}`}).join('<br>');
+   return `<button class="rq" data-id="${r.id}">${dot(l,o)}<span>${esc(r.title)} <span class="w ${w==='not yet'?'no':w==='failing'||w==='blocked'?'bad':''}">${w}${o==='gap'?' · known gap':''}</span></span>${ev?`<span class="evd">${ev}</span>`:''}</button>`}).join('')}</div>`).join('');
+ const prox=S.vault.filter(v=>v.by==='proxy'),you=S.vault.filter(v=>v.by==='you');
+ $('#vProof').innerHTML=`<h2 class="vh">${tw('second')}</h2><p class="verd">${verdict}</p>
+  <div class="h3">Proof ledger</div>${led||'<p class="empty">The ledger fills as requirements are written.</p>'}
+  ${S.ru?`<div class="h3">First real use</div><pre class="tr">${D.realuse.join('\n')}</pre><div class="h3">Try it</div><pre class="tr"><b>${esc(D.tryit)}</b></pre>`:''}
+  <div class="h3">Known gaps and not judged</div>${S.open.length?S.open.map(o=>`<div class="gap">${esc(o.text)}<small>${esc(o.why)}</small></div>`).join(''):'<div class="more">Nothing is open.</div>'}
+  <div class="h3">Acceptance</div>
+  <div class="acc">${dot(S.accept==='you'?8:1)}<span>${S.accept==='you'?'Accepted by you.':'Not yet accepted by you.'}${you.length?` You answered ${you.length} checkpoint${you.length>1?'s':''} yourself.`:''}</span></div>
+  ${prox.length?`<div class="acc">${dot(2,'',' proxy')}<span>${prox.length} checkpoint${prox.length>1?'s were':' was'} accepted by proxy (a scripted yes). That is not you.</span></div>`:''}`}
+
+/* ---------- vault ---------- */
+function renderVault(){
+ $('#vVault').innerHTML=`<h2 class="vh">${tw('vault')}</h2>`+D.gates.map(g=>{const v=S.vault.find(x=>x.id===g.id),open=S.gate&&S.gate.id===g.id,cls=v?'done':open?'open':'sealed';
+  return `<div class="vc ${cls}"><div class="mono" aria-hidden="true"></div><div><h4>${esc(g.title)}</h4>
+   <div class="by">${v?`${fmt(v.t)} · ${v.by==='you'?`<span class="y">answered by you</span>: "${esc(v.said)}"`:`<span class="p">accepted by proxy, not by you</span>: ${esc(v.said)}`}`:open?`<span class="y">open · waiting on you</span>`:'sealed · not reached yet'}</div>
+   ${v||open?`<dl class="kv">${g.sum.map(s=>`<dt>${s[0]}</dt><dd>${esc(s[1])}</dd>`).join('')}</dl>`:''}
+   ${open?`<div class="say" style="margin-top:8px"><span>Answer in chat:</span>${g.words.map(w=>`<code>${esc((typeof w==='string'?WORDS[w]:w)[0])}</code>`).join('')}</div>`:''}</div></div>`}).join('')}
+
+/* ---------- inspector ---------- */
+function renderInsp(){
+ if(!sel||!D.N[sel]||S.lv[sel]==null){insp.classList.remove('on');return}
+ const n=D.N[sel],l=S.lv[sel],o=S.ov[sel],KD={vision:'Vision',cap:'Capability',req:'Requirement',unit:'Work item',chk:'Check',q:'Open question'};
+ const ch=ids=>ids.filter(i=>S.lv[i]!=null).map(i=>`<button class="chipb" data-id="${i}">${dot(S.lv[i],S.ov[i])}<span>${esc(D.N[i].title.length>34?D.N[i].title.slice(0,33)+'…':D.N[i].title)}</span></button>`).join('')||'<span class="more">nothing yet</span>';
+ let body='';
+ if(n.kind==='unit'){const s=S.u[sel],ck=D.checks.filter(c=>c.unit===sel),cons=D.contracts.filter(c=>c.to.includes(sel)),prov=D.contracts.filter(c=>c.from===sel);
+  body=`<dl class="kv" style="grid-template-columns:48px 1fr;margin-top:10px">
+   <dt>What</dt><dd>${esc(n.title)} · area: ${esc(D.areas[n.area])} · wave ${D.waves.findIndex(w=>w.id===n.wave)+1}</dd>
+   <dt>Why</dt><dd>${n.reqs.length?n.reqs.map(r=>esc(D.N[r].title)).join('; '):'No requirement of its own; it supports "'+esc(D.N[n.sup].title)+'"'}</dd>
+   <dt>Needs</dt><dd>${n.deps.concat(S.xdep[sel]||[]).join(', ')||'nothing before it'}${cons.length?' · uses: '+cons.map(c=>esc(c.name)+(S.fixed[c.id]?' (corrected)':'')).join(', '):''}${prov.length?' · provides: '+prov.map(c=>esc(c.name)).join(', '):''}</dd>
+   <dt>Now</dt><dd>${s?`${s.st}, for ${dur(S.now-s.since)}. ${esc(UPL[s.st])}.`:'Drafted; not yet agreed.'}${s&&s.last?' Last: '+esc(s.last):''}</dd>
+   <dt>Proof</dt><dd>${ck.length?ck.map(c=>`<span style="font:11px var(--mono)">${esc(c.cmd)}</span>: ${S.lv[c.id]>=6?'fails before the work, passes after':'not proven yet'}`).join('<br>'):'no check of its own'}${s&&s.st==='DONE'?'<br>judged satisfied · commit '+n.commit:''}${S.lv[sel]>=7?'<br>flow walked on the integrated product':''}</dd>
+   <dt>Who</dt><dd>${s&&s.wk?`${s.wk} · ${s.prov} ${s.model} · try ${s.att}`:'no worker yet'}</dd></dl>`}
+ else if(n.kind==='chk')body=`<p class="vis" style="margin:8px 0">An ordinary command. It must fail before the work exists and pass after; otherwise it proves nothing.</p>`;
+ else if(n.kind==='q')body=`<p class="vis" style="margin:8px 0">An open question. It stays dashed on the map until you answer it in chat.</p>`;
+ else body=`<p class="vis" style="margin:8px 0">${esc(n.plain||'An observable obligation: something you can watch work.')}</p>`;
+ const hist=(S.hist[sel]||[]).map(h=>`<span>${dot(h.lv,h.ov)}${LV[h.lv]}${h.ov?' ('+(h.ov==='gap'?'known gap':h.ov)+')':''} <span style="opacity:.7">${fmt(h.t)}</span></span>`).join('');
+ const gaps=S.open.filter(g=>g.node===sel);
+ insp.innerHTML=`<button class="x" id="inX" aria-label="Close details">&times;</button><div class="kd">${KD[n.kind]}${n.kind==='unit'||n.kind==='chk'?' · '+n.id:''}</div><h3>${esc(n.title)}</h3>
+  <div class="stt">${dot(l,o)}<span>${stWord(sel)}</span>${sel==='V'&&S.proxy&&S.accept!=='you'?'<small>· earlier checkpoints were accepted by proxy, not by you</small>':''}</div>${body}
+  ${gaps.map(g=>`<div class="gap" style="margin-top:8px">${esc(g.text)}<small>${esc(g.why)}</small></div>`).join('')}
+  ${n.up.length?`<div class="h3">Traces up to</div><div class="chips">${ch(n.up)}</div>`:''}
+  ${n.down.length?`<div class="h3">Traces down to</div><div class="chips">${ch(n.down)}</div>`:''}
+  <div class="h3">State history</div><div class="hist">${hist}</div>
+  <div class="ro">Read-only. To ask about this in chat, type: <span style="color:var(--gold);user-select:all">what is ${n.kind==='vision'?'the vision':n.id} doing and why</span></div>`;
+ insp.style.top=wide?$('#tabs').offsetTop+'px':'';insp.classList.add('on')}
+
+/* ---------- orchestration ---------- */
+function renderAll(){renderHd();updateMap();renderCrew();renderWaves();renderChron();renderProof();renderVault();renderInsp();
+ const cur=wide&&tab==='map'?side:tab;$$('.view',app).forEach(v=>v.classList.toggle('on',v.dataset.v===tab||(wide&&(v.dataset.v==='map'||v.dataset.v===cur))));
+ $('#rpT').value=k;$('#rpN').textContent=(k+1)+'/'+D.steps.length;$('#rpPlay').innerHTML=timer?'&#10074;&#10074;':'&#9654;'}
+function go(n,quiet){n=Math.max(0,Math.min(D.steps.length-1,n));prevS=S;k=n;S=compute(D,k);
+ if(!zoomManual){const z={U:'macro',S:'mid',B:'micro',P:'mid'}[S.stage],zz=S.accept==='you'?'macro':z;if(zz!==zoom){zoom=zz;layout();renderZoom()}}
+ renderAll();
+ const st=S.step;if(!quiet&&prevS&&prevS.k===k-1){if(st.gate&&st.gate.id.startsWith('check-in'))moment('',VOC.vopen,st.gate.title);else if(st.accept==='you')moment('star',VOC.terminus,D.dream+' is accepted by you')}}
+function moment(cls,v,sub){const m=$('#vmo');m.className='vmo '+cls;void m.offsetWidth;$('b',m).innerHTML=`<span class="tn">${v[0]}</span><span class="pt">${v[2]}</span>`;$('span:last-child',m).textContent=sub;m.classList.add('on');clearTimeout(moment.t);moment.t=setTimeout(()=>m.classList.remove('on'),3000)}
+function play(on){clearInterval(timer);timer=null;if(on){if(k>=D.steps.length-1)go(0,true);timer=setInterval(()=>{if(k>=D.steps.length-1){play(false);return}go(k+1)},1700)}renderAll()}
+function renderZoom(){$('#zoom').innerHTML=[['macro','Macro','Far','The vision and its capabilities'],['mid','Mid','Mid','Capabilities and requirements'],['micro','Micro','Near','Work items and their proofs']].map(z=>`<button data-z="${z[0]}" aria-pressed="${zoom===z[0]}" title="${z[3]}"><span class="tn">${z[1]}</span><span class="pt">${z[2]}</span></button>`).join('')}
+function load(key,k0){D=prep(SAMPLES[key]);sel=null;prevS=null;S=null;geo=null;seenK=-1;buildMap();$('#rpT').max=D.steps.length-1;$('#rpS').value=key;layout();go(k0==null?0:k0,true)}
+function setTab(t){if(tab==='chron'||(wide&&side==='chron'))seenK=k;if(wide&&t!=='map')side=t;tab=wide&&t==='map'?tab:t;if(t!=='crew')app.classList.remove('bstage');sel=null;renderAll();if(t==='map'){geo=null;layout();updateMap()}}
+function pick(id){sel=sel===id?null:id;if(sel&&!wide&&tab==='map'){}updateMap();renderInsp()}
+function setWide(){snap();const w=$('#frame').clientWidth>=900;if(w!==wide){wide=w;app.classList.toggle('wide',w);if(!w)app.classList.remove('bstage')}geo=null;if(S){renderAll();layout();updateMap()}}
+
+$('#mapH').innerHTML=tw('radiant');
+$('#key').innerHTML=`<summary>${LV.map((_,i)=>dot(i)).join('')}<span style="margin-left:6px">the ladder</span></summary><ul>${LV.map((w,i)=>`<li>${dot(i)}${w}${i===0?' (waiting on you)':''}</li>`).join('')}<li>${dot(2,'',' proxy')}accepted by proxy, not by you</li><li>${dot(3,'blocked')}<span><span class="tn">the Mule: </span>a blocker the plan did not foresee</span></li><li>${dot(4,'failing')}a check is failing</li><li><span style="color:var(--cool)">┄┄</span>an agreement between two parts</li></ul>`;
+$('#rpS').innerHTML=Object.values(SAMPLES).map(s=>`<option value="${s.key}">${s.label}</option>`).join('');
+document.addEventListener('click',e=>{const t=e.target.closest('[data-id],[data-t],[data-z],[data-tab],button');if(!t)return;
+ if(t.id==='bTheme'){root.classList.toggle('light');return}
+ if(t.id==='bPlain'){root.classList.toggle('plain');renderAll();return}
+ if(t.id==='bFull'){root.classList.toggle('full');setTimeout(setWide,0);return}
+ if(t.id==='bStage'){app.classList.toggle('bstage');renderAll();if(!app.classList.contains('bstage')){geo=null;layout();updateMap()}return}
+ if(t.id==='inX'){sel=null;updateMap();renderInsp();return}
+ if(t.id==='rpPrev'){play(false);go(k-1,true);return}if(t.id==='rpNext'){play(false);go(k+1);return}if(t.id==='rpPlay'){play(!timer);return}
+ if(t.dataset.t){setTab(t.dataset.t);return}if(t.dataset.tab){setTab(t.dataset.tab);return}
+ if(t.dataset.z){zoom=t.dataset.z;zoomManual=true;renderZoom();layout();updateMap();return}
+ if(t.dataset.id){pick(t.dataset.id)}});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&sel){sel=null;updateMap();renderInsp()}else if((e.key==='Enter'||e.key===' ')&&e.target.closest&&e.target.closest('g.n')){e.preventDefault();pick(e.target.closest('g.n').dataset.id)}});
+$('#rpT').addEventListener('input',e=>{play(false);go(+e.target.value,true)});
+$('#rpS').addEventListener('change',e=>{play(false);zoomManual=false;load(e.target.value)});
+new ResizeObserver(()=>setWide()).observe($('#frame'));
+new ResizeObserver(()=>{if(S){snap();geo=null;layout();updateMap()}}).observe(mapEl);
+function snap(){svg.classList.add('nt');clearTimeout(snap.t);snap.t=setTimeout(()=>svg.classList.remove('nt'),120)}
+
+/* deep links for reviewers: #s=shelf&k=30&full=1&theme=light&plain=1&tab=crew&zoom=micro&auto=0&sel=u09&stage=1 */
+const Q=Object.fromEntries(new URLSearchParams(location.hash.slice(1)));
+if(Q.theme==='light')root.classList.add('light');if(Q.plain)root.classList.add('plain');if(Q.full)root.classList.add('full');
+wide=$('#frame').clientWidth>=900;app.classList.toggle('wide',wide);
+if(Q.tab){tab=Q.tab;if(Q.tab!=='map')side=Q.tab}if(Q.zoom){zoom=Q.zoom;zoomManual=true}
+renderZoom();load(SAMPLES[Q.s]?Q.s:'shelf',Q.k==null?0:+Q.k);
+if(Q.stage&&wide){app.classList.add('bstage');renderAll()}
+if(Q.sel){sel=Q.sel;updateMap();renderInsp()}
+if(Q.k==null&&Q.auto!=='0'&&!matchMedia('(prefers-reduced-motion:reduce)').matches)setTimeout(()=>play(true),900);
+</script>
+</body>
+</html>

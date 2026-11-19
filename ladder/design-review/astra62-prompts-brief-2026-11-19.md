@@ -1,0 +1,18 @@
+# Astra 6.2 job: Seldon's prompts are the product — review and rewrite (read only, write one file)
+
+## Why (owner, 2026-11-19)
+"So Seldon's loop is about promoting models but we are using shit prompting technique?" Evidence: on Quiet Bench a plain Codex Terra session given the dream (2.7 KB of human prose) wrote cleaner, more readable code than Seldon's builder, which got a 17 KB machine-facing brief opening with "Answer one typed question with schema-valid JSON. Facts are data. WORK may edit assigned scopes only…", then proof mechanics (RED/GREEN, checkPaths, discoveries, retire), a large JSON schema, and labelled fact blocks — and never the person's words or a craft goal. Same model, same Codex harness. Seldon's value is coaching models; its prompts must be its best part.
+
+## Read
+- Prompt sources: `~/codex-harness/work/sprint-20261027/semantic-cc/src/seldon/questions.py` (all question kinds and shared text: CRAFT, COACH, JUDGMENT_LEEWAY, DEFECT_HANDOFF, GUIDE_*), `schema.py`, `providers.py` (how a prompt is assembled: instructions, schema, example, facts order), `plan.py` (GUIDE_WORK), and anything else that writes model-facing text.
+- Real rendered prompts: `C:/seldon/tests/m1/qbu-dbc5db9-s01/calls/call-*/{prompt.txt,instructions.txt,answer.txt}` (Quiet Bench micro run) and `C:/seldon/tests/m1/shelflife-main-6433526-x01/calls/` (ShelfLife). The plain dream: `C:/seldon/runs/qb-plain-1/dream.txt`; plain product `C:/seldon/runs/qb-plain-1/product/`; Seldon product `C:/seldon/tests/oracle-micro4c/`.
+- BLUEPRINT.md v1.15 R12 (questions are briefs), R16 (thin, coach), R17-R19; CHARTER C1, C20 (schema-bound headless calls are a core idea — keep strict JSON answers, but they are the receipt, not the mission).
+Never read .env files. Edit nothing except your output file. No provider calls.
+
+## Deliver
+1. **Diagnosis per question kind** (ALIGN rounds, ARCHITECT/STEER, DETAIL, REVIEW, WORK, COACH, JUDGE, FLOW, PRODUCT, DECIDE, guide): what the model is actually asked to optimise for, what is missing (goal, person, craft bar, the user's words, examples), what is noise (facts it does not need, bureaucracy before the goal), with evidence from rendered prompts.
+2. **Prompting principles for Seldon** (≤12 lines): order (goal/person → context → craft bar → task → facts → output format last), voice, examples, how much context, how to state constraints, how proof/report mechanics are presented as a receipt. Ground them in current best practice for coding agents (OpenAI Codex / Anthropic guidance you know), and in what we observed.
+3. **Rewrites**: the full new text for the WORK brief (sole-owner and multi-owner variants) and JUDGE, and the opening/framing for every other kind. Keep strict schemas and the facts Seldon needs; move them, shorten them, frame them. No oracle-specific hints (held-out rule). Include the readable-code / maintainable / senior-engineer craft bar for builders and an explicit code-quality subject for the judge.
+4. **How to measure** before real runs: an offline replay A/B on recorded questions (old vs new prompt, same model Terra, blind comparison of outputs: code quality, completeness, fidelity to the dream), the cases to use, and what result would make us keep or drop the rewrite. Name a feature switch (`SELDON_OFF=prompts2`).
+5. **Lanes**: Sol 6.2 lane briefs (disjoint files, ready to paste) to implement the rewrites behind the switch and the replay A/B harness.
+Output at most 220 lines to `~/codex-harness/work/ladder/design-review/astra62-prompts-2026-11-19.md`, diagnosis first, then principles, rewrites, measurement, lanes, least-sure.

@@ -1,0 +1,32 @@
+{
+  "id": "counter-api",
+  "kind": "http",
+  "message": "Build an in-memory JSON counter API. Python standard library only; no runtime network assets or build step. Serve on 127.0.0.1 using python server.py --port PORT. GET /api/counter returns {\"value\":0} initially. POST /api/increment with {\"amount\":positive integer} returns 200 {\"value\":new value}. Reject zero, negative, boolean and noninteger amounts with 400 without changing the value. Concurrent increments are atomic: no lost increments, each response returns its own new value. Invalid or malformed JSON returns 400 with a nonempty JSON error string; unknown resource returns 404. README.md explains startup.",
+  "profile": {
+    "audience": "Local users",
+    "care": "Exact behavior and clear errors",
+    "tone": "concise and practical",
+    "colours": "calm neutral palette",
+    "fonts": "system fonts only",
+    "sections": "Only the requested features",
+    "platform": "Windows, Python 3 standard library; desktop and mobile browser",
+    "defaults": "Smallest solution described; no accounts, network assets, deployment or paid services."
+  },
+  "files": [
+    "server.py",
+    "README.md"
+  ],
+  "oracle": [
+    {
+      "name": "counter-contract",
+      "type": "external",
+      "script": "~/codex-harness/work/ladder/oracle.py",
+      "argv": [
+        "{product}",
+        "{evidence}",
+        "counter"
+      ],
+      "timeout": 150
+    }
+  ]
+}

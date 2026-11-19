@@ -1,0 +1,22 @@
+{
+  "id": "load-in",
+  "kind": "fullstack",
+  "profile": {
+    "audience": "a production manager scheduling the fit-out of a small exhibition",
+    "care": "the crew can see what changed and which jobs can still go ahead",
+    "tone": "the language of a morning crew call"
+  },
+  "message": "Build me Load-In. I plan exhibition fit-outs, and I spend Sunday night moving dates around after one crate is late. I want to bring the crew's job list in from CSV, work on a job in detail, then stand back and see the whole timetable in my browser. We work Monday to Friday. A job takes a whole number of working days, at least one. Each job should start as early as it can from the project start, respecting its own earliest date if I've given it one. If it needs other jobs finished, all of them must be done before it can start on the next working day. When a delivery slips I need everything that depends on it to move, and the people who can still work to keep their dates. If I accidentally say two jobs depend on each other, even through a third job, tell me and keep my last usable plan. I want to save the timetable we promised the gallery, come back after a restart, and compare those promised finish dates with where we are now. Our call-sheet script needs a documented way to get the current schedule as CSV with job names and start and finish dates. I should be able to hand that sheet to the crew and trust it.",
+  "scriptedUser": {
+    "persona": {
+      "goal": "Keep a workable fit-out timetable and explain slippage against the gallery promise.",
+      "priorities": ["Reschedule dependent crews correctly", "Keep the original promise available"],
+      "preference": "At a crew call I'd like to jump straight from a job to the people whose jobs are waiting on it.",
+      "exclusion": "Leave crew capacity planning out. I will decide how many people to send."
+    },
+    "A": ["first"],
+    "B": ["first"],
+    "CHECK-IN": ["Other: At the gallery meeting they ask how many working days late each job will finish. Can the comparison give me that number against the saved promise, with zero for a job that's still on time?", "Go on and do not stop again"],
+    "C": ["first"]
+  }
+}

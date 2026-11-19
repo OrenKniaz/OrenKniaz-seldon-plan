@@ -1,0 +1,66 @@
+{
+  "id": "pollen",
+  "kind": "landing",
+  "message": "Build a beautiful responsive landing page for Pollen modular desk organizers in index.html, inline CSS and vanilla JS, no build or network assets. Include a distinctive object illustration made with CSS, hero, three product cards, a small-space benefit section and FAQ. Primary CTA scrolls to products; cards show fictional prices without checkout. Make mobile navigation, visible focus and reduced motion work.",
+  "profile": {
+    "audience": "Design-conscious renters and independent creatives",
+    "care": "Expressive objects and a working mobile page",
+    "tone": "optimistic, considered, tactile",
+    "colours": "ivory, plum and marigold",
+    "fonts": "system fonts only",
+    "sections": "use the sections in the brief",
+    "platform": "local Windows and Python 3 stdlib for CLI; modern desktop/mobile browser for web",
+    "defaults": "Smallest solution described; no accounts, network, deployment or paid assets. Ask before scope or budget changes."
+  },
+  "files": [
+    "index.html"
+  ],
+  "oracle": [
+    {
+      "name": "required-files",
+      "type": "files",
+      "files": [
+        "index.html"
+      ]
+    },
+    {
+      "name": "offline-mobile",
+      "type": "page",
+      "viewport": [
+        375,
+        812
+      ]
+    },
+    {
+      "name": "offline-desktop",
+      "type": "page",
+      "viewport": [
+        1440,
+        900
+      ]
+    },
+    {
+      "name": "named-content",
+      "type": "content",
+      "patterns": [
+        "Pollen",
+        "product|organizer",
+        "small.space",
+        "FAQ|frequently|questions"
+      ]
+    },
+    {
+      "name": "keyboard-focus",
+      "type": "keyboard"
+    },
+    {
+      "name": "cta-target-and-three-priced-cards",
+      "type": "landing",
+      "target": "product|organizer"
+    },
+    {
+      "name": "reduced-motion",
+      "type": "motion"
+    }
+  ]
+}

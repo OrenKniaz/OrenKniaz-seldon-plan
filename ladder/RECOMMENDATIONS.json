@@ -1,0 +1,267 @@
+{
+  "updated": "2026-11-12",
+  "title": "Bird's-eye review: change recommendations",
+  "note": "Merged from two independent read-only reviews (Fable, Astra) on main 731f336. All 11 ratified by Oren 2026-11-12 (\"you can ratify\"): charter v1.6, blueprint v1.4.",
+  "verdict": "Both reviews: execution is converging (M1 validated, Foundation reaches C 5 of 5 with three workers in parallel); final judgment is circling (four redesigns in a day, question size 72 -> 47 -> 86 KB). Root cause both name: the final judges re-read source text the unit judge already judged. Simpler shape both propose: judge source once at the unit; after integration judge behaviour (observations, screenshots, contracts, per-unit verdicts); cross-unit judgment is M2's flow review over Contracts. Charter goals and invariants stay; the shape below them drifted.",
+  "recommendations": [
+    {
+      "id": "REC-01",
+      "target": "BLUEPRINT R2",
+      "source": "both",
+      "priority": "now",
+      "change": "Source text is judged once, at the unit that owns it; questions after integration carry behaviour (observations, screenshots, contract text, per-unit verdict rows), never file text.",
+      "why": "One rule behind T-78, T-79, T-81, T-82: any integrated check otherwise makes a product-sized question.",
+      "decision": "ratified",
+      "decidedBy": "Oren 2026-11-12",
+      "docs": "charter v1.6 / blueprint v1.4",
+      "implementation": "in progress",
+      "implementationNote": "Code: lane judge-behaviour-20261112 (final judges see behaviour only)."
+    },
+    {
+      "id": "REC-02",
+      "target": "BLUEPRINT R2 check",
+      "source": "both",
+      "priority": "now",
+      "change": "Measure question size on recorded real questions, and measure total judgment calls and bytes per run, not only the largest scripted question.",
+      "why": "The scripted 1-vs-50 check passed at 4.7 KB while real questions were 47-86 KB; splitting prompts can turn huge prompts into huge call counts (Astra).",
+      "decision": "ratified",
+      "decidedBy": "Oren 2026-11-12",
+      "docs": "charter v1.6 / blueprint v1.4",
+      "implementation": "in progress",
+      "implementationNote": "Code: lane judge-behaviour-20261112 (realistic-size journey, calls/bytes per run)."
+    },
+    {
+      "id": "REC-03",
+      "target": "BLUEPRINT section 8, ratified reading of C15",
+      "source": "Fable",
+      "priority": "now",
+      "change": "The no-stubs/mocks/missing check is the unit JUDGE verdict bound to the unit's commit; code confirms those files are unchanged in the integrated commit, or re-judges only the changed unit.",
+      "why": "C15 says proof runs on the integrated result, so REC-01 needs Oren's explicit reading, as C14 got in 8.1.",
+      "decision": "ratified",
+      "decidedBy": "Oren 2026-11-12",
+      "docs": "charter v1.6 / blueprint v1.4",
+      "implementation": "in progress",
+      "implementationNote": "Code: lane judge-behaviour-20261112 (unit verdict rows + scope-unchanged fact)."
+    },
+    {
+      "id": "REC-04",
+      "target": "BLUEPRINT R7",
+      "source": "Fable",
+      "priority": "now",
+      "change": "A final-judgment gap clears and re-asks only the subjects whose owning units changed.",
+      "why": "judgment.fixup resets every verdict (T-83: ~700 KB re-asked for a docs-only fixup); at 100 units final judgment would not terminate.",
+      "decision": "ratified",
+      "decidedBy": "Oren 2026-11-12",
+      "docs": "charter v1.6 / blueprint v1.4",
+      "implementation": "in progress",
+      "implementationNote": "Code: lane judge-behaviour-20261112 (scoped re-ask)."
+    },
+    {
+      "id": "REC-05",
+      "target": "BLUEPRINT R9",
+      "source": "both",
+      "priority": "now",
+      "change": "Verdict reuse may key only on git commit or tree ids of the owner's scope, never a homemade fact hash; defer reuse until needed.",
+      "why": "T-82's 'verdicts keyed by fact hash' is the evidence-reuse identity scheme R9 forbids, coming back.",
+      "decision": "ratified",
+      "decidedBy": "Oren 2026-11-12",
+      "docs": "charter v1.6 / blueprint v1.4",
+      "implementation": "incorporated",
+      "implementationNote": "Fact-hash reuse dropped with the judge-owner lane; nothing to build."
+    },
+    {
+      "id": "REC-06",
+      "target": "BLUEPRINT R12",
+      "source": "both",
+      "priority": "before M2",
+      "change": "A judge answers only what it can observe in its facts; whether something ran is a code fact, never a judge boolean. The try-it guide gets a code-recorded walkthrough.",
+      "why": "exercisedOnFinalUserPath was a coin flip that passed on guide prose (T-83).",
+      "decision": "ratified",
+      "decidedBy": "Oren 2026-11-12",
+      "docs": "charter v1.6 / blueprint v1.4",
+      "implementation": "in progress",
+      "implementationNote": "Code: lane judge-behaviour-20261112 (no execution booleans; code-walked guide)."
+    },
+    {
+      "id": "REC-07",
+      "target": "BLUEPRINT 3.2 Wave + M2 row",
+      "source": "both",
+      "priority": "before M2",
+      "change": "Flow review is the only cross-unit judge; its subject is one user flow plus the Contracts it crosses; it replaces today's DEMO-JUDGE/PRODUCT-JUDGE stand-in.",
+      "why": "Stops a parallel 'seam question' mechanism being built now and again in M2; one seam question can become the next whole-product prompt (Astra).",
+      "decision": "ratified",
+      "decidedBy": "Oren 2026-11-12",
+      "docs": "charter v1.6 / blueprint v1.4",
+      "implementation": "not started",
+      "implementationNote": "Built in M2 (flow review replaces DEMO/PRODUCT judgment)."
+    },
+    {
+      "id": "REC-08",
+      "target": "BLUEPRINT section 6, M2 contents and order",
+      "source": "both",
+      "priority": "before M2",
+      "change": "M2 = Contract record + skeleton wave, then flow review, then ARCHITECT plus per-area DETAIL and bounded per-area REVIEW; later-wave replanning stays in M3.",
+      "why": "Contracts remove cross-unit judging by construction; REVIEW already grows 5 -> 40 KB at 50 units (T-13).",
+      "decision": "ratified",
+      "decidedBy": "Oren 2026-11-12",
+      "docs": "charter v1.6 / blueprint v1.4",
+      "implementation": "not started",
+      "implementationNote": "Order of the M2 brief."
+    },
+    {
+      "id": "REC-09",
+      "target": "BLUEPRINT P4/P5 and milestone exits",
+      "source": "both",
+      "priority": "before M2",
+      "change": "Use milestone-specific acceptance cohorts on a named candidate; run the first plain-agent fight at the first ShelfLife attempt, not after Foundation 8/10; repeated runs during repair only for a stated uncertainty.",
+      "why": "No evidence yet that Seldon beats a plain agent; blanket 8/10 conflicts with M2's ShelfLife 3/5 exit and encourages expensive repetition.",
+      "decision": "ratified",
+      "decidedBy": "Oren 2026-11-12",
+      "docs": "charter v1.6 / blueprint v1.4",
+      "implementation": "incorporated",
+      "implementationNote": "Process: next real-run cohorts follow P4; fight at first ShelfLife attempt."
+    },
+    {
+      "id": "REC-10",
+      "target": "BLUEPRINT section 7, new P10",
+      "source": "Fable",
+      "priority": "now",
+      "change": "A second DESIGN ticket in the same module within a day stops lanes there and triggers one bird's-eye review before any third fix.",
+      "why": "Four judge redesigns landed one failure at a time before anyone stepped back.",
+      "decision": "ratified",
+      "decidedBy": "Oren 2026-11-12",
+      "docs": "charter v1.6 / blueprint v1.4",
+      "implementation": "incorporated",
+      "implementationNote": "Process: lead memory birds-eye-trigger; blueprint P10."
+    },
+    {
+      "id": "REC-11",
+      "target": "Housekeeping: BLUEPRINT 8.3, CHARTER section 8 and C5",
+      "source": "Fable",
+      "priority": "later",
+      "change": "Blueprint 8.3: lead is Opus 5.5 with Fable as one-shot consult. Charter: close or re-register DV1-DV9 (old core, expired 11-11/11-18). Reword C5 'slim process' to match R1 'one machine, sized by data'.",
+      "why": "Documents describe a deleted core and an old lead assignment.",
+      "decision": "ratified",
+      "decidedBy": "Oren 2026-11-12",
+      "docs": "charter v1.6 / blueprint v1.4",
+      "implementation": "incorporated",
+      "implementationNote": "Blueprint 8.3 roles, charter C5 and DV register updated."
+    },
+    {
+      "id": "REC-12",
+      "target": "CHARTER C20 (and Blueprint M4 row)",
+      "source": "Fable viability verdict + Sonnet host research",
+      "priority": "later",
+      "change": "Replace C20's cockpit sentence with: The user decides and controls everything in the provider app's chat (state, gate answers, pause/resume/stop); a single read-only web page shows what chat cannot show well (live progress across workers, screenshots and demo evidence), and nothing can be decided or changed there.",
+      "why": "Viability verdict (Fable, 2026-11-12, from docs research inapp-ui-research-2026-11-12.md): in-app works in all four hosts for state, gates and control, but no host documents live progress or user-visible tool images, so 'the cockpit shouldn't need opening much' cannot hold for long runs.",
+      "decision": "ratified",
+      "decidedBy": "Oren 2026-11-12: \"ok option B, but make sure he is aware it would be nice to use from within the app's browser (so narrow clean detailed view (openable to full screen)\"",
+      "docs": "charter v1.7 (510e570)",
+      "implementation": "in progress",
+      "implementationNote": "Design done (mockup + note in work/ladder/design-review); build at M4."
+    },
+    {
+      "id": "REC-13",
+      "target": "CHARTER C6/C21 (Vision Lock) and BLUEPRINT ALIGN",
+      "source": "Oren 2026-11-12",
+      "priority": "later",
+      "change": "For a dream with a user interface, ALIGN includes a design step: a design talk, a mock (self-contained page or screenshots), and the user approves the mock at A as part of the Vision Lock; judges check the build against the approved mock.",
+      "why": "Oren: if Seldon can implement the Prime Radiant design at this quality, 'we can include this process idea for seldon (design talk, design mock, user agree, etc..)'. Proposed only after T-94 shows Seldon can build to a mock.",
+      "decision": "proposed",
+      "decidedBy": "",
+      "docs": "",
+      "implementation": "not started",
+      "implementationNote": "Waits on T-94."
+    },
+    {
+      "id": "REC-14",
+      "target": "BLUEPRINT 3.1 checks + R7/R9 execution",
+      "source": "P10 bird's-eye 2026-11-13 (Fable + Astra, merged by lead)",
+      "priority": "now",
+      "change": "Rule 1: every check declares its level (unit|wave) and has exactly one owner, the unit whose scope holds its file; a wave check runs only on the integrated candidate and only its owner repairs it. Rule 2: every check run observes an exact commit in its own disposable checkout, cleaned by code; scratch and evidence live outside the source tree; code never refuses on what a check left behind.",
+      "why": "Cohort #4 4/10 with five different EXECUTE walls; both reviewers traced all of them to code guessing check level/owner from requirement lists and to checks sharing one checkout. Narrows T-119 to cross-area values.",
+      "decision": "ratified",
+      "decidedBy": "Oren 2026-11-13 ('Ok you can ratify')",
+      "docs": "BLUEPRINT v1.6 §3.1 (d657bef)",
+      "implementation": "in progress",
+      "implementationNote": "Lanes check-owner (A) and hermetic-checks (B) running; owner-only repair lane (C) after A. Blueprint text needs Oren's ratification; code follows existing 3.1 level wording."
+    },
+    {
+      "id": "REC-15",
+      "target": "BLUEPRINT §3.1, §3.2, §8.4, R2, R5; CHARTER C8",
+      "source": "Fable M3 design 2026-11-13",
+      "priority": "later",
+      "change": "M3 multi-wave: a wave is a row, same loop per wave; B binds the accepted commitments (envelope), not the whole plan; STEER is the only replanning door (wave end, exhausted unit, user words); scope exclusive per wave, latest path owner inherits checks; judges asked only about what changed; VALIDATE per accepted commitment. Six wording changes quoted in §14 of the design.",
+      "why": "Core runs one wave (T-17), no repair after B (T-18), plan-wide disjoint scopes (T-20), decline/revise ends the run (T-121). Target dreams are large (ANC).",
+      "decision": "ratified",
+      "decidedBy": "Oren 2026-11-13 ('I accept both re. 15 and process.py changes')",
+      "docs": "CHARTER v1.8 C8; BLUEPRINT v1.7 §3.1, §3.2, §8.4, R2, R5 (ad3a8a6)",
+      "implementation": "not started",
+      "implementationNote": "Step 0a (one uncertain rule + one cross-unit judge, core-review F2/F3) can start after the M2 probe; wave lanes after M2 exit and ratification. Lead decision: delete Run.resume_planning and INCOMPLETE->resume-* once STEER covers them."
+    },
+    {
+      "id": "REC-16",
+      "target": "BLUEPRINT §5 (processes.py)",
+      "source": "Fable core review 2026-11-13, batch B",
+      "priority": "later",
+      "change": "Replace processes.py's bootstrap handshake (stand-in Python + gate) with a suspended start into the Windows job, then resume.",
+      "why": "~-200 lines, no extra Python start per command, removes T-99 (350 ms bootstrap deadline fails under load).",
+      "decision": "ratified",
+      "decidedBy": "Oren 2026-11-13 ('I accept both re. 15 and process.py changes')",
+      "docs": "BLUEPRINT v1.7 §5 (ad3a8a6)",
+      "implementation": "not started",
+      "implementationNote": "Own lane after M2 exit, with fault twins proving nothing survives a kill."
+    }
+  ],
+  "leadActions": [
+    {
+      "id": "ACT-01",
+      "change": "Narrow the paused judge-owner lane: final questions carry no source text (REC-01), code-recorded guide walkthrough (REC-06), scoped fixup (REC-04). Drop the (subject, unit) split, path-parsing seam and fact-hash reuse. Validate with 2 canonical Foundation runs.",
+      "status": "next"
+    },
+    {
+      "id": "ACT-02",
+      "change": "Judge-only replay: reopen a finished run at its final commit and rerun only final judgment from retained real inputs (minutes, not 20).",
+      "status": "next"
+    },
+    {
+      "id": "ACT-03",
+      "change": "Measure the judges' false-gap rate from recordings; at ~300 subjects even 2-3% with global re-ask never terminates.",
+      "status": "later"
+    },
+    {
+      "id": "ACT-04",
+      "change": "Remember every C so far is SCRIPTED_C: no human has judged a delivered page. First human run when the front door exists.",
+      "status": "open"
+    },
+    {
+      "id": "ACT-05",
+      "status": "done",
+      "change": "UI/UX in-app review in three steps. 1 VIABILITY (done: option b recommended): Sonnet researches each host native surfaces (Codex, Claude Code, Copilot; MCP tools/resources/progress/elicitation/images, slash commands, hooks, status line, webviews) -> work/ladder/design-review/inapp-ui-research-2026-11-12.md; Fable gives a per-host viable/partial/not verdict with blockers. 2 DECISION (done): Oren chose option (b), charter v1.7 C20. 3 DESIGN (running since 2026-11-12, Fable; designs against blueprint states, not the M1 stand-in): per-host mockups, minimal MCP surface, proposed C20/M4 text. Design constraint from Oren: the read-only page is used inside the provider app built-in browser pane, so narrow, clean and detailed first, expandable to full screen. Optional half-day spike (tool image, elicitation, push per host) at M4 can only shrink the page. DONE 2026-11-12: mockup design-review/ui-mockup-2026-11-12.html (waves/kanban/timeline, narrow + full screen) and note ui-design-2026-11-12.md (5 MCP tools, gate texts, M1-M4 split, 5 open questions). Fable started, Opus finished (Fable out of credits). Build lands with M4. REDONE 2026-11-12 by Fable from the binding Prime Radiant concept after Oren found the first mockup underwhelming: design-review/ui-radiant-2026-11-12.html (+ narrow/full screenshots, .md). Known nits: worker timers show 0s; some long node labels overlap; link animation Chromium-only."
+    },
+    {
+      "id": "ACT-06",
+      "status": "in progress",
+      "change": "P10 judgment review (Fable + Astra, merged in judge-minimal brief): delete criterion routing; standing unit-source obligations; behaviour-only PRODUCT per criterion; uncertain shown as not judged at C under DV6. Acceptance: 3 canonical Foundation runs with zero placement REVIEW gaps and zero units FAILED by a criterion. Open for M2 design: where Vision Lock criteria are judged once PRODUCT is replaced by flow review."
+    },
+    {
+      "id": "ACT-07",
+      "status": "in progress",
+      "change": "P10 planning review 2026-11-13 (Astra; Fable over limit): areas own complete scopes incl. check subtree; contracts are text not order; explicit dependency edges only; DETAIL gets wave goal; bounded repair then actionable stop. Proof: both real recordings reach B. Possible blueprint wording for R4 ('a contract enables parallel work; it does not order it') to propose after validation."
+    }
+  ],
+  "statusValues": {
+    "decision": [
+      "proposed",
+      "ratified",
+      "rejected",
+      "deferred"
+    ],
+    "implementation": [
+      "not started",
+      "in progress",
+      "incorporated",
+      "dropped"
+    ]
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "id": "kanban",
+  "kind": "fullstack",
+  "message": "Build a household Kanban board. Python standard library only; no runtime network assets or build step. Serve on 127.0.0.1 using python server.py --port PORT --db PATH (SQLite). Tasks have integer id, title (1-80 characters), status todo/doing/done. GET /api/tasks returns a JSON array; POST /api/tasks {\"title\":\"...\"} creates todo task, returns 201 task; PATCH /api/tasks/ID {\"status\":\"doing\"} returns 200 updated task; DELETE /api/tasks/ID returns 204. Persist across restart. GET /api/export.csv returns 200 CSV with header id,title,status and all tasks, correctly quoting titles. Invalid or malformed JSON returns 400 with a nonempty JSON error string; unknown resource returns 404. README.md explains startup. At / serve index.html: responsive accessible UI, form#task-form with input name=title and a submit button, create tasks through API, show each task in [data-task-id=ID], with button[data-action=advance] cycling todo/doing/done and button[data-action=delete]; export link href=/api/export.csv. Show empty, inline invalid-input, and API failure states; visible keyboard focus; no horizontal overflow at 375px. Include import_tasks.py FILE.csv --db PATH: header title,status, skip invalid rows, persist valid rows into the same database and print \"imported N, skipped M\" (exit 0); unreadable file exits 2.",
+  "profile": {
+    "audience": "Local users",
+    "care": "Exact behavior and clear errors",
+    "tone": "concise and practical",
+    "colours": "calm neutral palette",
+    "fonts": "system fonts only",
+    "sections": "Only the requested features",
+    "platform": "Windows, Python 3 standard library; desktop and mobile browser",
+    "defaults": "Smallest solution described; no accounts, network assets, deployment or paid services."
+  },
+  "files": [
+    "server.py",
+    "index.html",
+    "import_tasks.py",
+    "README.md"
+  ],
+  "oracle": [
+    {
+      "name": "kanban-contract",
+      "type": "external",
+      "script": "~/codex-harness/work/ladder/oracle.py",
+      "argv": [
+        "{product}",
+        "{evidence}",
+        "kanban"
+      ],
+      "timeout": 150
+    }
+  ]
+}

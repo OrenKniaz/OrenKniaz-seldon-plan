@@ -1,0 +1,80 @@
+{
+  "id": "slugjar",
+  "kind": "cli",
+  "message": "Build SlugJar in slugjar.py. Accept one text argument, normalize Unicode with NFKD, drop non-ASCII remnants, lowercase and replace runs of nonalphanumeric characters with one hyphen, trim edge hyphens. Print the slug plus newline. An empty result exits 1, missing/extra args exit 2. Python stdlib only, no files or network.",
+  "profile": {
+    "audience": "Writers naming local documents",
+    "care": "Simple deterministic output",
+    "tone": "concise, practical, predictable",
+    "colours": "no terminal colour",
+    "fonts": "system fonts only",
+    "sections": "help, examples, concise diagnostics",
+    "platform": "local Windows and Python 3 stdlib for CLI; modern desktop/mobile browser for web",
+    "defaults": "Smallest solution described; no accounts, network, deployment or paid assets. Ask before scope or budget changes."
+  },
+  "files": [
+    "slugjar.py"
+  ],
+  "oracle": [
+    {
+      "name": "unicode-normalization",
+      "type": "cli",
+      "argv": [
+        "  Café déjà vu!  "
+      ],
+      "stdin_b64": "",
+      "exit": 0,
+      "stdout": {
+        "exact": "cafe-deja-vu\n",
+        "normalize_newlines": true
+      },
+      "stderr": null
+    },
+    {
+      "name": "punctuation-runs",
+      "type": "cli",
+      "argv": [
+        "A___B / C99"
+      ],
+      "stdin_b64": "",
+      "exit": 0,
+      "stdout": {
+        "exact": "a-b-c99\n",
+        "normalize_newlines": true
+      },
+      "stderr": null
+    },
+    {
+      "name": "empty-result",
+      "type": "cli",
+      "argv": [
+        "☃!"
+      ],
+      "stdin_b64": "",
+      "exit": 1,
+      "stdout": null,
+      "stderr": null
+    },
+    {
+      "name": "missing",
+      "type": "cli",
+      "argv": [],
+      "stdin_b64": "",
+      "exit": 2,
+      "stdout": null,
+      "stderr": null
+    },
+    {
+      "name": "extra",
+      "type": "cli",
+      "argv": [
+        "a",
+        "b"
+      ],
+      "stdin_b64": "",
+      "exit": 2,
+      "stdout": null,
+      "stderr": null
+    }
+  ]
+}

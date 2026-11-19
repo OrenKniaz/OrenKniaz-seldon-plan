@@ -1,0 +1,10 @@
+Files/base: src/seldon/fixups.py:1-87 new; src/seldon/units.py:9-179 (+32 net); tests/seldon/test_fixups.py:1-191 new; 7cf902b; uncommitted.
+Ported draft assign ownership and checks_for: deterministic Gap-to-owner assignments, scoped exact corrections, same worker session/current candidate; no planner call or new Store fields.
+Lead wiring: proof.gaps(...) and flow_review.review(...)["gaps"] -> fixups.apply(store,gaps); WAVE-VERIFY rework->EXECUTE; FLOW-JUDGE/FLOW-FACTS gap->EXECUTE.
+Replace judgment.py:131-147 fixup with an adapter to apply: Gap kind="flow", subject=subject, units=list(affected or owners(...)), correction=str(answer), source=result, commit=cursor.candidate; retain judge-minimal uncertainty rules.
+UNIT table needs DONE/READY blocked->BLOCKED; exhaustion journey supplies exactly this lead-wiring seam. Fixup admission is atomic; isolated checkout preparation/recovered WORK receipts survive reopen.
+Keep demoVerdicts/requirementVerdicts/qualityVerdicts across repair and new WAVE-VERIFY; after fresh checks prune/rebind only changed Git scope trees, as lane2 specifies. Its earlier lane3 global-clear warning is superseded.
+Failed local checks re-establish RED/GREEN; other local checks preserve behaviour; flow repairs retain original preservation modes. Cross-unit checks stay at WAVE-VERIFY, never delaying unit integration; own JUDGE sees the actual proof modes.
+Four outcomes proven with reused composite evidence: flow/exhaustion m2fix-3 (3 valid passes, 1 fixture assertion failure; 28.15s); affected check/kill m2fix-8 (2 passed/16.03s); final flow-ref retention check m2fix-9 passed/3.91s using the retained seed. Tests 8->12.
+Golden: 7 passed/1 timing failure in 257.65s, scale50 125.17s (>90); separate sample 101.78s; immediate unchanged-base/candidate comparison 59.48/54.05s passes. No full-gate pass claimed; logs C:/seldon/tests/m2fix-1,3,8,9 and timing comparisons m2fix-5,6,7.
+Patch reverse-check, AST and 110-column checks pass; tracking updated/validated. Lead integration and integrated golden remain; no commits, dependencies, real providers or product acceptance.

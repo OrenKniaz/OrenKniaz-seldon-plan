@@ -1,0 +1,73 @@
+{
+  "id": "reading",
+  "kind": "web",
+  "message": "Build a static mobile-friendly index.html reading-list page for a fictional neighborhood book club. Show six sample books with author and short description, filter by fiction/nonfiction/all and a clear empty state. Add a next-meeting block with fictional location. Inline CSS/JS, no network or build step. Labels, keyboard controls and visible focus matter.",
+  "profile": {
+    "audience": "A small community book club",
+    "care": "Quiet design and usable filters",
+    "tone": "optimistic, considered, tactile",
+    "colours": "ivory, plum and marigold",
+    "fonts": "system fonts only",
+    "sections": "use the sections in the brief",
+    "platform": "local Windows and Python 3 stdlib for CLI; modern desktop/mobile browser for web",
+    "defaults": "Smallest solution described; no accounts, network, deployment or paid assets. Ask before scope or budget changes."
+  },
+  "files": [
+    "index.html"
+  ],
+  "oracle": [
+    {
+      "name": "required-files",
+      "type": "files",
+      "files": [
+        "index.html"
+      ]
+    },
+    {
+      "name": "offline-mobile",
+      "type": "page",
+      "viewport": [
+        375,
+        812
+      ]
+    },
+    {
+      "name": "offline-desktop",
+      "type": "page",
+      "viewport": [
+        1440,
+        900
+      ]
+    },
+    {
+      "name": "named-content",
+      "type": "content",
+      "patterns": [
+        "fiction",
+        "non.?fiction",
+        "meeting"
+      ]
+    },
+    {
+      "name": "keyboard-focus",
+      "type": "keyboard"
+    },
+    {
+      "name": "filters-change-visible-items",
+      "type": "filter",
+      "count": 6,
+      "labels": [
+        "all",
+        "fiction",
+        "non.?fiction"
+      ]
+    },
+    {
+      "name": "empty-state",
+      "type": "content",
+      "patterns": [
+        "no .*|nothing|empty|no results"
+      ]
+    }
+  ]
+}

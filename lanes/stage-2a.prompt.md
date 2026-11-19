@@ -1,0 +1,32 @@
+Lane STAGE-2A (Seldon reset; serial). This folder = Seldon main after 2p + own git. Read CHARTER.md (binding), AGENTS.md, then ~/codex-harness/work/ladder/design-review/astra-briefs-2.md (your brief = section 2a), judge-boundary-1.md, and ../stage-2p-report.md.
+FIRST, two gate defects found in 2p (owner: G + cockpit test harness; TRIAGE: DESIGN — waits/verifiers that cannot end or cannot fail — I5/I4):
+ (a) ROOT CAUSE FOUND (WEB-STALL-1): the host PC idle-slept mid-run (Kernel-Power 507: about 1h asleep inside each stalled run); 2p was innocent. The defect left for us: harness waits were not bounded relative to wall-clock or observed progress, so a stall waited an hour. Bound every wait in the golden harness and cockpit check (fetch/readback, status polls, RPC writes/replies, HTTP startup/teardown) so a stall fails within about 2x its own deadline with a clear message (I5). Do NOT add OS sleep-inhibition to Seldon production code (host concern, C20). WEB-STALL-1's unvalidated candidate (../web-stall-1.patch, report ../web-stall-1-report.md) may be harvested for its bounded-wait parts only.
+ (b) the retained ShelfLife T_HTTP verifier exits 0 with an EMPTY HTTP body despite a SQLite error. A verifier that cannot fail is worthless: make it assert real behavior (importer/SQLite/HTTP) with observed RED->GREEN.
+**Binding terms carried by every brief below**
+File stems mean `src/codex_harness/core/<stem>.py`; **G** means `tests/python/core/{test_golden_path,test_approval_v2_journey}.py`.
+Each lane must be **NET-NEGATIVE in production lines**, counting new files and deletions together; report `PROD +/−/net; TEST +/−/net; cases versus base; runtime`. No cosmetic deletions or moving code outside the count.
+Use only existing **1j prepare/submit/read**, its canonical bindings, pending state and two exact-fix retries; no second judge store, retry counter or inferred semantic approval.
+Golden is the first gate; every behavior change extends it in the same patch through canonical producers/consumers. Script provider replies only; observe execution, persistence and cleanup. Name the regression and existing coverage gap.
+Retain the ≤19-case ceiling, mark/measure the ≤10-minute fast gate, reuse unaffected evidence, and record discoveries in `docs/legacy-capability-audit.md`. Ladder claims require actual authorized runs.
+One serial integration owner controls `plan_store`, `roundtable`, `dispatch` and G throughout Stage 2. Other owned files below transfer only after the preceding lane lands GREEN.
+**2a — Separate plan review from semantic judgment**
+CHARTER: serves C2–C4/C10/C11/C14/C16 — targets DV7 and the review portion of DV4.
+Own: `plan_store`, `roundtable`, `planner_review`, `review_instructions`, `reviewer_evidence`, `steering`, `plan_quality`, `acceptance`, `dispatch`, `mcp_planner`, `planner_schema` + G.
+Replace Jaccard authority and automatic cluster-wide closure with bound 1j equivalence/member-disposition judgments; carried-forward review requires an explicit judgment of the actual revision delta.
+Replace empty-array/minor-only approval inference with explicit verdict+rationale; conflicting `_merge_finding` classifications stay pending for judgment. Malformed reviews use 1j’s two fixes then steer; unavailable closure assessments remain pending and release ownership.
+Remove semantic regex/AST/checklist grades and Python/direct-call relevance admission, including upstream dispatch finding witnesses; code checks links/provenance, judges assess relevance and meaning. Independent plan reviewers retain separate verdicts, truthful provider/model labels and consequence-scaled depth; convergence is judged around the default three rounds.
+Move SHA/command reconstruction into deterministic evidence preparation **now, advancing that row from 2e**; delete reviewer hashing instructions. Do not revive Stage 1’s already-closed consent/intent rules.
+NET-NEGATIVE deletions: clustering/reuse heuristics, semantic graders, duplicate review-credit rules and reconstruction prompts. Golden extends review→repair→B with conflicting, empty, malformed, stale/reused and non-Python evidence; retain complete flow coverage.
+Ladder: L0 checks genuine plan review, meaningfulness judgments and same-model labeling; close DV7 only with that evidence. TRIAGE: DESIGN — review structure grants semantic authority — siblings: clustering, reuse, closure and approval.
+
+Lead notes (CC): reuse the 2p scripted judge harness for review verdicts/equivalence/reuse; no new judge plumbing. Timebox 120 min, effort high.
+FAST-LANE RULES (append to every Seldon fix brief; binding — Oren: NO unit tests, ever)
+- Lane folder comes from work/lanes/make-lane.sh: it contains NO tests except the golden path. Do not write new test files.
+- Report <=12 lines; exact patch + sha256; no pushes.
+- CC rejects any patch whose command log ran another pytest (work/lanes/check-lane-log.sh).
+- All scratch/temp/basetemp goes under C:\seldon\tests\<lane> (add it with --add-dir). Never create folders at the C:\ root or under ~\t.
+- TRIAGE (Oren 11-04, binding): the report's FIRST line is `TRIAGE: BUG|DESIGN — <why> — sibling cases: <codes/gates with the same shape, or none>`. BUG = local mistake in sound logic: patch it. DESIGN = the rule itself causes the failure, or a 2nd+ blocker of the same shape: fix the shared rule at ONE owner and cover every sibling; never add another special case. CC rejects reports without a TRIAGE line, or BUG with siblings.
+- SIMPLER, NOT BIGGER (Oren 11-04, binding from Stage 1b): every lane is NET-NEGATIVE in production lines (src/) — replaced static semantic code is deleted in the same lane. Report `PROD: +a/-b (net n) · TEST: +c/-d`. Net-positive production only for a genuinely new charter capability, justified in one line; CC rejects otherwise.
+- ONE JUDGE PATH (binding): semantic decisions use the 1j Judgment contract only (prepare_judgment -> submit_judgment -> judgment). A gate supplies its question + evidence bindings; no per-gate judge prompts/schemas/stores/glue.
+- The ONLY tests you may run: bash ~/codex-harness/work/lanes/golden-gate.sh <lane> <tag> (max 3 runs), or a single golden/journey file via python -m pytest <file> -x with --basetemp=C:/seldon/tests/stage-2a/p. No other pytest. Never write unit tests.
+Final gate run must come after your last edit and be green; if not green, say so plainly. Report ../stage-2a-report.md; patch ../stage-2a.patch + sha256 (diff vs lane base). Scratch: C:/seldon/tests/stage-2a.

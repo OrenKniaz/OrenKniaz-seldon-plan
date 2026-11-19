@@ -1,0 +1,22 @@
+{
+  "id": "rehearsal-keys",
+  "kind": "fullstack",
+  "profile": {
+    "audience": "members of a rehearsal co-op sharing a handful of rooms",
+    "care": "the slot you reserved will actually be yours when you arrive",
+    "tone": "friendly enough for a tired musician"
+  },
+  "message": "Our rehearsal co-op runs on a spreadsheet and whoever edited it last usually wins. I'd like Rehearsal Keys, a little web app where each member has their own sign-in. We have our room list in CSV already. I'd like to bring it in, see the room diary for an evening, reserve some time, and find my own bookings again the next day. Two bands can play at the same time in different rooms. In the same room we often hand over on the hour, so back-to-back is fine, but even ten minutes of overlap is a problem. Even if two of us go for the same slot together only one should walk away with it. Members can give up their own slots so somebody else can take them. Nobody should be able to change somebody else's reservation. My bandmate keeps our gig diary with a script; give members a documented way to fetch their own upcoming bookings as CSV from a terminal.",
+  "scriptedUser": {
+    "persona": {
+      "goal": "Give members a shared room diary and control over their own reservations.",
+      "priorities": ["Make free and occupied time clear", "Keep a promised slot safe"],
+      "preference": "In my own bookings, I look for the one coming up next first.",
+      "exclusion": "Room hire is covered by dues. Leave payments out."
+    },
+    "A": ["first"],
+    "B": ["first"],
+    "CHECK-IN": ["Other: We're forever switching rooms when a drummer joins in. Could I move a booking to another room at the same time in one go? If that room is taken I still need my original slot.", "Go on and do not stop again"],
+    "C": ["first"]
+  }
+}

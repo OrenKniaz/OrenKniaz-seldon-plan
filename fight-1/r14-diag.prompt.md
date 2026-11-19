@@ -1,0 +1,9 @@
+DIAGNOSIS (read-only; Seldon delivery). Real-provider ShelfLife round 14 on Seldon main 49b1b80 (source ~/codex-harness/work/sprint-20261027/semantic-cc). Summary ./fight-seldon.json: STALLED-no-progress in execute after 2540s (no host sleep), 2 user decisions, 191 planner MCP calls; refusals plan-publication-evidence-required, plan-publish-phase-required, plan-b-prerequisites-missing, pending-judgment, tool-input-or-operation-error x7. Final planner message: Seldon refuses continuation because WORKER QUIESCENCE IS UNKNOWN; readmission reproduces the same hold; the planner then asked to bypass Seldon (refused). Log ./run-seldon-r14.log; slot C:/seldon/runs/fight-1/seldon/20261106T224719-e816dc-001-shelflife (worker-jobs/*/quiescence.json, terminal.json, monitor.json, runs/*). Prior: ./r11-diag.md.
+Answer ≤26 lines:
+1. Each worker attempt: start/end, did the provider run, what it built, validation results (which tests GREEN), terminal outcome.
+2. EXACTLY why quiescence is unknown: which owner (audit_process.py / planner_recovery.py / dispatch.py file:line), what verification failed (Job membership query, process inventory access denied, PID gone, handle lost?), and whether this is because Seldon's MCP server runs inside the Codex provider sandbox where process inspection is restricted. Quote the recorded error.
+3. Why readmission reproduces the same hold (is "unknown" sticky; is there any supported path to resolve it — e.g. Job object own-membership query, which needs no extra privilege?).
+4. TRIAGE BUG|DESIGN + siblings; charter: I5 every wait ends, I8 refusals teach, never block delivery, C20 never re-implement provider sandbox.
+5. The 7 tool errors + other refusals: one line each (cause; caller vs Seldon).
+6. One concrete fix per Seldon cause.
+No files changed, no tests, no provider launches.

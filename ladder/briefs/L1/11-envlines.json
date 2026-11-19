@@ -1,0 +1,71 @@
+{
+  "id": "envlines",
+  "kind": "cli",
+  "message": "Build EnvLines in envlines.py. Read KEY=VALUE lines from UTF-8 stdin, skipping blank lines and lines whose first nonspace character is #. Split at the first equals sign, trim key whitespace only, preserve value exactly. Require keys matching [A-Za-z_][A-Za-z0-9_]*; duplicate keys use last value. Print a JSON object. Invalid lines exit 1 with line number and no stdout. Never read actual environment variables. Stdlib only.",
+  "profile": {
+    "audience": "Developers converting sample settings",
+    "care": "No secret discovery",
+    "tone": "concise, practical, predictable",
+    "colours": "no terminal colour",
+    "fonts": "system fonts only",
+    "sections": "help, examples, concise diagnostics",
+    "platform": "local Windows and Python 3 stdlib for CLI; modern desktop/mobile browser for web",
+    "defaults": "Smallest solution described; no accounts, network, deployment or paid assets. Ask before scope or budget changes."
+  },
+  "files": [
+    "envlines.py"
+  ],
+  "oracle": [
+    {
+      "name": "comments-values-duplicates",
+      "type": "cli",
+      "argv": [],
+      "stdin_b64": "ICMgY29tbWVudAoKIEEgPSAgeD15ICAKQT1sYXN0IApfQjI9Cg==",
+      "exit": 0,
+      "stdout": {
+        "json": {
+          "A": "last ",
+          "_B2": ""
+        }
+      },
+      "stderr": null
+    },
+    {
+      "name": "empty-no-environment-discovery",
+      "type": "cli",
+      "argv": [],
+      "stdin_b64": "",
+      "exit": 0,
+      "stdout": {
+        "json": {}
+      },
+      "stderr": null
+    },
+    {
+      "name": "invalid-key-line-number",
+      "type": "cli",
+      "argv": [],
+      "stdin_b64": "T0s9MQoyQkFEPXgK",
+      "exit": 1,
+      "stdout": {
+        "exact": ""
+      },
+      "stderr": {
+        "contains": "2"
+      }
+    },
+    {
+      "name": "missing-equals-line-number",
+      "type": "cli",
+      "argv": [],
+      "stdin_b64": "IyBjb21tZW50CmJhZAo=",
+      "exit": 1,
+      "stdout": {
+        "exact": ""
+      },
+      "stderr": {
+        "contains": "2"
+      }
+    }
+  ]
+}
