@@ -92,3 +92,6 @@ Testing ladder: 1 run, then 5; 20 only at milestones. Terra for tests.
 - 13:31 batch3: 8/10 C, ShelfLife 4x 38/1/1 + 1x 39/0/1, QB 2 stalls (q01/q02 WORKING ~38 calls), 3 unit_failure, 8 recoveries. Not converging over 3 batches. leadThin applied on 7e54743, gate landLead running.
 - 2026-11-19 13:36:00 +02:00 coordinator 2 stopped: READY TO PUSH five commits through 7e54743. Batch 3 and A/B triage written. Three isolated follow-up patches finished, two briefs queued. Main acquired separate staged changes after both cohorts completed. NEEDS-LEAD in COORD-STATUS.md.
 - 13:39 leadThin LANDED (gate 158/158). First real Lead run: leadHello1 (1x hello, Terra).
+- 13:49 Lead hello x1: C in 7 calls ~3 min; 1 lead_failure = judge-caught weak test, builder fixed (designed recovery). Launched leadHello5 + leadFound5.
+- 14:17 Oren: runs pop Notepad (git editor wrapper) + desktop HTML (lf04 builder). quietDesktop lane (Terra) launched.
+- 14:47 quietDesktop LANDED (lane gate 154 + test-only fixes; focused 2+18 pass). Oren still saw pop-ups from old-code runs.

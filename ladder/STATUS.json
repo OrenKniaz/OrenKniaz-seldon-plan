@@ -7,6 +7,12 @@
   "now": "M3 m3wire integrates all six lanes and the named wiring; composite64 semantic cases GREEN,25 cold imports PASS. Sole gate62P/2 test-fixture failures corrected and narrowly verified2P without re-gating; patch/report delivered uncommitted, main landing and native acceptance remain.",
   "lanes": [
     {
+      "name": "quietDesktop",
+      "owner": "Codex",
+      "state": "delivered; review, landing and live validation pending",
+      "what": "T-252 snapshot be5c826 labeled base 1531a71. Scripted Codex/Claude quiet desktop journeys passed; gate 154P/6 stale prompt tests in 508.22s, test-only affected rerun 8P; patch and report delivered."
+    },
+    {
       "name": "guideEvidenceScope",
       "owner": "Codex",
       "state": "delivered; focused scripted journeys passed, integration and native evidence pending",
@@ -599,6 +605,78 @@
   "recentRuns": [
     {
       "date": "2026-11-19",
+      "run": "foundation-1531a71-lf01",
+      "commit": "1531a71",
+      "outcome": "SCRIPTED_C",
+      "furthest": "C",
+      "repairs": "2",
+      "gaps": "0",
+      "uncertain": "0",
+      "wall": "499.719",
+      "flags": "2"
+    },
+    {
+      "date": "2026-11-19",
+      "run": "hello-1531a71-lh04",
+      "commit": "1531a71",
+      "outcome": "SCRIPTED_C",
+      "furthest": "C",
+      "repairs": "5",
+      "gaps": "0",
+      "uncertain": "0",
+      "wall": "407.501",
+      "flags": "5"
+    },
+    {
+      "date": "2026-11-19",
+      "run": "foundation-1531a71-lf05",
+      "commit": "1531a71",
+      "outcome": "SCRIPTED_C",
+      "furthest": "C",
+      "repairs": "1",
+      "gaps": "0",
+      "uncertain": "0",
+      "wall": "359.542",
+      "flags": "1"
+    },
+    {
+      "date": "2026-11-19",
+      "run": "hello-1531a71-lh01-11191349",
+      "commit": "1531a71",
+      "outcome": "SCRIPTED_C",
+      "furthest": "C",
+      "repairs": "0",
+      "gaps": "1",
+      "uncertain": "0",
+      "wall": "139.036",
+      "flags": "1"
+    },
+    {
+      "date": "2026-11-19",
+      "run": "hello-1531a71-lh02",
+      "commit": "1531a71",
+      "outcome": "SCRIPTED_C",
+      "furthest": "C",
+      "repairs": "0",
+      "gaps": "0",
+      "uncertain": "0",
+      "wall": "103.128",
+      "flags": "0"
+    },
+    {
+      "date": "2026-11-19",
+      "run": "hello-1531a71-lh01",
+      "commit": "1531a71",
+      "outcome": "SCRIPTED_C",
+      "furthest": "C",
+      "repairs": "1",
+      "gaps": "0",
+      "uncertain": "0",
+      "wall": "150.658",
+      "flags": "1"
+    },
+    {
+      "date": "2026-11-19",
       "run": "qbu-7e54743-q04",
       "commit": "7e54743",
       "outcome": "SCRIPTED_C",
@@ -704,78 +782,6 @@
       "uncertain": "0",
       "wall": "1182.109",
       "flags": "2"
-    },
-    {
-      "date": "2026-11-19",
-      "run": "sl-r2p-513de6a-ap02",
-      "commit": "513de6a",
-      "outcome": "SCRIPTED_C",
-      "furthest": "C",
-      "repairs": "0",
-      "gaps": "0",
-      "uncertain": "0",
-      "wall": "721.773",
-      "flags": "0"
-    },
-    {
-      "date": "2026-11-19",
-      "run": "sl-r2j-513de6a-aj02",
-      "commit": "513de6a",
-      "outcome": "SCRIPTED_C",
-      "furthest": "C",
-      "repairs": "0",
-      "gaps": "0",
-      "uncertain": "0",
-      "wall": "659.469",
-      "flags": "0"
-    },
-    {
-      "date": "2026-11-19",
-      "run": "sl-r2p-513de6a-ap01",
-      "commit": "513de6a",
-      "outcome": "SCRIPTED_C",
-      "furthest": "C",
-      "repairs": "0",
-      "gaps": "0",
-      "uncertain": "0",
-      "wall": "571.209",
-      "flags": "0"
-    },
-    {
-      "date": "2026-11-19",
-      "run": "qbu-nextWave-5d6ea7c-nq01",
-      "commit": "5d6ea7c",
-      "outcome": "SCRIPTED_C",
-      "furthest": "C",
-      "repairs": "1",
-      "gaps": "1",
-      "uncertain": "0",
-      "wall": "568.950",
-      "flags": "2"
-    },
-    {
-      "date": "2026-11-19",
-      "run": "shelflife-main-513de6a-sb03",
-      "commit": "513de6a",
-      "outcome": "SCRIPTED_C",
-      "furthest": "C",
-      "repairs": "1",
-      "gaps": "1",
-      "uncertain": "0",
-      "wall": "927.821",
-      "flags": "2"
-    },
-    {
-      "date": "2026-11-19",
-      "run": "shelflife-main-513de6a-sb02",
-      "commit": "513de6a",
-      "outcome": "SCRIPTED_C",
-      "furthest": "C",
-      "repairs": "0",
-      "gaps": "0",
-      "uncertain": "0",
-      "wall": "565.428",
-      "flags": "0"
     }
   ]
 }
