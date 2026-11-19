@@ -95,3 +95,9 @@ Testing ladder: 1 run, then 5; 20 only at milestones. Terra for tests.
 - 13:49 Lead hello x1: C in 7 calls ~3 min; 1 lead_failure = judge-caught weak test, builder fixed (designed recovery). Launched leadHello5 + leadFound5.
 - 14:17 Oren: runs pop Notepad (git editor wrapper) + desktop HTML (lf04 builder). quietDesktop lane (Terra) launched.
 - 14:47 quietDesktop LANDED (lane gate 154 + test-only fixes; focused 2+18 pass). Oren still saw pop-ups from old-code runs.
+- 14:49 Lead batch on 1531a71: hello 3/5, Foundation 2/5 C. lf04 looped 106 calls (Start-Process checks.html = pop-up source). leadProof lane (Sol) launched.
+- 14:52 Oren OK'd one Astra review: patterns across both modes, no direction bias (astra62-patterns-brief). Proof-layer lanes held until it answers; leadProof still running.
+- 14:59 Astra patterns review in (astra62-patterns-2026-11-19.md, 68 lines). leadProof lane STOPPED (it patched the frozen-check design Astra says to cut). Awaiting Oren on FOR OREN items.
+- 15:03 Oren: planner semantics only, no code/tests. BLUEPRINT-LEAD v0.2 pushed. leadOwners lane (Sol) launched: Astra cuts 1-3.
+- 15:27 leadOwners LANDED (lane gate 162 + test-only fix; lead journeys 5/5). Lead rerun: leadHello6 + leadFound6.
+- 15:38 Lead rerun e2dc3f5: 0/10 C, all WAITING: builders hedged not-done receipts (prompt/schema mismatch from leadOwners), routed as blockers. leadReceipt lane (Sol) with a real Terra hello as exit evidence.

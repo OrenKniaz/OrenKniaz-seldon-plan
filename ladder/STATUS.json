@@ -7,6 +7,18 @@
   "now": "M3 m3wire integrates all six lanes and the named wiring; composite64 semantic cases GREEN,25 cold imports PASS. Sole gate62P/2 test-fixture failures corrected and narrowly verified2P without re-gating; patch/report delivered uncommitted, main landing and native acceptance remain.",
   "lanes": [
     {
+      "name": "leadOwners",
+      "owner": "Codex",
+      "state": "delivered; review, landing and native validation pending",
+      "what": "T-254. Patch/report delivered on 4263505 snapshot 08eca24. Sole bare gate 162P/1 fixture, 504.95s; fixture-only repair, affected Lead journeys 5P. Retained witness and owner-specific routing proven in scripted journeys."
+    },
+    {
+      "name": "leadProof",
+      "owner": "Codex",
+      "state": "in progress",
+      "what": "T-253 on 4263505 snapshot ba09598. Align Lead milestone builder/judge proof guidance and R15 recovery. Exit: scripted failure-to-owner, fresh builder repair and served-browser proof with bare gate."
+    },
+    {
       "name": "quietDesktop",
       "owner": "Codex",
       "state": "delivered; review, landing and live validation pending",
@@ -593,6 +605,12 @@
       "owner": "Codex",
       "state": "delivered, awaiting lead review and landing",
       "what": "T-237. Patch and report against exact dee914f. Five base REDs, 11 focused passes, 28 cold imports. Sole gate 134P/1 stale fixture; isolated correction passed."
+    },
+    {
+      "name": "leadReceipt",
+      "owner": "Codex",
+      "state": "in progress",
+      "what": "T-255. Sole Terra hello reached independent PROVE after one WORK, then WAITING after five calls (T-256, RED interpretation). Candidate patch verified; sole bare gate running."
     }
   ],
   "next": [
@@ -603,6 +621,138 @@
   ],
   "decisionsForOren": [],
   "recentRuns": [
+    {
+      "date": "2026-11-19",
+      "run": "hello-lane-c18d719-lr01",
+      "commit": "c18d719",
+      "outcome": "PROVE",
+      "furthest": "BUILD",
+      "repairs": "0",
+      "gaps": "0",
+      "uncertain": "0",
+      "wall": "96.022",
+      "flags": "1"
+    },
+    {
+      "date": "2026-11-19",
+      "run": "foundation-e2dc3f5-lf03",
+      "commit": "e2dc3f5",
+      "outcome": "BUILD",
+      "furthest": "B",
+      "repairs": "1",
+      "gaps": "0",
+      "uncertain": "0",
+      "wall": "259.448",
+      "flags": "2"
+    },
+    {
+      "date": "2026-11-19",
+      "run": "foundation-e2dc3f5-lf05",
+      "commit": "e2dc3f5",
+      "outcome": "BUILD",
+      "furthest": "B",
+      "repairs": "1",
+      "gaps": "0",
+      "uncertain": "0",
+      "wall": "181.431",
+      "flags": "2"
+    },
+    {
+      "date": "2026-11-19",
+      "run": "foundation-e2dc3f5-lf04",
+      "commit": "e2dc3f5",
+      "outcome": "BUILD",
+      "furthest": "B",
+      "repairs": "1",
+      "gaps": "0",
+      "uncertain": "0",
+      "wall": "177.154",
+      "flags": "2"
+    },
+    {
+      "date": "2026-11-19",
+      "run": "foundation-e2dc3f5-lf02",
+      "commit": "e2dc3f5",
+      "outcome": "BUILD",
+      "furthest": "B",
+      "repairs": "1",
+      "gaps": "0",
+      "uncertain": "0",
+      "wall": "171.908",
+      "flags": "2"
+    },
+    {
+      "date": "2026-11-19",
+      "run": "foundation-e2dc3f5-lf01",
+      "commit": "e2dc3f5",
+      "outcome": "BUILD",
+      "furthest": "B",
+      "repairs": "2",
+      "gaps": "0",
+      "uncertain": "0",
+      "wall": "171.635",
+      "flags": "3"
+    },
+    {
+      "date": "2026-11-19",
+      "run": "hello-e2dc3f5-lh03",
+      "commit": "e2dc3f5",
+      "outcome": "BUILD",
+      "furthest": "B",
+      "repairs": "2",
+      "gaps": "0",
+      "uncertain": "0",
+      "wall": "146.976",
+      "flags": "3"
+    },
+    {
+      "date": "2026-11-19",
+      "run": "hello-e2dc3f5-lh01",
+      "commit": "e2dc3f5",
+      "outcome": "BUILD",
+      "furthest": "B",
+      "repairs": "2",
+      "gaps": "0",
+      "uncertain": "0",
+      "wall": "87.800",
+      "flags": "3"
+    },
+    {
+      "date": "2026-11-19",
+      "run": "hello-e2dc3f5-lh02",
+      "commit": "e2dc3f5",
+      "outcome": "BUILD",
+      "furthest": "B",
+      "repairs": "1",
+      "gaps": "0",
+      "uncertain": "0",
+      "wall": "73.122",
+      "flags": "2"
+    },
+    {
+      "date": "2026-11-19",
+      "run": "hello-e2dc3f5-lh05",
+      "commit": "e2dc3f5",
+      "outcome": "BUILD",
+      "furthest": "B",
+      "repairs": "1",
+      "gaps": "0",
+      "uncertain": "0",
+      "wall": "72.166",
+      "flags": "2"
+    },
+    {
+      "date": "2026-11-19",
+      "run": "hello-e2dc3f5-lh04",
+      "commit": "e2dc3f5",
+      "outcome": "BUILD",
+      "furthest": "B",
+      "repairs": "1",
+      "gaps": "0",
+      "uncertain": "0",
+      "wall": "68.596",
+      "flags": "2"
+    },
     {
       "date": "2026-11-19",
       "run": "foundation-1531a71-lf01",
@@ -650,138 +800,6 @@
       "uncertain": "0",
       "wall": "139.036",
       "flags": "1"
-    },
-    {
-      "date": "2026-11-19",
-      "run": "hello-1531a71-lh02",
-      "commit": "1531a71",
-      "outcome": "SCRIPTED_C",
-      "furthest": "C",
-      "repairs": "0",
-      "gaps": "0",
-      "uncertain": "0",
-      "wall": "103.128",
-      "flags": "0"
-    },
-    {
-      "date": "2026-11-19",
-      "run": "hello-1531a71-lh01",
-      "commit": "1531a71",
-      "outcome": "SCRIPTED_C",
-      "furthest": "C",
-      "repairs": "1",
-      "gaps": "0",
-      "uncertain": "0",
-      "wall": "150.658",
-      "flags": "1"
-    },
-    {
-      "date": "2026-11-19",
-      "run": "qbu-7e54743-q04",
-      "commit": "7e54743",
-      "outcome": "SCRIPTED_C",
-      "furthest": "C",
-      "repairs": "1",
-      "gaps": "0",
-      "uncertain": "0",
-      "wall": "1419.622",
-      "flags": "1"
-    },
-    {
-      "date": "2026-11-19",
-      "run": "qbu-7e54743-q03",
-      "commit": "7e54743",
-      "outcome": "SCRIPTED_C",
-      "furthest": "C",
-      "repairs": "1",
-      "gaps": "0",
-      "uncertain": "0",
-      "wall": "1057.335",
-      "flags": "1"
-    },
-    {
-      "date": "2026-11-19",
-      "run": "qbu-7e54743-q05",
-      "commit": "7e54743",
-      "outcome": "SCRIPTED_C",
-      "furthest": "C",
-      "repairs": "0",
-      "gaps": "0",
-      "uncertain": "0",
-      "wall": "987.282",
-      "flags": "0"
-    },
-    {
-      "date": "2026-11-19",
-      "run": "shelflife-main-7e54743-s02",
-      "commit": "7e54743",
-      "outcome": "SCRIPTED_C",
-      "furthest": "C",
-      "repairs": "1",
-      "gaps": "1",
-      "uncertain": "0",
-      "wall": "453.299",
-      "flags": "2"
-    },
-    {
-      "date": "2026-11-19",
-      "run": "shelflife-main-7e54743-s05",
-      "commit": "7e54743",
-      "outcome": "SCRIPTED_C",
-      "furthest": "C",
-      "repairs": "1",
-      "gaps": "0",
-      "uncertain": "0",
-      "wall": "446.138",
-      "flags": "1"
-    },
-    {
-      "date": "2026-11-19",
-      "run": "shelflife-main-7e54743-s01",
-      "commit": "7e54743",
-      "outcome": "SCRIPTED_C",
-      "furthest": "C",
-      "repairs": "1",
-      "gaps": "1",
-      "uncertain": "0",
-      "wall": "435.651",
-      "flags": "2"
-    },
-    {
-      "date": "2026-11-19",
-      "run": "shelflife-main-7e54743-s04",
-      "commit": "7e54743",
-      "outcome": "SCRIPTED_C",
-      "furthest": "C",
-      "repairs": "0",
-      "gaps": "0",
-      "uncertain": "0",
-      "wall": "399.641",
-      "flags": "0"
-    },
-    {
-      "date": "2026-11-19",
-      "run": "shelflife-main-7e54743-s03",
-      "commit": "7e54743",
-      "outcome": "SCRIPTED_C",
-      "furthest": "C",
-      "repairs": "0",
-      "gaps": "0",
-      "uncertain": "0",
-      "wall": "386.928",
-      "flags": "0"
-    },
-    {
-      "date": "2026-11-19",
-      "run": "sl-r2j-513de6a-aj01",
-      "commit": "513de6a",
-      "outcome": "SCRIPTED_C",
-      "furthest": "C",
-      "repairs": "1",
-      "gaps": "1",
-      "uncertain": "0",
-      "wall": "1182.109",
-      "flags": "2"
     }
   ]
 }

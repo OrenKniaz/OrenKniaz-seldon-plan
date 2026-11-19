@@ -3260,6 +3260,54 @@
       "family": "Provider sessions disturb desktop",
       "direction": "quietDesktop patch delivered; lead to review, land on main and validate.",
       "evidence": "2026-11-19 Oren reports Git Notepad and a Foundation builder opening index.html in the desktop browser. quietDesktop snapshot be5c826: 2 scripted provider journeys passed; full gate 154 passed, 6 stale prompt assertions failed in 508.22s; test-only corrections and 8 affected cases passed in 11.18s; 29 cold imports passed. Not landed or live-validated."
+    },
+    {
+      "id": "T-253",
+      "title": "Lead proof commands and recovery stall the milestone",
+      "severity": "high",
+      "type": "design",
+      "status": "in_progress",
+      "milestone": "Lead micro and Foundation",
+      "area": "src/seldon/lead.py and shared proof prompts",
+      "family": "Two rules disagree",
+      "direction": "leadProof owns builder and judge coaching, Lead proof recovery and scripted journey proof. Lead owns review, main landing and authorized native validation.",
+      "evidence": "2026-11-19 Lead batch 1531a71: hello 3/5 C, Foundation 2/5 C. Retained lf04 r46/r60: Start-Process command in both the approved plan and builder receipt; latest counts WORK 53, COACH 52. lf03 r95 B after five plans and repeated BUILD replies; lh03 r153 exits 2 for --help; lh05 WORK 19/COACH 17; lf02 r172 judge asks for the launched desktop window despite a headless browser observation. Assigned base 4263505, isolated snapshot ba09598."
+    },
+    {
+      "id": "T-254",
+      "title": "Lead mixes planner promises, executable proof and recovery ownership",
+      "severity": "high",
+      "type": "design",
+      "status": "in_progress",
+      "milestone": "Lead micro and Foundation",
+      "area": "Lead plan, recovery and shared proof judgment",
+      "family": "Blame lands on wrong owner",
+      "direction": "leadOwners.patch and leadOwners-report.md delivered. Lead owns review and landing; next proof is authorized native Foundation and Hello on the integrated candidate. Related T-253.",
+      "evidence": "Retained lf04 r80 exit 1 on planner desktop launcher and r82 exit 0 on builder headless check on 34753352; r84 rejects candidate. 53 WORK / 52 COACH questions, r72 loses original failure. lf02 r65 passes, r70 omits checks/kit/browser.cjs on ce7d5327, r76 requests it. lh03 r102 expected-error check passes, r104 direct --help exits 2. | Snapshot 08eca24 tree 907ea50 matches sibling 4263505 snapshot. Sole gate 162P/1 fixture missing turn.completed, 504.95s, 163 collected vs base 160. Test-only fix, 5 Lead cases passed in 18.19s; no re-gate. 30 Python and 2 CommonJS cold imports. Retained lf02 source JSON 684857→37218 bytes with four attached PNGs and helper visible. Patch apply/reverse verified. No commit or native-provider acceptance."
+    },
+    {
+      "id": "T-255",
+      "title": "Lead routes builder receipt doubts before independent proof",
+      "severity": "high",
+      "type": "design",
+      "status": "in_progress",
+      "milestone": "Lead micro and Foundation",
+      "area": "Lead BUILD receipt and independent proof handoff",
+      "family": "Two rules disagree",
+      "direction": "leadReceipt owns BUILD coaching, receipt schema/routing, and judge notes. Exit: lh01/lh02 golden replay and one authorized Terra hello via the lane candidate.",
+      "evidence": "e2dc3f5 Terra: all 10 supplied hello/Foundation slots stopped with pending decisions at BUILD. lh01 r57 and lh02 r40 record schema and exit-status doubts after checks reportedly passed; the former receipt makes any check-bearing non-done reply invalid. Related T-253/T-254. Foundation also records three reported external evidence writes (lf02/lf04/lf05); those are distinct from local proof doubts. | Lane snapshot c18d719 tree 1b4221f3204dc6fd3363f8ee77278cbc62b4de0b matches canonical e2dc3f5. Replayed r57/r40 with fixture witnesses: 2 RED at BUILD -> 2 SCRIPTED_C, builder doubts reached judge; 7 focused Lead cases passed. Cold-imported 30 Python and 2 CommonJS modules. Native slot hello-lane-c18d719-lr01 source 195f08f5967f: WORK r40 returned done, four checks plus walkthrough all independently GREEN and four baseline RED on missing hello.py. Reached JUDGE in five calls; distinct RED-interpretation blocker at PROVE prevented C."
+    },
+    {
+      "id": "T-256",
+      "title": "Lead judge requires faulty existing code for RED on a new CLI",
+      "severity": "high",
+      "type": "design",
+      "status": "open",
+      "milestone": "Lead micro",
+      "area": "Lead RED interpretation at independent judgment",
+      "family": "Judge asked beyond its view",
+      "direction": "Lead owns the next design review. Use honest baseline evidence to distinguish absent promised behavior from unrelated check failure. Retain semantic RED judgment for existing behavior; replay r56 and confirm on a separately authorized new-build hello.",
+      "evidence": "C:/seldon/tests/m1/hello-lane-c18d719-lr01 (Terra medium, candidate runtime 195f08f5967f). Seldon observed r43-r47 exit 0 on candidate and r48-r51 RED without hello.py. Judge r56 accepted absent CLI as RED for greeting and withheld usage/error findings because the base had no existing CLI to exhibit wrong usage behavior. r58 Seldon-owned proof failure and r59 pending request; final WAITING at PROVE after five calls. Related T-255, T-253 and T-254."
     }
   ]
 }
