@@ -107,3 +107,4 @@ Testing ladder: 1 run, then 5; 20 only at milestones. Terra for tests.
   NEXT 2: land, then the Lead batch: SELDON_MODE=lead, Terra medium, hello x5 + Foundation x5 (cohort2.sh leadHello7 lh / leadFound7 lf), 10-min watcher that kills runs over 60 calls.
   NEXT 3: if clean -> Lead ShelfLife x5 + Quiet Bench x5; then the lean lane (Lead imports only the shared core, ~2.5-3k lines reachable; KPI = lines reachable from the Lead entry).
   Held: Orchestrator patches trialFidelity, workerQuestionLoop, guideEvidenceScope (in work/lanes, unlanded) pending Astra cut 4 / Oren. Astra review: ladder/design-review/astra62-patterns-2026-11-19.md. Hourly cron dies with the session; recreate it on resume.
+- 23:18 resumed after power-off window (no reboot). leadRed lane launched on 8434139.
