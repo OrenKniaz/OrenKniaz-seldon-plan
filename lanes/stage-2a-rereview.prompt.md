@@ -1,0 +1,5 @@
+INDEPENDENT RE-REVIEW — Stage 2a review fixes (read-only; you are not the author). This folder = the 2a lane tree; review `git diff 652de9f` (= ../stage-2a.patch, SHA256 66f70ae0b10656b7e79f83a85c0e9ce5f305b59868a41ff7308052106ec277ae). The previous independent review REJECTED an earlier candidate with 5 findings: ../stage-2a-review.md. The author's fix claims: ../stage-2a-report.md ("Review fixes 1-5").
+Check, impact-only:
+(a) Is each of the 5 findings truly fixed at the shared rule ("authority only from a current judgment bound to every member, revision and candidate"), not just patched for the one scenario?
+(b) Did the fixes introduce any NEW defect of the same five kinds: approval/closure without a current bound positive judgment, a lost finding/gap, meaning that blocks instead of pending, an unending wait, or a second owner?
+For each: file:line, failure scenario, HIGH/MED, one fix. Cap 6. First line: `VERDICT: APPROVE | APPROVE-WITH-FOLLOWUPS | REJECT`. ≤35 lines. No files changed, no tests run.

@@ -1,0 +1,2 @@
+Follow-up on your HIGH review (same reviewer; read-only). Round 2 (../stage-recover1-report.md) addresses your P1 and P2. New exact candidate: lane diff vs base = ../stage-recover1.patch SHA256 fa28e757e5ff42e382f326c829e841bd67feefc3df866b37c085155c26b3e86e; full gate 19/19.
+Check only: (a) both findings fixed at cause, including the siblings you named; (b) no regression from this round; (c) no window/screen control. Do not re-open items you confirmed. First line `VERDICT: APPROVE | APPROVE-WITH-FOLLOWUPS | REJECT`. ≤12 lines. No files changed, no tests run.

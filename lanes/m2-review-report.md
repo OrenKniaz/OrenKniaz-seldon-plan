@@ -1,0 +1,9 @@
+Base 31012f7; src/seldon lines added/deleted: plan_review.py +117 new; detail.py +10/-3; plan.py +1/-1; questions.py +6/-17; run.py +3/-6; states.py +1/-1; schema.py +1/-1; decisions.py +1/-28.
+Tests/seldon lines added/deleted: test_review.py +129 new; test_architect.py +38/-1; test_journey.py +22/-16; test_fixups.py +3/-2. Patch includes both new files; reverse-apply check passes.
+Ported frozen-draft area grouping, parallel bounded asks and CODE aggregation; added one architecture/coverage-count cross-area review. Deleted whole-plan PLAN/REPAIR calls, examples and repair writer; no walkthrough or inspection selection.
+Gaps return to the owning DETAIL correction or one ARCHITECT call; canonical DETAIL answer references retain sibling verdicts through merged-handle renumbering; one merged B and three-repair limit retained.
+Gate ONLY bash scripts/gate.sh: base m2rev-1 14 passed/232.71s; final m2rev-4 14 passed/240.64s (same test count, all original timing assertions). No dependencies, real providers, commits or charter/blueprint edits.
+Journeys: 3 area + 1 cross-area reviews to B; parallel asks; local/cross repair; reopen; added-record sibling reuse; repair exhaustion; existing execution/FLOW/fixup/judge journeys; all three recorded DETAIL replays still reach B.
+REVIEW bytes at 1/50 units, actual existing size journey maxima: before 6551/50151; after 5370/12894. Same unchanged area with growing siblings: 5244/5244; cross-area summaries 4149/5344.
+Caveat: identical overall maximum bytes is NOT achieved when the subject itself grows (the original fixture increases each area from 1 to 10 units); the cross-area summary grows with area count. No padding or truncated records.
+T-112 found/fixed in candidate: guide insertion aliased architecture scope and replanned an unchanged sibling; scope copy and stable merge ordering fix it. T-13/T-112 remain in_progress until main landing; next: lead review/landing and task-authorized native qualification.

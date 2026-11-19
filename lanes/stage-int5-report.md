@@ -1,0 +1,9 @@
+CHARTER: serves C14/C18/C20/C24/C25/C26 — violates no I# within integration scope.
+TRIAGE: BUG — portable identity reuse and obsolete golden expectation fixed; siblings: normal exit/near-deadline. READY=false: full gate exceeds 600s; timing cause unestablished, runtime-owner diagnosis next; no retry.
+CONFLICTS: production patches applied cleanly in EXEC4→STALL1 order; golden union preserves main consent/concurrent HTTP integration plus both lanes; actual module/total ceilings ratcheted below main; all audit rows retained.
+P1: src/codex_harness/core/audit_process.py:254 observes exit without reaping; :294 signals while leader pins PGID; :299 verifies no live group members, then :303 reaps with no later group lookup/signal. Windows unchanged from reviewed STALL1.
+PROD/TEST: base 76b281afcd1386ba299e14069d1fbf2d5a28e556 (local 9e15ad0 snapshot); production −42 lines, total 34766≤34808; tests +139 lines, suite 19 vs base 19; no new repository files/unit tests, commit or push.
+FOCUSED: CLI PASS 414.06s; web PASS 185.53s. Prior CLI failures retained: 63.54s mixed loaded-engine bytes during integration (invalid evidence), 111.60s obsolete no-integration expectation corrected to require main’s real concurrent proof.
+FULL: bash ../golden-gate.sh . stage-int5 — exactly once, exit 0; 18/18 in 487.04s + web 1/1 in 179.65s = 666.69s; wall 668.63s, fast-ceiling FAIL; 0 skips. Log ../golden-stage-int5.log; focused scratch C:/seldon/tests/stage-int5.
+RISKS: POSIX fix is source-reviewed only on this Windows host; no actual-provider/ladder/full-vision acceptance. Cold-import cycle discovery retained/deferred in existing audit ledger; no unrelated repair. No screen/window control or denied-operation retry.
+PATCH: ../stage-int5.patch — SHA256 5caa04ad59b3bbdd008ece9245582045e80f507534f05fa2f1dc4aa84cb7428d

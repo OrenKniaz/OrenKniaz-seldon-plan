@@ -1,0 +1,7 @@
+Read-only diagnosis (Sol high). Do NOT run pytest or long commands; no edits; final message = report.
+Repo: C:/Users/oren/codex-harness/work/sprint-20261027/semantic-cc (HEAD beaccfa = GitHub main c7219cb + local noP commit; the race also hit c7219cb itself). Charter CHARTER.md. Context: work/ladder/design-review/partial-publication-audit.md.
+Failure (2 of last 5 web golden runs; never on CLI): tests/python/core/test_golden_path.py ~4891-4897 (web surface): after client.answer(judge_reply(...)) on the Contracts execution question, `assert execution(client.current)`, then `second = client.current["question"]` has meaning.phase == "contracts" but expected "validation". Logs: design-review/web-phase-race-noP.log and web-phase-race-2e4.log (state dump in the AssertionError line).
+Answer concisely:
+1. TRIAGE BUG|DESIGN, and PRODUCT vs TEST-OBSERVER: does the loop genuinely issue a second Contracts question after a positive Contracts judgment (which would be a real user-visible loop), or does the web client observe a stale/still-pending question before the loop publishes the Validation question? Use the dumped state (requestId, judgment ids, evidenceBinding, effect) to decide; cite file:line for each step.
+2. Why web only (web surface's hold on retained-candidate.json publish? cockpit/HTTP reader?).
+3. The ONE simplest fix consistent with "owner publishes one terminal outcome last; readers read it" — test observer vs product — and approx lines.

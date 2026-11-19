@@ -1,0 +1,7 @@
+CC — round 2. Your report says NOT READY (source +42; gate 2 failed: Git clone crash, obsolete Contracts fault assertion). Thanks for not relabeling it.
+
+Design pressure first: the "independent successor repository" adds a clone, which is new machinery and the thing that crashed. Before fixing the crash, answer: can a controller replacement resume in the EXISTING admitted run/repository instead (a pre-entry Build never touched it; attempt_provenance's run/job guard may be satisfiable by keeping the same job for the unfinished work, or by a recorded handoff rather than a copy)? Choose the option with the least code that keeps the guard honest. If a clone is truly required, say exactly why the guard forces it, and fix the crash at its cause (no retries, no sleeps).
+
+Rules unchanged: retained completed work keeps ORIGINAL evidence and judgment; fault charged only to unfinished work; recov1 + PUB1 untouched; raw probe retained; no grace timers. Target: source at or below +25 net. Update the obsolete Contracts fault assertion only by asserting the new correct outcome (Contracts not rerun, only Build charged); never weaken it.
+
+Focused first (basetemp C:/seldon/tests/resume1b). Freeze source, then ONE gate (tag resume1b; TRACE1B lane may load the host, report pure timeouts separately). Update lanes/stage-resume1.patch + stage-resume1.sha256, append "Round 2". Final: SHA, delta, gate line, and the repo decision in one sentence. NO LANE-LOCAL SHAS; no commit/push.

@@ -1,0 +1,18 @@
+LANE judge-subject (ticket T-78): one subject per judge question. Worktree C:/Users/oren/codex-harness/work/lanes/judge-subject-20261112 (Seldon main). Temp only under C:/seldon/tests/judge-<n>, new folder per run. Do not commit. No new dependencies. Do not edit CHARTER.md or BLUEPRINT.md. Behaviour-only journeys, no unit tests. No real provider calls.
+
+Read CHARTER.md (I2, I10), BLUEPRINT.md (R2, R9, R11, R12), then all of src/seldon and tests/seldon.
+
+FAILURE (real run C:/seldon/tests/m1/foundation-e5a4ead-c01, all 6 units DONE, 0 repairs): PRODUCT judge got six product-wide targets but only one observation and no files, answered uncertain ("verify each script with siblings blocked", "focus/live-region markup", "confirm docs/try-it.md exists"). All three facts were already in the store. inference.py turned uncertain into ValueError -> run INCOMPLETE. DEMO question was 72 KB because one feature = whole product, so it got every check source. See calls call-c76b7c7c8c654d2db070d177c2bd40c9 (PRODUCT) and call-d8b4083cf613484b83908e3ad1f76bca (DEMO) in that run.
+
+TRIAGE: DESIGN. ONE RULE, decided by the lead; if a point is wrong, stop and say exactly where instead of improvising:
+1. A judge question has exactly one subject. Code attaches every observation, check source, screenshot and file traced to that subject on the final commit, and nothing else.
+2. DEMO-JUDGE asks per requirement (its checks' sources and final observations, its screenshots). A feature verdict is the code AND of its requirements' verdicts.
+3. Quality criteria trace to checks at plan time, like requirements (PLAN schema + REVIEW). A criterion fully covered by traced passing checks is decided by code. Only criteria that need taste or usability (visual direction, the guide) get an LLM question: one small question per criterion with only its traced evidence. The product verdict is the code AND.
+4. Structural facts are stated by code, never asked: e.g. "guide present at docs/try-it.md on <commit>, N bytes", with its text when the criterion is the guide.
+5. `uncertain` is a state, not an exception (states.py gets the exit for DEMO-JUDGE and PRODUCT-JUDGE). Code resolves the judge's needed facts from the store and re-asks once with them; if still uncertain or a gap is named, code turns it into a fixup check/unit routed like unit rework. A run with every unit DONE never ends INCOMPLETE because a judge was uncertain. Apply the same exit to the "Feature demo gap" / "Product quality gap" ValueErrors in run.py.
+6. Remove the reviewer-selected `integratedWalkthrough` / `inspections` and the 64 KiB inspection budget error if rule 1 makes them unnecessary (lead expects it does); say what you removed.
+DO NOT: weaken any judge, map uncertain to satisfied, add prompt text that tells a judge to trust or assume, hand-feed these three facts, raise size caps, add a second product-wide judge. Guide constants ALIGN_DESIGN, CRAFT, JUDGMENT_LEEWAY are owner text: keep them word for word.
+
+JOURNEYS (extend tests/seldon/test_journey.py, outcome only): a judge first answers uncertain naming a fact code holds -> re-asked with it -> C; a judge names a real gap -> fixup unit -> C; a multi-feature product where the largest DEMO and PRODUCT question at 50 units is no larger than at 1 unit (add to the scale journey's size assertion). Suite under 3 minutes.
+
+DELIVER in C:/Users/oren/codex-harness/work/lanes: judge-subject.patch (git diff --binary vs base, with new/deleted files), judge-subject-report.md at most 12 lines: modules changed with line counts before/after; what was removed; new state-table rows; journeys and seconds; largest question bytes per kind at 1 and 50 units; anything in this rule you found wrong; what is unproven.

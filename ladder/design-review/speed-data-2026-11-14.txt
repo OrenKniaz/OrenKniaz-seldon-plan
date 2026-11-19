@@ -1,0 +1,31 @@
+# Speed data 2026-11-14 (timeline.py = call start/end from question.json/stdout.bin mtimes; usage.py = turn.completed usage)
+# Native plain Codex ShelfLife: 1 session, ~10.3 min wall, 23 shell commands, input 1.24M (cached 1.157M), output 17k, gpt-6.1-sol medium.
+shelflife-9a5d6c0-g01: wall 60 min | planning 6 | build 50 | final verify/judge 4 | max parallel 4 | >=2 calls running 17 min
+   minutes by kind: {'WORK': '10x 52m', 'DETAIL': '4x 5m', 'JUDGE': '6x 3m', 'ARCHITECT': '2x 3m', 'REVIEW': '6x 2m', 'PRODUCT': '8x 2m', 'FLOW': '6x 2m', 'ALIGN': '1x 1m'}
+shelflife-9a5d6c0-g01: calls=43 wall~113min input=11.53M cached=10.19M uncached=1.33M output=204k
+   by kind (calls, uncached+output tokens): {'WORK': (10, '928k'), 'JUDGE': (6, '162k'), 'PRODUCT': (8, '158k'), 'FLOW': (6, '134k'), 'REVIEW': (6, '69k'), 'DETAIL': (4, '52k'), 'ARCHITECT': (2, '24k'), 'ALIGN': (1, '11k')}
+shelflife-9a5d6c0-g03: wall 40 min | planning 8 | build 27 | final verify/judge 5 | max parallel 3 | >=2 calls running 10 min
+   minutes by kind: {'WORK': '11x 37m', 'DETAIL': '6x 7m', 'JUDGE': '6x 3m', 'PRODUCT': '8x 3m', 'REVIEW': '6x 2m', 'ARCHITECT': '1x 1m', 'FLOW': '5x 1m', 'ALIGN': '1x 1m'}
+shelflife-9a5d6c0-g03: calls=44 wall~113min input=11.28M cached=10.04M uncached=1.24M output=174k
+   by kind (calls, uncached+output tokens): {'WORK': (11, '768k'), 'PRODUCT': (8, '158k'), 'JUDGE': (6, '154k'), 'FLOW': (5, '143k'), 'DETAIL': (6, '91k'), 'REVIEW': (6, '75k'), 'ALIGN': (1, '11k'), 'ARCHITECT': (1, '10k')}
+shelflife-9a5d6c0-g04: wall 92 min | planning 5 | build 80 | final verify/judge 7 | max parallel 3 | >=2 calls running 28 min
+   minutes by kind: {'WORK': '25x 78m', 'JUDGE': '22x 12m', 'FLOW': '15x 7m', 'DETAIL': '3x 4m', 'PRODUCT': '8x 3m', 'ARCHITECT': '1x 1m', 'REVIEW': '4x 1m', 'ALIGN': '1x 1m'}
+shelflife-9a5d6c0-g04: calls=79 wall~92min input=57.12M cached=52.59M uncached=4.53M output=829k
+   by kind (calls, uncached+output tokens): {'WORK': (25, '2983k'), 'FLOW': (15, '985k'), 'JUDGE': (22, '943k'), 'PRODUCT': (8, '328k'), 'DETAIL': (3, '47k'), 'REVIEW': (4, '46k'), 'ARCHITECT': (1, '15k'), 'ALIGN': (1, '11k')}
+shelflife-9a5d6c0-g05: wall 67 min | planning 6 | build 56 | final verify/judge 5 | max parallel 4 | >=2 calls running 7 min
+   minutes by kind: {'WORK': '9x 45m', 'DETAIL': '5x 6m', 'JUDGE': '6x 3m', 'FLOW': '8x 3m', 'PRODUCT': '8x 2m', 'REVIEW': '6x 2m', 'ARCHITECT': '1x 2m', 'ALIGN': '1x 1m'}
+shelflife-9a5d6c0-g05: calls=44 wall~113min input=10.15M cached=8.76M uncached=1.40M output=168k
+   by kind (calls, uncached+output tokens): {'WORK': (9, '654k'), 'FLOW': (8, '323k'), 'JUDGE': (6, '211k'), 'PRODUCT': (8, '192k'), 'REVIEW': (6, '80k'), 'DETAIL': (5, '78k'), 'ARCHITECT': (1, '16k'), 'ALIGN': (1, '11k')}
+shelflife-3c56782-h02: wall 76 min | planning 9 | build 62 | final verify/judge 5 | max parallel 4 | >=2 calls running 9 min
+   minutes by kind: {'WORK': '9x 44m', 'DETAIL': '9x 9m', 'REVIEW': '8x 3m', 'PRODUCT': '8x 3m', 'JUDGE': '5x 2m', 'FLOW': '6x 2m', 'ARCHITECT': '1x 1m', 'ALIGN': '1x 1m'}
+shelflife-3c56782-h02: calls=47 wall~76min input=6.30M cached=4.85M uncached=1.44M output=174k
+   by kind (calls, uncached+output tokens): {'WORK': (9, '602k'), 'FLOW': (6, '312k'), 'PRODUCT': (8, '274k'), 'JUDGE': (5, '155k'), 'DETAIL': (9, '128k'), 'REVIEW': (8, '120k'), 'ARCHITECT': (1, '15k'), 'ALIGN': (1, '11k')}
+shelflife-3c56782-h04: wall 44 min | planning 6 | build 33 | final verify/judge 5 | max parallel 4 | >=2 calls running 13 min
+   minutes by kind: {'WORK': '8x 40m', 'DETAIL': '6x 7m', 'REVIEW': '7x 3m', 'PRODUCT': '8x 3m', 'FLOW': '8x 2m', 'JUDGE': '4x 2m', 'ARCHITECT': '1x 1m', 'ALIGN': '1x 1m'}
+shelflife-3c56782-h04: calls=43 wall~44min input=7.06M cached=5.97M uncached=1.09M output=157k
+   by kind (calls, uncached+output tokens): {'WORK': (8, '585k'), 'FLOW': (8, '200k'), 'PRODUCT': (8, '153k'), 'JUDGE': (4, '121k'), 'REVIEW': (7, '87k'), 'DETAIL': (6, '76k'), 'ARCHITECT': (1, '15k'), 'ALIGN': (1, '11k')}
+shelflife-3c56782-h05: wall 45 min | planning 6 | build 34 | final verify/judge 6 | max parallel 4 | >=2 calls running 15 min
+   minutes by kind: {'WORK': '10x 43m', 'DETAIL': '6x 7m', 'JUDGE': '6x 3m', 'FLOW': '7x 2m', 'PRODUCT': '7x 2m', 'REVIEW': '5x 2m', 'ARCHITECT': '1x 1m', 'ALIGN': '1x 1m'}
+shelflife-3c56782-h05: calls=43 wall~45min input=8.22M cached=6.45M uncached=1.76M output=197k
+   by kind (calls, uncached+output tokens): {'WORK': (10, '849k'), 'FLOW': (7, '462k'), 'PRODUCT': (7, '243k'), 'JUDGE': (6, '236k'), 'DETAIL': (6, '83k'), 'REVIEW': (5, '61k'), 'ARCHITECT': (1, '15k'), 'ALIGN': (1, '11k')}
+# NOTE: usage.py 'wall~' is file-mtime based and wrong for g-runs (oracle copies touched files); trust timeline.py 'wall'.

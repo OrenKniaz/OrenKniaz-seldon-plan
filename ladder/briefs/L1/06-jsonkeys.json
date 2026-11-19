@@ -1,0 +1,102 @@
+{
+  "id": "jsonkeys",
+  "kind": "cli",
+  "message": "Build JSONKeys in jsonkeys.py. Read a single JSON object from stdin and print its top-level keys in sorted Unicode order, one per line. --json instead prints a JSON array. Invalid JSON or a nonobject root exits 1, stderr only. Unknown flags exit 2. Stdlib only; no network or files.",
+  "profile": {
+    "audience": "API developers examining fixtures",
+    "care": "Small composable commands",
+    "tone": "concise, practical, predictable",
+    "colours": "no terminal colour",
+    "fonts": "system fonts only",
+    "sections": "help, examples, concise diagnostics",
+    "platform": "local Windows and Python 3 stdlib for CLI; modern desktop/mobile browser for web",
+    "defaults": "Smallest solution described; no accounts, network, deployment or paid assets. Ask before scope or budget changes."
+  },
+  "files": [
+    "jsonkeys.py"
+  ],
+  "oracle": [
+    {
+      "name": "unicode-sort",
+      "type": "cli",
+      "argv": [],
+      "stdin_b64": "eyLDqSI6MSwieiI6MiwiQSI6M30=",
+      "exit": 0,
+      "stdout": {
+        "exact": "A\nz\né\n",
+        "normalize_newlines": true
+      },
+      "stderr": {
+        "exact": ""
+      }
+    },
+    {
+      "name": "json-mode",
+      "type": "cli",
+      "argv": [
+        "--json"
+      ],
+      "stdin_b64": "eyJ6IjowLCJhIjoxfQ==",
+      "exit": 0,
+      "stdout": {
+        "json": [
+          "a",
+          "z"
+        ]
+      },
+      "stderr": {
+        "exact": ""
+      }
+    },
+    {
+      "name": "empty-object",
+      "type": "cli",
+      "argv": [],
+      "stdin_b64": "e30=",
+      "exit": 0,
+      "stdout": {
+        "exact": ""
+      },
+      "stderr": {
+        "exact": ""
+      }
+    },
+    {
+      "name": "invalid-json",
+      "type": "cli",
+      "argv": [],
+      "stdin_b64": "ew==",
+      "exit": 1,
+      "stdout": {
+        "exact": ""
+      },
+      "stderr": {
+        "not_empty": true
+      }
+    },
+    {
+      "name": "nonobject",
+      "type": "cli",
+      "argv": [],
+      "stdin_b64": "W10=",
+      "exit": 1,
+      "stdout": {
+        "exact": ""
+      },
+      "stderr": {
+        "not_empty": true
+      }
+    },
+    {
+      "name": "unknown-flag",
+      "type": "cli",
+      "argv": [
+        "--bogus"
+      ],
+      "stdin_b64": "",
+      "exit": 2,
+      "stdout": null,
+      "stderr": null
+    }
+  ]
+}

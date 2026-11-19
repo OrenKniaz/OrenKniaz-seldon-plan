@@ -1,0 +1,80 @@
+{
+  "id": "shout",
+  "kind": "cli",
+  "message": "Build shout.py, a single-file Python standard-library CLI. Accept no arguments. Read text from stdin until EOF, uppercase it, and write it with no added newline. Empty stdin is valid. Usage errors (including unknown flags and wrong argument count) exit 2, emit a nonempty diagnostic on stderr and no stdout. Successful runs exit 0 with no stderr. Use UTF-8 text.",
+  "profile": {
+    "audience": "Local users",
+    "care": "Exact behavior and clear errors",
+    "tone": "concise and practical",
+    "colours": "calm neutral palette",
+    "fonts": "system fonts only",
+    "sections": "Only the requested features",
+    "platform": "Windows, Python 3 standard library; desktop and mobile browser",
+    "defaults": "Smallest solution described; no accounts, network assets, deployment or paid services."
+  },
+  "files": [
+    "shout.py"
+  ],
+  "oracle": [
+    {
+      "name": "uppercase-input",
+      "type": "cli",
+      "argv": [],
+      "stdin_b64": "SGVsbG8sIFNlbGRvbiEKc2Vjb25kIGxpbmU=",
+      "exit": 0,
+      "stdout": {
+        "exact": "HELLO, SELDON!\nSECOND LINE",
+        "normalize_newlines": true
+      },
+      "stderr": {
+        "exact": ""
+      }
+    },
+    {
+      "name": "empty-input",
+      "type": "cli",
+      "argv": [],
+      "stdin_b64": "",
+      "exit": 0,
+      "stdout": {
+        "exact": "",
+        "normalize_newlines": true
+      },
+      "stderr": {
+        "exact": ""
+      }
+    },
+    {
+      "name": "extra-argument",
+      "type": "cli",
+      "argv": [
+        "extra"
+      ],
+      "stdin_b64": "",
+      "exit": 2,
+      "stdout": {
+        "exact": "",
+        "normalize_newlines": true
+      },
+      "stderr": {
+        "not_empty": true
+      }
+    },
+    {
+      "name": "unknown-option",
+      "type": "cli",
+      "argv": [
+        "--bogus"
+      ],
+      "stdin_b64": "",
+      "exit": 2,
+      "stdout": {
+        "exact": "",
+        "normalize_newlines": true
+      },
+      "stderr": {
+        "not_empty": true
+      }
+    }
+  ]
+}

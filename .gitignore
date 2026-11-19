@@ -1,0 +1,27 @@
+# Seldon lab: dev-process docs, lane briefs/reports, dream briefs, oracle tools. Allow-list only.
+/*
+!/.gitignore
+!/ladder/
+!/lanes/
+/lanes/*
+!/lanes/*.prompt.md
+!/lanes/*-report.md
+!/fight-1/
+/fight-1/*
+!/fight-1/*.py
+!/fight-1/*.md
+# never
+*.jsonl
+*.err
+*.log
+.env
+*.env
+**/private/
+**/sealed/
+*.sealed*
+/ladder/dry-runs/
+/ladder/judge-eval/runs/
+/ladder/STOP
+/ladder/*.tmp
+node_modules/
+__pycache__/

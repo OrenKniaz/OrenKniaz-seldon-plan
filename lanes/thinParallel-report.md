@@ -1,0 +1,8 @@
+TRIAGE FAULT SELDON + DESIGN: read-derived dependencies serialized contract peers; planning caps refused valid agreements.
+Lane A vs b6540083593184a5c833f5c8bede31595689b81c: removed shackles 1,5,6,7,8,9,10; section 2 b-d coaching text applied verbatim; validate_discoveries retained for Lane B.
+Files: src/seldon/{plan,architecture,schema,questions}.py; tests/seldon/{test_journey,kit_journey}.py. Local-position dependencies preserved; consumers normalized; craft supplied only to the visual-direction area.
+Src lines: 4429 -> 4389 (net -40). Golden count unchanged: base 21 -> 21. Two contract peers WORKING together -> DONE, zero dependency waits; provider-in-consumers and 3000-char/free-kind contract accepted.
+Environment: C:/Users/oren/codex-harness/.venv/Scripts first on PATH; PYTHONPATH="src;tests/seldon". Commands: python -m pytest -x -q <selection> -p no:cacheprovider --basetemp=C:/seldon/tests/thinParallel-<n>/pytest.
+Focused selection tests/seldon/test_journey.py -k "parallel-contract or contracts or coach-facts or kill or wave-fault": -3 4 passed/16 deselected,34.87s; -k parallel-contract: -5 1 passed/19 deselected,12.11s. Initial -1 parent setup error/-2 stale wording assertion fixed.
+Final selection tests/seldon (single full run): -6 21 passed,283.54s. No timing assertions added. Final whitespace-only DETAIL reflow verified program-identical by AST; git diff --check and patch reverse-apply check passed.
+T-180/STATUS updated; python C:/Users/oren/codex-harness/work/ladder/tracking.py passed. Patch: thinParallel.patch. No providers/cohort, gate.sh, commit or .env reads; lead landing and real-provider validation remain.

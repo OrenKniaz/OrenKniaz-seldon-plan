@@ -1,0 +1,16 @@
+{
+  "id": "repair-cafe",
+  "kind": "fullstack",
+  "message": "I run the repair café on Saturdays. Halfway through a busy morning someone always asks where their toaster went. I'd love the next volunteer to be able to pick up where I left off.",
+  "scriptedUser": {
+    "persona": {
+      "goal": "Identify and locate a visitor's item and let the next volunteer take over unfinished work.",
+      "priorities": [
+        "Keep intake and lookup quick on a busy Saturday",
+        "Make shift handoff safe and usable"
+      ],
+      "preference": "At shift change, show the last repair attempt and the next safe step.",
+      "exclusion": "We share one laptop. Please do not collect visitors' phone numbers."
+    }
+  }
+}

@@ -1,0 +1,4 @@
+READ-ONLY AUDIT (Sol HIGH) of Seldon src/codex_harness/core. Charter CHARTER.md v1.2 (C1 Seldon drives the loop and calls the LLM; I10 Questions, not tools; §6 LLM-or-CODE; simplest design, deletion beats machinery). Context: Stage 2e will replace planner tools with Seldon-issued schema-bound LLM calls and one run_loop owner; a parallel audit covers implicit state machines — do not repeat it.
+QUESTION: Find code that exists only to compensate for other code — repair, re-sync, adopt, migrate, normalize, reconcile, retry-around, legacy shims, fallback readers. What would we delete if the original were right?
+For each: file:line range and size, what it compensates for, the upstream owner that is wrong, the fix at the owner (simplest), lines deletable, risk, and whether 2e deletes it for free. Give a total deletable estimate and a ranked deletion list toward the 27-30k source target (current ~32.2k).
+Final message = full report, markdown, ≤120 lines. No edits/tests.

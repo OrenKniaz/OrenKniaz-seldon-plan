@@ -1,0 +1,6 @@
+INDEPENDENT RE-REVIEW 3 — Stage 2a (read-only; you are not the author). This folder = the 2a lane tree; review `git diff 652de9f` (= ../stage-2a.patch, SHA256 8f099273ae8189f1266d07152e4b04a1b86ba67730c7a0ebc04fc55092548e4a). Two earlier independent reviews REJECTED: ../stage-2a-review.md (5 findings) and ../stage-2a-rereview.md (4 findings). The author's design claim (../stage-2a-report.md): findings are immutable records; PlanStore.finding_state is the SOLE owner of open/pending/closed, computed only from current judgments bound to member + plan revision + candidate; every reader (findings, continuation, publication, cards, review packets) uses it; stored status/resolution is ignored.
+Check, impact-only:
+(a) Is that true — is there any remaining reader or writer that decides open/closed/blocking from stored status, severity or classification instead of finding_state? (= second owner)
+(b) Are all 9 prior findings fixed at that rule, not per scenario?
+(c) Any NEW defect: closure/approval without a current bound positive judgment, a lost finding/gap, meaning that blocks instead of pending, an unending wait, or a hidden required request.
+For each: file:line, failure scenario, HIGH/MED, one fix. Cap 6. First line: `VERDICT: APPROVE | APPROVE-WITH-FOLLOWUPS | REJECT`. ≤35 lines. No files changed, no tests run.

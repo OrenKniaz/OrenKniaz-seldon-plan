@@ -1,0 +1,94 @@
+{
+  "id": "textwrap",
+  "kind": "cli",
+  "message": "Build WrapText in wraptext.py. Read UTF-8 stdin, wrap each nonblank paragraph at --width N (default 72), joining paragraph source lines with spaces and preserving a single blank line between paragraphs. Do not split long words or hyphenated words. Width must be positive; bad flags exit 2, invalid UTF-8 exits 1. Stdlib only.",
+  "profile": {
+    "audience": "Writers preparing plain-text notes",
+    "care": "Readable paragraphs",
+    "tone": "concise, practical, predictable",
+    "colours": "no terminal colour",
+    "fonts": "system fonts only",
+    "sections": "help, examples, concise diagnostics",
+    "platform": "local Windows and Python 3 stdlib for CLI; modern desktop/mobile browser for web",
+    "defaults": "Smallest solution described; no accounts, network, deployment or paid assets. Ask before scope or budget changes."
+  },
+  "files": [
+    "wraptext.py"
+  ],
+  "oracle": [
+    {
+      "name": "paragraphs",
+      "type": "cli",
+      "argv": [
+        "--width",
+        "10"
+      ],
+      "stdin_b64": "b25lIHR3bwp0aHJlZSBmb3VyCgoKbGFzdA==",
+      "exit": 0,
+      "stdout": {
+        "exact": "one two\nthree four\n\nlast\n",
+        "normalize_newlines": true
+      },
+      "stderr": null
+    },
+    {
+      "name": "long-hyphenated-words",
+      "type": "cli",
+      "argv": [
+        "--width",
+        "4"
+      ],
+      "stdin_b64": "YWJjZGVmZ2ggYS1iLWMtZCBlbmQ=",
+      "exit": 0,
+      "stdout": {
+        "exact": "abcdefgh\na-b-c-d\nend\n",
+        "normalize_newlines": true
+      },
+      "stderr": null
+    },
+    {
+      "name": "default-72",
+      "type": "cli",
+      "argv": [],
+      "stdin_b64": "YWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYSBiYg==",
+      "exit": 0,
+      "stdout": {
+        "exact": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\nbb\n",
+        "normalize_newlines": true
+      },
+      "stderr": null
+    },
+    {
+      "name": "zero-width",
+      "type": "cli",
+      "argv": [
+        "--width",
+        "0"
+      ],
+      "stdin_b64": "",
+      "exit": 2,
+      "stdout": null,
+      "stderr": null
+    },
+    {
+      "name": "bad-flag",
+      "type": "cli",
+      "argv": [
+        "--bogus"
+      ],
+      "stdin_b64": "",
+      "exit": 2,
+      "stdout": null,
+      "stderr": null
+    },
+    {
+      "name": "invalid-utf8",
+      "type": "cli",
+      "argv": [],
+      "stdin_b64": "/w==",
+      "exit": 1,
+      "stdout": null,
+      "stderr": null
+    }
+  ]
+}

@@ -1,0 +1,346 @@
+"""Quiet Bench black-box fight. The public interface is in the shared brief."""
+import cmath
+import csv
+import io
+import json
+import math
+import random
+import struct
+import subprocess
+import sys
+import wave
+from copy import deepcopy
+from pathlib import Path
+
+
+def quietbench(product, evidence):
+    # Imported by the ladder oracle so ordinary cases keep their original owner.
+    from oracle import Oracle, require
+
+    class Bench(Oracle):
+        def __init__(self):
+            super().__init__(product, evidence, 'quietbench')
+            self.data = evidence / 'sessions'
+            self.saved = []
+
+        def start(self):
+            # Reuse the existing bounded server lifecycle, with the dream's --data spelling.
+            return self.start_bench()
+
+        def start_bench(self):
+            import os
+            import time
+            self.log = (evidence / 'server.log').open('ab')
+            env = {k: v for k, v in os.environ.items() if k not in ('PYTHONPATH', 'PYTHONHOME')}
+            cmd = [sys.executable, '-E', '-s', str(product / 'server.py'), '--port', str(self.port),
+                   '--data', str(self.data)]
+            self.process = subprocess.Popen(cmd, cwd=product, env=env, stdout=self.log, stderr=self.log)
+            deadline = time.monotonic() + 12
+            while time.monotonic() < deadline:
+                require(self.process.poll() is None, 'server exited; see server.log')
+                try:
+                    self.request('GET', '/')
+                    return cmd
+                except OSError:
+                    time.sleep(.1)
+            raise RuntimeError('server did not start')
+
+        def cli(self, *args, json_output=True):
+            result = subprocess.run([sys.executable, '-E', '-s', str(product / 'bench.py'), *args,
+                                     '--data', str(self.data)], cwd=product, capture_output=True,
+                                    text=True, timeout=30)
+            require(result.returncode == 0, result.stdout + result.stderr)
+            return json.loads(result.stdout) if json_output else result.stdout
+
+        def complete(self, session):
+            return self.poll(lambda: (s if (s := self.expect('GET', '/api/sessions/' + session['id'], 200))
+                                     ['status'] in ('completed', 'stopped') else None))
+
+        def run_cli(self, settings):
+            return self.cli('run', '--settings', json.dumps(settings))
+
+        def end_to_end(self):
+            s = self.run_cli(settings)
+            require(self.cli('show', s['id']) == s, 'CLI run/show differ')
+            require(self.expect('GET', '/api/sessions/' + s['id'], 200) == s, 'API/CLI differ')
+            require(any(x['id'] == s['id'] for x in self.cli('list')), 'CLI list lost session')
+            self.saved.append(s)
+            other = self.complete(self.expect('POST', '/api/runs', 201, settings))
+            require(other['bands'] == s['bands'], 'API and CLI band numbers differ on identical settings')
+            return {'cli': s['id'], 'api': other['id'], 'bands': s['bands']}
+
+        def fixed(self):
+            s = self.run_cli({**settings, 'filter': 'fixed'})
+            require(s['status'] == 'completed' and s['bands'], 'wave-1 fixed run missing')
+            self.saved.append(s)
+            return s['id']
+
+        def numbers(self):
+            rng = random.Random(918731)
+            rows = []
+            for kind in ('tones', 'band-noise'):
+                signal = ([.15 * math.sin(2 * math.pi * 437 * n / 8000)
+                           + .13 * math.sin(2 * math.pi * 1733 * n / 8000) for n in range(8192)]
+                          if kind == 'tones' else [rng.uniform(-.2, .2) for _ in range(8192)])
+                # Own hidden WAV, not the contender's generator or claimed metrics.
+                path = evidence / (kind + '.wav')
+                with wave.open(str(path), 'wb') as out:
+                    out.setparams((1, 2, 8000, 0, 'NONE', 'not compressed'))
+                    out.writeframes(b''.join(struct.pack('<h', round(v * 32767)) for v in signal))
+                taps = [rng.uniform(.5, .8), 0, rng.uniform(.1, .25)]
+                args = {**settings, 'signal': {'kind': 'wav', 'path': str(path)}, 'path': taps}
+                adaptive = self.run_cli(args)
+                fixed = self.run_cli({**args, 'filter': 'fixed'})
+                desired = [sum(t * signal[n - i] for i, t in enumerate(taps) if n >= i)
+                           for n in range(len(signal))]
+                require(len(adaptive['residual']) == len(signal), 'missing measured residual')
+                require(max(abs(a-b) for a,b in zip(desired, adaptive['desired'], strict=True)) < .001,
+                        'simulated path does not match oracle input')
+                require(len(fixed["residual"]) == len(signal), "fixed residual samples missing")
+                powers = [spectrum(x) for x in (desired, adaptive['residual'], fixed['residual'])]
+                for band in adaptive['bands']:
+                    lo, hi = band['low'], band['high']
+                    energy = [sum(abs(x)**2 for k,x in enumerate(p) if lo <= k*8000/8192 < hi)
+                              for p in powers]
+                    db = 10 * math.log10(energy[0] / max(1e-30, energy[1]))
+                    fixed_db = 10 * math.log10(energy[0] / max(1e-30, energy[2]))
+                    require(db > 12 and db > fixed_db + 3, f'{kind}: {db=} {fixed_db=}')
+                    require(abs(db-band['attenuation_db']) < 1.5, 'reported attenuation disagrees with samples')
+                e = adaptive['residual']
+                require(sum(v*v for v in e[-2048:]) < .7*sum(v*v for v in e[:2048]), 'residual did not fall')
+                rows.append({'signal': kind, 'bands': adaptive['bands']})
+            return rows
+
+        def safety(self):
+            s = self.run_cli({**settings, 'step_size': 1000})
+            require(s['limited'] and max(abs(v) for v in s['output']) <= settings['limit'] + 1e-9,
+                    'divergent filter was not limited')
+            long = self.expect('POST', '/api/runs', 201, {**settings, 'samples': 80000000})
+            stopped = self.expect('POST', '/api/runs/' + long['id'] + '/stop', 200)
+            final = self.complete(long)
+            require(final['status'] == 'stopped', 'stop did not save a stopped session')
+            require(final['processed_samples'] - stopped['processed_samples'] <= settings['block_size'],
+                    'stop exceeded one block')
+            return final['id']
+
+        def storage(self):
+            require(self.saved, 'no canonical sessions for restart')
+            before = [self.expect('GET', '/api/sessions/' + s['id'], 200) for s in self.saved]
+            self.stop()
+            self.start()
+            after = [self.expect('GET', '/api/sessions/' + s['id'], 200) for s in self.saved]
+            require(before == after, 'restart changed saved values')
+            return [s['id'] for s in after]
+
+        def legacy(self):
+            import shutil
+            original = self.data
+            expected = json.loads((evidence/'wave1-sessions.json').read_text('utf-8'))
+            require(bool(expected), 'wave-1 snapshot must contain a real saved session')
+            legacy = evidence/'legacy-readback'
+            shutil.copytree(evidence/'wave1-data',legacy)
+            self.stop()
+            self.data = legacy
+            try:
+                self.start()
+                for old in expected:
+                    actual = self.expect('GET','/api/sessions/'+old['id'],200)
+                    require(all(actual.get(k)==v for k,v in old.items()), 'wave-1 saved values changed')
+                return [s['id'] for s in expected]
+            finally:
+                self.stop()
+                self.data = original
+                self.start()
+
+        def export_import(self):
+            require(bool(self.saved), "no saved session to export")
+            s = self.saved[0]
+            rows = list(csv.DictReader(io.StringIO(self.cli('export', s['id'], json_output=False))))
+            require(len(rows) == len(s['bands']), 'CSV band rows missing')
+            for row, band in zip(rows, s['bands'], strict=True):
+                require(all(abs(float(row[k])-band[k]) < 1e-8 for k in ('low','high','attenuation_db')),
+                        'CSV differs from saved bands')
+            before = self.cli('list')
+            bad = evidence / 'bad.wav'
+            bad.write_bytes(b'not a wave file')
+            result = subprocess.run([sys.executable, '-E', '-s', str(product/'bench.py'), 'run', '--data',
+                str(self.data), '--settings', json.dumps({**settings,'signal':{'kind':'wav','path':str(bad)}})],
+                capture_output=True, text=True, cwd=product, timeout=30)
+            require(result.returncode != 0 and (result.stdout+result.stderr).strip(), 'bad WAV accepted silently')
+            require(self.cli('list') == before, 'bad WAV saved a session')
+            return rows
+
+        def guide(self):
+            import re
+            import shlex
+            import shutil
+            require(bool(self.saved), 'No saved session for guide examples')
+            guide = (product/'docs/try-it.md').read_text('utf-8')
+            fresh = evidence/'fresh-copy'
+            shutil.copytree(product,fresh,ignore=shutil.ignore_patterns('.git','.seldon','.env','.env.*','__pycache__'))
+            commands = []
+            for block in re.findall(r'```[^\n]*\n(.*?)```',guide,re.S):
+                for line in block.splitlines():
+                    line = line.strip().removeprefix('$ ').removeprefix('PS> ')
+                    if not re.match(r'(?:python(?:3(?:\.12)?)?|py|node) ',line):
+                        continue
+                    args = [a[1:-1] if len(a)>1 and a[0]==a[-1] and a[0] in ("'",'"') else a
+                            for a in shlex.split(line,posix=False)]
+                    args = [a.replace('PORT',str(self.port)).replace('DIR',str(evidence/'guide-data'))
+                            .replace('SESSION_ID',self.saved[0]['id']) for a in args]
+                    if args[0] != 'node':
+                        args[0] = sys.executable
+                    require(not any(a in ('&',';','&&','|') for a in args),
+                            'Guide needs a shell walkthrough; automated argv execution cannot establish it')
+                    commands.append(args)
+            require(any('server.py' in a for a in commands), 'Guide has no executable server command')
+            require(any('bench.py' in a for a in commands), 'Guide has no executable CLI command')
+            self.stop()
+            transcript = []
+            try:
+                for args in commands:
+                    if 'server.py' in args:
+                        require(self.process is None or self.process.poll() is not None,
+                                'Guide starts another server before stopping the first')
+                        self.log = (evidence/'guide-server.log').open('ab')
+                        self.process = subprocess.Popen(args,cwd=fresh,stdout=self.log,stderr=self.log)
+                        def ready():
+                            try:
+                                return self.request('GET','/')[0]==200
+                            except OSError:
+                                return False
+                        self.poll(ready)
+                    else:
+                        result = subprocess.run(args,cwd=fresh,capture_output=True,text=True,timeout=30)
+                        require(result.returncode==0,result.stdout+result.stderr)
+                        transcript.append({'argv':args,'stdout':result.stdout,'stderr':result.stderr})
+                require(self.expect('GET','/',200), 'Guide server/page not available')
+                self.stop()
+                require(self.process.poll() is not None,'Guide server did not stop')
+                return transcript
+            finally:
+                self.stop()
+                self.start()
+
+        def page(self):
+            import base64
+            import http.client
+            import time
+            from oracle import module, HERE
+            verify = module(HERE.parent / 'run-farm/verify.py', 'quietbench_browser')
+            executable = verify.chromium()
+            require(executable is not None, 'Browser unavailable; page unproven')
+            profile = evidence / 'browser-profile'
+            browser, cdp = None, None
+            try:
+                with (evidence / 'browser.log').open('wb') as log:
+                    browser = subprocess.Popen([str(executable), '--headless', '--disable-gpu',
+                        '--no-first-run', '--disable-background-networking', '--remote-debugging-port=0',
+                        f'--user-data-dir={profile}', 'about:blank'], stdout=log, stderr=log)
+                deadline = time.monotonic()+12
+                while not (profile/'DevToolsActivePort').exists() and time.monotonic()<deadline:
+                    time.sleep(.05)
+                port = int((profile/'DevToolsActivePort').read_text().splitlines()[0])
+                con = http.client.HTTPConnection('127.0.0.1',port,timeout=8)
+                try:
+                    con.request('GET','/json')
+                    targets = json.loads(con.getresponse().read())
+                finally:
+                    con.close()
+                cdp = verify.CDP(next(t['webSocketDebuggerUrl'] for t in targets if t['type']=='page'))
+                cdp.call('Page.enable')
+                cdp.call('Runtime.enable')
+                cdp.call('Page.navigate', url=f'http://127.0.0.1:{self.port}/')
+                self.poll(lambda: cdp.evaluate("document.readyState === 'complete' && !!document.querySelector('textarea[name=settings]')"))
+                before = {s['id'] for s in self.expect('GET','/api/sessions',200)}
+                value = json.dumps(json.dumps(settings))
+                require(cdp.evaluate(f"(() => {{let t=document.querySelector('textarea[name=settings]'); t.value={value};t.dispatchEvent(new Event('input',{{bubbles:true}}));let b=[...document.querySelectorAll('button')].find(b=>b.textContent.trim()==='Start run');if(!b)return false;b.click();return true}})()"), 'Start run control missing')
+                created = self.poll(lambda: next((s for s in self.expect('GET','/api/sessions',200) if s['id'] not in before),None))
+                actual = self.complete(created)
+                cli = self.cli('show',actual['id'])
+                require(cli == actual, 'page producer not visible through CLI')
+                def visible(session):
+                    text = cdp.evaluate('document.body.innerText')
+                    import re
+                    numbers = [float(n) for n in re.findall(r'-?\d+(?:\.\d+)?',text)]
+                    return session['id'] in text and all(any(abs(n-b['attenuation_db'])<.11 for n in numbers)
+                                                       for b in session['bands'])
+                self.poll(lambda: visible(actual))
+                cdp.call('Page.reload')
+                old = self.saved[0]
+                selector = json.dumps('[data-session-id="'+old['id']+'"]')
+                self.poll(lambda: cdp.evaluate(f'!!document.querySelector({selector})'))
+                cdp.evaluate(f'document.querySelector({selector}).click()')
+                self.poll(lambda: visible(old))
+                a,b = self.saved[:2]
+                require(cdp.evaluate("(() => {let a=document.querySelector('[name=compare-a]'),b=document.querySelector('[name=compare-b]');if(!a||!b)return false;a.value="+json.dumps(a['id'])+";b.value="+json.dumps(b['id'])+";for(let x of [a,b])x.dispatchEvent(new Event('change',{bubbles:true}));let c=[...document.querySelectorAll('button')].find(x=>x.textContent.trim()==='Compare');if(!c)return false;c.click();return true})()"), 'Compare controls missing')
+                expected = self.expect('GET',f'/api/compare?a={a["id"]}&b={b["id"]}',200)
+                def compared():
+                    import re
+                    text = cdp.evaluate("document.querySelector('[data-comparison]')?.innerText || ''")
+                    numbers = [float(n) for n in re.findall(r'-?\d+(?:\.\d+)?',text)]
+                    return bool(text) and all(any(abs(n-row['delta_db'])<.11 for n in numbers) for row in expected)
+                self.poll(compared)
+                for width in (1280,375):
+                    cdp.call('Emulation.setDeviceMetricsOverride',width=width,height=812,deviceScaleFactor=1,mobile=width==375)
+                    require(cdp.evaluate('document.documentElement.scrollWidth <= innerWidth'), 'horizontal overflow')
+                    (evidence/f'page-{width}.png').write_bytes(base64.b64decode(cdp.call('Page.captureScreenshot',format='png')['data']))
+                cdp.key('Tab')
+                require(cdp.evaluate("document.activeElement !== document.body && (getComputedStyle(document.activeElement).outlineStyle !== 'none' || getComputedStyle(document.activeElement).boxShadow !== 'none')"), 'focus invisible')
+                require(not cdp.errors,str(cdp.errors))
+                return {'pageSession':actual['id'],'reloaded':old['id'],'comparison':expected,
+                        'screenshots':['page-1280.png','page-375.png']}
+            finally:
+                if cdp:
+                    cdp.close()
+                if browser and browser.poll() is None:
+                    browser.terminate()
+                    try:
+                        browser.wait(timeout=5)
+                    except subprocess.TimeoutExpired:
+                        browser.kill()
+                        browser.wait(timeout=5)
+
+        def compare(self):
+            a,b = self.saved[:2]
+            diff = self.expect('GET', f'/api/compare?a={a["id"]}&b={b["id"]}', 200)
+            require(len(diff) == len(a['bands']), 'compare omitted bands')
+            for x,y,d in zip(a['bands'],b['bands'],diff,strict=True):
+                require(abs(d['delta_db'] - (y['attenuation_db']-x['attenuation_db'])) < 1e-8,
+                        'compare difference wrong')
+            return diff
+
+    brief = json.loads((Path(__file__).parent/'briefs/L3/4-quietbench.json').read_text())
+    settings = deepcopy(brief['oracleInterface']['settings'])
+    bench = Bench()
+    try:
+        if bench.check('server starts with --data', bench.start):
+            bench.check('CLI -> canonical API, identical band numbers', bench.end_to_end)
+            bench.check('wave-1 fixed-filter run preserved', bench.fixed)
+            bench.check('hidden tones and noise: independently measured attenuation and convergence', bench.numbers)
+            bench.check('divergence limiter and stop within one block', bench.safety)
+            bench.check('save/restart/reload equality', bench.storage)
+            bench.check('CSV rows and invalid WAV atomicity', bench.export_import)
+            bench.check('per-band comparison', bench.compare)
+            bench.check('page start/browse/reload/compare parity', bench.page)
+            bench.check('fresh-copy guide commands start and stop', bench.guide)
+            if (evidence/'wave1-data').is_dir() and (evidence/'wave1-sessions.json').is_file():
+                bench.check('wave-1 saved shape loads after schema growth',bench.legacy)
+            else:
+                bench.checks.append(dict(name='wave-1 saved shape loads after schema growth',
+                    status='unverified',evidence='Retain real wave-1 store as wave1-data and API list/show JSON as wave1-sessions.json before later waves'))
+            bench.checks.append(dict(name='page craft (ShelfLife rubric)',status='unverified',
+                evidence='Score retained page-1280.png and page-375.png with the same blind human rubric as ShelfLife; API success earns no craft points'))
+    finally:
+        bench.stop()
+    return dict(checks=bench.checks, totals={s:sum(c['status']==s for c in bench.checks)
+                                           for s in ('pass','fail','unverified')})
+
+
+def spectrum(values):
+    """Independent stdlib radix-2 DFT; no contender's DSP or metric implementation."""
+    if len(values) == 1:
+        return values
+    even, odd = spectrum(values[::2]), spectrum(values[1::2])
+    twiddled = [cmath.exp(-2j*math.pi*k/len(values))*v for k,v in enumerate(odd)]
+    return [a+b for a,b in zip(even,twiddled)] + [a-b for a,b in zip(even,twiddled)]

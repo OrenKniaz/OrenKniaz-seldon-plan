@@ -1,0 +1,13 @@
+Lane AUDIT-HTTP-1 (Seldon; this folder = main ae8e0f1 + own git). ONE blocker that stopped fight round 2 (ShelfLife: stdlib HTTP server + SQLite + UI + CSV importer). Run folder: C:\seldon\runs\fight-1\seldon\20261101T163156-9ed2f4-001-shelflife; planner receipts: C:\Users\oren\codex-harness\work\fight-1\receipts\20261101T163156-9ed2f4\20261101T163156-9ed2f4-001-shelflife (turn02/turn03 .md/.jsonl).
+After A and B, the prospective test audit could not recognize the planned HTTP integration tests (tests start server.py as a subprocess on a free port and call the API with urllib; concurrency test fires simultaneous requests). Refusals seen: prospective-no-interface-assertion (27x), passing-audit-required, before-unittest-import. One bounded repair fixed the importer proof; HTTP + concurrency proof stayed blocked, so review, publish and the build never started. The planner then spent 30+ minutes in one turn (117 planner calls) and the run hit the 40-minute limit with no product.
+Owner rules (binding): (1) never block delivery — a proof the audit cannot classify is recorded as a labelled lower evidence tier ("audit: unrecognized interface") and planning proceeds; RED->GREEN at execution still decides. (2) The audit recognizes the common real pattern: a test that launches the product's server/CLI as a subprocess and asserts on HTTP status/body or process output is an interface assertion.
+Start at src/codex_harness/core/planner_audits.py, audit_process.py, planner_audit_views.py. One rule at the owner; remove refusal paths it makes dead.
+Prove it by extending the golden path with a small server-style CLI/web scenario whose planned tests start a subprocess server and assert over HTTP; it must reach C in three decisions.
+FAST-LANE RULES (append to every Seldon fix brief; binding — Oren: NO unit tests, ever)
+- Lane folder comes from work/lanes/make-lane.sh: it contains NO tests except the golden path. Do not write new test files.
+- The ONLY test you may run: bash C:/Users/oren/codex-harness/work/lanes/golden-gate.sh <lane> <tag> (stub golden path CLI+web). Run it once at the end, at most twice. Prove behavior by extending golden-path scenarios, never with unit tests.
+- Timebox 45 min, effort medium. One or two failure clusters per lane; the brief names the refusal code and the owning file/function — start there.
+- Report <=12 lines; exact patch + sha256; no pushes.
+- CC rejects any patch whose command log ran another pytest (work/lanes/check-lane-log.sh).
+- All scratch/temp/basetemp goes under C:\seldon\tests\<lane> (add it with --add-dir). Never create folders at the C:\ root or under C:\Users\oren\t.
+Report ../audit-http-1-report.md; patch ../audit-http-1.patch + sha256. Scratch: C:\seldon\tests\audit-http-1.

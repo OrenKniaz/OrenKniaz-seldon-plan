@@ -1,0 +1,18 @@
+LANE stage-m2. Worktree: C:/Users/oren/codex-harness/work/lanes/stage-m2 (Seldon at local 838cdd7, not yet on main). Temp files only under C:/seldon/tests/m2. You cannot delete folders, so use a new folder name for each retry.
+Read CHARTER.md first, then AGENTS.md, then work/ladder/THIN-PATH-DECISION.md (at C:/Users/oren/codex-harness/work/ladder/) milestone M2. Rules: no unit tests (behaviour-only golden journeys); no lane-local SHAs; do not commit.
+
+CONTEXT: real round 32 (run C:/seldon/runs/fight-1/seldon/20261109T180049-a3e039-001-shelflife, diagnosis C:/Users/oren/codex-harness/work/fight-1/r32-diagnosis.md). After B the contracts worker wrote tests, automatic recovery worked, and steering ran, but the app worker never launched. Three things, in this order:
+
+0. FIRST: the lead's fast gate is red on this tree. See C:/Users/oren/codex-harness/work/sprint-20261027/golden-quiet5.log: `test_golden_path[web]` fails after 4.53s with `assert not True`, under a comment ending "Earlier checks only failed or passed actual product assertions". That existing assertion contradicts the red1 rule (missing-product failures are valid RED). Update it to the outcome that matters. Do not weaken what it protects beyond that.
+
+1. ORDINARY TEST COMMANDS (M2, already approved by the owner). Event 119 declared tests as `module: tests.*`, and 214 refused them because the runner requires a package with `__init__.py`/`__main__.py`. Our last patch even told the planner "never unittest". That is backwards: the planner should write tests the normal way, and a five-kind plan's test should run with an ordinary command for its stack (for example python -m unittest or pytest, npm test). Make an ordinary test command the supported route for five-kind plans; update `executionSetup.descriptorForms` in run_context.py to match; CODE still observes exit codes and output. Delete any descriptor or module-packaging requirement this makes dead on this path. Tests owned by the worker are still created first and observed RED. The worker's `apply_patch` failure creating tests/__init__.py (first worker, event 202) should stop mattering.
+
+2. AMENDMENT SOURCES ARE CODE-BOUND. 277 -> 284 -> 285: the planner supplied the right repair, then amendment ingestion rejected the judgment ID as nonexistent graph content; 294 requires a source of kind discovery|research|result and the graph has none. Same provenance wall as r29, now after B. Rule: the LLM never supplies provenance. Before requesting a repair, CODE records the observed cause once as a canonical `result` and binds that ID and revision as the amendment source; the LLM supplies only the semantic change and targets. Siblings to close the same way: 285/319/337, 294, 328.
+
+Name browser tooling, if still unresolved, in the report only.
+
+Prefer deleting. Stop and explain if this needs more than about 60 net src lines.
+
+PROOF: extend existing journeys: a five-kind plan's tests declared with an ordinary command run through contracts RED to build; a post-B repair commits with a CODE-bound source and no user question. Outcome-only. Run ONLY: C:/Users/oren/codex-harness/.venv/Scripts/python.exe -B -c "import sys; from pathlib import Path; from tests.python.core.test_golden_path import small_plan_golden; small_plan_golden(Path(sys.argv[1]))" C:/seldon/tests/m2/small-plan-1 with PYTHONPATH=<this tree>/src;<this tree> and TEMP/TMP=C:/seldon/tests/m2. Do not run the web leg; the lead does.
+
+DELIVER in C:/Users/oren/codex-harness/work/lanes: stage-m2.patch (git diff against base, include new files), stage-m2.patch.sha256, stage-m2-report.md (at most 12 lines: TRIAGE BUG|DESIGN, siblings, the rules as applied, what was deleted, net src/tests lines, journey result with seconds).

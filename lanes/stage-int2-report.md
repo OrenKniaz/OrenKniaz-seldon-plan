@@ -1,0 +1,12 @@
+TRIAGE: BUG — earlier-candidate patch contexts overlapped current main — siblings: views/roundtable, dispatch/recovery and golden/size guards; intents compose, no semantic intent conflict.
+CHARTER: serves C8/C10/C11/C14/C18/C23/C25 — violates no I#; no deviation, ladder or actual-provider acceptance closed.
+BASE: 019055a5e6310775ee37d18464dcf7c2471e34e6 (base 015dcda golden-only); applied 2b then 2d; both approved input SHA256 values verified.
+2b conflicts: planner_views/roundtable/golden/module-size; retained canonical finding/dossier ownership, whole-reviewer preflight and scope rendering; obsolete renderer already absent; budgets/migration deleted.
+2d conflicts: audit/dispatch/planner_resume/planner_review/golden/module-size; retained both audit histories, lifetime release/quarantine, per-bead recovery and stale-product recheck; jobs.verify_job and attempt_provenance.bind_run/verify_attempt own launch authority; deleted module stays absent.
+PRESERVED: main 2a findings/exact-fix/dossier assertions; final 2a2 has no lineage credit and requires current review/C binding; exec1 trace-based RED, one-build admission and complete hashed test bundle; all lane behavior/assertions composed, deleted-budget checks use timeout/B scope.
+PROD: +735/-1829 = -1094 lines; NONBLANK net -1042 versus this base (~-1060 target). TEST: +246/-41 = +205 lines; 19 cases versus base 19, no new test files/unit tests; actual source ceiling 34854, per-module ceilings match actual sizes.
+CLI: single golden-file -k cli GREEN, 1 passed/1 deselected in 394.69s (wall 395.59s); Python parse, Ruff F, whitespace, patch reverse-apply and E2E-only command-log guard PASS.
+GATE 1/2 after last source/test/audit edit: GREEN exit 0, 19/19; non-browser 18 passed/400.19s + web 1 passed/239.06s, four scenarios/16 browser journeys through C/cockpit; no skips; ../golden-stage-int2.log.
+TIMING: wall 641.45s; fast_budget_passed=false, 600s ceiling missed by 41.45s; shared machine, cause unproven. No timing/code/test repair or extra full run.
+RISK/NEXT: integration behavior GREEN; fast-budget miss remains for CC disposition; actual-provider/full-vision acceptance and retained 2c continuation remain unproven. No commit/push/publication; scratch C:/seldon/tests/stage-int2.
+PATCH: ../stage-int2.patch; SHA256 e82ba79dd34b59d161aa91172d745e4a890187aba077be35f97f2c0488df1f18; checksum ../stage-int2.patch.sha256; exact patch still matches candidate after gate.

@@ -1,0 +1,26 @@
+{
+  "requestDigest": "5f8a4ab6755b9708c75a7730e7f1603aed3d4fb882886f713ae3bad704cffae3",
+  "segmentId": "70c813f4d6fa49c2b81369be3f43ebb1",
+  "status": "pending-judgment",
+  "runId": "7e3fbe0f86ab",
+  "dispatchStatus": "pending-judgment",
+  "at": "2026-11-08T11:51:44.253162+00:00",
+  "outcomes": {
+    "be_30830a6934": {
+      "workId": "146bce8147076ab46423e468501eb77010235cc6da0666f7f18ea512074423dc",
+      "status": "not launched",
+      "workStatus": "awaiting judgment: dependency be_48dbcdb5ed",
+      "fault": false,
+      "permissionGuard": {},
+      "launchCertain": true
+    },
+    "be_48dbcdb5ed": {
+      "workId": "8688cc64e4c9c2ea4a99e6cd2f10b063929011c8138b57e129149861958c1ee3",
+      "status": "exited",
+      "workStatus": "awaiting judgment",
+      "fault": true,
+      "permissionGuard": {},
+      "launchCertain": true
+    }
+  }
+}

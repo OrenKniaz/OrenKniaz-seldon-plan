@@ -1,0 +1,17 @@
+CHARTER: serves C9/C16/C18 and I1/I6/I10. Read-only diagnosis; no tests or edits. Artifacts confirm **`34d141e`**.
+
+1. **Outcome and reach:** **`BLOCKED-external`**, **825.141 seconds**, caused by an internal contract failure. **A accepted → Spec drafted → diagnostic Steer → PAUSED at `plan/trace`.** Spec never persisted: only vision and reviewer-selection nodes exist. No B, Build, post-build Judge, or C; no delivered product files. **9 outer planner MCP calls; 12 internal invocations: 9 planner, 2 mechanical, 1 judge.** Zero reported MCP refusals, but **six internal answer rejections**. One simulated-user “yes” accepted A; identity remained unverified. The retained oracle reports startup failure and API/importer/UI unverified. [Report](C:/Users/oren/codex-harness/work/fight-1/fight-seldon-r25.json), [oracle](C:/Users/oren/codex-harness/work/fight-1/oracle-seldon-r25.json).
+
+2. **First causal deviation:** event **107** emits a non-null feature-baseline contract requiring `codeRefs` and `resultRefs`, each constrained to **null only** because no eligible nodes exist. Event **115** supplies exactly those values. CODE deletes the null members, then event **116** rejects them as “missing.” The consumer also requires nonempty baseline references, so simply substituting `[]` would not resolve this contract contradiction. Evidence: [run database, events 107/115/116](C:/seldon/runs/fight-1/seldon/20261109T024632-2e0f97-001-shelflife/.codex-harness/plan.sqlite3); [schema constraint](C:/Users/oren/codex-harness/work/sprint-20261027/semantic-cc/src/codex_harness/core/run_schemas.py:144), [null deletion](C:/Users/oren/codex-harness/work/sprint-20261027/semantic-cc/src/codex_harness/core/run_content.py:12), [consumer requirement](C:/Users/oren/codex-harness/work/sprint-20261027/semantic-cc/src/codex_harness/core/semantic_schema.py:137). Repairs repeat the contradiction through **158**; **159** exports it to the user as “steering exhausted.”
+
+3. **TRIAGE: DESIGN** — author schema, normalization, and canonical validation disagree about representable state; more LLM retries cannot reconcile them. **Siblings:** other reference collections with no eligible nodes; this run’s execution-module/runtime correction cascade (**116 → 124 → 132**); r24’s authoring-to-compiler coverage mismatch; r23’s incomplete-field cascade. The final “external” label misclassifies an internal failure. These violate the shared structural-authority principle, I6, and supplying setup facts through CODE, I10.
+
+4. **ONE simplest rule:**
+
+   | Owner | Rule | Pros / cons |
+   |---|---|---|
+   | **CODE** | Emit only stage-applicable authoring choices that remain valid through canonical normalization and the consuming validator, using one consumer-owned contract. | Removes impossible repair loops; requires consolidating the existing contract definitions. LLM supplies meaning. |
+
+   Here, an unsupported existing-behavior baseline should remain absent for the fresh build.
+
+5. **Improved versus r24:** automatic internal repair now starts (**133/135**) without requiring the user to say “repair.” User decisions fall **3 → 1**, outer calls **24 → 9**, and elapsed time falls **22%**. **Delivery regressed:** r24 persisted Spec; this run retains only its outline. Both outlines contain zero beads, so r24’s missing-bead class remains unresolved behind the earlier blocker. **Last proven transition: A. Next unproven transition: persist a consumer-valid Spec, then review → B.** [Previous diagnosis](C:/Users/oren/codex-harness/work/fight-1/r24-diagnosis.md).

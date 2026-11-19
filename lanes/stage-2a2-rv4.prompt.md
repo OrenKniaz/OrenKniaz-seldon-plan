@@ -1,0 +1,3 @@
+Follow-up on your review 3 (same reviewer; read-only). Author's "Round 4" (../stage-2a2-report.md): PlanStore.judgment now requires C's explicit current review/run binding; missing/stale bindings are pending history granting no credit; fresh C is requested. New exact candidate: `git diff ee981de` = ../stage-2a2.patch SHA256 2ebd9dea912c9a6c4f4bf0c07a0dd0d2ae83e934c62e3cdc4907a17574628f65; full gate 19/19.
+Check only: (a) your P1 fixed at cause, including any other judgment consumer that still skips an absent binding; (b) no regression from this round. Do not re-open items you already confirmed fixed unless this round broke them.
+First line `VERDICT: APPROVE | APPROVE-WITH-FOLLOWUPS | REJECT`. ≤15 lines. No files changed, no tests run.

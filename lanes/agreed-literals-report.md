@@ -1,0 +1,10 @@
+Base: clean 5f72b90476d17a6abda31cadd85db5ca2889b579 snapshot, labelled "base 9eddbb9 golden-only"; no commits.
+Files/net lines: src/seldon/questions.py +13; tests/seldon/test_architect.py +85; tests/seldon/test_journey.py +1; total +99 (+105/-6).
+Gate: bash scripts/gate.sh alit-2; required venv first on PATH; 14 passed (base 14, delta 0), 238.51s pytest / 239.96s wall; no skips.
+Journeys: agreed control -> B without repair; two-area unagreed-name fault -> contract_gap -> one ARCHITECT revision -> B; exact provider/consumer contract and accepted commitment reach DETAIL; cross-area assertion assigned wave-only; REVIEW 1/50 units both 5,337 bytes.
+ARCHITECT sentence: Contract text states every exact user-visible or machine-visible value two areas must share (labels, names, messages, ids, routes) and nothing more.
+DETAIL/JUDGE sentence (identical): A check may assert an exact literal only if that literal is in agreed text visible to the area (accepted vision commitment, contract text, or its own requirement text); otherwise assert by role, structure or behaviour; an unagreed literal needed by two areas is a contract_gap, never an invention.
+REVIEW sentence: Name any check depending on an exact value absent from the accepted vision, contracts or its own requirements as a concrete gap.
+Existing DETAIL sentence extended with "an exact value asserted by a check is an agreement"; existing execution sentence now places cross-unit checks at wave level and forbids rebuilding another area's surface in a local fixture; no per-engine guidance existed in source.
+Retained recorded replays passed, reaching B/C as before; changed replay questions recorded through existing inference recorder; historical fixture bytes unchanged, no fixture re-recording; owner constants unchanged.
+Limits: scripted semantics prove routing/fact delivery, not real-model decisions or M2 acceptance; no real providers/dependencies, no units.py/fixups.py/charter/blueprint edits; tickets await lead review/landing.

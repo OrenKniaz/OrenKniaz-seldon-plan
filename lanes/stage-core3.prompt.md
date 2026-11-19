@@ -1,0 +1,18 @@
+LANE stage-core3: make real hello-world need zero repairs. Worktree: C:/Users/oren/codex-harness/work/lanes/stage-core3 (Seldon main 7259029). Temp files only under C:/seldon/tests/core3. You cannot delete folders, so use a new folder name for each retry.
+
+Read CHARTER.md, C:/Users/oren/codex-harness/work/ladder/CLEAN-CORE-DECISION.md (all of it, especially "The plan holds product meaning only" and "LLM question rules"), and the second real run: C:/seldon/tests/core1/real-lead-02 (calls/ has every question and answer; output C:/seldon/tests/core1/real-lead-02.out). Behaviour-only tests; no unit tests; do not commit; touch nothing under src/codex_harness; do not edit tests/seldon/real_hello.py (another lane has it).
+
+WHAT HAPPENED: review passed with no gaps, B was approved and the tests worker wrote a real browser test. Then the planner's command was ["& 'C:\nvm4w\nodejs\node.EXE' '.\verification.cjs'"], one PowerShell-style string as a single argv element, so the runner failed with FileNotFoundError in 0.17 seconds. The judge correctly said this proves nothing, and repair asked twice what was missing because it was never given the failure.
+
+Fix these causes, at the owner, so they cannot recur:
+1. COMMANDS ARE ARGV. The schema and a realistic example make it unmistakable that command is an argument array, for example ["<node path>", "tests/play.cjs"]; no shell syntax. CODE validates at PLAN time that the first element resolves to an executable and that the array is not one shell string, and returns an exact fix there. A launch failure at OBSERVE (executable not found) is a Seldon-side fault reported precisely, and is never presented as RED or to the judge as test evidence.
+2. REPAIR AND JUDGE GET THE ACTUAL FAILURE. Supply the command, working directory, exit code and the stdout/stderr text (bounded) in the facts for JUDGE and REPAIR. Repair was asked to fix a cause it could not see.
+3. THE LLM NO LONGER AUTHORS WORKFLOW. The first plan attempt in this run was refused for waves and for an absolute evidence path. Remove beads and waves from what the model writes when the work fits one tests stage and one build stage: PLAN answers features, requirements, tests with commands, and the product and test files each owns. CODE creates the tests work, build work, wave, check-in and guide work, and the evidence path. The plan for this hello-world should be a few short records. Larger apps can gain authored work items later, through the design's extension point; do not build that now.
+4. FACTS ARE BOUNDED TO THE QUESTION. Hello-world's JUDGE prompt was 40 KB and PLAN 25-34 KB, because handles and records are repeated. Each state gets only what it needs, once. ALIGN and DECIDE do not need other states' material. Say the resulting prompt sizes per state in the report.
+5. Pick one Playwright package and one browser in setup facts instead of listing every copy on the machine.
+
+Update scripted journeys so these are proved by outcome: a shell-string command is refused at PLAN with an exact fix; an executable missing at OBSERVE ends as a named Seldon fault and not as RED; JUDGE and REPAIR facts contain the real failure text; a plan with no authored beads or waves still runs tests, build, check-in, guide in order.
+
+Do NOT make real provider calls; the lead runs them. Net production lines should fall or stay flat.
+
+DELIVER in C:/Users/oren/codex-harness/work/lanes: stage-core3.patch (git diff against base including new files), stage-core3.patch.sha256, stage-core3-report.md (at most 12 lines: changes, total production lines, journey result with seconds, prompt size per state, what is unproven).

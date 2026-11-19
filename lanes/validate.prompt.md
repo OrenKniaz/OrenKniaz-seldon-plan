@@ -1,0 +1,11 @@
+LANE validate (open a ticket in C:/Users/oren/codex-harness/work/ladder/TICKETS.json via tracking rules if no row exists). Worktree C:/Users/oren/codex-harness/work/lanes/validate = Seldon main 2946398. Read AGENTS.md, BLUEPRINT.md R2, R5, R9, C15 reading in §8.4 first.
+PROBLEM (m3-readiness §1 rows 6, 7): final judging is per requirement and per area criterion, so a promise that crosses areas is seen by nobody after REVIEW; a unit with no check, or a dropped unit, blocks C.
+DESIGN: m3-readiness §2 rules 8, 9. Implement:
+1. `judgment.subjects` adds one subject per scopeIn and improvement commitment: its text, the verdict rows of the features in its areas, the guide walkthrough evidence. Behaviour only; reuse by scope tree as for other subjects. Its gap routes to the owner as today.
+2. A unit is judged only on the acceptance sentences of the wave that last gave it work; earlier verdicts are reused while its scope tree is unchanged.
+3. A unit without checks keeps its local judgment and does not block. A DROPPED unit's requirements and commitments are recorded "left out by the user" and do not block; C shows them.
+Do not touch run.py, units.py, fixups.py, plan.py, architecture.py, questions.py, schema.py, states.py, store.py, decisions.py.
+Fault twin: every feature passes but a commitment that crosses two areas is not carried end to end (planted): VALIDATE names the gap and its owner reworks, then C; with the path carried, C with one verdict per commitment. A run with one dropped unit reaches C and shows what was left out; a planted gap in a kept unit still reworks.
+
+PROOF: golden/journey only (behaviour, never timing/counts). Full gate once at the end: bash scripts/gate.sh validate with C:/Users/oren/codex-harness/.venv/Scripts first on PATH. Test-only failures after the gate: fix without re-gating, report. No real provider calls, no commit, never read any .env file. Temp only under C:/seldon/tests/validate-<n>. Hang >5 min on one test = stop and report. Direction (BLUEPRINT R16 thin): coach not referee; simple and clean; no new state, question kinds, validators or caps (R15); delete what your change makes dead.
+DELIVER in C:/Users/oren/codex-harness/work/lanes: validate.patch (diff vs base) and validate-report.md <= 8 lines starting with TRIAGE FAULT SELDON + DESIGN line, removed, files, src lines before/after, gate result.

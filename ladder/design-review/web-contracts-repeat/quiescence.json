@@ -1,0 +1,17 @@
+{
+  "requestDigest": "5f8a4ab6755b9708c75a7730e7f1603aed3d4fb882886f713ae3bad704cffae3",
+  "segmentId": "70c813f4d6fa49c2b81369be3f43ebb1",
+  "control": {
+    "backend": "windows-job",
+    "membershipVerifiedBeforePayload": true,
+    "payloadReleased": true,
+    "quiescenceVerified": true,
+    "activeProcessesAfterTeardown": 0,
+    "bootstrapImage": "C:\\Users\\oren\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+    "bootstrapPid": 47512,
+    "payloadPid": 39564,
+    "teardownStarted": true,
+    "activeProcessesBeforeTeardown": 3,
+    "payloadReturnCode": 0
+  }
+}

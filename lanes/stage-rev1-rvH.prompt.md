@@ -1,0 +1,8 @@
+Independent review (Sol high, read-only; do not run tests or edit). Exact patch: C:/Users/oren/codex-harness/work/lanes/stage-rev1-4b5b3af8.patch — verify SHA256 4b5b3af8f63546b3b7bed2b6aca55b16a6a2e9e5a8d2a2b1a21205a52be973df first. Base = Seldon GitHub main aee12fe (C:/Users/oren/codex-harness/work/sprint-20261027/semantic-cc). Applied tree lanes/stage-rev1. Cause: work/fight-1/r21-diagnosis.md; brief lanes/stage-rev1.prompt.md; report lanes/stage-rev1-report.md. Charter CHARTER.md (C9/C16/C18; I1/I6/I8).
+Check (P1/P2 with file:line only):
+1. Staleness/authority: revisions bind A/B approvals, reviews, evidence and receipts. With referenced revisions excluded, can a change to a referenced node leave a consumer (B approval, review credit, verification receipt, wave/bead packet, acceptance) falsely current? Which consumers relied on transitive invalidation, and is each now covered by an explicit check? Retained runs with old recursive revisions: do stored revisions still compare correctly, or does every retained approval go stale / falsely match?
+2. One shared content_revision: no remaining duplicate hashing or recursive traversal.
+3. Only `parents` must be acyclic; genuine parents cycles still refused, repairable, self-explaining. Every structural refusal is repairable by the step receiving it (no field the repair schema cannot edit).
+4. Repair path: reusing the full trace schema for repair cannot let the LLM drop/rewrite unrelated accepted nodes or IDs (r21 event 94/110 dropped members).
+5. Tests behavior-only, no weakened assertions or unit tests; source ceiling lowering legit.
+Output: first line VERDICT APPROVE|REJECT; CHARTER/TRIAGE/SIMPLEST lines; ≤10 bullets.

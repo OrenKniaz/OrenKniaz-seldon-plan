@@ -1,0 +1,34 @@
+{
+  "id": "booking",
+  "kind": "fullstack",
+  "message": "Build a local slot booking app. Python standard library only; no runtime network assets or build step. Serve on 127.0.0.1 using python server.py --port PORT --db PATH (SQLite). GET /api/slots returns an array of {\"id\":integer,\"start\":ISO datetime,\"end\":ISO datetime,\"booked_by\":string or null}. POST /api/slots with {\"start\":\"2030-01-02T10:00\",\"end\":\"2030-01-02T11:00\"} returns 201 slot. Require valid ISO datetimes and start < end. Reject overlapping slots with 409 (adjacent endpoints allowed). POST /api/slots/ID/book {\"name\":\"...\"} returns 200 booked slot; name must be nonempty, <=80 characters. A booked slot returns 409 on another booking; simultaneous bookings allow exactly one success and one 409. Persist slots/bookings across restart. Invalid or malformed JSON returns 400 with a nonempty JSON error string; unknown resource returns 404. README.md explains startup. At / serve index.html: responsive accessible UI, render slots as [data-slot-id=ID], each with input name=name and button[data-action=book] that books through API; show booked name, inline validation, visible conflict and API failure states, empty state, keyboard focus, no horizontal overflow at 375px. Include import_slots.py FILE.csv --db PATH: header start,end; skip invalid/overlapping rows, import valid rows into same SQLite database and print \"imported N, skipped M\" (exit 0); unreadable file exits 2.",
+  "profile": {
+    "audience": "Local users",
+    "care": "Exact behavior and clear errors",
+    "tone": "concise and practical",
+    "colours": "calm neutral palette",
+    "fonts": "system fonts only",
+    "sections": "Only the requested features",
+    "platform": "Windows, Python 3 standard library; desktop and mobile browser",
+    "defaults": "Smallest solution described; no accounts, network assets, deployment or paid services."
+  },
+  "files": [
+    "server.py",
+    "index.html",
+    "import_slots.py",
+    "README.md"
+  ],
+  "oracle": [
+    {
+      "name": "booking-contract",
+      "type": "external",
+      "script": "C:/Users/oren/codex-harness/work/ladder/oracle.py",
+      "argv": [
+        "{product}",
+        "{evidence}",
+        "booking"
+      ],
+      "timeout": 150
+    }
+  ]
+}

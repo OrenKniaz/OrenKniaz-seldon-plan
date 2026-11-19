@@ -1,0 +1,121 @@
+{
+  "id": "add",
+  "kind": "cli",
+  "message": "Build add.py, a single-file Python standard-library CLI. Accept exactly two signed decimal integers A B and print their integer sum with a newline. Usage errors (including unknown flags and wrong argument count) exit 2, emit a nonempty diagnostic on stderr and no stdout. Successful runs exit 0 with no stderr. Use UTF-8 text.",
+  "profile": {
+    "audience": "Local users",
+    "care": "Exact behavior and clear errors",
+    "tone": "concise and practical",
+    "colours": "calm neutral palette",
+    "fonts": "system fonts only",
+    "sections": "Only the requested features",
+    "platform": "Windows, Python 3 standard library; desktop and mobile browser",
+    "defaults": "Smallest solution described; no accounts, network assets, deployment or paid services."
+  },
+  "files": [
+    "add.py"
+  ],
+  "oracle": [
+    {
+      "name": "signed-sum",
+      "type": "cli",
+      "argv": [
+        "-7",
+        "12"
+      ],
+      "stdin_b64": "",
+      "exit": 0,
+      "stdout": {
+        "exact": "5\n",
+        "normalize_newlines": true
+      },
+      "stderr": {
+        "exact": ""
+      }
+    },
+    {
+      "name": "zero-sum",
+      "type": "cli",
+      "argv": [
+        "0",
+        "0"
+      ],
+      "stdin_b64": "",
+      "exit": 0,
+      "stdout": {
+        "exact": "0\n",
+        "normalize_newlines": true
+      },
+      "stderr": {
+        "exact": ""
+      }
+    },
+    {
+      "name": "missing-number",
+      "type": "cli",
+      "argv": [
+        "1"
+      ],
+      "stdin_b64": "",
+      "exit": 2,
+      "stdout": {
+        "exact": "",
+        "normalize_newlines": true
+      },
+      "stderr": {
+        "not_empty": true
+      }
+    },
+    {
+      "name": "invalid-number",
+      "type": "cli",
+      "argv": [
+        "x",
+        "2"
+      ],
+      "stdin_b64": "",
+      "exit": 2,
+      "stdout": {
+        "exact": "",
+        "normalize_newlines": true
+      },
+      "stderr": {
+        "not_empty": true
+      }
+    },
+    {
+      "name": "extra-number",
+      "type": "cli",
+      "argv": [
+        "1",
+        "2",
+        "3"
+      ],
+      "stdin_b64": "",
+      "exit": 2,
+      "stdout": {
+        "exact": "",
+        "normalize_newlines": true
+      },
+      "stderr": {
+        "not_empty": true
+      }
+    },
+    {
+      "name": "unknown-option",
+      "type": "cli",
+      "argv": [
+        "--bogus"
+      ],
+      "stdin_b64": "",
+      "exit": 2,
+      "stdout": {
+        "exact": "",
+        "normalize_newlines": true
+      },
+      "stderr": {
+        "not_empty": true
+      }
+    }
+  ]
+}

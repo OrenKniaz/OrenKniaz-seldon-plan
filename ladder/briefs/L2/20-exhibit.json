@@ -1,0 +1,65 @@
+{
+  "id": "exhibit",
+  "kind": "web",
+  "message": "Build a refined static index.html mini exhibition for a fictional paper-art artist. Include six original CSS artwork tiles, captions and a keyboard-accessible detail dialog with close button and Escape support returning focus to its opener. Add artist biography and fictional contact text. Mobile-friendly inline CSS/vanilla JS, no external assets, forms or build step.",
+  "profile": {
+    "audience": "People browsing independent art",
+    "care": "Editorial typography and usable details",
+    "tone": "optimistic, considered, tactile",
+    "colours": "ivory, plum and marigold",
+    "fonts": "system fonts only",
+    "sections": "use the sections in the brief",
+    "platform": "local Windows and Python 3 stdlib for CLI; modern desktop/mobile browser for web",
+    "defaults": "Smallest solution described; no accounts, network, deployment or paid assets. Ask before scope or budget changes."
+  },
+  "files": [
+    "index.html"
+  ],
+  "oracle": [
+    {
+      "name": "required-files",
+      "type": "files",
+      "files": [
+        "index.html"
+      ]
+    },
+    {
+      "name": "offline-mobile",
+      "type": "page",
+      "viewport": [
+        375,
+        812
+      ]
+    },
+    {
+      "name": "offline-desktop",
+      "type": "page",
+      "viewport": [
+        1440,
+        900
+      ]
+    },
+    {
+      "name": "named-content",
+      "type": "content",
+      "patterns": [
+        "artist|biography|about",
+        "contact",
+        "paper"
+      ]
+    },
+    {
+      "name": "keyboard-focus",
+      "type": "keyboard"
+    },
+    {
+      "name": "six-captioned-artworks",
+      "type": "art",
+      "count": 6
+    },
+    {
+      "name": "dialog-keyboard-close-focus-return",
+      "type": "dialog"
+    }
+  ]
+}

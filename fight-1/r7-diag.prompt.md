@@ -1,0 +1,8 @@
+DIAGNOSIS (read-only; Seldon delivery). Real-provider ShelfLife round 7 on Seldon main b984d7f (source C:/Users/oren/codex-harness/work/sprint-20261027/semantic-cc). Summary ./fight-seldon.json: STALLED-no-progress at phase execute after 1351s, 3 user decisions; refusals plan-b-consent-required, spine-parent-kind-not-allowed, tool-input-or-operation-error. Final planner message: "validation failed on a test file missing from the baseline, and the proposed tests-first worker sequence still lacks approval." Log ./run-seldon-r7.log; slot C:/seldon/runs/fight-1/seldon/20261106T003928-b5b643-001-shelflife (plan/ store, worker-jobs receipts, worktrees). Earlier diagnoses: ./r4-diag.md, ./r5-diag.md.
+Answer ≤25 lines:
+1. Did the worker run? What did it write (tests + code paths), and what exactly failed in validation: which check, file:line in Seldon (likely planner_candidate.py baseline test-bundle materialization from exec1), the declared execution.testRoots vs the files the worker created, and the exact error.
+2. TRIAGE: BUG|DESIGN — why — siblings. Is it Seldon's baseline materialization (e.g. restoring a worker-CREATED test file onto the pre-change baseline), a wrong testRoots declaration by the planner/worker, or the schema example teaching a wrong shape?
+3. The "tests-first worker sequence" proposal: what did the planner want to change in B, and would a scope+limits consent subject (not plan revision) have let it proceed without a card?
+4. spine-parent-kind-not-allowed and the tool error: cause, one line each.
+5. One concrete fix per distinct cause with the owner module.
+No files changed, no tests, no provider launches.

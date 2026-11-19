@@ -1,0 +1,130 @@
+{
+  "id": "rangecsv",
+  "kind": "cli",
+  "message": "Build RangeCSV in rangecsv.py. Accept inclusive integer START END and optional --step positive integer default 1; print one CSV header value then one integer per line through END. Require START <= END. Invalid input exits 2 with stderr only. Stdlib only, no runtime files. --help explains inclusive bounds.",
+  "profile": {
+    "audience": "Testers generating tiny number fixtures",
+    "care": "Clear bounds",
+    "tone": "concise, practical, predictable",
+    "colours": "no terminal colour",
+    "fonts": "system fonts only",
+    "sections": "help, examples, concise diagnostics",
+    "platform": "local Windows and Python 3 stdlib for CLI; modern desktop/mobile browser for web",
+    "defaults": "Smallest solution described; no accounts, network, deployment or paid assets. Ask before scope or budget changes."
+  },
+  "files": [
+    "rangecsv.py"
+  ],
+  "oracle": [
+    {
+      "name": "inclusive",
+      "type": "cli",
+      "argv": [
+        "-1",
+        "1"
+      ],
+      "stdin_b64": "",
+      "exit": 0,
+      "stdout": {
+        "exact": "value\n-1\n0\n1\n",
+        "normalize_newlines": true
+      },
+      "stderr": null
+    },
+    {
+      "name": "step",
+      "type": "cli",
+      "argv": [
+        "1",
+        "6",
+        "--step",
+        "2"
+      ],
+      "stdin_b64": "",
+      "exit": 0,
+      "stdout": {
+        "exact": "value\n1\n3\n5\n",
+        "normalize_newlines": true
+      },
+      "stderr": null
+    },
+    {
+      "name": "single",
+      "type": "cli",
+      "argv": [
+        "2",
+        "2"
+      ],
+      "stdin_b64": "",
+      "exit": 0,
+      "stdout": {
+        "exact": "value\n2\n",
+        "normalize_newlines": true
+      },
+      "stderr": null
+    },
+    {
+      "name": "reversed",
+      "type": "cli",
+      "argv": [
+        "2",
+        "1"
+      ],
+      "stdin_b64": "",
+      "exit": 2,
+      "stdout": {
+        "exact": ""
+      },
+      "stderr": {
+        "not_empty": true
+      }
+    },
+    {
+      "name": "zero-step",
+      "type": "cli",
+      "argv": [
+        "1",
+        "2",
+        "--step",
+        "0"
+      ],
+      "stdin_b64": "",
+      "exit": 2,
+      "stdout": {
+        "exact": ""
+      },
+      "stderr": {
+        "not_empty": true
+      }
+    },
+    {
+      "name": "missing",
+      "type": "cli",
+      "argv": [],
+      "stdin_b64": "",
+      "exit": 2,
+      "stdout": {
+        "exact": ""
+      },
+      "stderr": {
+        "not_empty": true
+      }
+    },
+    {
+      "name": "help-with-open-stdin",
+      "type": "cli",
+      "argv": [
+        "--help"
+      ],
+      "stdin_b64": "",
+      "exit": 0,
+      "stdout": {
+        "not_empty": true
+      },
+      "stderr": {
+        "exact": ""
+      },
+      "stdin_open": true
+    }
+  ]
+}

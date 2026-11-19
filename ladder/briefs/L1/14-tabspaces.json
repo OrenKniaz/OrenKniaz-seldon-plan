@@ -1,0 +1,90 @@
+{
+  "id": "tabspaces",
+  "kind": "cli",
+  "message": "Build TabSpaces in tabspaces.py. Read UTF-8 stdin and expand tab characters with Python-style column stops, width --tabsize N default 4. Preserve all other text and original LF/CRLF endings. Require positive width; bad flags exit 2, invalid UTF-8 exits 1 with no stdout. Python stdlib and no runtime files.",
+  "profile": {
+    "audience": "Developers sharing pasted snippets",
+    "care": "Whitespace fidelity",
+    "tone": "concise, practical, predictable",
+    "colours": "no terminal colour",
+    "fonts": "system fonts only",
+    "sections": "help, examples, concise diagnostics",
+    "platform": "local Windows and Python 3 stdlib for CLI; modern desktop/mobile browser for web",
+    "defaults": "Smallest solution described; no accounts, network, deployment or paid assets. Ask before scope or budget changes."
+  },
+  "files": [
+    "tabspaces.py"
+  ],
+  "oracle": [
+    {
+      "name": "default-column-stops-crlf",
+      "type": "cli",
+      "argv": [],
+      "stdin_b64": "YQliDQoJeAo=",
+      "exit": 0,
+      "stdout": {
+        "exact": "a   b\r\n    x\n"
+      },
+      "stderr": null
+    },
+    {
+      "name": "custom-stops",
+      "type": "cli",
+      "argv": [
+        "--tabsize",
+        "3"
+      ],
+      "stdin_b64": "YWIJYwkh",
+      "exit": 0,
+      "stdout": {
+        "exact": "ab c  !"
+      },
+      "stderr": null
+    },
+    {
+      "name": "preserve-other-text",
+      "type": "cli",
+      "argv": [],
+      "stdin_b64": "w6kgIHgNCmxhc3Q=",
+      "exit": 0,
+      "stdout": {
+        "exact": "é  x\r\nlast"
+      },
+      "stderr": null
+    },
+    {
+      "name": "zero-width",
+      "type": "cli",
+      "argv": [
+        "--tabsize",
+        "0"
+      ],
+      "stdin_b64": "",
+      "exit": 2,
+      "stdout": null,
+      "stderr": null
+    },
+    {
+      "name": "bad-flags",
+      "type": "cli",
+      "argv": [
+        "--bogus"
+      ],
+      "stdin_b64": "",
+      "exit": 2,
+      "stdout": null,
+      "stderr": null
+    },
+    {
+      "name": "invalid-utf8",
+      "type": "cli",
+      "argv": [],
+      "stdin_b64": "/w==",
+      "exit": 1,
+      "stdout": {
+        "exact": ""
+      },
+      "stderr": null
+    }
+  ]
+}

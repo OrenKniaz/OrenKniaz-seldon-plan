@@ -1,0 +1,117 @@
+{
+  "id": "wordfreq",
+  "kind": "cli",
+  "message": "Build WordFreq in wordfreq.py. Read UTF-8 stdin, tokenize ASCII letter sequences case-insensitively, print JSON pairs [word,count] sorted by descending count then alphabetical word. --top N limits output and accepts zero; negative/invalid flags exit 2. Invalid UTF-8 exits 1, stderr only. Python stdlib; no files or network.",
+  "profile": {
+    "audience": "Writers checking repetition",
+    "care": "Deterministic ranking",
+    "tone": "concise, practical, predictable",
+    "colours": "no terminal colour",
+    "fonts": "system fonts only",
+    "sections": "help, examples, concise diagnostics",
+    "platform": "local Windows and Python 3 stdlib for CLI; modern desktop/mobile browser for web",
+    "defaults": "Smallest solution described; no accounts, network, deployment or paid assets. Ask before scope or budget changes."
+  },
+  "files": [
+    "wordfreq.py"
+  ],
+  "oracle": [
+    {
+      "name": "ascii-ranking",
+      "type": "cli",
+      "argv": [],
+      "stdin_b64": "QmVlIGFudCBCRUUgQU5UIGNhdCDDqWxhbiAxMjM=",
+      "exit": 0,
+      "stdout": {
+        "json": [
+          [
+            "ant",
+            2
+          ],
+          [
+            "bee",
+            2
+          ],
+          [
+            "cat",
+            1
+          ],
+          [
+            "lan",
+            1
+          ]
+        ]
+      },
+      "stderr": null
+    },
+    {
+      "name": "top",
+      "type": "cli",
+      "argv": [
+        "--top",
+        "1"
+      ],
+      "stdin_b64": "YSBiIGI=",
+      "exit": 0,
+      "stdout": {
+        "json": [
+          [
+            "b",
+            2
+          ]
+        ]
+      },
+      "stderr": null
+    },
+    {
+      "name": "top-zero",
+      "type": "cli",
+      "argv": [
+        "--top",
+        "0"
+      ],
+      "stdin_b64": "YSBi",
+      "exit": 0,
+      "stdout": {
+        "json": []
+      },
+      "stderr": null
+    },
+    {
+      "name": "negative-top",
+      "type": "cli",
+      "argv": [
+        "--top",
+        "-1"
+      ],
+      "stdin_b64": "",
+      "exit": 2,
+      "stdout": null,
+      "stderr": null
+    },
+    {
+      "name": "bad-flags",
+      "type": "cli",
+      "argv": [
+        "--bogus"
+      ],
+      "stdin_b64": "",
+      "exit": 2,
+      "stdout": null,
+      "stderr": null
+    },
+    {
+      "name": "invalid-utf8",
+      "type": "cli",
+      "argv": [],
+      "stdin_b64": "/w==",
+      "exit": 1,
+      "stdout": {
+        "exact": ""
+      },
+      "stderr": {
+        "not_empty": true
+      }
+    }
+  ]
+}

@@ -1,0 +1,97 @@
+{
+  "id": "csvpeek",
+  "kind": "cli",
+  "message": "Build CSVPeek in csvpeek.py, Python stdlib only. Read UTF-8 CSV from stdin with the first row as headers; emit a JSON array of row objects preserving field strings. Quoted commas and newlines must work. Reject duplicate headers and rows of wrong width with exit 1 and stderr, no partial stdout. Empty input yields []. --help should explain the format.",
+  "profile": {
+    "audience": "Analysts moving small tables",
+    "care": "Useful diagnostics without lost data",
+    "tone": "concise, practical, predictable",
+    "colours": "no terminal colour",
+    "fonts": "system fonts only",
+    "sections": "help, examples, concise diagnostics",
+    "platform": "local Windows and Python 3 stdlib for CLI; modern desktop/mobile browser for web",
+    "defaults": "Smallest solution described; no accounts, network, deployment or paid assets. Ask before scope or budget changes."
+  },
+  "files": [
+    "csvpeek.py"
+  ],
+  "oracle": [
+    {
+      "name": "quoted-comma-newline",
+      "type": "cli",
+      "argv": [],
+      "stdin_b64": "bmFtZSxub3RlDQpBZGEsImEsYiINCkJvLCJ0d28KbGluZXMiDQo=",
+      "exit": 0,
+      "stdout": {
+        "json": [
+          {
+            "name": "Ada",
+            "note": "a,b"
+          },
+          {
+            "name": "Bo",
+            "note": "two\nlines"
+          }
+        ]
+      },
+      "stderr": {
+        "exact": ""
+      }
+    },
+    {
+      "name": "empty",
+      "type": "cli",
+      "argv": [],
+      "stdin_b64": "",
+      "exit": 0,
+      "stdout": {
+        "json": []
+      },
+      "stderr": {
+        "exact": ""
+      }
+    },
+    {
+      "name": "duplicate-headers",
+      "type": "cli",
+      "argv": [],
+      "stdin_b64": "YSxhCngseQo=",
+      "exit": 1,
+      "stdout": {
+        "exact": ""
+      },
+      "stderr": {
+        "not_empty": true
+      }
+    },
+    {
+      "name": "late-width-error-no-partial-output",
+      "type": "cli",
+      "argv": [],
+      "stdin_b64": "YSxiCjEsMgozCg==",
+      "exit": 1,
+      "stdout": {
+        "exact": ""
+      },
+      "stderr": {
+        "not_empty": true
+      }
+    },
+    {
+      "name": "help-with-open-stdin",
+      "type": "cli",
+      "argv": [
+        "--help"
+      ],
+      "stdin_b64": "",
+      "exit": 0,
+      "stdout": {
+        "not_empty": true
+      },
+      "stderr": {
+        "exact": ""
+      },
+      "stdin_open": true
+    }
+  ]
+}

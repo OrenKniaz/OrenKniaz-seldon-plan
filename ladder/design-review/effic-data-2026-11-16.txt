@@ -1,0 +1,49 @@
+# m2twenty3 (main e57b218, Terra 6.1 medium all roles), 20 ShelfLife runs
+shelflife-main-e57b218-z01: calls=44 wall~9min input=1.05M cached=0.71M uncached=0.34M output=31k
+   by kind (calls, uncached+output tokens): {'PRODUCT': (12, '81k'), 'FLOW': (7, '69k'), 'DETAIL': (9, '67k'), 'WORK': (4, '65k'), 'REVIEW': (6, '33k'), 'JUDGE': (3, '32k'), 'ARCHITECT': (2, '17k'), 'ALIGN': (1, '5k')}
+shelflife-main-e57b218-z02: calls=48 wall~13min input=1.51M cached=1.14M uncached=0.38M output=31k
+   by kind (calls, uncached+output tokens): {'PRODUCT': (20, '109k'), 'WORK': (5, '105k'), 'FLOW': (8, '78k'), 'REVIEW': (6, '38k'), 'JUDGE': (3, '34k'), 'DETAIL': (4, '30k'), 'ARCHITECT': (1, '8k'), 'ALIGN': (1, '5k')}
+shelflife-main-e57b218-z03: calls=41 wall~10min input=1.57M cached=1.14M uncached=0.43M output=39k
+   by kind (calls, uncached+output tokens): {'WORK': (7, '130k'), 'PRODUCT': (9, '98k'), 'FLOW': (7, '93k'), 'JUDGE': (4, '55k'), 'DETAIL': (5, '38k'), 'REVIEW': (6, '33k'), 'ARCHITECT': (1, '13k'), 'ALIGN': (1, '5k'), 'DECIDE': (1, '4k')}
+shelflife-main-e57b218-z04: calls=37 wall~10min input=1.30M cached=0.90M uncached=0.40M output=33k
+   by kind (calls, uncached+output tokens): {'WORK': (5, '118k'), 'PRODUCT': (9, '102k'), 'FLOW': (6, '75k'), 'JUDGE': (4, '51k'), 'DETAIL': (5, '38k'), 'REVIEW': (6, '38k'), 'ARCHITECT': (1, '8k'), 'ALIGN': (1, '5k')}
+shelflife-main-e57b218-z05: calls=39 wall~11min input=1.75M cached=1.32M uncached=0.42M output=47k
+   by kind (calls, uncached+output tokens): {'WORK': (6, '148k'), 'JUDGE': (5, '92k'), 'FLOW': (7, '78k'), 'PRODUCT': (9, '77k'), 'REVIEW': (6, '34k'), 'DETAIL': (4, '30k'), 'ARCHITECT': (1, '8k'), 'ALIGN': (1, '5k')}
+shelflife-main-e57b218-z06: calls=38 wall~11min input=1.53M cached=1.13M uncached=0.40M output=34k
+   by kind (calls, uncached+output tokens): {'WORK': (6, '148k'), 'PRODUCT': (11, '84k'), 'FLOW': (5, '69k'), 'JUDGE': (4, '59k'), 'REVIEW': (6, '35k'), 'DETAIL': (4, '30k'), 'ARCHITECT': (1, '8k'), 'ALIGN': (1, '5k')}
+shelflife-main-e57b218-z07: calls=35 wall~10min input=1.01M cached=0.70M uncached=0.31M output=32k
+   by kind (calls, uncached+output tokens): {'WORK': (5, '83k'), 'FLOW': (6, '64k'), 'PRODUCT': (8, '64k'), 'JUDGE': (4, '52k'), 'REVIEW': (6, '34k'), 'DETAIL': (4, '30k'), 'ARCHITECT': (1, '8k'), 'ALIGN': (1, '5k')}
+shelflife-main-e57b218-z08: calls=38 wall~9min input=1.24M cached=0.78M uncached=0.46M output=32k
+   by kind (calls, uncached+output tokens): {'PRODUCT': (10, '146k'), 'WORK': (5, '111k'), 'FLOW': (5, '72k'), 'JUDGE': (4, '62k'), 'DETAIL': (6, '52k'), 'REVIEW': (6, '34k'), 'ARCHITECT': (1, '8k'), 'ALIGN': (1, '5k')}
+shelflife-main-e57b218-z09: calls=45 wall~13min input=1.67M cached=1.20M uncached=0.47M output=45k
+   by kind (calls, uncached+output tokens): {'WORK': (5, '139k'), 'FLOW': (12, '130k'), 'JUDGE': (4, '74k'), 'PRODUCT': (10, '71k'), 'DETAIL': (6, '46k'), 'REVIEW': (6, '39k'), 'ARCHITECT': (1, '8k'), 'ALIGN': (1, '5k')}
+shelflife-main-e57b218-z10: calls=32 wall~8min input=0.75M cached=0.45M uncached=0.30M output=23k
+   by kind (calls, uncached+output tokens): {'PRODUCT': (10, '98k'), 'FLOW': (8, '87k'), 'WORK': (3, '47k'), 'REVIEW': (4, '28k'), 'JUDGE': (2, '28k'), 'DETAIL': (3, '23k'), 'ARCHITECT': (1, '7k'), 'ALIGN': (1, '5k')}
+shelflife-main-e57b218-z11: calls=48 wall~16min input=2.64M cached=1.97M uncached=0.67M output=48k
+   by kind (calls, uncached+output tokens): {'WORK': (9, '278k'), 'FLOW': (16, '165k'), 'JUDGE': (7, '154k'), 'DETAIL': (5, '38k'), 'REVIEW': (6, '34k'), 'COACH': (1, '28k'), 'DECIDE': (2, '11k'), 'ARCHITECT': (1, '8k'), 'ALIGN': (1, '5k')}
+shelflife-main-e57b218-z12: calls=40 wall~10min input=1.31M cached=0.87M uncached=0.44M output=35k
+   by kind (calls, uncached+output tokens): {'PRODUCT': (10, '120k'), 'FLOW': (9, '111k'), 'WORK': (5, '110k'), 'JUDGE': (4, '55k'), 'REVIEW': (6, '34k'), 'DETAIL': (4, '29k'), 'ARCHITECT': (1, '7k'), 'ALIGN': (1, '5k')}
+shelflife-main-e57b218-z13: calls=44 wall~15min input=2.26M cached=1.74M uncached=0.52M output=51k
+   by kind (calls, uncached+output tokens): {'WORK': (7, '213k'), 'PRODUCT': (12, '116k'), 'JUDGE': (5, '81k'), 'FLOW': (7, '77k'), 'DETAIL': (5, '38k'), 'REVIEW': (6, '34k'), 'ARCHITECT': (1, '8k'), 'ALIGN': (1, '5k')}
+shelflife-main-e57b218-z14: calls=35 wall~10min input=1.03M cached=0.70M uncached=0.32M output=30k
+   by kind (calls, uncached+output tokens): {'WORK': (4, '81k'), 'PRODUCT': (8, '72k'), 'FLOW': (6, '71k'), 'DETAIL': (6, '45k'), 'JUDGE': (3, '38k'), 'REVIEW': (6, '34k'), 'ARCHITECT': (1, '8k'), 'ALIGN': (1, '5k')}
+shelflife-main-e57b218-z15: calls=45 wall~11min input=1.83M cached=1.34M uncached=0.49M output=43k
+   by kind (calls, uncached+output tokens): {'WORK': (6, '174k'), 'JUDGE': (5, '115k'), 'FLOW': (10, '103k'), 'PRODUCT': (11, '61k'), 'DETAIL': (5, '38k'), 'REVIEW': (6, '33k'), 'ARCHITECT': (1, '8k'), 'ALIGN': (1, '5k')}
+shelflife-main-e57b218-z16: calls=55 wall~13min input=2.31M cached=1.70M uncached=0.60M output=49k
+   by kind (calls, uncached+output tokens): {'WORK': (7, '190k'), 'FLOW': (15, '171k'), 'PRODUCT': (16, '140k'), 'JUDGE': (5, '75k'), 'REVIEW': (6, '34k'), 'DETAIL': (4, '30k'), 'ARCHITECT': (1, '8k'), 'ALIGN': (1, '5k')}
+shelflife-main-e57b218-z17: calls=37 wall~8min input=0.96M cached=0.64M uncached=0.32M output=28k
+   by kind (calls, uncached+output tokens): {'PRODUCT': (10, '90k'), 'FLOW': (7, '82k'), 'WORK': (4, '60k'), 'DETAIL': (5, '37k'), 'REVIEW': (6, '34k'), 'JUDGE': (3, '33k'), 'ARCHITECT': (1, '8k'), 'ALIGN': (1, '5k')}
+shelflife-main-e57b218-z18: calls=37 wall~12min input=1.45M cached=1.03M uncached=0.42M output=33k
+   by kind (calls, uncached+output tokens): {'WORK': (5, '121k'), 'PRODUCT': (10, '116k'), 'FLOW': (5, '65k'), 'JUDGE': (4, '63k'), 'DETAIL': (5, '45k'), 'REVIEW': (6, '35k'), 'ARCHITECT': (1, '8k'), 'ALIGN': (1, '5k')}
+shelflife-main-e57b218-z19: calls=62 wall~17min input=4.26M cached=3.30M uncached=0.95M output=80k
+   by kind (calls, uncached+output tokens): {'WORK': (10, '375k'), 'JUDGE': (9, '248k'), 'FLOW': (14, '191k'), 'PRODUCT': (16, '137k'), 'DETAIL': (5, '39k'), 'REVIEW': (6, '34k'), 'ARCHITECT': (1, '8k'), 'ALIGN': (1, '5k')}
+shelflife-main-e57b218-z20: calls=35 wall~12min input=1.71M cached=1.38M uncached=0.34M output=39k
+   by kind (calls, uncached+output tokens): {'WORK': (6, '123k'), 'JUDGE': (5, '70k'), 'PRODUCT': (9, '67k'), 'FLOW': (7, '65k'), 'DETAIL': (3, '21k'), 'REVIEW': (3, '16k'), 'ARCHITECT': (1, '7k'), 'ALIGN': (1, '5k')}
+
+# plain Codex Terra baseline (one exec, 3-4 min, oracle 34-36)
+terra-native-1: calls=0 wall~2min input=0.00M cached=0.00M uncached=0.00M output=0k
+   by kind (calls, uncached+output tokens): {}
+terra-native-2: calls=0 wall~2min input=0.00M cached=0.00M uncached=0.00M output=0k
+   by kind (calls, uncached+output tokens): {}
+terra-native-3: calls=0 wall~2min input=0.00M cached=0.00M uncached=0.00M output=0k
+   by kind (calls, uncached+output tokens): {}
