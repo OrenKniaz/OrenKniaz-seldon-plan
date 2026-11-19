@@ -1,0 +1,7 @@
+Base: 7e547433ad3f0c98059993121ccb94d284a45e20. Owner: src/seldon/plan.py guide coaching; focused existing guide delivery coverage. No gitwork.py change or scope expansion.
+
+The guide now tells the owner to use the provided external SELDON_EVIDENCE_DIR unchanged for checks and local walkthrough probes, not a directory in the product worktree. Batch 3 s05 r62 and q03 r58 support this evidence-path correction. q03's separately declared checks/page.cjs and approved exclusion expression belong to scopeExpression, not this patch.
+
+Focused fake-provider delivery journey: 2 passed in 15.25s (separate guide and folded owner; existing case count unchanged). Actual guide-owner briefs include the instruction. A PowerShell guide check produces a lifecycle receipt in the proof runner's external per-observation directory; the existing scoped writer rejects evidence/probe.txt in the checkout; the missing approved Node 20 step remains observed=false and verification_complete=false. This is scripted guide/proof evidence, not a native worker compliance result or product acceptance. No broad gate or real provider run was authorized or run. Initial collection attempts failed due to missing PYTHONPATH; corrected to src;tests/seldon. git diff --check passed.
+
+Next: integrate and review the patch, then validate native guide behavior in an authorized run. Runtime proof and full product acceptance remain unverified.
