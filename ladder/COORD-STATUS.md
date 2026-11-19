@@ -1,8 +1,10 @@
 # Seldon coordinator status
-2026-11-19 11:31:07 +02:00
-Running: Terra medium A/B Foundation x5 and ShelfLife x5 on 513de6a, judgeEvidence and plannerBrief on. detailOwner and firstPathProof lanes starting.
-Census: batch 2 10/10 scripted C, 11 recovery rows, 3 ARCHITECT refusals. Zero-bug bar failed.
+2026-11-19 12:26:35 +02:00
+Running: none. Batch 2, both A/B cohorts, the isolated nextWave replay and all five fault lanes have exited.
 READY TO PUSH: 649a90b 513de6a
-Landing proof: codeShape 145/145, combined plannerBrief 149/149, both bare and cold imports 28/28.
-Other lanes: nextWave gate 144/144 with native Quiet Bench rerun pending. browserProof patch ready for review. guideCommand queued.
-NEEDS-LEAD: none under stop rules. Codex primary available 22%.
+Landing proof: bare gates 145/145 and 149/149, cold imports 28/28 each. Main working tree clean.
+Batch 2: 10/10 scripted C, 11 recovery rows and 3 ARCHITECT refusals. Zero-bug bar remains open.
+A/B: Foundation 35/35 both arms. ShelfLife 195/0/5 to 177/18/5, median longest line 3467 to 602. Nine B outcomes lacked complete guide proof. Trials default off.
+Replay: isolated nextWave 5d6ea7c consumed the first native wave-2 reply, reached scripted C with 0 recoveries. Independent oracle 8/1/5.
+Fault lanes: nextWave 144/144, detailOwner 151/151, firstPathProof 150/150, guideCommand 151/151. browserProof has a focused pass after a full-gate test timeout.
+NEEDS-LEAD: review the two local trial commits and the fault patches before integration and the next five-run micro reruns. Codex primary available 21%.

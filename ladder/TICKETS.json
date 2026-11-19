@@ -74,6 +74,12 @@
       "idea": "A dream needs peer agreements whenever it spans several product surfaces.",
       "remedy": "Start with one session when the accepted work fits, and introduce peers only for evidenced ownership needs or explicit staging.",
       "rule": "BLUEPRINT R19"
+    },
+    {
+      "name": "First-pass proof misses the user boundary",
+      "idea": "A generic check request is enough to catch an omitted user action or a timing-dependent observation.",
+      "remedy": "On fresh WORK, exercise one assigned path through its real entry point and observe its decisive state change.",
+      "rule": "CHARTER C14/C26, BLUEPRINT R16"
     }
   ],
   "tickets": [
@@ -3176,6 +3182,42 @@
       "family": "Two rules disagree",
       "direction": "Separate ownership lane: prove a narrower continuation of a uniquely matching completed writer retains its identity, prior scope and evidence; preserve correction for competing writers or ambiguous ownership.",
       "evidence": "Quiet Bench a4204ec q05 wave 2 DETAIL r122 and r130 produce the same subset scope. r125 and r133 cite 1.quiet-bench.1 versus 2.quiet-bench.1 over bench.py, quiet_bench/**, tests/** and checks/quiet-bench/**. plan.merge reuses exact scopes and supersets; a proper subset gets a new unit before the overlap check. This happens after the ARCHITECT correction succeeds. | COACH r139 asked to consolidate into the existing writer. DETAIL r148 resent its full non-guide scope and reached REVIEW at r151. Separate brief: work/lanes/nextWave-detail-owner-brief.md. No ownership code changed in nextWave."
+    },
+    {
+      "id": "T-247",
+      "title": "Fresh WORK misses user-path and state-transition evidence",
+      "severity": "medium",
+      "type": "design",
+      "status": "in_progress",
+      "milestone": "M3",
+      "area": "Fresh product WORK brief",
+      "family": "First-pass proof misses the user boundary",
+      "direction": "firstPathProof.patch and report delivered against 513de6a. Lead owns landing and an authorized real cohort measuring first-pass product and proof misses.",
+      "evidence": "Batch 2 a4204ec: s03 r76/r77 awaited an already-visible Tea before asserting search refresh; repair also guards stale responses. s05 r82/r84 lacks persisted UI editing despite PATCH. q01 r81/r83 omits saved settings/samples on the page; r100/r102 gets HTTP 400 on the session GET after Start/Stop, with unguarded reads and no observed running-state assertion. q02 r168/r169 readers miss the overlap, and check-only repair passes. q04 r62/r64 aggregates terminal Stop assertions without proving running beforehand; r77 updates both publication and probe, so the failed predicate is unisolated. Recovery rows retained. | Supplied lane snapshot 74f4fcb tree ba116fc84ad2f565e800853f5b9be070bf8cc8fb equals 513de6a. Native scripted journey RED on base for absent coaching, then GREEN in 33.92 s. Retained q04 r50/r68 prompt text matched and 28/28 modules cold-imported. Patch verified against base and delivered before the gate slot. | Sole bare gate passed 150 cases vs 149 on base in 538.18 s (539.61 s wall), after the A/B cohorts and detailOwner gate. C:/seldon/tests/firstPathProof-1/gate.log."
+    },
+    {
+      "id": "T-248",
+      "title": "Walkthrough checks miss documented steps and checkout provenance",
+      "severity": "medium",
+      "type": "design",
+      "status": "in_progress",
+      "milestone": "M3",
+      "area": "Guide coaching and guide judgment",
+      "family": "First-pass proof misses the user boundary",
+      "direction": "guideCommand.patch and guideCommand-report.md delivered with the full gate green. Lead owns review/landing and authorized Terra medium Quiet Bench q01-q05 followed by matched 513de6a trial-arm Foundation fb01-fb05 and ShelfLife sb01-sb05. Exit: supported documented steps have traceable outputs on the delivered checkout, and unavailable exact runtime steps stay unverified.",
+      "evidence": "Quiet Bench q03 r191, q04 r125 and q05 r308 guide repair rows. q03 WORK r144 records unavailable exact Node 20 (host Node 25.8.0). 513de6a A/B all five Foundation and four ShelfLife B outcomes have verification_complete=false. q01 raw oracle literal PowerShell variable failure is separate from its documented command completing 8,192 samples. | Foundation fb01/02/03/05 final observations r65/r69/r65/r65 pass with no step lifecycle; fb04 folded question r67 has no guide/check. ShelfLife sb01 r82 lacks checkout identity and complete page path, sb02 r112 and sb05 r112 substitute setup or requests, sb03 r233/r238 confirms literal import/API but not the integrated page path, and sb04 r165 is complete with guide nits. q01 r333/r338 recognizes equivalent passing walkthrough with missing actual PowerShell/browser/cleanup evidence. q01 raw oracle remains separate; direct documented CLI run/list/show/export in guideCommand-5 passed on c742c5d, Python 3.12.7, 8192 samples and two bands. Retained main GET 200 is startup only. | Base RED at PRODUCT missing clean-checkout provenance (7.94s); candidate 2P/13.09s, 28 cold imports. Both judge consumers see the real documented PowerShell command result plus observed=false for unavailable exact Node 20; verification_complete stays false. Optional prompts2 WORK owns separate wording in questions.py; default rendering carries this patch. Patch apply/reverse and diff checks pass. | Sole bare full gate passed 151/151 (461.98s, 463.13s wall), harness .venv/Scripts first on PATH, after firstPathProof and zbNextQ exited. Log C:/seldon/tests/guideCommand-1/gate.log. Patch applies after firstPathProof and detailOwner. No landing or native guide rerun."
+    },
+    {
+      "id": "T-249",
+      "title": "Lead lacks a runnable milestone path through C",
+      "severity": "high",
+      "type": "design",
+      "status": "in_progress",
+      "milestone": "Lead micro",
+      "area": "src/seldon/lead.py and shared entry points",
+      "family": "Built for small dreams",
+      "direction": "leadThin owns the scripted Lead vertical slice. Live provider qualification and full Lead design are outside this lane.",
+      "evidence": "2026-11-19 Lead charter v1.1 and lane assignment. Acceptance: default gate, cold imports, scripted C and cumulative regression repair, durable mode and B before build. Lane snapshot 9bc4d93 tree ba116fc84ad2f565e800853f5b9be070bf8cc8fb matches the recorded 513de6a tree."
     }
   ]
 }

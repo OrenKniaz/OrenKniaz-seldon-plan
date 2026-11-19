@@ -1,0 +1,7 @@
+TRIAGE FAULT SELDON + DESIGN — T-246, coordinator base 513de6a. After q05 ARCHITECT r114, DETAIL r122/r130 minted 2.quiet-bench.1 and triggered r125/r133. Full-scope r148 reached REVIEW.
+plan.merge's first owner lookup compared path sets for equality. Its widening lookup required the proposal to cover every old path. On base, the proved-wave journey reproduced that collision (1 failed, rival case passed).
+CODE reuses a unique same-area owner whose approved scope contains the slice and whose scheduler row is DONE from an earlier wave. DETAIL passes those existing row IDs. Rival proposals still receive ownership corrections.
+The two focused journeys passed in 32.19 s. The retained writer kept its full scope, earlier acceptance and evidence, extended through EXECUTE, and passed fresh integrated proof. The two-owner proposal stayed in DETAIL.
+Cold imports 28/28. Patch checks passed on the recorded base with plannerBrief present and alongside nextWave. Source +16/-5.
+Sole bare fast gate 151 passed vs recorded base 149, in 528.93 s (530.49 s wall) after the landing gates and live cohorts. No skips.
+Live replay pending: on the landed candidate, replay Quiet Bench qbu-a4204ec-q05 from post-r114 wave-2 DETAIL with the native planner proposing the r122/r130 CSV slice. Require the original 1.quiet-bench.1 through REVIEW, EXECUTE and fresh WAVE-VERIFY, preserving wave-1 evidence and exercising CSV export.
