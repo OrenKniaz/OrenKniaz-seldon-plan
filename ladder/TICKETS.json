@@ -80,6 +80,12 @@
       "idea": "A generic check request is enough to catch an omitted user action or a timing-dependent observation.",
       "remedy": "On fresh WORK, exercise one assigned path through its real entry point and observe its decisive state change.",
       "rule": "CHARTER C14/C26, BLUEPRINT R16"
+    },
+    {
+      "name": "Provider sessions disturb desktop",
+      "idea": "Headless provider work can inherit interactive desktop defaults.",
+      "remedy": "Provide noninteractive subprocess defaults and direct builders to headless evidence.",
+      "rule": "C20 headless provider calls"
     }
   ],
   "tickets": [
@@ -3242,6 +3248,18 @@
       "family": "Two rules disagree",
       "direction": "workerQuestionLoop.patch and report delivered. Coordinator owns review, integrated gate/landing and authorized Quiet Bench continuation; do not close until landed and validated.",
       "evidence": "Batch 3 Quiet Bench 7e54743 q01 r55 / q02 r53: WORK status summary and material gaps including exact Node 20 unavailable; COACH q01 r63/r65 and q02 r61/r63 asks original question. Replayed acknowledgements cycle WORK/COACH until coordinator/watchdog kill. Retained read-only SQLite C:/seldon/tests/m1/qbu-7e54743-q01 and q02. No missing evidence acceptance or compatibility claim. | Verified exact 7e547433ad3f0c98059993121ccb94d284a45e20. Base RED: missing full receipt in WORK→COACH. Two new golden cases 2P/13.10s and eight affected existing cases pass across focused invocations. Exact retained summary/why/discoveries flow through actual WORK and COACH with rebound owners and synthetic checks; reopen acknowledgements add no provider calls, explicit correction and a different genuine question reach C awaiting user without outcome. Exact-base patch apply/reverse, AST and diff checks pass. No broad gate or native-provider acceptance. Exact Node20 remains open."
+    },
+    {
+      "id": "T-252",
+      "title": "Provider work opens desktop editors and pages",
+      "severity": "medium",
+      "type": "code",
+      "status": "open",
+      "milestone": "M3",
+      "area": "provider sessions",
+      "family": "Provider sessions disturb desktop",
+      "direction": "quietDesktop patch delivered; lead to review, land on main and validate.",
+      "evidence": "2026-11-19 Oren reports Git Notepad and a Foundation builder opening index.html in the desktop browser. quietDesktop snapshot be5c826: 2 scripted provider journeys passed; full gate 154 passed, 6 stale prompt assertions failed in 508.22s; test-only corrections and 8 affected cases passed in 11.18s; 29 cold imports passed. Not landed or live-validated."
     }
   ]
 }
