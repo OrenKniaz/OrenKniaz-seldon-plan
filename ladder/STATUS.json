@@ -609,8 +609,8 @@
     {
       "name": "leadReceipt",
       "owner": "Codex",
-      "state": "in progress",
-      "what": "T-255. Sole Terra hello reached independent PROVE after one WORK, then WAITING after five calls (T-256, RED interpretation). Candidate patch verified; sole bare gate running."
+      "state": "delivered; review pending, native C exit missed",
+      "what": "T-255. Patch/report delivered. 166 passed in 499.30s, 32 cold imports. Sole Terra slot hello-lane-c18d719-lr01 reached PROVE after one WORK and stopped WAITING after five calls (T-256). Lead owns review and landing."
     }
   ],
   "next": [

@@ -101,3 +101,9 @@ Testing ladder: 1 run, then 5; 20 only at milestones. Terra for tests.
 - 15:03 Oren: planner semantics only, no code/tests. BLUEPRINT-LEAD v0.2 pushed. leadOwners lane (Sol) launched: Astra cuts 1-3.
 - 15:27 leadOwners LANDED (lane gate 162 + test-only fix; lead journeys 5/5). Lead rerun: leadHello6 + leadFound6.
 - 15:38 Lead rerun e2dc3f5: 0/10 C, all WAITING: builders hedged not-done receipts (prompt/schema mismatch from leadOwners), routed as blockers. leadReceipt lane (Sol) with a real Terra hello as exit evidence.
+- 15:58 POWER-OFF NOTICE (Oren, a few hours). PARKED, nothing running. RESUME HERE:
+  main = 8434139 (leadReceipt T-255 landed; Lead journeys 8/8). Lead status: the real Terra hello reaches PROVE, all checks pass, then the judge asks for RED evidence (T-256) -> WAITING.
+  NEXT 1: launch lanes/leadRed.prompt.md (Sol 6.2 medium; brief ready; base 8434139; set up the worktree as usual). Exit evidence = one real Lead hello reaching C.
+  NEXT 2: land, then the Lead batch: SELDON_MODE=lead, Terra medium, hello x5 + Foundation x5 (cohort2.sh leadHello7 lh / leadFound7 lf), 10-min watcher that kills runs over 60 calls.
+  NEXT 3: if clean -> Lead ShelfLife x5 + Quiet Bench x5; then the lean lane (Lead imports only the shared core, ~2.5-3k lines reachable; KPI = lines reachable from the Lead entry).
+  Held: Orchestrator patches trialFidelity, workerQuestionLoop, guideEvidenceScope (in work/lanes, unlanded) pending Astra cut 4 / Oren. Astra review: ladder/design-review/astra62-patterns-2026-11-19.md. Hourly cron dies with the session; recreate it on resume.
