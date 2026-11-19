@@ -1,0 +1,7 @@
+LANE csvExportProof. Queue for Terra medium. Own a targeted evidence replay of Quiet Bench q05 CSV export from the delivered candidate. Read only the q05 product snapshot, its accepted brief, and relevant proof receipts. Keep any product repair in C:/seldon/tests/csvExportProof-0. Hands-on evidence already in C:/seldon/tests/zbRound3/q05/guide-live.
+
+The literal PowerShell run/list/show/export commands work. The produced CSV contains widths 4, 7 and 10 under a 10-column header. quiet_bench/export.py:9–16 emits three record types with different widths. The delivered scripted proof used row-kind checks and accepted the output, while the independent DictReader oracle rejected it. Prove one normal CSV consumer can read the documented examples and retain all current fields, values, types and sample row counts. If this is a genuine proof miss, prefer a narrow acceptance change at the producer/consumer seam. Keep the deployed baseline unchanged in this lane and distinguish a generated product repair from a Seldon source fix.
+
+Never read .env files or C:/seldon/sealed. Temp only C:/seldon/tests/csvExportProof-0. Never edit CHARTER* or BLUEPRINT*. No push or integrated checkout writes. Report the exact readback gap, minimal fix, evidence, and whether a Seldon follow-up is warranted.
+
+Also include batch-3 q04, which reproduced the same ragged-width and false guide-recognition findings. Its PowerShell readback is C:/seldon/tests/zbRound3/q04/guide-live.

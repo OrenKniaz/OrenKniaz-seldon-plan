@@ -7,10 +7,28 @@
   "now": "M3 m3wire integrates all six lanes and the named wiring; composite64 semantic cases GREEN,25 cold imports PASS. Sole gate62P/2 test-fixture failures corrected and narrowly verified2P without re-gating; patch/report delivered uncommitted, main landing and native acceptance remain.",
   "lanes": [
     {
+      "name": "guideEvidenceScope",
+      "owner": "Codex",
+      "state": "delivered; focused scripted journeys passed, integration and native evidence pending",
+      "what": "Base 7e54743. Guide uses supplied external evidence directory for checks and local probes; focused separate and folded guide journeys 2 passed in 15.25s, scope rejection and missing-runtime unverified outcome retained. Patch/report delivered; scopeExpression owns separate checkPaths issue."
+    },
+    {
+      "name": "workerQuestionLoop",
+      "owner": "Astra / Sol 6.1 medium",
+      "state": "delivered; focused journeys passed, integration and live evidence pending",
+      "what": "T-251 on 7e54743. Full WORK receipt reaches COACH; identical answered receipt parks without native calls on acknowledgements. Two new golden cases and eight affected cases passed; patch/report delivered. Exact Node 20 and native continuation remain open."
+    },
+    {
+      "name": "trialFidelity",
+      "owner": "Codex",
+      "state": "delivered, awaiting coordinator review and live trial",
+      "what": "Base 7e54743. Batch 3 trials-off s02-s05 also missed the exact heading. Shared default and planner WORK wording guidance and focused journeys are updated; guide and judge changes retained. Updated patch/report delivered; live revalidation and landing pending."
+    },
+    {
       "name": "leadThin",
       "owner": "Codex",
-      "state": "in progress",
-      "what": "T-249 on 513de6a tree. Scripted Lead vertical slice through C and Orchestrator preservation."
+      "state": "delivered, awaiting lead review and landing",
+      "what": "T-249 on 513de6a. Scripted Lead C in one and two milestones, same-session regression repair and durable kickoff mode. Sole default gate 151P/609.16s (9.16s over target), 29 Python and 2 CommonJS cold imports. Native qualification pending."
     },
     {
       "name": "guideCommand",
@@ -581,6 +599,150 @@
   "recentRuns": [
     {
       "date": "2026-11-19",
+      "run": "qbu-7e54743-q04",
+      "commit": "7e54743",
+      "outcome": "SCRIPTED_C",
+      "furthest": "C",
+      "repairs": "1",
+      "gaps": "0",
+      "uncertain": "0",
+      "wall": "1419.622",
+      "flags": "1"
+    },
+    {
+      "date": "2026-11-19",
+      "run": "qbu-7e54743-q03",
+      "commit": "7e54743",
+      "outcome": "SCRIPTED_C",
+      "furthest": "C",
+      "repairs": "1",
+      "gaps": "0",
+      "uncertain": "0",
+      "wall": "1057.335",
+      "flags": "1"
+    },
+    {
+      "date": "2026-11-19",
+      "run": "qbu-7e54743-q05",
+      "commit": "7e54743",
+      "outcome": "SCRIPTED_C",
+      "furthest": "C",
+      "repairs": "0",
+      "gaps": "0",
+      "uncertain": "0",
+      "wall": "987.282",
+      "flags": "0"
+    },
+    {
+      "date": "2026-11-19",
+      "run": "shelflife-main-7e54743-s02",
+      "commit": "7e54743",
+      "outcome": "SCRIPTED_C",
+      "furthest": "C",
+      "repairs": "1",
+      "gaps": "1",
+      "uncertain": "0",
+      "wall": "453.299",
+      "flags": "2"
+    },
+    {
+      "date": "2026-11-19",
+      "run": "shelflife-main-7e54743-s05",
+      "commit": "7e54743",
+      "outcome": "SCRIPTED_C",
+      "furthest": "C",
+      "repairs": "1",
+      "gaps": "0",
+      "uncertain": "0",
+      "wall": "446.138",
+      "flags": "1"
+    },
+    {
+      "date": "2026-11-19",
+      "run": "shelflife-main-7e54743-s01",
+      "commit": "7e54743",
+      "outcome": "SCRIPTED_C",
+      "furthest": "C",
+      "repairs": "1",
+      "gaps": "1",
+      "uncertain": "0",
+      "wall": "435.651",
+      "flags": "2"
+    },
+    {
+      "date": "2026-11-19",
+      "run": "shelflife-main-7e54743-s04",
+      "commit": "7e54743",
+      "outcome": "SCRIPTED_C",
+      "furthest": "C",
+      "repairs": "0",
+      "gaps": "0",
+      "uncertain": "0",
+      "wall": "399.641",
+      "flags": "0"
+    },
+    {
+      "date": "2026-11-19",
+      "run": "shelflife-main-7e54743-s03",
+      "commit": "7e54743",
+      "outcome": "SCRIPTED_C",
+      "furthest": "C",
+      "repairs": "0",
+      "gaps": "0",
+      "uncertain": "0",
+      "wall": "386.928",
+      "flags": "0"
+    },
+    {
+      "date": "2026-11-19",
+      "run": "sl-r2j-513de6a-aj01",
+      "commit": "513de6a",
+      "outcome": "SCRIPTED_C",
+      "furthest": "C",
+      "repairs": "1",
+      "gaps": "1",
+      "uncertain": "0",
+      "wall": "1182.109",
+      "flags": "2"
+    },
+    {
+      "date": "2026-11-19",
+      "run": "sl-r2p-513de6a-ap02",
+      "commit": "513de6a",
+      "outcome": "SCRIPTED_C",
+      "furthest": "C",
+      "repairs": "0",
+      "gaps": "0",
+      "uncertain": "0",
+      "wall": "721.773",
+      "flags": "0"
+    },
+    {
+      "date": "2026-11-19",
+      "run": "sl-r2j-513de6a-aj02",
+      "commit": "513de6a",
+      "outcome": "SCRIPTED_C",
+      "furthest": "C",
+      "repairs": "0",
+      "gaps": "0",
+      "uncertain": "0",
+      "wall": "659.469",
+      "flags": "0"
+    },
+    {
+      "date": "2026-11-19",
+      "run": "sl-r2p-513de6a-ap01",
+      "commit": "513de6a",
+      "outcome": "SCRIPTED_C",
+      "furthest": "C",
+      "repairs": "0",
+      "gaps": "0",
+      "uncertain": "0",
+      "wall": "571.209",
+      "flags": "0"
+    },
+    {
+      "date": "2026-11-19",
       "run": "qbu-nextWave-5d6ea7c-nq01",
       "commit": "5d6ea7c",
       "outcome": "SCRIPTED_C",
@@ -614,150 +776,6 @@
       "uncertain": "0",
       "wall": "565.428",
       "flags": "0"
-    },
-    {
-      "date": "2026-11-19",
-      "run": "shelflife-main-513de6a-sb04",
-      "commit": "513de6a",
-      "outcome": "SCRIPTED_C",
-      "furthest": "C",
-      "repairs": "1",
-      "gaps": "1",
-      "uncertain": "0",
-      "wall": "554.072",
-      "flags": "2"
-    },
-    {
-      "date": "2026-11-19",
-      "run": "shelflife-main-513de6a-sb05",
-      "commit": "513de6a",
-      "outcome": "SCRIPTED_C",
-      "furthest": "C",
-      "repairs": "0",
-      "gaps": "0",
-      "uncertain": "0",
-      "wall": "518.645",
-      "flags": "0"
-    },
-    {
-      "date": "2026-11-19",
-      "run": "shelflife-main-513de6a-sb01",
-      "commit": "513de6a",
-      "outcome": "SCRIPTED_C",
-      "furthest": "C",
-      "repairs": "0",
-      "gaps": "0",
-      "uncertain": "0",
-      "wall": "414.103",
-      "flags": "0"
-    },
-    {
-      "date": "2026-11-19",
-      "run": "foundation-513de6a-fb01",
-      "commit": "513de6a",
-      "outcome": "SCRIPTED_C",
-      "furthest": "C",
-      "repairs": "0",
-      "gaps": "0",
-      "uncertain": "0",
-      "wall": "248.489",
-      "flags": "0"
-    },
-    {
-      "date": "2026-11-19",
-      "run": "foundation-513de6a-fb03",
-      "commit": "513de6a",
-      "outcome": "SCRIPTED_C",
-      "furthest": "C",
-      "repairs": "0",
-      "gaps": "0",
-      "uncertain": "0",
-      "wall": "208.332",
-      "flags": "0"
-    },
-    {
-      "date": "2026-11-19",
-      "run": "foundation-513de6a-fb02",
-      "commit": "513de6a",
-      "outcome": "SCRIPTED_C",
-      "furthest": "C",
-      "repairs": "0",
-      "gaps": "0",
-      "uncertain": "0",
-      "wall": "198.238",
-      "flags": "0"
-    },
-    {
-      "date": "2026-11-19",
-      "run": "foundation-513de6a-fb04",
-      "commit": "513de6a",
-      "outcome": "SCRIPTED_C",
-      "furthest": "C",
-      "repairs": "0",
-      "gaps": "0",
-      "uncertain": "0",
-      "wall": "187.248",
-      "flags": "0"
-    },
-    {
-      "date": "2026-11-19",
-      "run": "foundation-513de6a-fb05",
-      "commit": "513de6a",
-      "outcome": "SCRIPTED_C",
-      "furthest": "C",
-      "repairs": "0",
-      "gaps": "0",
-      "uncertain": "0",
-      "wall": "178.562",
-      "flags": "0"
-    },
-    {
-      "date": "2026-11-19",
-      "run": "qbu-a4204ec-q03",
-      "commit": "a4204ec",
-      "outcome": "SCRIPTED_C",
-      "furthest": "C",
-      "repairs": "0",
-      "gaps": "0",
-      "uncertain": "0",
-      "wall": "2285.095",
-      "flags": "0"
-    },
-    {
-      "date": "2026-11-19",
-      "run": "qbu-a4204ec-q01",
-      "commit": "a4204ec",
-      "outcome": "SCRIPTED_C",
-      "furthest": "C",
-      "repairs": "1",
-      "gaps": "0",
-      "uncertain": "0",
-      "wall": "2251.782",
-      "flags": "2"
-    },
-    {
-      "date": "2026-11-19",
-      "run": "qbu-a4204ec-q04",
-      "commit": "a4204ec",
-      "outcome": "SCRIPTED_C",
-      "furthest": "C",
-      "repairs": "3",
-      "gaps": "0",
-      "uncertain": "0",
-      "wall": "2217.343",
-      "flags": "4"
-    },
-    {
-      "date": "2026-11-19",
-      "run": "qbu-a4204ec-q05",
-      "commit": "a4204ec",
-      "outcome": "SCRIPTED_C",
-      "furthest": "C",
-      "repairs": "1",
-      "gaps": "2",
-      "uncertain": "0",
-      "wall": "1349.954",
-      "flags": "4"
     }
   ]
 }

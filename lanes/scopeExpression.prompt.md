@@ -1,0 +1,7 @@
+LANE scopeExpression. Queue after trialFidelity exits questions.py. Use Terra medium for a prompt-only repair. Own the ARCHITECT and DETAIL scope coaching in src/seldon/questions.py with one focused normal planning journey. If the correction requires changing compile-time write authority, stop at design for the lead.
+
+Batch 3 Quiet Bench q03 approved a single scope string "checks/** excluding checks/kit/**" (fresh WORK r49). The worker declared checks/page.cjs in r53, but r58 rejected it. plan.py:27–38 admits this string as a path pattern, then interprets its prose literally. The explicit path was neither authorized by the malformed pattern nor inherently invalid. The same r58 also contains separate evidence-path violations.
+
+Coach the producer to return only positive concrete repository-relative paths or simple subtree globs. Use a writable checks/quiet-bench/** example and distinguish the supplied checks/kit from the product's proof scope. Prove a planner answer authorizes the actual declared check and reaches WORK and proof without any permission expansion. Preserve legitimate spaces in path names and existing scope verification. Do not implement glob subtraction or silently broaden an admitted plan.
+
+Never read .env files or C:/seldon/sealed. Temp only C:/seldon/tests/scopeExpression-0. Never edit CHARTER* or BLUEPRINT*. No push or integrated checkout writes. Deliver a focused patch and traceable report.

@@ -1,10 +1,8 @@
 # Seldon coordinator status
-2026-11-19 12:26:35 +02:00
-Running: none. Batch 2, both A/B cohorts, the isolated nextWave replay and all five fault lanes have exited.
-READY TO PUSH: 649a90b 513de6a
-Landing proof: bare gates 145/145 and 149/149, cold imports 28/28 each. Main working tree clean.
-Batch 2: 10/10 scripted C, 11 recovery rows and 3 ARCHITECT refusals. Zero-bug bar remains open.
-A/B: Foundation 35/35 both arms. ShelfLife 195/0/5 to 177/18/5, median longest line 3467 to 602. Nine B outcomes lacked complete guide proof. Trials default off.
-Replay: isolated nextWave 5d6ea7c consumed the first native wave-2 reply, reached scripted C with 0 recoveries. Independent oracle 8/1/5.
-Fault lanes: nextWave 144/144, detailOwner 151/151, firstPathProof 150/150, guideCommand 151/151. browserProof has a focused pass after a full-gate test timeout.
-NEEDS-LEAD: review the two local trial commits and the fault patches before integration and the next five-run micro reruns. Codex primary available 21%.
+2026-11-19 13:36:00 +02:00
+READY TO PUSH: c59c3681a8a9 274f11288a43 ef2341f66bc8 d47ad9d78660 7e547433ad3f
+No push. Bare gate 155 passed, plus the one reported five-wave case passed on focused rerun after a test-only correction. Cold imports 28/28.
+Batch 3: 8/10 scripted C, 3 fault records, 8 recovery rows, 0 refusals, 2 stalled workers. Zero-bug failed.
+Finished isolated patches: trialFidelity, workerQuestionLoop, guideEvidenceScope. Queued briefs: scopeExpression, csvExportProof.
+Primary 18%. The integration checkout gained separately staged changes after both cohorts exited.
+NEEDS-LEAD: coordinate review and landing of the follow-up patches, replay the live worker loop and exact labels, and establish Node 20, Stop bound and CSV readback.

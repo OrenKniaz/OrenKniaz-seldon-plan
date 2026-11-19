@@ -3216,8 +3216,32 @@
       "milestone": "Lead micro",
       "area": "src/seldon/lead.py and shared entry points",
       "family": "Built for small dreams",
-      "direction": "leadThin owns the scripted Lead vertical slice. Live provider qualification and full Lead design are outside this lane.",
-      "evidence": "2026-11-19 Lead charter v1.1 and lane assignment. Acceptance: default gate, cold imports, scripted C and cumulative regression repair, durable mode and B before build. Lane snapshot 9bc4d93 tree ba116fc84ad2f565e800853f5b9be070bf8cc8fb matches the recorded 513de6a tree."
+      "direction": "leadThin.patch and leadThin-report.md delivered. Lead owns review and landing. Qualify native provider use and remaining design work in lane 2.",
+      "evidence": "2026-11-19 Lead charter v1.1 and lane assignment. Acceptance: default gate, cold imports, scripted C and cumulative regression repair, durable mode and B before build. Lane snapshot 9bc4d93 tree ba116fc84ad2f565e800853f5b9be070bf8cc8fb matches the recorded 513de6a tree. | Two focused scripted C journeys (110.78s) prove one builder per milestone, B before writes, recorded mode after reopening, and same-session repair after a prior-promise regression and weakened builder test. 96 default Orchestrator prompt/instruction pairs identical, 29 Python + 2 CommonJS cold imports. Source +490/-14. Patch verified on 513de6a Git blobs. Sole default gate 151P in 609.16s (611.17s wall) vs 149 base. Fast-gate target exceeded by 9.16s; runtime cause unisolated. Log C:/seldon/tests/leadThin-1/gate.log. Live provider behavior and main landing remain pending."
+    },
+    {
+      "id": "T-250",
+      "title": "Scale report crashes on a receipt interrupted by the fixture kill",
+      "severity": "medium",
+      "type": "code",
+      "status": "open",
+      "milestone": "M3",
+      "area": "tests/seldon/run_report.py",
+      "family": "Rig gives false signals",
+      "direction": "Report unreadable optional usage as unknown in the scale journey keep its C and usage semantics. Lead integration owns landing.",
+      "evidence": "2026-11-19 integ-2 sole gate 155P/1F in 764.12s. Canonical scale-five run is SCRIPTED_C after resume. The test-only report crashed at run_report.py:89 reading an empty result.json left by the kill. Exact receipt: C:/seldon/tests/integ-2-1/pytest/popen-gw2/test_scale_five_wave_golden0/scale-five/calls/call-7e769230f3224e9b9c6eae8c8fbaaedc/result.json. Gate log C:/seldon/tests/integ-2-1/gate.log."
+    },
+    {
+      "id": "T-251",
+      "title": "WORK question loses material blockers and loops after acknowledgements",
+      "severity": "high",
+      "type": "code",
+      "status": "in_progress",
+      "milestone": "M3",
+      "area": "units.py WORK to decisions.py COACH recovery",
+      "family": "Two rules disagree",
+      "direction": "workerQuestionLoop.patch and report delivered. Coordinator owns review, integrated gate/landing and authorized Quiet Bench continuation; do not close until landed and validated.",
+      "evidence": "Batch 3 Quiet Bench 7e54743 q01 r55 / q02 r53: WORK status summary and material gaps including exact Node 20 unavailable; COACH q01 r63/r65 and q02 r61/r63 asks original question. Replayed acknowledgements cycle WORK/COACH until coordinator/watchdog kill. Retained read-only SQLite C:/seldon/tests/m1/qbu-7e54743-q01 and q02. No missing evidence acceptance or compatibility claim. | Verified exact 7e547433ad3f0c98059993121ccb94d284a45e20. Base RED: missing full receipt in WORK→COACH. Two new golden cases 2P/13.10s and eight affected existing cases pass across focused invocations. Exact retained summary/why/discoveries flow through actual WORK and COACH with rebound owners and synthetic checks; reopen acknowledgements add no provider calls, explicit correction and a different genuine question reach C awaiting user without outcome. Exact-base patch apply/reverse, AST and diff checks pass. No broad gate or native-provider acceptance. Exact Node20 remains open."
     }
   ]
 }
