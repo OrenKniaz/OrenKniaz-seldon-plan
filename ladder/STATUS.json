@@ -7,16 +7,22 @@
   "now": "M3 m3wire integrates all six lanes and the named wiring; composite64 semantic cases GREEN,25 cold imports PASS. Sole gate62P/2 test-fixture failures corrected and narrowly verified2P without re-gating; patch/report delivered uncommitted, main landing and native acceptance remain.",
   "lanes": [
     {
+      "name": "nextWave",
+      "owner": "Codex",
+      "state": "delivered, awaiting lead review and landing",
+      "what": "T-245 patch/report on launch 6292eff. Exact empty-list base RED and scripted wave 2 DETAIL GREEN with completed proof retained. Sole bare gate 144P/487.98s, 28 cold imports. T-246 separate DETAIL writer brief. Authorized Quiet Bench first-reply test pending."
+    },
+    {
       "name": "browserProof",
       "owner": "Codex",
-      "state": "in progress",
-      "what": "T-243 on a4204ec. Helper deadline diagnosis, local browser proof and serialized gate."
+      "state": "delivered, awaiting lead review and landing",
+      "what": "T-243 on a4204ec. Real Edge journey RED/GREEN; one full gate 143P/1 fixture timeout, focused test-only repair passed in 37.15s. Quiet Bench pending operation remains unproven."
     },
     {
       "name": "plannerBrief",
       "owner": "Codex",
-      "state": "in progress",
-      "what": "T-242 on 26387be. Trial of planner-authored assignments through DETAIL and WORK; verify byte-identical controls and retained stores."
+      "state": "delivered, awaiting lead review and landing",
+      "what": "T-242 on 26387be (a4204ec tree before codeShape). Patch applies after codeShape. Four plannerBrief journeys to scripted C, 60 byte comparisons, 28 cold imports. Sole gate 146P/1F in 822.38 s; T-244 test-only correction 2P, combined targeted journeys 6P. Native readability trial pending."
     },
     {
       "name": "codeShape",
@@ -557,6 +563,42 @@
   "recentRuns": [
     {
       "date": "2026-11-19",
+      "run": "qbu-a4204ec-q03",
+      "commit": "a4204ec",
+      "outcome": "SCRIPTED_C",
+      "furthest": "C",
+      "repairs": "0",
+      "gaps": "0",
+      "uncertain": "0",
+      "wall": "2285.095",
+      "flags": "0"
+    },
+    {
+      "date": "2026-11-19",
+      "run": "qbu-a4204ec-q01",
+      "commit": "a4204ec",
+      "outcome": "SCRIPTED_C",
+      "furthest": "C",
+      "repairs": "1",
+      "gaps": "0",
+      "uncertain": "0",
+      "wall": "2251.782",
+      "flags": "2"
+    },
+    {
+      "date": "2026-11-19",
+      "run": "qbu-a4204ec-q04",
+      "commit": "a4204ec",
+      "outcome": "SCRIPTED_C",
+      "furthest": "C",
+      "repairs": "3",
+      "gaps": "0",
+      "uncertain": "0",
+      "wall": "2217.343",
+      "flags": "4"
+    },
+    {
+      "date": "2026-11-19",
       "run": "qbu-a4204ec-q05",
       "commit": "a4204ec",
       "outcome": "SCRIPTED_C",
@@ -697,42 +739,6 @@
       "gaps": "0",
       "uncertain": "0",
       "wall": "166.630",
-      "flags": "0"
-    },
-    {
-      "date": "2026-11-19",
-      "run": "hello-a4204ec-h04",
-      "commit": "a4204ec",
-      "outcome": "SCRIPTED_C",
-      "furthest": "C",
-      "repairs": "0",
-      "gaps": "0",
-      "uncertain": "0",
-      "wall": "96.469",
-      "flags": "0"
-    },
-    {
-      "date": "2026-11-19",
-      "run": "hello-a4204ec-h03",
-      "commit": "a4204ec",
-      "outcome": "SCRIPTED_C",
-      "furthest": "C",
-      "repairs": "0",
-      "gaps": "0",
-      "uncertain": "0",
-      "wall": "94.313",
-      "flags": "0"
-    },
-    {
-      "date": "2026-11-19",
-      "run": "hello-a4204ec-h01",
-      "commit": "a4204ec",
-      "outcome": "SCRIPTED_C",
-      "furthest": "C",
-      "repairs": "0",
-      "gaps": "0",
-      "uncertain": "0",
-      "wall": "92.168",
       "flags": "0"
     }
   ]
