@@ -3246,8 +3246,8 @@
       "milestone": "M3",
       "area": "units.py WORK to decisions.py COACH recovery",
       "family": "Two rules disagree",
-      "direction": "workerQuestionLoop.patch and report delivered. Coordinator owns review, integrated gate/landing and authorized Quiet Bench continuation; do not close until landed and validated.",
-      "evidence": "Batch 3 Quiet Bench 7e54743 q01 r55 / q02 r53: WORK status summary and material gaps including exact Node 20 unavailable; COACH q01 r63/r65 and q02 r61/r63 asks original question. Replayed acknowledgements cycle WORK/COACH until coordinator/watchdog kill. Retained read-only SQLite C:/seldon/tests/m1/qbu-7e54743-q01 and q02. No missing evidence acceptance or compatibility claim. | Verified exact 7e547433ad3f0c98059993121ccb94d284a45e20. Base RED: missing full receipt in WORK→COACH. Two new golden cases 2P/13.10s and eight affected existing cases pass across focused invocations. Exact retained summary/why/discoveries flow through actual WORK and COACH with rebound owners and synthetic checks; reopen acknowledgements add no provider calls, explicit correction and a different genuine question reach C awaiting user without outcome. Exact-base patch apply/reverse, AST and diff checks pass. No broad gate or native-provider acceptance. Exact Node20 remains open."
+      "direction": "Retain workerQuestionLoop behavior; same root on real paraphrased receipts. workerQuestionLoopR3 owns disjoint units/decisions. Determine typed boundary before editing shared paths.",
+      "evidence": "Batch 3 Quiet Bench 7e54743 q01 r55 / q02 r53: WORK status summary and material gaps including exact Node 20 unavailable; COACH q01 r63/r65 and q02 r61/r63 asks original question. Replayed acknowledgements cycle WORK/COACH until coordinator/watchdog kill. Retained read-only SQLite C:/seldon/tests/m1/qbu-7e54743-q01 and q02. No missing evidence acceptance or compatibility claim. | Verified exact 7e547433ad3f0c98059993121ccb94d284a45e20. Base RED: missing full receipt in WORK→COACH. Two new golden cases 2P/13.10s and eight affected existing cases pass across focused invocations. Exact retained summary/why/discoveries flow through actual WORK and COACH with rebound owners and synthetic checks; reopen acknowledgements add no provider calls, explicit correction and a different genuine question reach C awaiting user without outcome. Exact-base patch apply/reverse, AST and diff checks pass. No broad gate or native-provider acceptance. Exact Node20 remains open. | gl01 qbu-54c774c-gl01 on T-259/T-261 wave 3 repeats status-only WORK outcome question and COACH asks user for a missing exact question; actual reports r221,r242,r263,r284,r319,r340,r361,r382 vary. Watchdog stopped tenth WORK. Reported unchanged input was unavailable exact Node 20. Old exact comparison alone does not cover this analogue. Native wl01 exact runtime f09d488aaa51 reached C in 13 Terra medium calls, two WORK done, zero COACH."
     },
     {
       "id": "T-252",
@@ -3367,7 +3367,67 @@
       "area": "C verification flag and guide observation account",
       "family": "Judge asked beyond its view",
       "direction": "explicitGuideLimits proves candidate-bound step unavailability reaches C summary and flag. No approval/eligibility rule change.",
-      "evidence": "qbu-8434139-od01-11201152 runtime 5b2623e165df, candidate f35ef50a. r265 Node 20 guide step observed=false (installed v25.8.0), r271 judge nit, r325 verification_complete=true and notJudged={}. T-248 golden used explicit judge uncertainty."
+      "evidence": "qbu-8434139-od01-11201152 runtime 5b2623e165df, candidate f35ef50a. r265 Node 20 guide step observed=false (installed v25.8.0), r271 judge nit, r325 verification_complete=true and notJudged={}. T-248 golden used explicit judge uncertainty. Native wl01 exact runtime f09d488aaa51 r212 reached C with verification_complete=false and named Node 20 page check (not observed). Earlier own gl01 native stalled due T-251."
+    },
+    {
+      "id": "T-262",
+      "title": "Lead repeats an identical witness execution for every covered promise",
+      "severity": "medium",
+      "type": "design",
+      "status": "open",
+      "milestone": "Lead micro",
+      "area": "Lead proof runner",
+      "family": "Code grows, cleanup later",
+      "direction": "Observe one physical execution for a shared command at each exact product/overlay and phase, retain all promise-specific check identities and evidence bindings. Queue behind current serialized owner surfaces.",
+      "evidence": "12:51 ShelfLife 54c774c live receipt grouping by exact executed commit, purpose, argv, witness-path set and walkthrough kind: ls01 24 repeated observations/413.4s, ls02 30/423.5s, ls03 24/523.0s, ls04 30/197.9s, ls05 30/459.1s. Same draft can satisfy several promises only once. No provider watchdog threshold exceeded."
+    },
+    {
+      "id": "T-263",
+      "title": "Wave-2 DETAIL repair leaves one requirement with two owners",
+      "severity": "high",
+      "type": "code",
+      "status": "in_progress",
+      "milestone": "Orchestrator micro",
+      "area": "DETAIL/plan canonical continuation",
+      "family": "Two rules disagree",
+      "direction": "Same orchDerived owner reconstructs canonical revision sequence and fixes the smallest T-259/retained ownership cause. Do not drop genuine conflict checking.",
+      "evidence": "qbu-54c774c-se01 (T-259 plus T-247), r133 rejects guide-only scope, r138 scope-less proposal, r172 explicit docs-only scope, r184/r185 WAITING with both 1.quiet-bench.1 and 2.quiet-bench.1 owning 2.quiet-bench.requirement2. Initial od01 reached C. r58 out-of-scope evidence independently supports held guideEvidenceScope."
+    },
+    {
+      "id": "T-264",
+      "title": "CHECK-IN waiver option is available to code but hidden from the decision display",
+      "severity": "medium",
+      "type": "design",
+      "status": "open",
+      "milestone": "Orchestrator micro",
+      "area": "CHECK-IN choice explanation",
+      "family": "Two rules disagree",
+      "direction": "Queue behind the current decision owner. Align Code's offered continue-and-waive choice with the displayed options and semantics; prove it does not steer extra work or waive genuine scope changes.",
+      "evidence": "qbu-54c774c-gl01 r180 receives Go on and do not stop again and displayed options approve/ask for changes/stop. Its schema internally allows Waive. r184 returns Other explicitly because approve does not include the additional instruction. r186 records a direct revise and drives wave 3 despite the continuation/waiver request."
+    },
+    {
+      "id": "T-265",
+      "title": "Lead parks verification on a builder-chosen shutdown method",
+      "severity": "high",
+      "type": "design",
+      "status": "in_progress",
+      "milestone": "Lead micro",
+      "area": "Lead guide walkthrough and owner routing",
+      "family": "Blame lands on wrong owner",
+      "direction": "leadGuideMethod (same Terra T-258 owner) distinguishes an optional builder method from scope-bound evidence and keeps actual cleanup proof.",
+      "evidence": "Lead ShelfLife ls04 on 54c774c, r220 judge agrees import, page actions, API commands and restart were exercised. Both documented Ctrl+C attempts were accepted by isolated console but did not stop server; runner cleanup terminated it. Exact Ctrl+C was introduced by builder guide, not part of the original written brief. r222/r223 routes Seldon-owned PROVE question asking whether interactive Ctrl+C works; ends WAITING. Related T-258. Terra lane +12/-2 src, 2+2 affected scripted cases pass, own native gm01 underway."
+    },
+    {
+      "id": "T-266",
+      "title": "Proof misses a malformed WAV error that publishes a session",
+      "severity": "high",
+      "type": "design",
+      "status": "open",
+      "milestone": "Orchestrator micro",
+      "area": "Worker negative-path proof and saved-session integrity",
+      "family": "First-pass proof misses the user boundary",
+      "direction": "One lane after overlapping judge/work owners clear. Preserve the good import and ask for rejection evidence that includes the observable storage state. Prove the isolated invalid CLI input leaves the catalog and files unchanged.",
+      "evidence": "Native wl01 f58a231e2baf8d4585cc0f8498c92821ae46e3f0 returns exit 1 for malformed WAV but leaves a new stopped session at zero samples. Direct tool-independent replay in isolated storage at C:/seldon/tests/coord3-20261120/workerLoopR3Real/wl01/invalid-wav-direct.json. core.run catches a source decoding error, saves stopped, then rethrows. Product C was scripted with separate guide verification incomplete."
     }
   ]
 }
