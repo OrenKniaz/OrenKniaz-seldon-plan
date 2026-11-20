@@ -108,3 +108,4 @@ Testing ladder: 1 run, then 5; 20 only at milestones. Terra for tests.
   NEXT 3: if clean -> Lead ShelfLife x5 + Quiet Bench x5; then the lean lane (Lead imports only the shared core, ~2.5-3k lines reachable; KPI = lines reachable from the Lead entry).
   Held: Orchestrator patches trialFidelity, workerQuestionLoop, guideEvidenceScope (in work/lanes, unlanded) pending Astra cut 4 / Oren. Astra review: ladder/design-review/astra62-patterns-2026-11-19.md. Hourly cron dies with the session; recreate it on resume.
 - 23:18 resumed after power-off window (no reboot). leadRed lane launched on 8434139.
+- 11-20 11:10 new CC session. AMBITION.md written (Oren: push the envelope, usage into Codex). coord3 launched (10h): finish leadRed, Lead micro ladder, lean Lead, Orchestrator cut 4, replay economy; may push green landings.

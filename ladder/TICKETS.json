@@ -3302,11 +3302,11 @@
       "title": "Lead judge requires faulty existing code for RED on a new CLI",
       "severity": "high",
       "type": "design",
-      "status": "open",
+      "status": "in_progress",
       "milestone": "Lead micro",
       "area": "Lead RED interpretation at independent judgment",
       "family": "Judge asked beyond its view",
-      "direction": "Lead owns the next design review. Use honest baseline evidence to distinguish absent promised behavior from unrelated check failure. Retain semantic RED judgment for existing behavior; replay r56 and confirm on a separately authorized new-build hello.",
+      "direction": "leadRed owns the runner-to-judge proof and Builder routing repair on 8434139. Replay r56, exercise weak-check repair, and run one authorized Terra hello through C.",
       "evidence": "C:/seldon/tests/m1/hello-lane-c18d719-lr01 (Terra medium, candidate runtime 195f08f5967f). Seldon observed r43-r47 exit 0 on candidate and r48-r51 RED without hello.py. Judge r56 accepted absent CLI as RED for greeting and withheld usage/error findings because the base had no existing CLI to exhibit wrong usage behavior. r58 Seldon-owned proof failure and r59 pending request; final WAITING at PROVE after five calls. Related T-255, T-253 and T-254."
     }
   ]

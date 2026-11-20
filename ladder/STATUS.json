@@ -611,6 +611,12 @@
       "owner": "Codex",
       "state": "delivered; review pending, native C exit missed",
       "what": "T-255. Patch/report delivered. 166 passed in 499.30s, 32 cold imports. Sole Terra slot hello-lane-c18d719-lr01 reached PROVE after one WORK and stopped WAITING after five calls (T-256). Lead owns review and landing."
+    },
+    {
+      "name": "leadRed",
+      "owner": "Codex",
+      "state": "Terra exit passed; full gate running",
+      "what": "T-256. Sole Terra slot hello-lane-33046e1-red01 finished SCRIPTED_C in five calls, one WORK, owner acceptance false. All five candidate checks passed; two isolated error checks also passed on the base. Sole bare gate next."
     }
   ],
   "next": [
@@ -621,6 +627,18 @@
   ],
   "decisionsForOren": [],
   "recentRuns": [
+    {
+      "date": "2026-11-19",
+      "run": "hello-lane-33046e1-red01",
+      "commit": "33046e1",
+      "outcome": "SCRIPTED_C",
+      "furthest": "C",
+      "repairs": "0",
+      "gaps": "0",
+      "uncertain": "0",
+      "wall": "151.379",
+      "flags": "0"
+    },
     {
       "date": "2026-11-19",
       "run": "hello-lane-c18d719-lr01",
@@ -787,18 +805,6 @@
       "gaps": "0",
       "uncertain": "0",
       "wall": "359.542",
-      "flags": "1"
-    },
-    {
-      "date": "2026-11-19",
-      "run": "hello-1531a71-lh01-11191349",
-      "commit": "1531a71",
-      "outcome": "SCRIPTED_C",
-      "furthest": "C",
-      "repairs": "0",
-      "gaps": "1",
-      "uncertain": "0",
-      "wall": "139.036",
       "flags": "1"
     }
   ]
