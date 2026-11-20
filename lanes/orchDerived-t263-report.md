@@ -1,0 +1,6 @@
+TRIAGE: BUG — se01 r138 put draft requirement2 on the existing writer. r172 reused that position for a disjoint writer while rev5 retained the draft link. r175/r184 then rejected two owners.
+The 8434139 compiler reproduced the same duplicate with r138's equivalent explicit paths. Exact r138 without paths requires T-259. The original reviewed patch is preserved.
+Source +32/-1 over T-259. DETAIL replaces only replanned, unexecuted wave requirements and retires abandoned draft writers and their links. It presents the canonical walkthrough owner and reserved paths in both renderers.
+Exact r172 and inverse archived compiler replays preserve wave-1 trace and one owner. The exact r172 explicit disjoint scope remains a new writer. The inverse drops its abandoned writer.
+The golden went RED at the duplicated requirement in 22.04s. The final golden reached scripted C with original B, owner paths, prior trace, one draft requirement owner, and the independently planned writer. Final focused cases 3/3 in 64.54s, including the real overlap refusal. Neighboring cases previously passed 14/14 in 426.07s.
+Patch applies to saved T-259 and reverses current. Native Terra owner reuse and scripted C remain pending coordinator verification.

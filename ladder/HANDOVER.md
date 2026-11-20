@@ -130,3 +130,11 @@ Testing ladder: 1 run, then 5; 20 only at milestones. Terra for tests.
 - 2026-11-20 12:36:00 +02:00 coordinator 3: ShelfLife ten-minute check, no alarms. Stop and guide native exits building on separate trees. Plain QB current oracle 9/1/4; new matched plain Terra ShelfLife control started.
 - 2026-11-20 12:43:45 +02:00 coordinator 3: Plain matched ShelfLife complete, raw oracle 35/4/1 with favicon and DB cleanup defects. Live cohorts under call alarms; T-247 first check done.
 - 2026-11-20 12:45:30 +02:00 coordinator 3: ShelfLife twenty-minute check, all five still building/proving below alarms. Runtime lane in wave 3, Stop lane wave 1. Primary 12%.
+- 13:25 census-lead-1: Lead hello 5/5 + Foundation 5/5 C verified, Foundation oracle 35/35; every run 1 recovery; Foundation 13-30 min wall vs ~3 min Orchestrator. Notes appended to coord3.prompt.md for the next round.
+- 2026-11-20 12:54:49 +02:00 coordinator 3: T-247 stopped WAITING at a distinct reproducible wave-2 DETAIL duplicate-owner fault, T-263 returned to orchDerived. The same slot reproduced held external evidence-path fault.
+- 2026-11-20 13:06:40 +02:00 coordinator 3: ShelfLife forty-minute check (one C, four active under limits). Cut-four held dispositions recorded. T-251/T-263 repair cross-lane blockers. Primary 11%.
+- 2026-11-20 13:10:15 +02:00 coordinator 3: T-263 same-owner focused 3/3 after stale draft cleanup, exact native documents recompiled with one owner. Its Terra exit started. Golden ownership transferred to T-251.
+- 2026-11-20 13:16:24 +02:00 coordinator 3: T-251 durable ASKED worker loop repair 5/5 affected + two retained, T-261 observation form targeted passed. T-251 native Quiet Bench launched. ShelfLife 50-minute check: one C, one WAITING, three active.
+- 2026-11-20 13:27:24 +02:00 coordinator 3: ShelfLife 60-minute check: two C, one WAITING, two active. T-251 reaches wave 2 within limits, T-263 wave 1. Primary 10%.
+- 2026-11-20 13:34:56 +02:00 coordinator 3: ShelfLife final 4/5 C, one T-265 WAITING. T-251/T-261 native C in 13 Terra calls with explicit Node 20 incomplete verification. Lead Quiet Bench x5 started.
+- 2026-11-20 13:40:09 +02:00 coordinator 3: ShelfLife independent delivered oracle 148/8/4, cost misses plain bar. T-265 Terra started. Lead Quiet and T-263 monitored with no alarms.

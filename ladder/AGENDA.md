@@ -9,6 +9,12 @@ Rules for every loop: launch what is decided in the same turn; every real run ge
 3. Re-run the micro ladder (hello, Foundation, ShelfLife, Quiet Bench) with new prompts; oracle + hands-on review; paired with plain.
 
 ## Next
+**Round 3 held patches after cut four**
+
+- Drop the original bundled trialFidelity.patch from the landing queue. Cut four supplies the accepted constraint values to WORK and JUDGE from canonical records. Its old request for DETAIL to copy them into prose would restore the echo. Retain the raw-label and browser observations as evidence for any remaining genuine product gap.
+- Supersede workerQuestionLoop's receipt-equality guard with typed questions and full receipt delivery. gl01 repeated the same unavailable input with different summaries, so the old guard alone would miss this run.
+- Retain guideEvidenceScope. se01 r58 reproduced writes in a product-local evidence directory. Cut four and T-261 own other boundaries. Rebase it and verify a real worker uses the supplied external directory before landing.
+
 3c. **Code-quality severity:** with judgeEvidence on, the Terra judge found the golfed source in Quiet Bench but filed it as a NIT (no fix round), and passed ShelfLife's one-line web/app.js as satisfied. Coach the code-quality rubric: code a maintainer would struggle to change safely (compressed multi-statement lines hiding logic, one-line pages) is must-fix; style preferences are nits. Then re-run ShelfLife + Quiet Bench with judgeEvidence and compare readability by hand.
 3b. **Evidence lane (before any judge-model change):** make the judge's packet contain the answer: browser console errors and failed requests captured in observations; a real Stop/progress observation on runs; resource cleanup (open file/DB handles) observed after the walkthrough; a code-quality subject with the actual source excerpt and a rubric (readable, changeable). Then re-run the judge cases (Terra) and re-grade blind.
 4. 5-run micro cohort: "happy" = 4/5 autonomous C, quality >= plain (oracle AND hands-on), time/cost <= 2x plain.

@@ -4,7 +4,7 @@
   "main": "54c774c",
   "docs": "charter v1.8, blueprint v1.15, Lead charter v1.1, Lead blueprint v0.2",
   "milestone": "Lead micro ladder, round 3",
-  "now": "T-256/T-258 pushed at 54c774c. Native combined Lead hello reached scripted C. First five-run Lead hello census is in progress.",
+  "now": "Lead ShelfLife ended 4/5 scripted C after a guide-method pause. Lead Quiet Bench x5 is running. T-251/T-261 combined native exit reached C with Node 20 explicitly unverified.",
   "lanes": [
     {
       "name": "leadOwners",
@@ -639,24 +639,121 @@
     {
       "name": "explicitGuideLimits",
       "owner": "Codex Sol 6.2 medium",
-      "state": "in progress",
+      "state": "native exit alarm; held behind T-251",
       "what": "T-261. Orchestrator exact proof limitation stays visible at C even if the judge summarizes supported steps favorably."
     },
     {
       "name": "stopPathEvidence",
       "owner": "Codex Terra 6.1 medium",
-      "state": "in progress",
+      "state": "native wave-1 Stop bound proved; C paused on T-263",
       "what": "T-247 follow-up. Actual Stop bound proof in Orchestrator WORK and JUDGE. Proof-truth lane T-261 owns other files."
+    },
+    {
+      "name": "workerQuestionLoopR3",
+      "owner": "Codex Sol 6.2 medium",
+      "state": "in progress; source scope units and decisions",
+      "what": "T-251 actual tenth WORK alarm with paraphrased status-only receipts. T-263 owns shared planning and golden files first."
+    },
+    {
+      "name": "leadGuideMethod",
+      "owner": "Codex Terra 6.1 medium",
+      "state": "in progress",
+      "what": "T-265 Lead builder-authored shutdown route. Exact ls04 evidence; native ShelfLife exit required."
     }
   ],
   "next": [
-    "Review/land T-117 arch-review.patch; then authorized M2 canonical Foundation x10 (exit 8 of 10, P4 on one named commit).",
-    "First ShelfLife attempt and the plain-agent fight on the same oracle (P5); M2 exit needs ShelfLife C in 3 of 5 scoring at least the plain agent.",
-    "T-94: Seldon builds its own Prime Radiant page from the mock.",
-    "Simplify detail.step (T-110); fixtures out of the journey file (T-101); FLOW prompt location (T-103)."
+    "Finish Lead ShelfLife x5 census and compare the actual products, then Lead Quiet Bench x5 on the same source.",
+    "Continue T-263 (orchDerived) and T-251 (workerQuestionLoopR3) in disjoint worktrees; verify real exits. Carry T-261 exact runtime bounds and T-247 Stop witness without claiming the incomplete C paths.",
+    "Qualify retained guideEvidenceScope against the actual out-of-scope failure. Land on the canonical one-gate path, then five-slot Orchestrator Quiet Bench.",
+    "Lean Lead gets the next eligible Terra owner after shared source paths are released. T-262 records duplicate shared witness work.",
+    "T-260 offline corpus and supplied A/B schema comparison are ready to land when the main tree is free."
   ],
   "decisionsForOren": [],
   "recentRuns": [
+    {
+      "date": "2026-11-20",
+      "run": "shelflife-main-54c774c-ls01",
+      "commit": "54c774c",
+      "outcome": "SCRIPTED_C",
+      "furthest": "C",
+      "repairs": "5",
+      "gaps": "0",
+      "uncertain": "0",
+      "wall": "4084.239",
+      "flags": "5"
+    },
+    {
+      "date": "2026-11-20",
+      "run": "qbu-54c774c-wl01",
+      "commit": "54c774c",
+      "outcome": "SCRIPTED_C",
+      "furthest": "C",
+      "repairs": "0",
+      "gaps": "0",
+      "uncertain": "0",
+      "wall": "1011.950",
+      "flags": "0"
+    },
+    {
+      "date": "2026-11-20",
+      "run": "shelflife-main-54c774c-ls03",
+      "commit": "54c774c",
+      "outcome": "SCRIPTED_C",
+      "furthest": "C",
+      "repairs": "4",
+      "gaps": "0",
+      "uncertain": "0",
+      "wall": "4021.305",
+      "flags": "4"
+    },
+    {
+      "date": "2026-11-20",
+      "run": "shelflife-main-54c774c-ls02",
+      "commit": "54c774c",
+      "outcome": "SCRIPTED_C",
+      "furthest": "C",
+      "repairs": "5",
+      "gaps": "0",
+      "uncertain": "0",
+      "wall": "3548.773",
+      "flags": "5"
+    },
+    {
+      "date": "2026-11-20",
+      "run": "shelflife-main-54c774c-ls04",
+      "commit": "54c774c",
+      "outcome": "PROVE",
+      "furthest": "BUILD",
+      "repairs": "4",
+      "gaps": "3",
+      "uncertain": "0",
+      "wall": "2552.715",
+      "flags": "8"
+    },
+    {
+      "date": "2026-11-20",
+      "run": "shelflife-main-54c774c-ls05",
+      "commit": "54c774c",
+      "outcome": "SCRIPTED_C",
+      "furthest": "C",
+      "repairs": "3",
+      "gaps": "0",
+      "uncertain": "0",
+      "wall": "2352.481",
+      "flags": "3"
+    },
+    {
+      "date": "2026-11-20",
+      "run": "qbu-54c774c-se01",
+      "commit": "54c774c",
+      "outcome": "DETAIL",
+      "furthest": "ARCHITECT",
+      "repairs": "2",
+      "gaps": "1",
+      "uncertain": "0",
+      "wall": "1116.080",
+      "flags": "5"
+    },
     {
       "date": "2026-11-20",
       "run": "foundation-54c774c-lf05",
@@ -752,90 +849,6 @@
       "uncertain": "0",
       "wall": "212.871",
       "flags": "2"
-    },
-    {
-      "date": "2026-11-20",
-      "run": "hello-54c774c-lh03",
-      "commit": "54c774c",
-      "outcome": "SCRIPTED_C",
-      "furthest": "C",
-      "repairs": "1",
-      "gaps": "0",
-      "uncertain": "0",
-      "wall": "176.515",
-      "flags": "1"
-    },
-    {
-      "date": "2026-11-20",
-      "run": "hello-54c774c-lh04",
-      "commit": "54c774c",
-      "outcome": "SCRIPTED_C",
-      "furthest": "C",
-      "repairs": "1",
-      "gaps": "0",
-      "uncertain": "0",
-      "wall": "175.615",
-      "flags": "1"
-    },
-    {
-      "date": "2026-11-20",
-      "run": "hello-54c774c-lh05",
-      "commit": "54c774c",
-      "outcome": "SCRIPTED_C",
-      "furthest": "C",
-      "repairs": "1",
-      "gaps": "0",
-      "uncertain": "0",
-      "wall": "150.475",
-      "flags": "1"
-    },
-    {
-      "date": "2026-11-20",
-      "run": "hello-lane-8434139-lg01",
-      "commit": "8434139",
-      "outcome": "SCRIPTED_C",
-      "furthest": "C",
-      "repairs": "1",
-      "gaps": "0",
-      "uncertain": "0",
-      "wall": "157.989",
-      "flags": "1"
-    },
-    {
-      "date": "2026-11-20",
-      "run": "hello-lane-33046e1-red01-11201120",
-      "commit": "33046e1",
-      "outcome": "PROVE",
-      "furthest": "BUILD",
-      "repairs": "0",
-      "gaps": "0",
-      "uncertain": "0",
-      "wall": "101.610",
-      "flags": "1"
-    },
-    {
-      "date": "2026-11-19",
-      "run": "hello-lane-33046e1-red01",
-      "commit": "33046e1",
-      "outcome": "SCRIPTED_C",
-      "furthest": "C",
-      "repairs": "0",
-      "gaps": "0",
-      "uncertain": "0",
-      "wall": "151.379",
-      "flags": "0"
-    },
-    {
-      "date": "2026-11-19",
-      "run": "hello-lane-c18d719-lr01",
-      "commit": "c18d719",
-      "outcome": "PROVE",
-      "furthest": "BUILD",
-      "repairs": "0",
-      "gaps": "0",
-      "uncertain": "0",
-      "wall": "96.022",
-      "flags": "1"
     }
   ]
 }
