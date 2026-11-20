@@ -3283,7 +3283,7 @@
       "area": "Lead plan, recovery and shared proof judgment",
       "family": "Blame lands on wrong owner",
       "direction": "leadOwners.patch and leadOwners-report.md delivered. Lead owns review and landing; next proof is authorized native Foundation and Hello on the integrated candidate. Related T-253.",
-      "evidence": "Retained lf04 r80 exit 1 on planner desktop launcher and r82 exit 0 on builder headless check on 34753352; r84 rejects candidate. 53 WORK / 52 COACH questions, r72 loses original failure. lf02 r65 passes, r70 omits checks/kit/browser.cjs on ce7d5327, r76 requests it. lh03 r102 expected-error check passes, r104 direct --help exits 2. | Snapshot 08eca24 tree 907ea50 matches sibling 4263505 snapshot. Sole gate 162P/1 fixture missing turn.completed, 504.95s, 163 collected vs base 160. Test-only fix, 5 Lead cases passed in 18.19s; no re-gate. 30 Python and 2 CommonJS cold imports. Retained lf02 source JSON 684857→37218 bytes with four attached PNGs and helper visible. Patch apply/reverse verified. No commit or native-provider acceptance."
+      "evidence": "Retained lf04 r80 exit 1 on planner desktop launcher and r82 exit 0 on builder headless check on 34753352; r84 rejects candidate. 53 WORK / 52 COACH questions, r72 loses original failure. lf02 r65 passes, r70 omits checks/kit/browser.cjs on ce7d5327, r76 requests it. lh03 r102 expected-error check passes, r104 direct --help exits 2. | Snapshot 08eca24 tree 907ea50 matches sibling 4263505 snapshot. Sole gate 162P/1 fixture missing turn.completed, 504.95s, 163 collected vs base 160. Test-only fix, 5 Lead cases passed in 18.19s; no re-gate. 30 Python and 2 CommonJS cold imports. Retained lf02 source JSON 684857→37218 bytes with four attached PNGs and helper visible. Patch apply/reverse verified. No commit or native-provider acceptance. Round 3 lq02 on 54c774c: r42 plan correction had no question/checks and reported failed file writes, without naming any defect in the accepted plan. Recorded command completions all returned exit 0 before the receipt. Lead r44 assigned Planner and r45 invalidated B to replan. Later Builder resumed product work. Treat this as a retained owner-routing design evidence case; exact attempted write diagnostic remains unavailable."
     },
     {
       "id": "T-255",
@@ -3343,7 +3343,7 @@
       "area": "ARCHITECT, DETAIL and continuing plan",
       "family": "Questions copy everything",
       "direction": "orchDerived Sol 6.2 medium lane, Astra pattern 4, starts source-only and owns no Lead or shared golden file until transfer.",
-      "evidence": "Astra patterns review 2026-11-19 pattern 4 and ticket T-236/T-237/T-238/T-245/T-246. Batch 3 had zero refusals after normalization, but preserve data across quiet bench continuation without restating canonical bookkeeping. TrialFidelity, workerQuestionLoop and guideEvidenceScope remain held pending exact coverage."
+      "evidence": "Astra patterns review 2026-11-19 pattern 4 and ticket T-236/T-237/T-238/T-245/T-246. Batch 3 had zero refusals after normalization, but preserve data across quiet bench continuation without restating canonical bookkeeping. TrialFidelity, workerQuestionLoop and guideEvidenceScope remain held pending exact coverage. Own od01 real C in 21 Terra medium calls, dr01 native C in 20 with T-263 and continuation ownership/facts."
     },
     {
       "id": "T-260",
@@ -3355,7 +3355,7 @@
       "area": "tools/replay_prompts.py",
       "family": "Questions copy everything",
       "direction": "Terra replayCorpus owns only dev replay tool and its tests. Offline retained store exit, zero provider calls for building.",
-      "evidence": "AMBITION idea 2. Existing curated replay tool hardcodes a small reference cohort and pinned tree; later dev stores already record question and outcome rows."
+      "evidence": "AMBITION idea 2. Existing curated replay tool hardcodes a small reference cohort and pinned tree; later dev stores already record question and outcome rows. Final constrained corpus path checks passed. Retained main hello/Foundation produced 16 questions, zero ingest errors (7 ready, 7 render-only, 2 unavailable); a separate one-command supplied pair yielded A=true, B=false. Native answer generation not implemented or run."
     },
     {
       "id": "T-261",
@@ -3379,7 +3379,7 @@
       "area": "Lead proof runner",
       "family": "Code grows, cleanup later",
       "direction": "Observe one physical execution for a shared command at each exact product/overlay and phase, retain all promise-specific check identities and evidence bindings. Queue behind current serialized owner surfaces.",
-      "evidence": "12:51 ShelfLife 54c774c live receipt grouping by exact executed commit, purpose, argv, witness-path set and walkthrough kind: ls01 24 repeated observations/413.4s, ls02 30/423.5s, ls03 24/523.0s, ls04 30/197.9s, ls05 30/459.1s. Same draft can satisfy several promises only once. No provider watchdog threshold exceeded."
+      "evidence": "12:51 ShelfLife 54c774c live receipt grouping by exact executed commit, purpose, argv, witness-path set and walkthrough kind: ls01 24 repeated observations/413.4s, ls02 30/423.5s, ls03 24/523.0s, ls04 30/197.9s, ls05 30/459.1s. Same draft can satisfy several promises only once. No provider watchdog threshold exceeded. Lead Quiet Bench lq04 r85–r87 ran the same walkthrough three times at ~210 seconds each, all exit 1. Related repeated physical execution; preserve exact matching identity and logical evidence links."
     },
     {
       "id": "T-263",
@@ -3391,7 +3391,7 @@
       "area": "DETAIL/plan canonical continuation",
       "family": "Two rules disagree",
       "direction": "Same orchDerived owner reconstructs canonical revision sequence and fixes the smallest T-259/retained ownership cause. Do not drop genuine conflict checking.",
-      "evidence": "qbu-54c774c-se01 (T-259 plus T-247), r133 rejects guide-only scope, r138 scope-less proposal, r172 explicit docs-only scope, r184/r185 WAITING with both 1.quiet-bench.1 and 2.quiet-bench.1 owning 2.quiet-bench.requirement2. Initial od01 reached C. r58 out-of-scope evidence independently supports held guideEvidenceScope."
+      "evidence": "qbu-54c774c-se01 (T-259 plus T-247), r133 rejects guide-only scope, r138 scope-less proposal, r172 explicit docs-only scope, r184/r185 WAITING with both 1.quiet-bench.1 and 2.quiet-bench.1 owning 2.quiet-bench.requirement2. Initial od01 reached C. r58 out-of-scope evidence independently supports held guideEvidenceScope. Own native dr01 on dc566d7f771e reaches scripted C at r331 in 20 Terra medium calls. r230 carries canonical existing owner, scope, check-in and guide owner. The exact duplicate-draft sequence was replayed offline with separate genuine overlap guard."
     },
     {
       "id": "T-264",
@@ -3403,7 +3403,7 @@
       "area": "CHECK-IN choice explanation",
       "family": "Two rules disagree",
       "direction": "Queue behind the current decision owner. Align Code's offered continue-and-waive choice with the displayed options and semantics; prove it does not steer extra work or waive genuine scope changes.",
-      "evidence": "qbu-54c774c-gl01 r180 receives Go on and do not stop again and displayed options approve/ask for changes/stop. Its schema internally allows Waive. r184 returns Other explicitly because approve does not include the additional instruction. r186 records a direct revise and drives wave 3 despite the continuation/waiver request."
+      "evidence": "qbu-54c774c-gl01 r180 receives Go on and do not stop again and displayed options approve/ask for changes/stop. Its schema internally allows Waive. r184 returns Other explicitly because approve does not include the additional instruction. r186 records a direct revise and drives wave 3 despite the continuation/waiver request. gs01 on 497326acbe04 reproduces same omission r216/r218/r223, explicit DECIDE Other because displayed options omit Waive. r226/r227 force wave 3; r232 rejects an already-complete two-wave horizon."
     },
     {
       "id": "T-265",
@@ -3415,7 +3415,7 @@
       "area": "Lead guide walkthrough and owner routing",
       "family": "Blame lands on wrong owner",
       "direction": "leadGuideMethod (same Terra T-258 owner) distinguishes an optional builder method from scope-bound evidence and keeps actual cleanup proof.",
-      "evidence": "Lead ShelfLife ls04 on 54c774c, r220 judge agrees import, page actions, API commands and restart were exercised. Both documented Ctrl+C attempts were accepted by isolated console but did not stop server; runner cleanup terminated it. Exact Ctrl+C was introduced by builder guide, not part of the original written brief. r222/r223 routes Seldon-owned PROVE question asking whether interactive Ctrl+C works; ends WAITING. Related T-258. Terra lane +12/-2 src, 2+2 affected scripted cases pass, own native gm01 underway."
+      "evidence": "Lead ShelfLife ls04 on 54c774c, r220 judge agrees import, page actions, API commands and restart were exercised. Both documented Ctrl+C attempts were accepted by isolated console but did not stop server; runner cleanup terminated it. Exact Ctrl+C was introduced by builder guide, not part of the original written brief. r222/r223 routes Seldon-owned PROVE question asking whether interactive Ctrl+C works; ends WAITING. Related T-258. Terra lane +12/-2 src, 2+2 affected scripted cases pass, own native gm01 underway. gm01 exact runtime d8d212ff6cbb reaches scripted C in nine Terra-medium calls, independently scored 38/1/1 (DB cleanup fail). r116 observed supported repeatable stop and restart. Manual route in the same guide still instructs Ctrl+C; native test used process termination, so that manual method has no observed receipt. Evidence remains scoped and candidate is held for exact-method disclosure/repair."
     },
     {
       "id": "T-266",
@@ -3428,6 +3428,30 @@
       "family": "First-pass proof misses the user boundary",
       "direction": "One lane after overlapping judge/work owners clear. Preserve the good import and ask for rejection evidence that includes the observable storage state. Prove the isolated invalid CLI input leaves the catalog and files unchanged.",
       "evidence": "Native wl01 f58a231e2baf8d4585cc0f8498c92821ae46e3f0 returns exit 1 for malformed WAV but leaves a new stopped session at zero samples. Direct tool-independent replay in isolated storage at C:/seldon/tests/coord3-20261120/workerLoopR3Real/wl01/invalid-wav-direct.json. core.run catches a source decoding error, saves stopped, then rethrows. Product C was scripted with separate guide verification incomplete."
+    },
+    {
+      "id": "T-267",
+      "title": "Guide workers override the supplied evidence directory into product scope",
+      "severity": "medium",
+      "type": "design",
+      "status": "in_progress",
+      "milestone": "Orchestrator micro",
+      "area": "Guide worker evidence scope",
+      "family": "Two rules disagree",
+      "direction": "guideEvidenceScopeR3 Terra lane rebases held external-evidence direction and only its focused guide coverage. Keep scope rejection and exact-runtime uncertainty.",
+      "evidence": "Batch 3 s05 r62 and q03 r58 plus Quiet Bench se01 r58. Workers reset the supplied external directory into their own worktree; correct owner validation rejects generated files. Existing held 7e54743 patch failed application on current staged plan and guide test. Native exit pending. Rebased guidance +3/-1 src. Focused PowerShell 4 passed and scope rejection 1 passed. Own native gs01 exact 497326acbe04 21 Terra medium calls to C r333. Actual worker supplied external browser-evidence lifecycle and Seldon final external observation r286. Two additional worker probes used sibling temp directories, never product. Exact Node 20 and manual guide evidence remain unverified; r332 truthfully reports incomplete. T-264 recurred independently. Wait canonical gate."
+    },
+    {
+      "id": "T-268",
+      "title": "Lead requires a duplicate promise to plan an already-covered continuation",
+      "severity": "high",
+      "type": "design",
+      "status": "in_progress",
+      "milestone": "Lead micro",
+      "area": "Lead check-in to milestone continuation",
+      "family": "Two rules disagree",
+      "direction": "leadContinue Sol 6.2 medium lane preserves prior proof and owner boundaries, distinguishes ambiguous scope, already covered and real work. Independent source review before integration.",
+      "evidence": "lq01 on 54c774c r208 also let me export a session as CSV; r216 clears B and enters MILESTONES with wave 2 and no open handles. r222 and r238 both forced by nonempty schema to duplicate scopeIn:command-line. r247 parks Planner. Exact wave-1 candidate a31d51834abc098913199144d2e134b72942cc6a proves CLI CSV but no page export control located. Ambiguous owner surface, no cutoff inferred. Reviewed source 44d7d3d5 closes witness-free approval and includes actual CLI text, with 3 focused passes; second review rejects missing structured browser evidence. Typed fact re-slice in leadContinue worktree interrupted at 7%, unverified. Archived lq01 r247 unsupported recovery remains pending; no manual restore."
     }
   ]
 }
