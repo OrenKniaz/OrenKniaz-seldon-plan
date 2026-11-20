@@ -3198,8 +3198,8 @@
       "milestone": "M3",
       "area": "Fresh product WORK brief",
       "family": "First-pass proof misses the user boundary",
-      "direction": "firstPathProof.patch and report delivered against 513de6a. Lead owns landing and an authorized real cohort measuring first-pass product and proof misses.",
-      "evidence": "Batch 2 a4204ec: s03 r76/r77 awaited an already-visible Tea before asserting search refresh; repair also guards stale responses. s05 r82/r84 lacks persisted UI editing despite PATCH. q01 r81/r83 omits saved settings/samples on the page; r100/r102 gets HTTP 400 on the session GET after Start/Stop, with unguarded reads and no observed running-state assertion. q02 r168/r169 readers miss the overlap, and check-only repair passes. q04 r62/r64 aggregates terminal Stop assertions without proving running beforehand; r77 updates both publication and probe, so the failed predicate is unisolated. Recovery rows retained. | Supplied lane snapshot 74f4fcb tree ba116fc84ad2f565e800853f5b9be070bf8cc8fb equals 513de6a. Native scripted journey RED on base for absent coaching, then GREEN in 33.92 s. Retained q04 r50/r68 prompt text matched and 28/28 modules cold-imported. Patch verified against base and delivered before the gate slot. | Sole bare gate passed 150 cases vs 149 on base in 538.18 s (539.61 s wall), after the A/B cohorts and detailOwner gate. C:/seldon/tests/firstPathProof-1/gate.log."
+      "direction": "stopPathEvidence takes the minimal follow-up to landed firstPathProof. Preserve existing user-path coaching. Show actual post-acknowledgment bound in native Quiet Bench.",
+      "evidence": "Batch 2 a4204ec: s03 r76/r77 awaited an already-visible Tea before asserting search refresh; repair also guards stale responses. s05 r82/r84 lacks persisted UI editing despite PATCH. q01 r81/r83 omits saved settings/samples on the page; r100/r102 gets HTTP 400 on the session GET after Start/Stop, with unguarded reads and no observed running-state assertion. q02 r168/r169 readers miss the overlap, and check-only repair passes. q04 r62/r64 aggregates terminal Stop assertions without proving running beforehand; r77 updates both publication and probe, so the failed predicate is unisolated. Recovery rows retained. | Supplied lane snapshot 74f4fcb tree ba116fc84ad2f565e800853f5b9be070bf8cc8fb equals 513de6a. Native scripted journey RED on base for absent coaching, then GREEN in 33.92 s. Retained q04 r50/r68 prompt text matched and 28/28 modules cold-imported. Patch verified against base and delivered before the gate slot. | Sole bare gate passed 150 cases vs 149 on base in 538.18 s (539.61 s wall), after the A/B cohorts and detailOwner gate. C:/seldon/tests/firstPathProof-1/gate.log. | Round 3 T-259 native f35ef50a (qbu-8434139-od01-11201152) reached SCRIPTED_C. Both Stop tests assert only eventual stopped and less than full processed samples. Independent real request observed stale running ack cursor 0 and terminal 17792 against block 128; no actual post-ack progress measurement. This repeats batch-3 q03–q05. Inspect the actual action/ack cursor and terminal progress on the same operation. Direct doc CLI run/list/show/export and rectangular CSV passed separately."
     },
     {
       "id": "T-248",
@@ -3356,6 +3356,18 @@
       "family": "Questions copy everything",
       "direction": "Terra replayCorpus owns only dev replay tool and its tests. Offline retained store exit, zero provider calls for building.",
       "evidence": "AMBITION idea 2. Existing curated replay tool hardcodes a small reference cohort and pinned tree; later dev stores already record question and outcome rows."
+    },
+    {
+      "id": "T-261",
+      "title": "C marks an explicitly unobserved exact-runtime guide step complete",
+      "severity": "high",
+      "type": "code",
+      "status": "in_progress",
+      "milestone": "Orchestrator micro",
+      "area": "C verification flag and guide observation account",
+      "family": "Judge asked beyond its view",
+      "direction": "explicitGuideLimits proves candidate-bound step unavailability reaches C summary and flag. No approval/eligibility rule change.",
+      "evidence": "qbu-8434139-od01-11201152 runtime 5b2623e165df, candidate f35ef50a. r265 Node 20 guide step observed=false (installed v25.8.0), r271 judge nit, r325 verification_complete=true and notJudged={}. T-248 golden used explicit judge uncertainty."
     }
   ]
 }
