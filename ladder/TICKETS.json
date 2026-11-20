@@ -3344,6 +3344,18 @@
       "family": "Questions copy everything",
       "direction": "orchDerived Sol 6.2 medium lane, Astra pattern 4, starts source-only and owns no Lead or shared golden file until transfer.",
       "evidence": "Astra patterns review 2026-11-19 pattern 4 and ticket T-236/T-237/T-238/T-245/T-246. Batch 3 had zero refusals after normalization, but preserve data across quiet bench continuation without restating canonical bookkeeping. TrialFidelity, workerQuestionLoop and guideEvidenceScope remain held pending exact coverage."
+    },
+    {
+      "id": "T-260",
+      "title": "Build replay corpus from recorded Seldon questions",
+      "severity": "low",
+      "type": "idea",
+      "status": "in_progress",
+      "milestone": "Replay economy",
+      "area": "tools/replay_prompts.py",
+      "family": "Questions copy everything",
+      "direction": "Terra replayCorpus owns only dev replay tool and its tests. Offline retained store exit, zero provider calls for building.",
+      "evidence": "AMBITION idea 2. Existing curated replay tool hardcodes a small reference cohort and pinned tree; later dev stores already record question and outcome rows."
     }
   ]
 }
