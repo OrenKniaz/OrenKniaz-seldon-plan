@@ -1,8 +1,9 @@
 # Seldon coordinator status
-2026-11-19 13:36:00 +02:00
-READY TO PUSH: c59c3681a8a9 274f11288a43 ef2341f66bc8 d47ad9d78660 7e547433ad3f
-No push. Bare gate 155 passed, plus the one reported five-wave case passed on focused rerun after a test-only correction. Cold imports 28/28.
-Batch 3: 8/10 scripted C, 3 fault records, 8 recovery rows, 0 refusals, 2 stalled workers. Zero-bug failed.
-Finished isolated patches: trialFidelity, workerQuestionLoop, guideEvidenceScope. Queued briefs: scopeExpression, csvExportProof.
-Primary 18%. The integration checkout gained separately staged changes after both cohorts exited.
-NEEDS-LEAD: coordinate review and landing of the follow-up patches, replay the live worker loop and exact labels, and establish Node 20, Stop bound and CSV readback.
+2026-11-20 11:45:03 +02:00
+Running: Lead hello x5 on landed source; T-259 Quiet Bench lane still active on separate tree.
+Results: combined native lg01 scripted C in 7, verification true, owner accepted false. Canonical 168P plus focused test-only Edge fix. Cold 32/32.
+Landed SHAs this round: 54c774c6dd55c98e4c52744885144f59f1f21176 (pushed, remote verified).
+Source +75/-35. Static reachable lines Lead 6,339, Orchestrator 7,440.
+Codex primary remaining 15%.
+Owner question: T-257 Hello punctuation.
+NEEDS-LEAD: none.

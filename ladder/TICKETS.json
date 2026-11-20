@@ -3302,12 +3302,48 @@
       "title": "Lead judge requires faulty existing code for RED on a new CLI",
       "severity": "high",
       "type": "design",
-      "status": "in_progress",
+      "status": "done",
       "milestone": "Lead micro",
       "area": "Lead RED interpretation at independent judgment",
       "family": "Judge asked beyond its view",
-      "direction": "leadRed owns the runner-to-judge proof and Builder routing repair on 8434139. Replay r56, exercise weak-check repair, and run one authorized Terra hello through C.",
-      "evidence": "C:/seldon/tests/m1/hello-lane-c18d719-lr01 (Terra medium, candidate runtime 195f08f5967f). Seldon observed r43-r47 exit 0 on candidate and r48-r51 RED without hello.py. Judge r56 accepted absent CLI as RED for greeting and withheld usage/error findings because the base had no existing CLI to exhibit wrong usage behavior. r58 Seldon-owned proof failure and r59 pending request; final WAITING at PROVE after five calls. Related T-255, T-253 and T-254."
+      "direction": "Combined T-256/T-258 commit 54c774c6dd55c98e4c52744885144f59f1f21176. Pushed and validated. Lead hello/Foundation five-slot cohorts next.",
+      "evidence": "C:/seldon/tests/m1/hello-lane-c18d719-lr01 (Terra medium, candidate runtime 195f08f5967f). Seldon observed r43-r47 exit 0 on candidate and r48-r51 RED without hello.py. Judge r56 accepted absent CLI as RED for greeting and withheld usage/error findings because the base had no existing CLI to exhibit wrong usage behavior. r58 Seldon-owned proof failure and r59 pending request; final WAITING at PROVE after five calls. Related T-255, T-253 and T-254. | Retained red01 hello-lane-33046e1-red01 reached SCRIPTED_C in five Terra medium calls, old source digest 5e414da96ab0. Independent NONPASS found untracked witness files could corrupt baseline outcomes and reviewed the committed-overlay repair PASS. Earlier red01 error checks passed on the baseline because Python's missing-file diagnostic satisfied the loose assertion. Revised judge coaches this case. Previous lane gate 167P/1 unchanged headless Edge launch failure in 422.90s, before any DOM assertion. | Revised source 99cf044a76aa: cold 32/32, independent re-review PASS, sole full lane gate 167P/1 test fixture (409.32s); fixture-only fix and focused weak-check passed in 8.80s. Native hello-lane-33046e1-red01-11201120 r43-r46 had RED and r47-r50 GREEN with tracked witness overlays. Judge r55 passed all CLI subjects, then separately paused WAITING in PROVE on T-258 after five calls. | VALIDATED: 54c774c6dd55c98e4c52744885144f59f1f21176 matches native lg01 runtime source 3b21c164fcbc (hello-lane-8434139-lg01), scripted C in seven Terra calls, verification_complete=true, accepted=false. Same builder strengthened two usage witnesses and removed an unexercised optional shell-inspection instruction, then all judge subjects passed. Canonical bare gate 168P + one unchanged headless fixture timeout in 523.99s; shortened only the deliberately missing-control wait, affected headless fixture passed 1/1 in 104.04s. 32/32 cold imports. Integrated source +75/-35."
+    },
+    {
+      "id": "T-257",
+      "title": "Hello kickoff and exact oracle disagree on punctuation",
+      "severity": "medium",
+      "type": "code",
+      "status": "open",
+      "milestone": "Lead micro",
+      "area": "L0 fixture oracle",
+      "family": "Rig gives false signals",
+      "direction": "Ladder fixture owner aligns the exact kickoff and independent oracle literals after Oren confirms the expected byte. Preserve both raw and vision-bound scores meanwhile.",
+      "evidence": "Retained Terra red01 implemented its approved vision with a period. Direct execution matched the accepted greeting, returned exit 0 and empty stderr. Oracle 2/1/0 because briefs/L0/1-hello.json exact stdout omits the period. Both invocations with arguments satisfied the oracle. C:/seldon/tests/coord3-20261120/red01-review/summary.json."
+    },
+    {
+      "id": "T-258",
+      "title": "Lead routes a builder-authored walkthrough omission to Seldon",
+      "severity": "high",
+      "type": "design",
+      "status": "done",
+      "milestone": "Lead micro",
+      "area": "Lead guide proof and fault routing",
+      "family": "Blame lands on wrong owner",
+      "direction": "Combined T-256/T-258 commit 54c774c6dd55c98e4c52744885144f59f1f21176. Pushed and validated. Lead hello/Foundation five-slot cohorts next.",
+      "evidence": "Native hello-lane-33046e1-red01-11201120, runtime 99cf044a76aa. r40 declares Python checks/cli.py all. r50 candidate walkthrough has no observed operation lifecycle. r55 confirms equivalent CLI calls and CLI criteria, but guide shell status inspection was not performed. r57/r58 route its missing evidence to Seldon and pause WAITING. The walkthrough and guide share one Builder owner. | VALIDATED: 54c774c6dd55c98e4c52744885144f59f1f21176 matches native lg01 runtime source 3b21c164fcbc (hello-lane-8434139-lg01), scripted C in seven Terra calls, verification_complete=true, accepted=false. Same builder strengthened two usage witnesses and removed an unexercised optional shell-inspection instruction, then all judge subjects passed. Canonical bare gate 168P + one unchanged headless fixture timeout in 523.99s; shortened only the deliberately missing-control wait, affected headless fixture passed 1/1 in 104.04s. 32/32 cold imports. Integrated source +75/-35."
+    },
+    {
+      "id": "T-259",
+      "title": "Orchestrator model echoes derivable ownership and prior inputs",
+      "severity": "high",
+      "type": "design",
+      "status": "in_progress",
+      "milestone": "Orchestrator micro",
+      "area": "ARCHITECT, DETAIL and continuing plan",
+      "family": "Questions copy everything",
+      "direction": "orchDerived Sol 6.2 medium lane, Astra pattern 4, starts source-only and owns no Lead or shared golden file until transfer.",
+      "evidence": "Astra patterns review 2026-11-19 pattern 4 and ticket T-236/T-237/T-238/T-245/T-246. Batch 3 had zero refusals after normalization, but preserve data across quiet bench continuation without restating canonical bookkeeping. TrialFidelity, workerQuestionLoop and guideEvidenceScope remain held pending exact coverage."
     }
   ]
 }
