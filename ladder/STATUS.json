@@ -4,7 +4,7 @@
   "main": "54c774c",
   "docs": "charter v1.8, blueprint v1.15, Lead charter v1.1, Lead blueprint v0.2",
   "milestone": "Lead micro ladder, round 3",
-  "now": "Lead ShelfLife ended 4/5 scripted C after a guide-method pause. Lead Quiet Bench x5 is running. T-251/T-261 combined native exit reached C with Node 20 explicitly unverified.",
+  "now": "Round 3 stopped at Codex primary 7%. Main Lead Quiet Bench 0/5 C, three WAITING and two stopped. Canonical remote remains 54c774c.",
   "lanes": [
     {
       "name": "leadOwners",
@@ -661,15 +661,81 @@
       "what": "T-265 Lead builder-authored shutdown route. Exact ls04 evidence; native ShelfLife exit required."
     }
   ],
-  "next": [
-    "Finish Lead ShelfLife x5 census and compare the actual products, then Lead Quiet Bench x5 on the same source.",
-    "Continue T-263 (orchDerived) and T-251 (workerQuestionLoopR3) in disjoint worktrees; verify real exits. Carry T-261 exact runtime bounds and T-247 Stop witness without claiming the incomplete C paths.",
-    "Qualify retained guideEvidenceScope against the actual out-of-scope failure. Land on the canonical one-gate path, then five-slot Orchestrator Quiet Bench.",
-    "Lean Lead gets the next eligible Terra owner after shared source paths are released. T-262 records duplicate shared witness work.",
-    "T-260 offline corpus and supplied A/B schema comparison are ready to land when the main tree is free."
-  ],
+  "next": "After quota recovers, apply/gate/push the native-proven Orchestrator bundle; rerun Quiet Bench, resume supported Node20 proof, and finish T-268 review/native and T-265 guide truth before Lead reruns and Lean. Native replay A/B remains pending.",
   "decisionsForOren": [],
   "recentRuns": [
+    {
+      "date": "2026-11-20",
+      "run": "qbu-54c774c-lq02",
+      "commit": "54c774c",
+      "outcome": "PROVE",
+      "furthest": "BUILD",
+      "repairs": "6",
+      "gaps": "1",
+      "uncertain": "0",
+      "wall": "3417.849",
+      "flags": "8"
+    },
+    {
+      "date": "2026-11-20",
+      "run": "qbu-54c774c-lq03",
+      "commit": "54c774c",
+      "outcome": "PROVE",
+      "furthest": "BUILD",
+      "repairs": "5",
+      "gaps": "2",
+      "uncertain": "0",
+      "wall": "2985.584",
+      "flags": "8"
+    },
+    {
+      "date": "2026-11-20",
+      "run": "qbu-54c774c-gs01",
+      "commit": "54c774c",
+      "outcome": "SCRIPTED_C",
+      "furthest": "C",
+      "repairs": "0",
+      "gaps": "0",
+      "uncertain": "0",
+      "wall": "1707.433",
+      "flags": "1"
+    },
+    {
+      "date": "2026-11-20",
+      "run": "qbu-54c774c-lq01",
+      "commit": "54c774c",
+      "outcome": "LEAD-REVIEW",
+      "furthest": "MILESTONES",
+      "repairs": "0",
+      "gaps": "2",
+      "uncertain": "0",
+      "wall": "2160.399",
+      "flags": "3"
+    },
+    {
+      "date": "2026-11-20",
+      "run": "shelflife-main-54c774c-gm01",
+      "commit": "54c774c",
+      "outcome": "SCRIPTED_C",
+      "furthest": "C",
+      "repairs": "1",
+      "gaps": "1",
+      "uncertain": "0",
+      "wall": "1713.878",
+      "flags": "2"
+    },
+    {
+      "date": "2026-11-20",
+      "run": "qbu-8434139-dr01",
+      "commit": "8434139",
+      "outcome": "SCRIPTED_C",
+      "furthest": "C",
+      "repairs": "0",
+      "gaps": "0",
+      "uncertain": "0",
+      "wall": "2133.319",
+      "flags": "0"
+    },
     {
       "date": "2026-11-20",
       "run": "shelflife-main-54c774c-ls01",
@@ -777,78 +843,6 @@
       "uncertain": "0",
       "wall": "1528.198",
       "flags": "0"
-    },
-    {
-      "date": "2026-11-20",
-      "run": "foundation-54c774c-lf03",
-      "commit": "54c774c",
-      "outcome": "SCRIPTED_C",
-      "furthest": "C",
-      "repairs": "1",
-      "gaps": "0",
-      "uncertain": "0",
-      "wall": "1437.677",
-      "flags": "1"
-    },
-    {
-      "date": "2026-11-20",
-      "run": "foundation-54c774c-lf04",
-      "commit": "54c774c",
-      "outcome": "SCRIPTED_C",
-      "furthest": "C",
-      "repairs": "1",
-      "gaps": "0",
-      "uncertain": "0",
-      "wall": "901.150",
-      "flags": "1"
-    },
-    {
-      "date": "2026-11-20",
-      "run": "foundation-54c774c-lf01",
-      "commit": "54c774c",
-      "outcome": "SCRIPTED_C",
-      "furthest": "C",
-      "repairs": "1",
-      "gaps": "0",
-      "uncertain": "0",
-      "wall": "839.764",
-      "flags": "1"
-    },
-    {
-      "date": "2026-11-20",
-      "run": "foundation-54c774c-lf02",
-      "commit": "54c774c",
-      "outcome": "SCRIPTED_C",
-      "furthest": "C",
-      "repairs": "1",
-      "gaps": "0",
-      "uncertain": "0",
-      "wall": "781.317",
-      "flags": "1"
-    },
-    {
-      "date": "2026-11-20",
-      "run": "hello-54c774c-lh02",
-      "commit": "54c774c",
-      "outcome": "SCRIPTED_C",
-      "furthest": "C",
-      "repairs": "3",
-      "gaps": "0",
-      "uncertain": "0",
-      "wall": "301.040",
-      "flags": "3"
-    },
-    {
-      "date": "2026-11-20",
-      "run": "hello-54c774c-lh01",
-      "commit": "54c774c",
-      "outcome": "SCRIPTED_C",
-      "furthest": "C",
-      "repairs": "2",
-      "gaps": "0",
-      "uncertain": "0",
-      "wall": "212.871",
-      "flags": "2"
     }
   ]
 }
