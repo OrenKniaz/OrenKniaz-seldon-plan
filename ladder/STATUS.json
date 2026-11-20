@@ -1,10 +1,10 @@
 {
-  "updated": "2026-11-19",
+  "updated": "2026-11-20",
   "lead": "Opus 5.5 (Fable at its 5-hour limit until ~03:10 Jerusalem; Astra covers design consults)",
-  "main": "ff7ea98",
-  "docs": "charter v1.8, blueprint v1.12",
-  "milestone": "M3 integrated candidate delivered; main review/landing pending",
-  "now": "M3 m3wire integrates all six lanes and the named wiring; composite64 semantic cases GREEN,25 cold imports PASS. Sole gate62P/2 test-fixture failures corrected and narrowly verified2P without re-gating; patch/report delivered uncommitted, main landing and native acceptance remain.",
+  "main": "54c774c",
+  "docs": "charter v1.8, blueprint v1.15, Lead charter v1.1, Lead blueprint v0.2",
+  "milestone": "Lead micro ladder, round 3",
+  "now": "T-256/T-258 pushed at 54c774c. Native combined Lead hello reached scripted C. First five-run Lead hello census is in progress.",
   "lanes": [
     {
       "name": "leadOwners",
@@ -615,8 +615,20 @@
     {
       "name": "leadRed",
       "owner": "Codex",
-      "state": "Terra exit passed; full gate running",
-      "what": "T-256. Sole Terra slot hello-lane-33046e1-red01 finished SCRIPTED_C in five calls, one WORK, owner acceptance false. All five candidate checks passed; two isolated error checks also passed on the base. Sole bare gate next."
+      "state": "landed and native exit proven",
+      "what": "T-256. red01 source 5e414da96ab0 reached scripted C in five Terra medium calls. The first gate was interrupted. The active gate tests the previous candidate. Revision commits exact witness files in a disposable proof overlay and records the actual tested commit."
+    },
+    {
+      "name": "leadGuideReplay",
+      "owner": "Codex Terra 6.1 medium",
+      "state": "landed and native exit proven",
+      "what": "T-258. Staged T-256 as preimage. Lead-only guide shell walkthrough and owner-specific correction. Native Lead hello required."
+    },
+    {
+      "name": "orchDerived",
+      "owner": "Codex Sol 6.2 medium",
+      "state": "real Quiet Bench exit running",
+      "what": "T-259. Own only ARCHITECT/DETAIL/plan consumers. Native Quiet Bench exit required. T-258 holds the shared golden file."
     }
   ],
   "next": [
@@ -627,6 +639,30 @@
   ],
   "decisionsForOren": [],
   "recentRuns": [
+    {
+      "date": "2026-11-20",
+      "run": "hello-lane-8434139-lg01",
+      "commit": "8434139",
+      "outcome": "SCRIPTED_C",
+      "furthest": "C",
+      "repairs": "1",
+      "gaps": "0",
+      "uncertain": "0",
+      "wall": "157.989",
+      "flags": "1"
+    },
+    {
+      "date": "2026-11-20",
+      "run": "hello-lane-33046e1-red01-11201120",
+      "commit": "33046e1",
+      "outcome": "PROVE",
+      "furthest": "BUILD",
+      "repairs": "0",
+      "gaps": "0",
+      "uncertain": "0",
+      "wall": "101.610",
+      "flags": "1"
+    },
     {
       "date": "2026-11-19",
       "run": "hello-lane-33046e1-red01",
@@ -782,30 +818,6 @@
       "uncertain": "0",
       "wall": "499.719",
       "flags": "2"
-    },
-    {
-      "date": "2026-11-19",
-      "run": "hello-1531a71-lh04",
-      "commit": "1531a71",
-      "outcome": "SCRIPTED_C",
-      "furthest": "C",
-      "repairs": "5",
-      "gaps": "0",
-      "uncertain": "0",
-      "wall": "407.501",
-      "flags": "5"
-    },
-    {
-      "date": "2026-11-19",
-      "run": "foundation-1531a71-lf05",
-      "commit": "1531a71",
-      "outcome": "SCRIPTED_C",
-      "furthest": "C",
-      "repairs": "1",
-      "gaps": "0",
-      "uncertain": "0",
-      "wall": "359.542",
-      "flags": "1"
     }
   ]
 }
