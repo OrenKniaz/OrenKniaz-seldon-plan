@@ -629,6 +629,12 @@
       "owner": "Codex Sol 6.2 medium",
       "state": "real Quiet Bench exit running",
       "what": "T-259. Own only ARCHITECT/DETAIL/plan consumers. Native Quiet Bench exit required. T-258 holds the shared golden file."
+    },
+    {
+      "name": "replayCorpus",
+      "owner": "Codex Terra 6.1 medium",
+      "state": "in progress",
+      "what": "T-260. Dev tools and replay tests only. No live provider calls. Worktree at 54c774c."
     }
   ],
   "next": [
