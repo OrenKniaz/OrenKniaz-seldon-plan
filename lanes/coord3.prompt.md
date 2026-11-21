@@ -40,3 +40,7 @@ One rule to try: the proof standard is fixed at B, in words, once.
 Expected: ShelfLife ≤2 WORK, judge rejections that cite B only, wall near plain.
 Build it behind a SELDON_OFF switch (leadBoundProof), A/B against current on Foundation x5 when quota allows. Must be net-negative or near-zero src lines in lead.py/judgment.py; reachable lines went UP (6339→6518), reverse that.
 RATIFIED 11-21 as BLUEPRINT-LEAD v0.3 section 2a (Oren: "Ratify what you need"). Build it as the DEFAULT after the rejection table; keep SELDON_OFF=leadBoundProof for the A/B. Pull main first (coordinator pushes may race this commit).
+
+## CC 11-21 23:15 — state after bound proof landed (main 6419fc5)
+Lead ShelfLife x5 (/c/seldon/tests/bpShelf, slots C:/seldon/tests/m1/shelflife-bp-6419fc5-bs0N): 4/5 SCRIPTED_C in ~14-22 min wall (was 1/5, 27-59). But calls 16-20 per run (was 15) and EVERY run has 2 recovery rows; bs01 WAITING on a legit B-quoted gap (persisted edits not asserted after restart).
+Next after reset, in order: (1) census bpShelf incl. oracle + WORK/JUDGE split; (2) why 2 recoveries every run and why calls rose while wall fell (which call kinds grew?); (3) Foundation x5 + hello x5 on 6419fc5; (4) lean pass: bound proof added ~80 src lines outside lead.py/judgment.py, remove at least that much.
