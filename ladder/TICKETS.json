@@ -3475,24 +3475,36 @@
       "title": "Lead ShelfLife repeats builder and judge turns until the watchdog",
       "severity": "high",
       "type": "design",
-      "status": "open",
+      "status": "in_progress",
       "milestone": "Lead micro",
       "area": "Lead milestone judge and rework",
       "family": "First-pass proof misses the user boundary",
-      "direction": "TRIAGE FAULT SELDON + DESIGN. Implement Lead Blueprint v0.3 section 2a, as ratified in 64f465f: fix proof standard at B, bind must-fix to that line and observed evidence, and resume the same builder where supported. Real Terra ShelfLife must exercise the repair and reach C without the loop.",
-      "evidence": "leadShelf269 on exact 6ea9aa3, Terra medium. ls01 stopped at WORK 10; eight JUDGE and 21 total provider calls started. Latest r325 asked for a meaningful 400 error assertion. Earlier r197/r229/r261/r293 show evolving witness and product requests. Per-kind watchdog is development rig evidence. | ls02 also stopped at WORK 10 with nine JUDGE; r330 asked for two competing successful consumes. 32/33 lead_failure followed green candidate check exits, including one Seldon exact-guide pause. Mix of source defects and expanding or successive witness requests. ls04 reached verified scripted C after 9 WORK + 9 JUDGE. Complete old/new event comparison in census-lead-1.md. Ratified 64f465f contains docs only."
+      "direction": "TRIAGE FAULT SELDON + DESIGN. Implement Lead Blueprint v0.3 section 2a, as ratified in 64f465f: fix proof standard at B, bind must-fix to that line and observed evidence, and resume the same builder where supported. Real Terra ShelfLife must exercise the repair and reach C without the loop. Owner: leadBoundProof.",
+      "evidence": "leadShelf269 on exact 6ea9aa3, Terra medium. ls01 stopped at WORK 10; eight JUDGE and 21 total provider calls started. Latest r325 asked for a meaningful 400 error assertion. Earlier r197/r229/r261/r293 show evolving witness and product requests. Per-kind watchdog is development rig evidence. | ls02 also stopped at WORK 10 with nine JUDGE; r330 asked for two competing successful consumes. 32/33 lead_failure followed green candidate check exits, including one Seldon exact-guide pause. Mix of source defects and expanding or successive witness requests. ls04 reached verified scripted C after 9 WORK + 9 JUDGE. Complete old/new event comparison in census-lead-1.md. Ratified 64f465f contains docs only. | leadBoundProof worktree dea90c189fb8: gate 172 passed in 409.21 s; native ls01 reached verified scripted C at 27e3f4c with WORK 3/JUDGE 3 and same-session quoted repair after the screenshot evidence projection fix. The target of at most two WORK remains unproven. lf01 on final source reached verified scripted C at bed0051 with WORK 1/JUDGE 1."
     },
     {
       "id": "T-271",
       "title": "Lead pauses when a ShelfLife milestone judge packet exceeds provider input limits",
       "severity": "high",
       "type": "design",
-      "status": "open",
+      "status": "in_progress",
       "milestone": "Lead micro",
       "area": "Lead milestone judge packet",
       "family": "Questions copy everything",
-      "direction": "TRIAGE FAULT SELDON + DESIGN. Keep guide-generated dependency scratch outside the product, and give Lead JUDGE the relevant authored source and candidate evidence. Preserve evidence links. Replay the refused record and prove a real Terra ShelfLife exit.",
-      "evidence": "leadShelf269 ls05 exact 6ea9aa3. r139 step failure InputRejected: Codex rejected the JUDGE question as too large. r140 parked PROVE. A previous WORK added stronger checks; current candidate proof could not get a verdict. | Measured exact refused prompt 11,401,190 bytes. Product files fact 10,793,970 serialized bytes, dominated by bundled Playwright files under docs/try-it/work/fresh/node_modules. Observations 59,324 bytes. Final provisional commit 66f1dc0f independently served the page (HTTP 200, oracle 36/3/1)."
+      "direction": "TRIAGE FAULT SELDON + DESIGN. Keep guide-generated dependency scratch outside the product, and give Lead JUDGE the relevant authored source and candidate evidence. Preserve evidence links. Replay the refused record and prove a real Terra ShelfLife exit. Owner: leadBoundProof.",
+      "evidence": "leadShelf269 ls05 exact 6ea9aa3. r139 step failure InputRejected: Codex rejected the JUDGE question as too large. r140 parked PROVE. A previous WORK added stronger checks; current candidate proof could not get a verdict. | Measured exact refused prompt 11,401,190 bytes. Product files fact 10,793,970 serialized bytes, dominated by bundled Playwright files under docs/try-it/work/fresh/node_modules. Observations 59,324 bytes. Final provisional commit 66f1dc0f independently served the page (HTTP 200, oracle 36/3/1). | leadBoundProof projected 11 of 517 paths on retained 66f1dc0f, totaling 49,506 blob bytes with guide included. Live ShelfLife judge prompt started at 145,924 bytes and completed. The published guide uses TemporaryDirectory; the product tree contains only authored files. Execution screenshots are labelled in the bound packet after native judge initially missed two attached images."
+    },
+    {
+      "id": "T-272",
+      "title": "Paired report journey times out in the parallel bare gate",
+      "severity": "medium",
+      "type": "code",
+      "status": "open",
+      "milestone": "Lead micro",
+      "area": "Development report journey",
+      "family": "Rig gives false signals",
+      "direction": "Gate and report owners reproduce the 60 s stdout wait under full gate load, then verify normal paired reporting in the bare gate.",
+      "evidence": "leadBoundProof first bare gate: 171 passed in 1004.14 s, size_fight_journey.py::test_paired_report_retains_usage_gaps_and_stalled_slots hit subprocess.TimeoutExpired after 60 s. Reporter and journey match base 64f465f byte for byte; isolated base journey passed in 11.27 s. Gate and base logs are under C:/seldon/tests/leadBoundProof-0. | Final bare gate on leadBoundProof passed 172/172 in 409.21 s. Initial timeout did not recur on either isolated base or final gate."
     }
   ]
 }

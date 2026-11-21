@@ -665,6 +665,12 @@
       "owner": "Codex Terra 6.1 medium",
       "state": "in progress",
       "what": "T-265 Lead builder-authored shutdown route. Exact ls04 evidence; native ShelfLife exit required."
+    },
+    {
+      "name": "leadBoundProof",
+      "owner": "Codex",
+      "state": "patch delivered; ShelfLife WORK target missed",
+      "what": "T-270/T-271 worktree dea90c189fb8. Bare gate 172 passed in 409.21 s. Terra-medium ShelfLife ls01 verified scripted C 27e3f4c after supported reopen, WORK 3/JUDGE 3, 3 lead failures, 2 recovery rows, 18.24 min. Foundation lf01 verified scripted C bed0051 on final source, WORK 1/JUDGE 1, no lead failures, 1 recovery row, 5.46 min. Patch and report delivered for lead review."
     }
   ],
   "next": "T-270 implements the ratified B-bound proof and same-session repair, then rechecks real Terra ShelfLife. T-271 owns the oversized judge packet, T-265 the exact guide step, and LAND-R3 needs an integrated native Orchestrator Quiet Bench follow-up.",
