@@ -9,7 +9,7 @@ PLAN (in order; keep going when a step is blocked, and come back to it):
 3. LEAN LEAD (Terra lane, once micro hello+Foundation is clean): Lead imports only the shared core (no architecture, plan, units, inference). Move the few grow/align/judge prompt pieces it needs out of questions.py into a small shared module. Add a tool printing the source lines reachable from the Lead entry and from the Orchestrator entry, and report both at every landing. Orchestrator must stay byte-identical.
 4. ORCHESTRATOR, Astra cut 4 (Sol lane): code supplies derivable fields (owner id, scoped paths, prior check-in, verbatim constraints) from existing records instead of asking the LLM to echo them, then delete their alias/refusal branches. Decide on the three held patches in work/lanes (trialFidelity, workerQuestionLoop, guideEvidenceScope): land any still needed after cut 4, drop the rest, and say why. Then Orchestrator Quiet Bench x5 rerun.
 5. IF TIME: idea 2 from AMBITION.md, the replay economy: a Terra lane that turns every recorded question in C:/seldon/tests/m1/*/product/.seldon stores into an offline eval set with a one-command A/B runner (extend tools/replay_prompts.py; no real runs needed to build it).
-STOP and write NEEDS-LEAD when: a change touches charter/blueprint, the same fault class fails 3 lanes in a row (that is a design question for the lead), or Codex primary is under 8%. Final COORD-STATUS.md lists results, landings and NEEDS-LEAD.
+STOP and write NEEDS-LEAD when: a change touches charter/blueprint, the same fault class fails 3 lanes in a row (that is a design question for the lead), or Codex reports a usage limit (Oren 11-21: work until 0; resets 11-22 ~07:51 local). Below 3% start no new cohort, finish and land what is in flight. Final COORD-STATUS.md lists results, landings and NEEDS-LEAD.
 LEAD NOTES (CC, 11-20 13:25, from census-lead-1): (a) every Lead run records one lead_failure + one recovery before C: find what the first proof always fails on and remove the cause (coach the brief or fix the runner), so a clean run is first-pass. (b) Lead Foundation wall time is 13-30 min vs about 3 min in Orchestrator for the same dream: find where the time goes (per-call durations, proof/browser runs) and fix the largest cause. (c) Hello oracle 2/1/0 is the T-257 fixture (brief now quoted); re-score hello on the new brief.
 LAND-R3 (CC 11-20 15:00): the six ready patches (orchDerived, orchDerived-t263, explicitGuideLimits, workerQuestionLoopR3, workerQuestionLoopR3-t261, guideEvidenceScopeR3) applied cleanly in order and are parked in `git stash` of sprint-20261027/semantic-cc (message starts "land-r3"). Gate land-r3: 169 passed, 2 failed: tests/seldon/test_journey.py::test_recorded_shelflife_repair_coaching_journey[False/True] (expected step UNIT got EXECUTE; expected 'not a tree object' got 'Unknown record: r415'). Log C:/seldon/tests/land-r3-gate.log. First step next round: decide whether this is a stale replay of a pre-change store (no cross-version migration is ratified -> update the test) or a real reopen regression (fix), find which patch causes it, then land and push.
 
@@ -21,3 +21,22 @@ Task: for ls01-ls05 list each lead_failure (expected vs got, who caused it). Dec
 ## LANDED 11-21 by CC: 6ea9aa3 leadNoRecovery (T-269) — main is now 6ea9aa3, not 54c774c
 Builder/judge prompts share one proof standard. Real Terra hello nr01: 1 WORK, 0 lead_failure, 0 recoveries.
 First after LAND-R3: rerun Lead Foundation x5 and ShelfLife x5 on 6ea9aa3 to see if LEAD NOTE 2's rework loop shrinks before diagnosing ShelfLife.
+
+## ORDER FOR THIS SESSION (11-21 evening, ~7% Codex left)
+1. LAND-R3 triage and landing (cheap, mostly gate time).
+2. Lead Foundation x5 + ShelfLife x5 on main 6ea9aa3 (Terra medium), census vs census-lead-1.md: WORK calls, lead_failure, recoveries, wall min.
+3. If quota remains: LEAD NOTE 2 diagnosis from those new runs (read-only).
+Write COORD-STATUS.md after every step so a usage cutoff loses nothing.
+
+## CC 11-21 21:05 — after ShelfLife census, step 3 is the priority (not optional)
+6ea9aa3 fixed hello but Foundation got MORE rework (17 WORK/12 lead_failure vs 11/6). For every lead_failure in the Foundation x5 and ShelfLife x5 runs, quote the judge's must-fix and the builder's reply side by side, then classify: (a) real product gap, (b) weak check correctly caught, (c) judge demanding what the approved result does not ask, (d) repair note unclear / builder fixed the wrong thing. Counts per class go in COORD-STATUS.md. Do not land a further prompt change until that table exists.
+
+## CC DESIGN INPUT 11-21 (lead's view — test it, argue with it in COORD-STATUS if the table says otherwise)
+Hypothesis: the rework loop is a DESIGN fault, not a prompt-wording fault. Two LLMs (builder writes checks, judge grades their strength) negotiate a proof standard at PROVE time with no shared written source. Every prompt tweak just moves the bar, so the loop moves (hello fixed, Foundation worse).
+One rule to try: the proof standard is fixed at B, in words, once.
+ 1. B: for each promise the planner writes, in plain words (semantics, no code): action, observable result, and "it is NOT met if ..." (the one or two wrong behaviours that must fail). The planner still never writes checks.
+ 2. Builder writes checks against exactly that text. Judge may mark must-fix ONLY by quoting a B line the product or check violates. Anything else is a note to the builder and never causes rework.
+ 3. Repair resumes the same builder session (codex exec resume / native continue) with the quoted B line, instead of a cold full session.
+Expected: ShelfLife ≤2 WORK, judge rejections that cite B only, wall near plain.
+Build it behind a SELDON_OFF switch (leadBoundProof), A/B against current on Foundation x5 when quota allows. Must be net-negative or near-zero src lines in lead.py/judgment.py; reachable lines went UP (6339→6518), reverse that.
+RATIFIED 11-21 as BLUEPRINT-LEAD v0.3 section 2a (Oren: "Ratify what you need"). Build it as the DEFAULT after the rejection table; keep SELDON_OFF=leadBoundProof for the A/B. Pull main first (coordinator pushes may race this commit).
