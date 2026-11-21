@@ -7,6 +7,12 @@
   "now": "Round 3 stopped at Codex primary 7%. Main Lead Quiet Bench 0/5 C, three WAITING and two stopped. Canonical remote remains 54c774c.",
   "lanes": [
     {
+      "name": "leadNoRecovery",
+      "owner": "Codex",
+      "state": "delivered, awaiting integration",
+      "what": "T-269. Bare gate 169 passed in 433.13s. Real nr01 Terra medium (2ed5b52+worktree:95c16b393186) reached verified scripted C with one WORK, zero lead_failure and zero recovery. Patch remains uncommitted."
+    },
+    {
       "name": "leadOwners",
       "owner": "Codex",
       "state": "delivered; review, landing and native validation pending",

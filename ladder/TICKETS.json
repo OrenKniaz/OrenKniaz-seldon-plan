@@ -90,6 +90,18 @@
   ],
   "tickets": [
     {
+      "id": "T-269",
+      "title": "Lead proof expectations arrive after the builder writes the witnesses",
+      "severity": "medium",
+      "type": "design",
+      "status": "in_progress",
+      "milestone": "Lead micro",
+      "area": "Lead builder and milestone judge prompts",
+      "family": "Two rules disagree",
+      "direction": "leadNoRecovery aligns first-turn builder coaching and approved-result judgment. Exit is one real Terra hello with zero lead_failure and recovery plus verified scripted C.",
+      "evidence": "54c774c hello first faults lh01 r59, lh02 r59, lh03 r61, lh04 r60, lh05 r57. All first candidates executed GREEN, then judge requested guide replay coverage and in four cases stronger usage-error witnesses. All five Foundation runs also first failed at milestone judgment on observed behavior or guide coverage. Related T-256 and T-258. | Lane 2ed5b52+worktree:95c16b393186: gate 169 passed in 433.13s, two cold imports. Real Terra-medium nr01 reached verified SCRIPTED_C in five calls with zero lead_failure and zero recovery; direct CLI replay passed all three canonical scenarios. Candidate 94e6f096fca0122d676407a1e9e7d1965751d51c. Report C:/seldon/tests/leadNoRecovery-0/REPORT.md. Lane diff awaits integration and Foundation validation."
+    },
+    {
       "id": "T-01",
       "title": "Executors keep dropping the taste and leeway guidance",
       "severity": "high",
