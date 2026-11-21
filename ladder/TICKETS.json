@@ -94,12 +94,12 @@
       "title": "Lead proof expectations arrive after the builder writes the witnesses",
       "severity": "medium",
       "type": "design",
-      "status": "in_progress",
+      "status": "fixed",
       "milestone": "Lead micro",
       "area": "Lead builder and milestone judge prompts",
       "family": "Two rules disagree",
-      "direction": "leadNoRecovery aligns first-turn builder coaching and approved-result judgment. Exit is one real Terra hello with zero lead_failure and recovery plus verified scripted C.",
-      "evidence": "54c774c hello first faults lh01 r59, lh02 r59, lh03 r61, lh04 r60, lh05 r57. All first candidates executed GREEN, then judge requested guide replay coverage and in four cases stronger usage-error witnesses. All five Foundation runs also first failed at milestone judgment on observed behavior or guide coverage. Related T-256 and T-258. | Lane 2ed5b52+worktree:95c16b393186: gate 169 passed in 433.13s, two cold imports. Real Terra-medium nr01 reached verified SCRIPTED_C in five calls with zero lead_failure and zero recovery; direct CLI replay passed all three canonical scenarios. Candidate 94e6f096fca0122d676407a1e9e7d1965751d51c. Report C:/seldon/tests/leadNoRecovery-0/REPORT.md. Lane diff awaits integration and Foundation validation."
+      "direction": "Landed by Opus on main 6ea9aa3ceb5b78f721ac034d9b5594969c466b0f. After quota reset, Foundation x5 and ShelfLife x5 measure broader rework; no broad validation claim.",
+      "evidence": "54c774c hello first faults lh01 r59, lh02 r59, lh03 r61, lh04 r60, lh05 r57. All first candidates executed GREEN, then judge requested guide replay coverage and in four cases stronger usage-error witnesses. All five Foundation runs also first failed at milestone judgment on observed behavior or guide coverage. Related T-256 and T-258. | Lane 2ed5b52+worktree:95c16b393186: gate 169 passed in 433.13s, two cold imports. Real Terra-medium nr01 reached verified SCRIPTED_C in five calls with zero lead_failure and zero recovery; direct CLI replay passed all three canonical scenarios. Candidate 94e6f096fca0122d676407a1e9e7d1965751d51c. Report C:/seldon/tests/leadNoRecovery-0/REPORT.md. Lane diff awaits integration and Foundation validation. | 2026-11-21T18:05:49Z DOT remote verification: GitHub main and clean canonical local HEAD both 6ea9aa3ceb5b78f721ac034d9b5594969c466b0f. Both changed production files match the native-tested lane after newline normalization. CC push/cold-import receipt 2026-11-21T17:56:56Z; native nr01 remains SCRIPTED_C with accepted=false. Broader Foundation/ShelfLife validation pending. | leadFound269, exact 6ea9aa3, five Terra medium runs: 5/5 verified scripted C, 35/35 independent browser, 0/5 first-pass, 17 WORK / 12 lead_failure / 5 recovery rows vs 11 / 6 / 5; median 7.4 vs 15.1 min. All recorded failures were witness/guide correction requests. ShelfLife rerun pending. | leadShelf269 on 6ea9aa3: 1/5 verified scripted C vs 4/5, first-pass 0/5 both; WORK 37 vs 26, JUDGE 34 vs 25, lead_failure 33 vs 22, recovery rows 5 vs 6. Read-only comparison and diagnosis in census-lead-1.md. Broader first-pass claim remains unproven."
     },
     {
       "id": "T-01",
@@ -2017,7 +2017,7 @@
       "area": "product",
       "family": "Other",
       "direction": "Product-side, common to native and Seldon; no rule.",
-      "evidence": "oracle 375/1440/healthy console fails in native, c01, c02."
+      "evidence": "oracle 375/1440/healthy console fails in native, c01, c02. | leadShelf269 delivered ls04 (verified scripted C) missed three console assertions because of one favicon.ico 404. The same issue affected provisional ls01, ls02 and ls05. Raw per-candidate receipts in census-lead-1.md."
     },
     {
       "id": "T-149",
@@ -2717,7 +2717,7 @@
       "area": "questions.execution_facts / step-failure location",
       "family": "Two rules disagree",
       "direction": "notTree delivered uncommitted work/lanes/notTree.patch and eight-line report; lead review/main landing then validate before closure.",
-      "evidence": "2026-11-17 Terra ShelfLife main15682aa s01: records439/450 EXECUTE RuntimeError fatal: not a tree object; wave1 of3,0closed,10WORK calls. | TRIAGE BUG questions.py:299 execution_facts queries git with cleared worktree=None during ASKED repair; cwd defaults to Seldon repo, not product. Offline copied slot notTree-2 Run.reopen/step reproduces exact error with zero provider calls. Canonical15682aa tree d4db4d701fd7149444825849da2a30cc718b3055 equals supplied63a2791. Query canonical store.root.parent; step_failure skips gitwork.git/processes frames, adds function. Recorded candidate objects/store projection base2RED13.11s; fixed original-slot replay reaches importer UNIT using recorded r444 COACH answer,0new step failures. Focused normal/waiver2P and missing-object1P;25cold imports PASS. Serial full gate pending. | FINAL: four files,src4657->4660(+3). Sole serialized gate bash scripts/gate.sh notTree with venv first PATH:66P vs base64,0skip,362.74s. 25 separate cold imports PASS. Recorded candidate/store regression preserves exact Git objects and ASKED repair rows; normal and missing-object twins GREEN, original waiver recovery GREEN. Patch base-index apply/current reverse checks PASS. No post-gate changes/re-gate,real providers,delivery commit,.env reads or >5min hang; temp notTree-1..6 only. Main landing and live resumed run unproven."
+      "evidence": "2026-11-17 Terra ShelfLife main15682aa s01: records439/450 EXECUTE RuntimeError fatal: not a tree object; wave1 of3,0closed,10WORK calls. | TRIAGE BUG questions.py:299 execution_facts queries git with cleared worktree=None during ASKED repair; cwd defaults to Seldon repo, not product. Offline copied slot notTree-2 Run.reopen/step reproduces exact error with zero provider calls. Canonical15682aa tree d4db4d701fd7149444825849da2a30cc718b3055 equals supplied63a2791. Query canonical store.root.parent; step_failure skips gitwork.git/processes frames, adds function. Recorded candidate objects/store projection base2RED13.11s; fixed original-slot replay reaches importer UNIT using recorded r444 COACH answer,0new step failures. Focused normal/waiver2P and missing-object1P;25cold imports PASS. Serial full gate pending. | FINAL: four files,src4657->4660(+3). Sole serialized gate bash scripts/gate.sh notTree with venv first PATH:66P vs base64,0skip,362.74s. 25 separate cold imports PASS. Recorded candidate/store regression preserves exact Git objects and ASKED repair rows; normal and missing-object twins GREEN, original waiver recovery GREEN. Patch base-index apply/current reverse checks PASS. No post-gate changes/re-gate,real providers,delivery commit,.env reads or >5min hang; temp notTree-1..6 only. Main landing and live resumed run unproven. | a23f60c889005c1af4e6e0dc3ade098c45d1c1eb: T-251 consumed the recovery fixup records omitted by the archived fixture. Restored six exact source-store rows. Both focused reopen variants and the 171-case integration gate passed."
     },
     {
       "id": "T-207",
@@ -3254,12 +3254,13 @@
       "title": "WORK question loses material blockers and loops after acknowledgements",
       "severity": "high",
       "type": "code",
-      "status": "in_progress",
+      "status": "fixed",
       "milestone": "M3",
       "area": "units.py WORK to decisions.py COACH recovery",
       "family": "Two rules disagree",
       "direction": "Retain workerQuestionLoop behavior; same root on real paraphrased receipts. workerQuestionLoopR3 owns disjoint units/decisions. Determine typed boundary before editing shared paths.",
-      "evidence": "Batch 3 Quiet Bench 7e54743 q01 r55 / q02 r53: WORK status summary and material gaps including exact Node 20 unavailable; COACH q01 r63/r65 and q02 r61/r63 asks original question. Replayed acknowledgements cycle WORK/COACH until coordinator/watchdog kill. Retained read-only SQLite C:/seldon/tests/m1/qbu-7e54743-q01 and q02. No missing evidence acceptance or compatibility claim. | Verified exact 7e547433ad3f0c98059993121ccb94d284a45e20. Base RED: missing full receipt in WORK→COACH. Two new golden cases 2P/13.10s and eight affected existing cases pass across focused invocations. Exact retained summary/why/discoveries flow through actual WORK and COACH with rebound owners and synthetic checks; reopen acknowledgements add no provider calls, explicit correction and a different genuine question reach C awaiting user without outcome. Exact-base patch apply/reverse, AST and diff checks pass. No broad gate or native-provider acceptance. Exact Node20 remains open. | gl01 qbu-54c774c-gl01 on T-259/T-261 wave 3 repeats status-only WORK outcome question and COACH asks user for a missing exact question; actual reports r221,r242,r263,r284,r319,r340,r361,r382 vary. Watchdog stopped tenth WORK. Reported unchanged input was unavailable exact Node 20. Old exact comparison alone does not cover this analogue. Native wl01 exact runtime f09d488aaa51 reached C in 13 Terra medium calls, two WORK done, zero COACH."
+      "evidence": "Batch 3 Quiet Bench 7e54743 q01 r55 / q02 r53: WORK status summary and material gaps including exact Node 20 unavailable; COACH q01 r63/r65 and q02 r61/r63 asks original question. Replayed acknowledgements cycle WORK/COACH until coordinator/watchdog kill. Retained read-only SQLite C:/seldon/tests/m1/qbu-7e54743-q01 and q02. No missing evidence acceptance or compatibility claim. | Verified exact 7e547433ad3f0c98059993121ccb94d284a45e20. Base RED: missing full receipt in WORK→COACH. Two new golden cases 2P/13.10s and eight affected existing cases pass across focused invocations. Exact retained summary/why/discoveries flow through actual WORK and COACH with rebound owners and synthetic checks; reopen acknowledgements add no provider calls, explicit correction and a different genuine question reach C awaiting user without outcome. Exact-base patch apply/reverse, AST and diff checks pass. No broad gate or native-provider acceptance. Exact Node20 remains open. | gl01 qbu-54c774c-gl01 on T-259/T-261 wave 3 repeats status-only WORK outcome question and COACH asks user for a missing exact question; actual reports r221,r242,r263,r284,r319,r340,r361,r382 vary. Watchdog stopped tenth WORK. Reported unchanged input was unavailable exact Node 20. Old exact comparison alone does not cover this analogue. Native wl01 exact runtime f09d488aaa51 reached C in 13 Terra medium calls, two WORK done, zero COACH. | LAND-R3 a23f60c889005c1af4e6e0dc3ade098c45d1c1eb pushed. Cold imports 32/32; bare gate 171 passed in 393.98s.",
+      "resolution": "LAND-R3 landed on main as a23f60c889005c1af4e6e0dc3ade098c45d1c1eb. Integrated native follow-up pending."
     },
     {
       "id": "T-252",
@@ -3350,12 +3351,13 @@
       "title": "Orchestrator model echoes derivable ownership and prior inputs",
       "severity": "high",
       "type": "design",
-      "status": "in_progress",
+      "status": "fixed",
       "milestone": "Orchestrator micro",
       "area": "ARCHITECT, DETAIL and continuing plan",
       "family": "Questions copy everything",
       "direction": "orchDerived Sol 6.2 medium lane, Astra pattern 4, starts source-only and owns no Lead or shared golden file until transfer.",
-      "evidence": "Astra patterns review 2026-11-19 pattern 4 and ticket T-236/T-237/T-238/T-245/T-246. Batch 3 had zero refusals after normalization, but preserve data across quiet bench continuation without restating canonical bookkeeping. TrialFidelity, workerQuestionLoop and guideEvidenceScope remain held pending exact coverage. Own od01 real C in 21 Terra medium calls, dr01 native C in 20 with T-263 and continuation ownership/facts."
+      "evidence": "Astra patterns review 2026-11-19 pattern 4 and ticket T-236/T-237/T-238/T-245/T-246. Batch 3 had zero refusals after normalization, but preserve data across quiet bench continuation without restating canonical bookkeeping. TrialFidelity, workerQuestionLoop and guideEvidenceScope remain held pending exact coverage. Own od01 real C in 21 Terra medium calls, dr01 native C in 20 with T-263 and continuation ownership/facts. | LAND-R3 a23f60c889005c1af4e6e0dc3ade098c45d1c1eb pushed. Cold imports 32/32; bare gate 171 passed in 393.98s.",
+      "resolution": "LAND-R3 landed on main as a23f60c889005c1af4e6e0dc3ade098c45d1c1eb. Integrated native follow-up pending."
     },
     {
       "id": "T-260",
@@ -3374,12 +3376,13 @@
       "title": "C marks an explicitly unobserved exact-runtime guide step complete",
       "severity": "high",
       "type": "code",
-      "status": "in_progress",
+      "status": "fixed",
       "milestone": "Orchestrator micro",
       "area": "C verification flag and guide observation account",
       "family": "Judge asked beyond its view",
       "direction": "explicitGuideLimits proves candidate-bound step unavailability reaches C summary and flag. No approval/eligibility rule change.",
-      "evidence": "qbu-8434139-od01-11201152 runtime 5b2623e165df, candidate f35ef50a. r265 Node 20 guide step observed=false (installed v25.8.0), r271 judge nit, r325 verification_complete=true and notJudged={}. T-248 golden used explicit judge uncertainty. Native wl01 exact runtime f09d488aaa51 r212 reached C with verification_complete=false and named Node 20 page check (not observed). Earlier own gl01 native stalled due T-251."
+      "evidence": "qbu-8434139-od01-11201152 runtime 5b2623e165df, candidate f35ef50a. r265 Node 20 guide step observed=false (installed v25.8.0), r271 judge nit, r325 verification_complete=true and notJudged={}. T-248 golden used explicit judge uncertainty. Native wl01 exact runtime f09d488aaa51 r212 reached C with verification_complete=false and named Node 20 page check (not observed). Earlier own gl01 native stalled due T-251. | LAND-R3 a23f60c889005c1af4e6e0dc3ade098c45d1c1eb pushed. Cold imports 32/32; bare gate 171 passed in 393.98s.",
+      "resolution": "LAND-R3 landed on main as a23f60c889005c1af4e6e0dc3ade098c45d1c1eb. Integrated native follow-up pending."
     },
     {
       "id": "T-262",
@@ -3391,19 +3394,20 @@
       "area": "Lead proof runner",
       "family": "Code grows, cleanup later",
       "direction": "Observe one physical execution for a shared command at each exact product/overlay and phase, retain all promise-specific check identities and evidence bindings. Queue behind current serialized owner surfaces.",
-      "evidence": "12:51 ShelfLife 54c774c live receipt grouping by exact executed commit, purpose, argv, witness-path set and walkthrough kind: ls01 24 repeated observations/413.4s, ls02 30/423.5s, ls03 24/523.0s, ls04 30/197.9s, ls05 30/459.1s. Same draft can satisfy several promises only once. No provider watchdog threshold exceeded. Lead Quiet Bench lq04 r85–r87 ran the same walkthrough three times at ~210 seconds each, all exit 1. Related repeated physical execution; preserve exact matching identity and logical evidence links."
+      "evidence": "12:51 ShelfLife 54c774c live receipt grouping by exact executed commit, purpose, argv, witness-path set and walkthrough kind: ls01 24 repeated observations/413.4s, ls02 30/423.5s, ls03 24/523.0s, ls04 30/197.9s, ls05 30/459.1s. Same draft can satisfy several promises only once. No provider watchdog threshold exceeded. Lead Quiet Bench lq04 r85–r87 ran the same walkthrough three times at ~210 seconds each, all exit 1. Related repeated physical execution; preserve exact matching identity and logical evidence links. | Foundation repeat grouping by executed commit, purpose, argv, witness and lifecycle flag found 30–48 repeated per run on 6ea9aa3 (44.9–73.2s), from 59.4–109.2s total observed proof per run. Prior 54c774c sample spent 446.9–1270.3s in proof including 190.2–952.4s repeat time. Current proof ran faster while duplicate execution persists. | leadShelf269 repeated observation groups cost 250.8–597.9 seconds per slot, 42–108 repeats, grouped by executed commit, purpose, argv, witness and lifecycle flag. Approximate WORK provider durations were 675–919 seconds per slot and larger than proof in all five."
     },
     {
       "id": "T-263",
       "title": "Wave-2 DETAIL repair leaves one requirement with two owners",
       "severity": "high",
       "type": "code",
-      "status": "in_progress",
+      "status": "fixed",
       "milestone": "Orchestrator micro",
       "area": "DETAIL/plan canonical continuation",
       "family": "Two rules disagree",
       "direction": "Same orchDerived owner reconstructs canonical revision sequence and fixes the smallest T-259/retained ownership cause. Do not drop genuine conflict checking.",
-      "evidence": "qbu-54c774c-se01 (T-259 plus T-247), r133 rejects guide-only scope, r138 scope-less proposal, r172 explicit docs-only scope, r184/r185 WAITING with both 1.quiet-bench.1 and 2.quiet-bench.1 owning 2.quiet-bench.requirement2. Initial od01 reached C. r58 out-of-scope evidence independently supports held guideEvidenceScope. Own native dr01 on dc566d7f771e reaches scripted C at r331 in 20 Terra medium calls. r230 carries canonical existing owner, scope, check-in and guide owner. The exact duplicate-draft sequence was replayed offline with separate genuine overlap guard."
+      "evidence": "qbu-54c774c-se01 (T-259 plus T-247), r133 rejects guide-only scope, r138 scope-less proposal, r172 explicit docs-only scope, r184/r185 WAITING with both 1.quiet-bench.1 and 2.quiet-bench.1 owning 2.quiet-bench.requirement2. Initial od01 reached C. r58 out-of-scope evidence independently supports held guideEvidenceScope. Own native dr01 on dc566d7f771e reaches scripted C at r331 in 20 Terra medium calls. r230 carries canonical existing owner, scope, check-in and guide owner. The exact duplicate-draft sequence was replayed offline with separate genuine overlap guard. | LAND-R3 a23f60c889005c1af4e6e0dc3ade098c45d1c1eb pushed. Cold imports 32/32; bare gate 171 passed in 393.98s.",
+      "resolution": "LAND-R3 landed on main as a23f60c889005c1af4e6e0dc3ade098c45d1c1eb. Integrated native follow-up pending."
     },
     {
       "id": "T-264",
@@ -3427,7 +3431,7 @@
       "area": "Lead guide walkthrough and owner routing",
       "family": "Blame lands on wrong owner",
       "direction": "leadGuideMethod (same Terra T-258 owner) distinguishes an optional builder method from scope-bound evidence and keeps actual cleanup proof.",
-      "evidence": "Lead ShelfLife ls04 on 54c774c, r220 judge agrees import, page actions, API commands and restart were exercised. Both documented Ctrl+C attempts were accepted by isolated console but did not stop server; runner cleanup terminated it. Exact Ctrl+C was introduced by builder guide, not part of the original written brief. r222/r223 routes Seldon-owned PROVE question asking whether interactive Ctrl+C works; ends WAITING. Related T-258. Terra lane +12/-2 src, 2+2 affected scripted cases pass, own native gm01 underway. gm01 exact runtime d8d212ff6cbb reaches scripted C in nine Terra-medium calls, independently scored 38/1/1 (DB cleanup fail). r116 observed supported repeatable stop and restart. Manual route in the same guide still instructs Ctrl+C; native test used process termination, so that manual method has no observed receipt. Evidence remains scoped and candidate is held for exact-method disclosure/repair."
+      "evidence": "Lead ShelfLife ls04 on 54c774c, r220 judge agrees import, page actions, API commands and restart were exercised. Both documented Ctrl+C attempts were accepted by isolated console but did not stop server; runner cleanup terminated it. Exact Ctrl+C was introduced by builder guide, not part of the original written brief. r222/r223 routes Seldon-owned PROVE question asking whether interactive Ctrl+C works; ends WAITING. Related T-258. Terra lane +12/-2 src, 2+2 affected scripted cases pass, own native gm01 underway. gm01 exact runtime d8d212ff6cbb reaches scripted C in nine Terra-medium calls, independently scored 38/1/1 (DB cleanup fail). r116 observed supported repeatable stop and restart. Manual route in the same guide still instructs Ctrl+C; native test used process termination, so that manual method has no observed receipt. Evidence remains scoped and candidate is held for exact-method disclosure/repair. | leadShelf269 ls03, 6ea9aa3: r211/r212 paused after walkthrough proved invocation, interactions, Stop-Process and restart through a Python launch, while the builder-authored guide specified exact PowerShell Start-Process. Builder reported command-policy restriction. Exact step remains unverified."
     },
     {
       "id": "T-266",
@@ -3446,12 +3450,13 @@
       "title": "Guide workers override the supplied evidence directory into product scope",
       "severity": "medium",
       "type": "design",
-      "status": "in_progress",
+      "status": "fixed",
       "milestone": "Orchestrator micro",
       "area": "Guide worker evidence scope",
       "family": "Two rules disagree",
       "direction": "guideEvidenceScopeR3 Terra lane rebases held external-evidence direction and only its focused guide coverage. Keep scope rejection and exact-runtime uncertainty.",
-      "evidence": "Batch 3 s05 r62 and q03 r58 plus Quiet Bench se01 r58. Workers reset the supplied external directory into their own worktree; correct owner validation rejects generated files. Existing held 7e54743 patch failed application on current staged plan and guide test. Native exit pending. Rebased guidance +3/-1 src. Focused PowerShell 4 passed and scope rejection 1 passed. Own native gs01 exact 497326acbe04 21 Terra medium calls to C r333. Actual worker supplied external browser-evidence lifecycle and Seldon final external observation r286. Two additional worker probes used sibling temp directories, never product. Exact Node 20 and manual guide evidence remain unverified; r332 truthfully reports incomplete. T-264 recurred independently. Wait canonical gate."
+      "evidence": "Batch 3 s05 r62 and q03 r58 plus Quiet Bench se01 r58. Workers reset the supplied external directory into their own worktree; correct owner validation rejects generated files. Existing held 7e54743 patch failed application on current staged plan and guide test. Native exit pending. Rebased guidance +3/-1 src. Focused PowerShell 4 passed and scope rejection 1 passed. Own native gs01 exact 497326acbe04 21 Terra medium calls to C r333. Actual worker supplied external browser-evidence lifecycle and Seldon final external observation r286. Two additional worker probes used sibling temp directories, never product. Exact Node 20 and manual guide evidence remain unverified; r332 truthfully reports incomplete. T-264 recurred independently. Wait canonical gate. | LAND-R3 a23f60c889005c1af4e6e0dc3ade098c45d1c1eb pushed. Cold imports 32/32; bare gate 171 passed in 393.98s.",
+      "resolution": "LAND-R3 landed on main as a23f60c889005c1af4e6e0dc3ade098c45d1c1eb. Integrated native follow-up pending."
     },
     {
       "id": "T-268",
@@ -3464,6 +3469,30 @@
       "family": "Two rules disagree",
       "direction": "leadContinue Sol 6.2 medium lane preserves prior proof and owner boundaries, distinguishes ambiguous scope, already covered and real work. Independent source review before integration.",
       "evidence": "lq01 on 54c774c r208 also let me export a session as CSV; r216 clears B and enters MILESTONES with wave 2 and no open handles. r222 and r238 both forced by nonempty schema to duplicate scopeIn:command-line. r247 parks Planner. Exact wave-1 candidate a31d51834abc098913199144d2e134b72942cc6a proves CLI CSV but no page export control located. Ambiguous owner surface, no cutoff inferred. Reviewed source 44d7d3d5 closes witness-free approval and includes actual CLI text, with 3 focused passes; second review rejects missing structured browser evidence. Typed fact re-slice in leadContinue worktree interrupted at 7%, unverified. Archived lq01 r247 unsupported recovery remains pending; no manual restore."
+    },
+    {
+      "id": "T-270",
+      "title": "Lead ShelfLife repeats builder and judge turns until the watchdog",
+      "severity": "high",
+      "type": "design",
+      "status": "open",
+      "milestone": "Lead micro",
+      "area": "Lead milestone judge and rework",
+      "family": "First-pass proof misses the user boundary",
+      "direction": "TRIAGE FAULT SELDON + DESIGN. Implement Lead Blueprint v0.3 section 2a, as ratified in 64f465f: fix proof standard at B, bind must-fix to that line and observed evidence, and resume the same builder where supported. Real Terra ShelfLife must exercise the repair and reach C without the loop.",
+      "evidence": "leadShelf269 on exact 6ea9aa3, Terra medium. ls01 stopped at WORK 10; eight JUDGE and 21 total provider calls started. Latest r325 asked for a meaningful 400 error assertion. Earlier r197/r229/r261/r293 show evolving witness and product requests. Per-kind watchdog is development rig evidence. | ls02 also stopped at WORK 10 with nine JUDGE; r330 asked for two competing successful consumes. 32/33 lead_failure followed green candidate check exits, including one Seldon exact-guide pause. Mix of source defects and expanding or successive witness requests. ls04 reached verified scripted C after 9 WORK + 9 JUDGE. Complete old/new event comparison in census-lead-1.md. Ratified 64f465f contains docs only."
+    },
+    {
+      "id": "T-271",
+      "title": "Lead pauses when a ShelfLife milestone judge packet exceeds provider input limits",
+      "severity": "high",
+      "type": "design",
+      "status": "open",
+      "milestone": "Lead micro",
+      "area": "Lead milestone judge packet",
+      "family": "Questions copy everything",
+      "direction": "TRIAGE FAULT SELDON + DESIGN. Keep guide-generated dependency scratch outside the product, and give Lead JUDGE the relevant authored source and candidate evidence. Preserve evidence links. Replay the refused record and prove a real Terra ShelfLife exit.",
+      "evidence": "leadShelf269 ls05 exact 6ea9aa3. r139 step failure InputRejected: Codex rejected the JUDGE question as too large. r140 parked PROVE. A previous WORK added stronger checks; current candidate proof could not get a verdict. | Measured exact refused prompt 11,401,190 bytes. Product files fact 10,793,970 serialized bytes, dominated by bundled Playwright files under docs/try-it/work/fresh/node_modules. Observations 59,324 bytes. Final provisional commit 66f1dc0f independently served the page (HTTP 200, oracle 36/3/1)."
     }
   ]
 }

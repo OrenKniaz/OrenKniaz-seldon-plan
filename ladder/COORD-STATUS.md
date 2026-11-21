@@ -1,10 +1,9 @@
 # Seldon coordinator status
-2026-11-20 14:34:42 +02:00
-STOPPED: Codex primary 7%; lq04/lq05 runner trees terminated, no remaining owned cohort controllers.
-Pushed: 54c774c6dd55c98e4c52744885144f59f1f21176 (T-256/T-258), src +75/-35. Preliminary reachable Lead 6339, Orchestrator 7440.
-Lead: hello 5/5 C (T-257 punctuation); Foundation 5/5 C (35/35); ShelfLife 4/5 C (148/8/4).
-Lead Quiet Bench: 0/5 C; lq01 T-268, lq02/lq03 Node20 WAITING, lq04/lq05 cutoff. Exact page checks passed separately on lq01/lq03.
-Ready for canonical gate: orchDerived, orchDerived-t263, explicitGuideLimits, workerQuestionLoopR3, workerQuestionLoopR3-t261, guideEvidenceScopeR3 (in order, src +263/-99 candidate).
-Held: T-265 manual Ctrl+C; T-268 structured repair WIP and archived recovery; T-247 Stop, T-264 waiver, T-266 WAV; Lean and Orc x5 rerun pending.
-Replay: offline corpus and supplied-answer A/B validated. Automatic A/B generation pending.
-NEEDS-LEAD: primary below 8%; resume after quota recovery. T-257 owner question in AGENDA.md.
+2026-11-21 21:19:19 +02:00
+Round 3 evening complete. No cohort controllers remain. Last quota check 5%.
+Pushed a23f60c889005c1af4e6e0dc3ade098c45d1c1eb (T-251/T-259/T-261/T-263/T-267, src +263/-99). 171 gate cases passed in 393.98s, cold imports 32/32.
+Main advanced to 64f465f (lead-ratified Blueprint v0.3, docs only). Landing reachable lines: Lead 6518, Orchestrator 7607 (static + check kit).
+Lead Foundation / 6ea9aa3: 5/5 verified scripted C, 35/35 oracle, 0/5 first-pass, 17 WORK / 12 lead_failure / 5 recovery rows. Median 7.4m vs 15.1m.
+Lead ShelfLife / 6ea9aa3: 1/5 verified scripted C vs 4/5; 0/5 first-pass, 37 WORK / 34 JUDGE / 33 lead_failure / 5 recovery rows. Median 27.1m vs 59.2m across all endpoints.
+ShelfLife stops: ls01/ls02 WORK 10 (T-270), ls03 exact guide launch (T-265), ls05 11.4 MB JUDGE packet (T-271). Sole delivery ls04 oracle 36/3/1.
+Read-only diagnosis complete in census-lead-1.md. NEEDS-LEAD: implement ratified bound proof (T-270), bound JUDGE source (T-271), and verify the exact guide step (T-265). Integrated Orchestrator Quiet Bench remains due.

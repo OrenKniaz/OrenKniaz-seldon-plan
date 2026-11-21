@@ -1,16 +1,16 @@
 {
-  "updated": "2026-11-20",
+  "updated": "2026-11-21",
   "lead": "Opus 5.5 (Fable at its 5-hour limit until ~03:10 Jerusalem; Astra covers design consults)",
-  "main": "54c774c",
-  "docs": "charter v1.8, blueprint v1.15, Lead charter v1.1, Lead blueprint v0.2",
+  "main": "64f465f",
+  "docs": "charter v1.8, blueprint v1.15, Lead charter v1.1, Lead blueprint v0.3",
   "milestone": "Lead micro ladder, round 3",
-  "now": "Round 3 stopped at Codex primary 7%. Main Lead Quiet Bench 0/5 C, three WAITING and two stopped. Canonical remote remains 54c774c.",
+  "now": "LAND-R3 a23f60c remains on main at 64f465f, a separate Lead Blueprint v0.3 ratification. On pinned T-269 source 6ea9aa3, Foundation reached verified scripted C 5/5 and ShelfLife 1/5; neither cohort had a first-pass finish.",
   "lanes": [
     {
       "name": "leadNoRecovery",
       "owner": "Codex",
-      "state": "delivered, awaiting integration",
-      "what": "T-269. Bare gate 169 passed in 433.13s. Real nr01 Terra medium (2ed5b52+worktree:95c16b393186) reached verified scripted C with one WORK, zero lead_failure and zero recovery. Patch remains uncommitted."
+      "state": "landed; Foundation and ShelfLife reruns complete; rework barrier persists",
+      "what": "T-269 landed by Opus as 6ea9aa3ceb5b78f721ac034d9b5594969c466b0f. Bare lane gate 169 passed/433.13s; changed modules cold-imported. Terra nr01: verified SCRIPTED_C, 5 calls, 1 WORK, 0 lead_failure, 0 recovery, accepted=false. Rerun result: Foundation 5/5 verified scripted C and 35/35 oracle, ShelfLife 1/5 verified scripted C, no first-pass finishes in either batch. Read-only diagnosis in census-lead-1.md (T-270/T-271/T-265)."
     },
     {
       "name": "leadOwners",
@@ -33,7 +33,7 @@
     {
       "name": "guideEvidenceScope",
       "owner": "Codex",
-      "state": "delivered; focused scripted journeys passed, integration and native evidence pending",
+      "state": "LAND-R3 landed as a23f60c; integrated native follow-up pending",
       "what": "Base 7e54743. Guide uses supplied external evidence directory for checks and local probes; focused separate and folded guide journeys 2 passed in 15.25s, scope rejection and missing-runtime unverified outcome retained. Patch/report delivered; scopeExpression owns separate checkPaths issue."
     },
     {
@@ -633,7 +633,7 @@
     {
       "name": "orchDerived",
       "owner": "Codex Sol 6.2 medium",
-      "state": "real two-wave C proved; review found separate strength-of-proof issue",
+      "state": "LAND-R3 landed as a23f60c; integrated native follow-up pending",
       "what": "T-259. Own only ARCHITECT/DETAIL/plan consumers. Native Quiet Bench exit required. T-258 holds the shared golden file."
     },
     {
@@ -645,7 +645,7 @@
     {
       "name": "explicitGuideLimits",
       "owner": "Codex Sol 6.2 medium",
-      "state": "native exit alarm; held behind T-251",
+      "state": "LAND-R3 landed as a23f60c; integrated native follow-up pending",
       "what": "T-261. Orchestrator exact proof limitation stays visible at C even if the judge summarizes supported steps favorably."
     },
     {
@@ -657,7 +657,7 @@
     {
       "name": "workerQuestionLoopR3",
       "owner": "Codex Sol 6.2 medium",
-      "state": "in progress; source scope units and decisions",
+      "state": "LAND-R3 landed as a23f60c; integrated native follow-up pending",
       "what": "T-251 actual tenth WORK alarm with paraphrased status-only receipts. T-263 owns shared planning and golden files first."
     },
     {
@@ -667,9 +667,105 @@
       "what": "T-265 Lead builder-authored shutdown route. Exact ls04 evidence; native ShelfLife exit required."
     }
   ],
-  "next": "After quota recovers, apply/gate/push the native-proven Orchestrator bundle; rerun Quiet Bench, resume supported Node20 proof, and finish T-268 review/native and T-265 guide truth before Lead reruns and Lean. Native replay A/B remains pending.",
+  "next": "T-270 implements the ratified B-bound proof and same-session repair, then rechecks real Terra ShelfLife. T-271 owns the oversized judge packet, T-265 the exact guide step, and LAND-R3 needs an integrated native Orchestrator Quiet Bench follow-up.",
   "decisionsForOren": [],
   "recentRuns": [
+    {
+      "date": "2026-11-21",
+      "run": "ls04",
+      "commit": "6ea9aa3",
+      "outcome": "SCRIPTED_C",
+      "furthest": "C",
+      "repairs": "8",
+      "gaps": "0",
+      "uncertain": "0",
+      "wall": "1931.092",
+      "flags": "8"
+    },
+    {
+      "date": "2026-11-21",
+      "run": "ls05",
+      "commit": "6ea9aa3",
+      "outcome": "PROVE",
+      "furthest": "BUILD",
+      "repairs": "2",
+      "gaps": "0",
+      "uncertain": "0",
+      "wall": "1281.831",
+      "flags": "3"
+    },
+    {
+      "date": "2026-11-21",
+      "run": "ls03",
+      "commit": "6ea9aa3",
+      "outcome": "PROVE",
+      "furthest": "BUILD",
+      "repairs": "4",
+      "gaps": "0",
+      "uncertain": "0",
+      "wall": "1351.480",
+      "flags": "5"
+    },
+    {
+      "date": "2026-11-21",
+      "run": "lf02",
+      "commit": "6ea9aa3",
+      "outcome": "SCRIPTED_C",
+      "furthest": "C",
+      "repairs": "3",
+      "gaps": "0",
+      "uncertain": "0",
+      "wall": "502.825",
+      "flags": "3"
+    },
+    {
+      "date": "2026-11-21",
+      "run": "lf01",
+      "commit": "6ea9aa3",
+      "outcome": "SCRIPTED_C",
+      "furthest": "C",
+      "repairs": "3",
+      "gaps": "0",
+      "uncertain": "0",
+      "wall": "489.788",
+      "flags": "3"
+    },
+    {
+      "date": "2026-11-21",
+      "run": "lf03",
+      "commit": "6ea9aa3",
+      "outcome": "SCRIPTED_C",
+      "furthest": "C",
+      "repairs": "2",
+      "gaps": "0",
+      "uncertain": "0",
+      "wall": "442.567",
+      "flags": "2"
+    },
+    {
+      "date": "2026-11-21",
+      "run": "lf05",
+      "commit": "6ea9aa3",
+      "outcome": "SCRIPTED_C",
+      "furthest": "C",
+      "repairs": "2",
+      "gaps": "0",
+      "uncertain": "0",
+      "wall": "394.611",
+      "flags": "2"
+    },
+    {
+      "date": "2026-11-21",
+      "run": "lf04",
+      "commit": "6ea9aa3",
+      "outcome": "SCRIPTED_C",
+      "furthest": "C",
+      "repairs": "2",
+      "gaps": "0",
+      "uncertain": "0",
+      "wall": "383.178",
+      "flags": "2"
+    },
     {
       "date": "2026-11-20",
       "run": "qbu-54c774c-lq02",
@@ -753,102 +849,6 @@
       "uncertain": "0",
       "wall": "4084.239",
       "flags": "5"
-    },
-    {
-      "date": "2026-11-20",
-      "run": "qbu-54c774c-wl01",
-      "commit": "54c774c",
-      "outcome": "SCRIPTED_C",
-      "furthest": "C",
-      "repairs": "0",
-      "gaps": "0",
-      "uncertain": "0",
-      "wall": "1011.950",
-      "flags": "0"
-    },
-    {
-      "date": "2026-11-20",
-      "run": "shelflife-main-54c774c-ls03",
-      "commit": "54c774c",
-      "outcome": "SCRIPTED_C",
-      "furthest": "C",
-      "repairs": "4",
-      "gaps": "0",
-      "uncertain": "0",
-      "wall": "4021.305",
-      "flags": "4"
-    },
-    {
-      "date": "2026-11-20",
-      "run": "shelflife-main-54c774c-ls02",
-      "commit": "54c774c",
-      "outcome": "SCRIPTED_C",
-      "furthest": "C",
-      "repairs": "5",
-      "gaps": "0",
-      "uncertain": "0",
-      "wall": "3548.773",
-      "flags": "5"
-    },
-    {
-      "date": "2026-11-20",
-      "run": "shelflife-main-54c774c-ls04",
-      "commit": "54c774c",
-      "outcome": "PROVE",
-      "furthest": "BUILD",
-      "repairs": "4",
-      "gaps": "3",
-      "uncertain": "0",
-      "wall": "2552.715",
-      "flags": "8"
-    },
-    {
-      "date": "2026-11-20",
-      "run": "shelflife-main-54c774c-ls05",
-      "commit": "54c774c",
-      "outcome": "SCRIPTED_C",
-      "furthest": "C",
-      "repairs": "3",
-      "gaps": "0",
-      "uncertain": "0",
-      "wall": "2352.481",
-      "flags": "3"
-    },
-    {
-      "date": "2026-11-20",
-      "run": "qbu-54c774c-se01",
-      "commit": "54c774c",
-      "outcome": "DETAIL",
-      "furthest": "ARCHITECT",
-      "repairs": "2",
-      "gaps": "1",
-      "uncertain": "0",
-      "wall": "1116.080",
-      "flags": "5"
-    },
-    {
-      "date": "2026-11-20",
-      "run": "foundation-54c774c-lf05",
-      "commit": "54c774c",
-      "outcome": "SCRIPTED_C",
-      "furthest": "C",
-      "repairs": "2",
-      "gaps": "0",
-      "uncertain": "0",
-      "wall": "1825.625",
-      "flags": "2"
-    },
-    {
-      "date": "2026-11-20",
-      "run": "qbu-8434139-od01-11201152",
-      "commit": "8434139",
-      "outcome": "SCRIPTED_C",
-      "furthest": "C",
-      "repairs": "0",
-      "gaps": "0",
-      "uncertain": "0",
-      "wall": "1528.198",
-      "flags": "0"
     }
   ]
 }
