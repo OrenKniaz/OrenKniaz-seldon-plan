@@ -3516,7 +3516,116 @@
       "area": "Lead MILESTONES and REVIEW",
       "family": "Questions copy everything",
       "direction": "leadSpec owns ranked change 3. Require bound counterexamples and approved promise handles, review the exact builder spec, and amend named fields without repeating MILESTONES. Exit: bare gate plus one Terra Foundation and ShelfLife run.",
-      "evidence": "astra62-lead-vs-plain-2026-11-22.md: five ShelfLife runs, fifteen missing-field rewrites took 421 s and nine review cycles repeated plan work. Lane first gate: 172 passed, one Claude direct-rendering KeyError when Approved spec was absent (leadSpec-0/gate.log). Renderer corrected to preserve existing minimal input."
+      "evidence": "astra62-lead-vs-plain-2026-11-22.md: five ShelfLife runs, fifteen missing-field rewrites took 421 s and nine review cycles repeated plan work. Lane first gate: 172 passed, one Claude direct-rendering KeyError when Approved spec was absent (leadSpec-0/gate.log). Renderer corrected to preserve existing minimal input. | leadSpec ae75e4f+worktree:c4792b511ed8 final gate 173 passed/528.63 s. Foundation F01 MILESTONES 1/19.80 s and REVIEW 1/12.70 s; ShelfLife S01 1/21.47 s and 1/13.86 s. Both zero whole-plan rewrites and verified SCRIPTED_C. The patched document was the actual WORK prompt prefix. ShelfLife resumed once for keyboard, seven-day expiry and post-save restart witness gaps. Production net +38, reduction unmet. Report C:/seldon/tests/leadSpec-0/REPORT.md."
+    },
+    {
+      "id": "T-274",
+      "title": "Windows Codex denies the independent Lead guard shell",
+      "severity": "high",
+      "type": "code",
+      "status": "dropped",
+      "milestone": "Lead micro",
+      "area": "Lead guard / native provider",
+      "family": "Provider sessions disturb desktop",
+      "direction": "Superseded by CC lead follow-up: use the existing full-access provider on a disposable candidate copy.",
+      "evidence": "leadWalk-0/hello-run, hello01: five call kinds, one WORK, candidate GREEN. JUDGE stderr logged exec_command Rejected: blocked by policy on source/guide reads and git status. PROVE waited, no C. No denied hello rerun. | shelf01 reproduced the policy rejection from the disposable tool working directory, before any guide reads. One WORK, RED/GREEN physical witness with verified cleanup, no guard actions or C. Codex 0.170.0 managed-config MXC probe: native MXC is unavailable on this executor (exit 1, cleanup verified).",
+      "note": "The workspace-write/MXC design is dropped by CC lead on 2026-11-22. Historical denials remain in evidence."
+    },
+    {
+      "id": "T-275",
+      "title": "Cohort runner hardcodes its native slot and temp roots",
+      "severity": "low",
+      "type": "code",
+      "status": "open",
+      "milestone": "Lead micro",
+      "area": "Cohort rig",
+      "family": "Rig gives false signals",
+      "direction": "Rig owner parameterizes one approved test root across cohort2 and the real runner. Exit: one caller-supplied tree contains slots and temp without a wrapper.",
+      "evidence": "leadWalk-0/hello01.log rejected the contained slot at argument parsing before any provider call. Path-only temp wrapper ran both authorized Terra attempts under leadWalk-0."
+    },
+    {
+      "id": "T-276",
+      "title": "Full-access ShelfLife guard exhausts the judge deadline",
+      "severity": "high",
+      "type": "design",
+      "status": "open",
+      "milestone": "Lead micro",
+      "area": "Lead guard",
+      "family": "First-pass proof misses the user boundary",
+      "direction": "Lead guard owns one bounded representative flow. Let the retained witnesses cover the broader suite. Exit: first-pass native ShelfLife records the walked actions, screenshots and feedback and reaches scripted C within the requested budget.",
+      "evidence": "leadWalk-0/copy-shelf-run shelf01. One WORK and one physical candidate walkthrough. Guard executed browser and CLI commands. Attempt 1 did not drain output after Job quiescence; remaining attempts reached the 180 s judge deadline. Native cleanup verified; no semantic verdict or C on the first segment. | Same slot resumed candidate 9fdc0fbf34048ace5841fbcbf8594013159d9737 with a focused guard brief. SCRIPTED_C in 50.26 s additional active time, four observed actions and four retained PNGs, one total WORK. Keyboard evidence stayed limited. Full elapsed 910.10 s and at least 71,371 fresh-plus-output tokens."
+    },
+    {
+      "id": "T-277",
+      "title": "Lead RED replay overlays the product file",
+      "severity": "high",
+      "type": "code",
+      "status": "in_progress",
+      "milestone": "Lead micro",
+      "area": "Lead witness receipts",
+      "family": "Proof observes impure state",
+      "direction": "leadGuardC: Lead compares the same real user action in a clean export of the base. No builder witness file is copied onto it.",
+      "evidence": "leadGuardRun-0 hello01: observed commit 886ca759 has the same tree as candidate b573c0d1 because WORK declared hello.py, docs/try-it.md and docs/try-it/walkthrough.py as witness paths. Both exits were 0 and SCRIPTED_C has verification_complete=false. | FAULT SELDON + BUG: caller supplied product paths to the RED overlay. | leadGuardC-0 hello01: native guard ran python hello.py on exact base 7d5066a; exit 2, hello.py absent. Candidate 2a953b4 exit 0. See hello-summary.json."
+    },
+    {
+      "id": "T-278",
+      "title": "Lead guard leaves accepted observations unresolved at C",
+      "severity": "high",
+      "type": "design",
+      "status": "in_progress",
+      "milestone": "Lead micro",
+      "area": "Lead guard",
+      "family": "First-pass proof misses the user boundary",
+      "direction": "leadGuardC: Lead gives the guard every B subject. C names subjects the guard cannot independently observe. A failed-check citation must identify a linked check with an actual failure. Remaining exit: guard walks focus traversal and filter selection using keys alone, or C exposes the missing observation.",
+      "evidence": "leadGuardRun-0: Hello r65 and ShelfLife r72 both reached scripted C with verification_complete=false. Both JUDGE replies used retained for passing observations. ShelfLife r59 left empty state, full keyboard path and scope-bound completeness unverified despite two real headless screenshots. | FAULT SELDON + DESIGN: representative walk left accepted paths out. FAULT SELDON + BUG: retained was a return label even for passing checks. | leadGuardC-0: 3/3 stored verified SCRIPTED_C, with one WORK each and no retained label. ShelfLife replayed the retained browser witness and added live empty-state proof and source inspection. Its quality:accessible-use was marked observed although browser.cjs sets focus programmatically and selects the filter with selectOption. Tab traversal and keyboard filter operation were not observed."
+    },
+    {
+      "id": "T-279",
+      "title": "Lead guard lane bare gate exceeds ten minutes",
+      "severity": "medium",
+      "type": "code",
+      "status": "in_progress",
+      "milestone": "Lead micro",
+      "area": "Golden gate",
+      "family": "Rig gives false signals",
+      "direction": "leadGuardC: Run the complete gate before any native exit and record runtime.",
+      "evidence": "leadGuardRun-0/gate.log: 173 passed in 841.56 s vs leadWalk 173 in 459.62 s. Live exits overlapped the gate. Cause is unestablished. | leadGuardC-0/gate.log: 173 passed in 562.17 s. No overlap with native runs; a different lane gate overlapped part of it."
+    },
+    {
+      "id": "T-280",
+      "title": "Hello guard's compound cleanup command prevents its CLI walk",
+      "severity": "medium",
+      "type": "code",
+      "status": "open",
+      "milestone": "Lead micro",
+      "area": "Lead guard",
+      "family": "First-pass proof misses the user boundary",
+      "direction": "Seldon owns disposable folder cleanup; keep guard commands focused on user actions. Exit: fresh native Hello executes the normal and invalid CLI commands and reaches SCRIPTED_C.",
+      "evidence": "leadWalk-0/copy-hello-run hello01. Full-access judge read the guide and source. Policy denied before launch a compound command with CLI invocations and Remove-Item -Recurse -Force. One source inspection, zero actual CLI actions. Stayed at PROVE. Final prompt instructs the guard to leave generated files for Seldon. | Round 3 native hello01 reached verified SCRIPTED_C in 106.65 s with 1 WORK and 1 JUDGE. The direct commands observed greeting, repeat invocation and invalid args. No cleanup command denied. Uncommitted leadWalk lane."
+    },
+    {
+      "id": "T-281",
+      "title": "Windows capture temp files pollute a proof witness checkout",
+      "severity": "medium",
+      "type": "code",
+      "status": "in_progress",
+      "milestone": "Lead micro",
+      "area": "Provider and proof runner",
+      "family": "Proof observes impure state",
+      "direction": "leadWalk keeps unnamed capture files in OS runner temp and provider streams in call folders. Exit: land with clean-witness and stream journey evidence.",
+      "evidence": "leadWalk round3-gate had 172 passes and weak-check/lr01 failures. Both ran git status in a supposed clean witness checkout during capture. Moving TemporaryFile out of cwd gives 3/3 affected journeys and final bare gate 174/174 in 425.68 s."
+    },
+    {
+      "id": "T-282",
+      "title": "Foundation guard makes an unpromised failure flow block C",
+      "severity": "high",
+      "type": "design",
+      "status": "open",
+      "milestone": "Lead micro",
+      "area": "Lead guard",
+      "family": "First-pass proof misses the user boundary",
+      "direction": "Keep walk negatives tied to B. For a static surface without a separate error flow, exercise an unsupported interaction and judge its actual effect. Exit: Foundation’s valid direct browser walk reaches verified SCRIPTED_C.",
+      "evidence": "leadWalk-0/round3-foundation-run foundation01, candidate 99aeb1925ebdccd61814b98ce1ac9b61e192bdf1. One WORK and one JUDGE. Direct file browser, three independent buttons, reload and keyboard activation, two PNGs; click on the heading correctly changed nothing. Guard still reported tryItGuide pending because the guide has no explicit failure flow. No transport fault."
     }
   ]
 }

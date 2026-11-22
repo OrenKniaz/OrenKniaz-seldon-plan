@@ -1,5 +1,5 @@
 # Lane leadWalk (Sol 6.2 medium) — Lead only (Orchestrator paused)
-Repo: this lane dir = Seldon main e4b1151. Spec: BLUEPRINT-LEAD.md v0.4 section 2a (RATIFIED: Walk + Human UI/UX feedback). Evidence and design: ~/codex-harness/work/ladder/design-review/astra62-lead-vs-plain-2026-11-22.md — implement its ranked changes 1, 2 and 4.
+Repo: this lane dir = Seldon main d78cc5e (history rewritten 11-22; old hashes map in ../ladder/COMMIT-MAP-2026-11-22.txt). Spec: BLUEPRINT-LEAD.md v0.4 section 2a (RATIFIED: Walk + Human UI/UX feedback). Evidence and design: ~/codex-harness/work/ladder/design-review/astra62-lead-vs-plain-2026-11-22.md — implement its ranked changes 1, 2 and 4.
 Owner's words: "planner should be so thin... a beautiful process of expanding and crystallizing a dream"; "he still owns the results... mainly a subjective semantic guard... he should walk the user path"; "while seldon walks the user path, he also gives human type ui/ux feedback".
 
 ## Build

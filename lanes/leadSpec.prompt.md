@@ -1,5 +1,5 @@
 # Lane leadSpec (Sol 6.2 medium) — Lead only
-Repo: this lane dir = Seldon main e4b1151. Spec: BLUEPRINT-LEAD.md v0.4. Evidence: ~/codex-harness/work/ladder/design-review/astra62-lead-vs-plain-2026-11-22.md — implement ranked change 3 only.
+Repo: this lane dir = Seldon main d78cc5e (history rewritten 11-22; old hashes map in ../ladder/COMMIT-MAP-2026-11-22.txt). Spec: BLUEPRINT-LEAD.md v0.4. Evidence: ~/codex-harness/work/ladder/design-review/astra62-lead-vs-plain-2026-11-22.md — implement ranked change 3 only.
 Problem: 29 milestone plans for 5 one-milestone ShelfLife dreams; 15 rewrites because the schema allowed omitting notMetIf (421 s); MILESTONES writes a spec AND a separate brief; REVIEW makes it repeat contracts the builder already gets verbatim.
 ## Build
 - The reviewed spec IS the builder brief (one rendered document). User's exact constraints and guide obligation by reference with their text shown. Planner writes outcome, design choices, action/result and notMetIf once.
