@@ -1,10 +1,10 @@
 {
   "updated": "2026-11-21",
   "lead": "Opus 5.5 (Fable at its 5-hour limit until ~03:10 Jerusalem; Astra covers design consults)",
-  "main": "64f465f",
+  "main": "6419fc5",
   "docs": "charter v1.8, blueprint v1.15, Lead charter v1.1, Lead blueprint v0.3",
   "milestone": "Lead micro ladder, round 3",
-  "now": "LAND-R3 a23f60c remains on main at 64f465f, a separate Lead Blueprint v0.3 ratification. On pinned T-269 source 6ea9aa3, Foundation reached verified scripted C 5/5 and ShelfLife 1/5; neither cohort had a first-pass finish.",
+  "now": "CC published bound proof as 6419fc5; the completed bpShelf cohort recorded 4/5 scripted C and one WAITING, with two recovery rows in every run. Independent oracle scoring and exact-published-candidate HIGH review remain unevidenced; scripted completion is not owner acceptance.",
   "lanes": [
     {
       "name": "leadNoRecovery",
@@ -669,13 +669,73 @@
     {
       "name": "leadBoundProof",
       "owner": "Codex",
-      "state": "patch delivered; ShelfLife WORK target missed",
-      "what": "T-270/T-271 worktree dea90c189fb8. Bare gate 172 passed in 409.21 s. Terra-medium ShelfLife ls01 verified scripted C 27e3f4c after supported reopen, WORK 3/JUDGE 3, 3 lead failures, 2 recovery rows, 18.24 min. Foundation lf01 verified scripted C bed0051 on final source, WORK 1/JUDGE 1, no lead failures, 1 recovery row, 5.46 min. Patch and report delivered for lead review."
+      "state": "published; cohort complete; exact HIGH review and independent scoring pending",
+      "what": "T-270/T-271 published 6419fc54882acac3347958fe115e66a7c53780f8. Final gate 172/172 in 409.21s; earlier timeout retained. Lane ShelfLife repaired/reopened to scripted C after 3 WORK (target missed); Foundation 1 WORK. Fresh bpShelf on published main: bs02-bs05 SCRIPTED_C, bs01 WAITING; calls 10/17/16/20/16, each has 2 recovery rows. Oracle and full census pending; no verified human acceptance claim."
     }
   ],
-  "next": "T-270 implements the ratified B-bound proof and same-session repair, then rechecks real Terra ShelfLife. T-271 owns the oversized judge packet, T-265 the exact guide step, and LAND-R3 needs an integrated native Orchestrator Quiet Bench follow-up.",
+  "next": "Preserve the exact-candidate HIGH review boundary before qualification. CC queued work after quota reset: census bpShelf with oracle and WORK/JUDGE split; explain recurring recovery rows and provider-call growth; Foundation x5 and hello x5 on the new main; then lean the added source. No new cohort at the current reported quota boundary.",
   "decisionsForOren": [],
   "recentRuns": [
+    {
+      "date": "2026-11-21",
+      "run": "shelflife-bp-6419fc5-bs04",
+      "commit": "6419fc5",
+      "outcome": "SCRIPTED_C",
+      "furthest": "C",
+      "repairs": "4",
+      "gaps": "5",
+      "uncertain": "0",
+      "wall": "1380.612",
+      "flags": "9"
+    },
+    {
+      "date": "2026-11-21",
+      "run": "shelflife-bp-6419fc5-bs02",
+      "commit": "6419fc5",
+      "outcome": "SCRIPTED_C",
+      "furthest": "C",
+      "repairs": "1",
+      "gaps": "8",
+      "uncertain": "0",
+      "wall": "1062.347",
+      "flags": "10"
+    },
+    {
+      "date": "2026-11-21",
+      "run": "shelflife-bp-6419fc5-bs03",
+      "commit": "6419fc5",
+      "outcome": "SCRIPTED_C",
+      "furthest": "C",
+      "repairs": "3",
+      "gaps": "4",
+      "uncertain": "0",
+      "wall": "1022.918",
+      "flags": "7"
+    },
+    {
+      "date": "2026-11-21",
+      "run": "shelflife-bp-6419fc5-bs05",
+      "commit": "6419fc5",
+      "outcome": "SCRIPTED_C",
+      "furthest": "C",
+      "repairs": "1",
+      "gaps": "8",
+      "uncertain": "0",
+      "wall": "903.070",
+      "flags": "9"
+    },
+    {
+      "date": "2026-11-21",
+      "run": "shelflife-bp-6419fc5-bs01",
+      "commit": "6419fc5",
+      "outcome": "BUILD",
+      "furthest": "PROVE",
+      "repairs": "3",
+      "gaps": "4",
+      "uncertain": "0",
+      "wall": "669.280",
+      "flags": "8"
+    },
     {
       "date": "2026-11-21",
       "run": "ls04",
@@ -795,66 +855,6 @@
       "uncertain": "0",
       "wall": "2985.584",
       "flags": "8"
-    },
-    {
-      "date": "2026-11-20",
-      "run": "qbu-54c774c-gs01",
-      "commit": "54c774c",
-      "outcome": "SCRIPTED_C",
-      "furthest": "C",
-      "repairs": "0",
-      "gaps": "0",
-      "uncertain": "0",
-      "wall": "1707.433",
-      "flags": "1"
-    },
-    {
-      "date": "2026-11-20",
-      "run": "qbu-54c774c-lq01",
-      "commit": "54c774c",
-      "outcome": "LEAD-REVIEW",
-      "furthest": "MILESTONES",
-      "repairs": "0",
-      "gaps": "2",
-      "uncertain": "0",
-      "wall": "2160.399",
-      "flags": "3"
-    },
-    {
-      "date": "2026-11-20",
-      "run": "shelflife-main-54c774c-gm01",
-      "commit": "54c774c",
-      "outcome": "SCRIPTED_C",
-      "furthest": "C",
-      "repairs": "1",
-      "gaps": "1",
-      "uncertain": "0",
-      "wall": "1713.878",
-      "flags": "2"
-    },
-    {
-      "date": "2026-11-20",
-      "run": "qbu-8434139-dr01",
-      "commit": "8434139",
-      "outcome": "SCRIPTED_C",
-      "furthest": "C",
-      "repairs": "0",
-      "gaps": "0",
-      "uncertain": "0",
-      "wall": "2133.319",
-      "flags": "0"
-    },
-    {
-      "date": "2026-11-20",
-      "run": "shelflife-main-54c774c-ls01",
-      "commit": "54c774c",
-      "outcome": "SCRIPTED_C",
-      "furthest": "C",
-      "repairs": "5",
-      "gaps": "0",
-      "uncertain": "0",
-      "wall": "4084.239",
-      "flags": "5"
     }
   ]
 }
