@@ -6,6 +6,12 @@ This file is direction for the dev loop. CHARTER.md, CHARTER-LEAD.md and the BLU
 ## The one goal (charter, plain words)
 Seldon is the best way to use AI agents to turn a person's dream into a working product. Every dream we build is evidence for that, not the point.
 
+## STRATEGY (Oren 11-22, binding): Lead first, Orchestrator paused
+"focus on planner only mode, when that is perfect we can continue (if we want to) to planner+worker mode... until we can prove planner is basically 100% perfect, no reason to introduce other complexity like worker."
+- All dev, cohorts and reviews go to Lead. No Orchestrator lanes, cohorts or fixes. Orchestrator code stays in the repo untouched, and a Lead change may delete shared code Lead no longer needs.
+- Lead's shape (Oren 11-22): "planner should be so thin... no concurrency handled by us. it's just a beautiful process of expanding and crystallizing a dream, breaking it down into SW specs that are best fit for agentic development. of course I'm over simplifying... but you get it" Seldon owns expanding, crystallizing, specs, memory and proof. The builder owns execution, including any parallelism (native sub-agents). Seldon schedules no concurrency. Refined (Oren 11-22): "he still owns the results, he must be able to do those (to a degree or another), mainly be a subjective semantic guard... he should walk the user path" So Seldon's proof is to walk the person's path through the real product and judge, in meaning, whether the promises hold, not to negotiate check strength with the builder.
+- "Perfect" = the micro ladder bar below with no Seldon bugs, then small: cost and time close to plain, proof better.
+
 ## Two shapes, one codebase, one shared core
 
 **Seldon Lead (planner only): a staff-level tech lead in a box.**

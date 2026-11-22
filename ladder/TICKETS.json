@@ -3505,6 +3505,18 @@
       "family": "Rig gives false signals",
       "direction": "Gate and report owners reproduce the 60 s stdout wait under full gate load, then verify normal paired reporting in the bare gate.",
       "evidence": "leadBoundProof first bare gate: 171 passed in 1004.14 s, size_fight_journey.py::test_paired_report_retains_usage_gaps_and_stalled_slots hit subprocess.TimeoutExpired after 60 s. Reporter and journey match base 64f465f byte for byte; isolated base journey passed in 11.27 s. Gate and base logs are under C:/seldon/tests/leadBoundProof-0. | Final bare gate on leadBoundProof passed 172/172 in 409.21 s. Initial timeout did not recur on either isolated base or final gate."
+    },
+    {
+      "id": "T-273",
+      "title": "Lead pre-B plans repeat promise text and rewrite whole plans",
+      "severity": "medium",
+      "type": "design",
+      "status": "in_progress",
+      "milestone": "Lead micro",
+      "area": "Lead MILESTONES and REVIEW",
+      "family": "Questions copy everything",
+      "direction": "leadSpec owns ranked change 3. Require bound counterexamples and approved promise handles, review the exact builder spec, and amend named fields without repeating MILESTONES. Exit: bare gate plus one Terra Foundation and ShelfLife run.",
+      "evidence": "astra62-lead-vs-plain-2026-11-22.md: five ShelfLife runs, fifteen missing-field rewrites took 421 s and nine review cycles repeated plan work. Lane first gate: 172 passed, one Claude direct-rendering KeyError when Approved spec was absent (leadSpec-0/gate.log). Renderer corrected to preserve existing minimal input."
     }
   ]
 }

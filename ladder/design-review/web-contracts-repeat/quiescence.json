@@ -7,7 +7,7 @@
     "payloadReleased": true,
     "quiescenceVerified": true,
     "activeProcessesAfterTeardown": 0,
-    "bootstrapImage": "C:\\Users\\oren\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+    "bootstrapImage": "~\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
     "bootstrapPid": 47512,
     "payloadPid": 39564,
     "teardownStarted": true,

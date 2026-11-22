@@ -5,6 +5,8 @@ You are reviewing, not building. Do not edit Seldon source, do not run cohorts. 
 ## The owner's words (Oren, 11-22)
 "so far I'm disappointed by our only planner mode... there is no reason it won't be very close to plain... that's the whole idea... before we said our workers were the buggy inefficient bug.. I'm not sure anymore.."
 
+Oren, later the same day: "planner should be so thin... no concurrency handled by us. it's just a beautiful process of expanding and crystallizing a dream, breaking it down into SW specs that are best fit for agentic development. of course I'm over simplifying... but you get it" Refined (Oren 11-22): "he still owns the results, he must be able to do those (to a degree or another), mainly be a subjective semantic guard... he should walk the user path" So Seldon's proof is to walk the person's path through the real product and judge, in meaning, whether the promises hold, not to negotiate check strength with the builder.
+
 ## What Lead is supposed to be (binding)
 Repo ~/codex-harness/work/sprint-20261027/semantic-cc (main 6419fc5): CHARTER.md, CHARTER-LEAD.md v1.1, BLUEPRINT-LEAD.md v0.3. Plain words: Seldon grows the dream with the person, writes each milestone as a brief in words, approves the spec at B, hands the milestone to ONE strong builder (who may use native sub-agents), then proves the result itself and remembers every promise. The planner writes no code or tests. On a micro dream, a builder plus a light planner should cost and take about what plain Codex does, with better proof.
 

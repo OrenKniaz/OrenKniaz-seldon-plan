@@ -1,10 +1,10 @@
 {
-  "updated": "2026-11-21",
+  "updated": "2026-11-22",
   "lead": "Opus 5.5 (Fable at its 5-hour limit until ~03:10 Jerusalem; Astra covers design consults)",
   "main": "6419fc5",
   "docs": "charter v1.8, blueprint v1.15, Lead charter v1.1, Lead blueprint v0.3",
-  "milestone": "Lead micro ladder, round 3",
-  "now": "CC published bound proof as 6419fc5; the completed bpShelf cohort recorded 4/5 scripted C and one WAITING, with two recovery rows in every run. Independent oracle scoring and exact-published-candidate HIGH review remain unevidenced; scripted completion is not owner acceptance.",
+  "milestone": "Lead-only micro; code changes held for Astra design review",
+  "now": "Lead-only is the current strategy: Orchestrator lanes, cohorts and fixes are paused, and Lead code changes wait for Astra's review. CC records hello 5/5, Foundation 5/5 and ShelfLife 4/5 scripted C on 6419fc5; final oracle census and exact-patch HIGH qualification remain outstanding.",
   "lanes": [
     {
       "name": "leadNoRecovery",
@@ -671,11 +671,155 @@
       "owner": "Codex",
       "state": "published; cohort complete; exact HIGH review and independent scoring pending",
       "what": "T-270/T-271 published 6419fc54882acac3347958fe115e66a7c53780f8. Final gate 172/172 in 409.21s; earlier timeout retained. Lane ShelfLife repaired/reopened to scripted C after 3 WORK (target missed); Foundation 1 WORK. Fresh bpShelf on published main: bs02-bs05 SCRIPTED_C, bs01 WAITING; calls 10/17/16/20/16, each has 2 recovery rows. Oracle and full census pending; no verified human acceptance claim."
+    },
+    {
+      "name": "astraLeadVsPlain",
+      "owner": "Astra 6.2 high, scheduled by Opus",
+      "state": "scheduled; not launched in observed receipts",
+      "what": "Read-only Lead design review from work/lanes/astraLeadVsPlain.prompt.md; CC one-shot a00a73e6 at 15:03 Jerusalem after quota check. Output ladder/design-review/astra62-lead-vs-plain-2026-11-22.md. No cohorts, source edits, sealed data or .env reads. Lead owns semantic scope, memory and real user-path judgment; builder owns execution and native parallelism. This broad design review is not automatically exact-published-patch review coverage."
+    },
+    {
+      "name": "leadSpec",
+      "owner": "Codex",
+      "state": "Foundation scripted C; ShelfLife proving",
+      "what": "Final gate 173 passed in 528.63 s. Foundation F01 verified SCRIPTED_C at d14cd429, with MILESTONES 1/19.80 s, REVIEW 1/12.70 s, zero whole-plan rewrites. ShelfLife S01 reached its first JUDGE after one WORK."
     }
   ],
-  "next": "Preserve the exact-candidate HIGH review boundary before qualification. CC queued work after quota reset: census bpShelf with oracle and WORK/JUDGE split; explain recurring recovery rows and provider-call growth; Foundation x5 and hello x5 on the new main; then lean the added source. No new cohort at the current reported quota boundary.",
+  "next": "CC owns the scheduled 15:03 Jerusalem Astra 6.2 HIGH read-only Lead-vs-plain review after checking quota reset (reported reset 14:51 Jerusalem). Hold all Lead code changes until its report; only cheap census of bpShelf/bpFound/bpHello meanwhile. Then CC briefs Lead-only work from ranked findings; no Orchestrator Quiet Bench rerun. Treat overnight cohort wall times as confounded and use measured per-call evidence; do not infer proved sleep causation.",
   "decisionsForOren": [],
   "recentRuns": [
+    {
+      "date": "2026-11-22",
+      "run": "foundation-ae75e4f-F01",
+      "commit": "ae75e4f",
+      "outcome": "SCRIPTED_C",
+      "furthest": "C",
+      "repairs": "0",
+      "gaps": "0",
+      "uncertain": "0",
+      "wall": "414.460",
+      "flags": "0"
+    },
+    {
+      "date": "2026-11-22",
+      "run": "found-bp-6419fc5-bf03",
+      "commit": "6419fc5",
+      "outcome": "SCRIPTED_C",
+      "furthest": "C",
+      "repairs": "0",
+      "gaps": "7",
+      "uncertain": "0",
+      "wall": "383.451",
+      "flags": "7"
+    },
+    {
+      "date": "2026-11-22",
+      "run": "found-bp-6419fc5-bf04",
+      "commit": "6419fc5",
+      "outcome": "SCRIPTED_C",
+      "furthest": "C",
+      "repairs": "1",
+      "gaps": "4",
+      "uncertain": "0",
+      "wall": "356.320",
+      "flags": "5"
+    },
+    {
+      "date": "2026-11-22",
+      "run": "found-bp-6419fc5-bf05",
+      "commit": "6419fc5",
+      "outcome": "SCRIPTED_C",
+      "furthest": "C",
+      "repairs": "0",
+      "gaps": "4",
+      "uncertain": "0",
+      "wall": "348.256",
+      "flags": "4"
+    },
+    {
+      "date": "2026-11-22",
+      "run": "found-bp-6419fc5-bf01",
+      "commit": "6419fc5",
+      "outcome": "SCRIPTED_C",
+      "furthest": "C",
+      "repairs": "1",
+      "gaps": "0",
+      "uncertain": "0",
+      "wall": "324.541",
+      "flags": "1"
+    },
+    {
+      "date": "2026-11-22",
+      "run": "found-bp-6419fc5-bf02",
+      "commit": "6419fc5",
+      "outcome": "SCRIPTED_C",
+      "furthest": "C",
+      "repairs": "0",
+      "gaps": "3",
+      "uncertain": "0",
+      "wall": "307.788",
+      "flags": "3"
+    },
+    {
+      "date": "2026-11-22",
+      "run": "hello-bp-6419fc5-bh05",
+      "commit": "6419fc5",
+      "outcome": "SCRIPTED_C",
+      "furthest": "C",
+      "repairs": "1",
+      "gaps": "3",
+      "uncertain": "0",
+      "wall": "209.533",
+      "flags": "4"
+    },
+    {
+      "date": "2026-11-22",
+      "run": "hello-bp-6419fc5-bh04",
+      "commit": "6419fc5",
+      "outcome": "SCRIPTED_C",
+      "furthest": "C",
+      "repairs": "0",
+      "gaps": "3",
+      "uncertain": "0",
+      "wall": "171.137",
+      "flags": "3"
+    },
+    {
+      "date": "2026-11-22",
+      "run": "hello-bp-6419fc5-bh03",
+      "commit": "6419fc5",
+      "outcome": "SCRIPTED_C",
+      "furthest": "C",
+      "repairs": "0",
+      "gaps": "2",
+      "uncertain": "0",
+      "wall": "160.948",
+      "flags": "2"
+    },
+    {
+      "date": "2026-11-22",
+      "run": "hello-bp-6419fc5-bh02",
+      "commit": "6419fc5",
+      "outcome": "SCRIPTED_C",
+      "furthest": "C",
+      "repairs": "0",
+      "gaps": "3",
+      "uncertain": "0",
+      "wall": "160.340",
+      "flags": "3"
+    },
+    {
+      "date": "2026-11-22",
+      "run": "hello-bp-6419fc5-bh01",
+      "commit": "6419fc5",
+      "outcome": "SCRIPTED_C",
+      "furthest": "C",
+      "repairs": "0",
+      "gaps": "2",
+      "uncertain": "0",
+      "wall": "139.750",
+      "flags": "2"
+    },
     {
       "date": "2026-11-21",
       "run": "shelflife-bp-6419fc5-bs04",
@@ -723,138 +867,6 @@
       "uncertain": "0",
       "wall": "903.070",
       "flags": "9"
-    },
-    {
-      "date": "2026-11-21",
-      "run": "shelflife-bp-6419fc5-bs01",
-      "commit": "6419fc5",
-      "outcome": "BUILD",
-      "furthest": "PROVE",
-      "repairs": "3",
-      "gaps": "4",
-      "uncertain": "0",
-      "wall": "669.280",
-      "flags": "8"
-    },
-    {
-      "date": "2026-11-21",
-      "run": "ls04",
-      "commit": "6ea9aa3",
-      "outcome": "SCRIPTED_C",
-      "furthest": "C",
-      "repairs": "8",
-      "gaps": "0",
-      "uncertain": "0",
-      "wall": "1931.092",
-      "flags": "8"
-    },
-    {
-      "date": "2026-11-21",
-      "run": "ls05",
-      "commit": "6ea9aa3",
-      "outcome": "PROVE",
-      "furthest": "BUILD",
-      "repairs": "2",
-      "gaps": "0",
-      "uncertain": "0",
-      "wall": "1281.831",
-      "flags": "3"
-    },
-    {
-      "date": "2026-11-21",
-      "run": "ls03",
-      "commit": "6ea9aa3",
-      "outcome": "PROVE",
-      "furthest": "BUILD",
-      "repairs": "4",
-      "gaps": "0",
-      "uncertain": "0",
-      "wall": "1351.480",
-      "flags": "5"
-    },
-    {
-      "date": "2026-11-21",
-      "run": "lf02",
-      "commit": "6ea9aa3",
-      "outcome": "SCRIPTED_C",
-      "furthest": "C",
-      "repairs": "3",
-      "gaps": "0",
-      "uncertain": "0",
-      "wall": "502.825",
-      "flags": "3"
-    },
-    {
-      "date": "2026-11-21",
-      "run": "lf01",
-      "commit": "6ea9aa3",
-      "outcome": "SCRIPTED_C",
-      "furthest": "C",
-      "repairs": "3",
-      "gaps": "0",
-      "uncertain": "0",
-      "wall": "489.788",
-      "flags": "3"
-    },
-    {
-      "date": "2026-11-21",
-      "run": "lf03",
-      "commit": "6ea9aa3",
-      "outcome": "SCRIPTED_C",
-      "furthest": "C",
-      "repairs": "2",
-      "gaps": "0",
-      "uncertain": "0",
-      "wall": "442.567",
-      "flags": "2"
-    },
-    {
-      "date": "2026-11-21",
-      "run": "lf05",
-      "commit": "6ea9aa3",
-      "outcome": "SCRIPTED_C",
-      "furthest": "C",
-      "repairs": "2",
-      "gaps": "0",
-      "uncertain": "0",
-      "wall": "394.611",
-      "flags": "2"
-    },
-    {
-      "date": "2026-11-21",
-      "run": "lf04",
-      "commit": "6ea9aa3",
-      "outcome": "SCRIPTED_C",
-      "furthest": "C",
-      "repairs": "2",
-      "gaps": "0",
-      "uncertain": "0",
-      "wall": "383.178",
-      "flags": "2"
-    },
-    {
-      "date": "2026-11-20",
-      "run": "qbu-54c774c-lq02",
-      "commit": "54c774c",
-      "outcome": "PROVE",
-      "furthest": "BUILD",
-      "repairs": "6",
-      "gaps": "1",
-      "uncertain": "0",
-      "wall": "3417.849",
-      "flags": "8"
-    },
-    {
-      "date": "2026-11-20",
-      "run": "qbu-54c774c-lq03",
-      "commit": "54c774c",
-      "outcome": "PROVE",
-      "furthest": "BUILD",
-      "repairs": "5",
-      "gaps": "2",
-      "uncertain": "0",
-      "wall": "2985.584",
-      "flags": "8"
     }
   ]
 }

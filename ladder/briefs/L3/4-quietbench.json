@@ -37,7 +37,7 @@
     {
       "name": "quietbench",
       "type": "external",
-      "script": "C:\\Users\\oren\\codex-harness\\work\\ladder\\oracle.py",
+      "script": "~\\codex-harness\\work\\ladder\\oracle.py",
       "argv": [
         "{product}",
         "{evidence}",
