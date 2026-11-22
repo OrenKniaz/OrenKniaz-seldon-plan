@@ -1,0 +1,9 @@
+# Lane leadFix1 (Sol 6.2 medium) — Lead only
+Repo: this lane dir = Seldon main 56a024e. Spec BLUEPRINT-LEAD.md v0.4.
+Cohort on 56a024e: 13/15 C (hello 5/5, Foundation 4/5, ShelfLife 4/5), ~5 calls, 1 WORK each. Two Seldon bugs stopped the rest:
+1. Foundation C:/seldon/tests/wkFound/wf02.log — `NameError: name 'red' is not defined` at src/seldon/proof.py:255 (`observations.extend(red)`). A code path where `red` is never bound. Fix at the root and add a golden/journey case that reaches that path.
+2. ShelfLife C:/seldon/tests/wkShelf/ws05.log — the builder's receipt lacked checks for several promises ("Supply a check for each new promise and tryItGuide: ..."); Seldon stopped at PROVE with owner Seldon (WAITING). An incomplete receipt is a receipt correction: resume the SAME builder session on the same candidate asking only for the missing entries (no rebuild), per v0.4. Same class as T-284.
+3. Then port the round-3 fixes from C:/seldon/tests/leadPort-0 (its lane diff: run `git -C ~/codex-harness/work/lanes/leadPort diff`): guard WORK-deadline + same-session resume, Windows stdout/stderr to files (pipe-drain), plain one-action guard commands, only B-quoted findings can hold C. Skip any part that conflicts with 56a024e's design; say which.
+Production lines <= 0 net. Golden/journey tests only; cold imports; bare gate (PATH=~/codex-harness/.venv/Scripts:$PATH bash scripts/gate.sh leadFix1, no SELDON_*).
+Real exit: Terra medium from this lane's src (SRC=<lane> bash /c/seldon/tests/coord3-20261120/cohort2.sh, SELDON_MODE=lead SELDON_ROLE_MODEL=gpt-6.1-terra SELDON_ROLE_EFFORT=medium FIRST=medium): Foundation x3 and ShelfLife x3 (DREAM=~/codex-harness/work/fight-1/shelflife-brief.md), all 6 at once. Target 6/6 verified SCRIPTED_C, 1 WORK.
+Report C:/seldon/tests/leadFix1-0/REPORT.md <=25 lines. Leave git diff, do not push. Temp only under C:/seldon/tests/leadFix1-0. Never open desktop windows.

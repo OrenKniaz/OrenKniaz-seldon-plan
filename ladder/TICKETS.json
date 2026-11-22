@@ -3553,7 +3553,7 @@
       "area": "Lead guard",
       "family": "First-pass proof misses the user boundary",
       "direction": "Lead guard owns one bounded representative flow. Let the retained witnesses cover the broader suite. Exit: first-pass native ShelfLife records the walked actions, screenshots and feedback and reaches scripted C within the requested budget.",
-      "evidence": "leadWalk-0/copy-shelf-run shelf01. One WORK and one physical candidate walkthrough. Guard executed browser and CLI commands. Attempt 1 did not drain output after Job quiescence; remaining attempts reached the 180 s judge deadline. Native cleanup verified; no semantic verdict or C on the first segment. | Same slot resumed candidate 9fdc0fbf34048ace5841fbcbf8594013159d9737 with a focused guard brief. SCRIPTED_C in 50.26 s additional active time, four observed actions and four retained PNGs, one total WORK. Keyboard evidence stayed limited. Full elapsed 910.10 s and at least 71,371 fresh-plus-output tokens."
+      "evidence": "leadWalk-0/copy-shelf-run shelf01. One WORK and one physical candidate walkthrough. Guard executed browser and CLI commands. Attempt 1 did not drain output after Job quiescence; remaining attempts reached the 180 s judge deadline. Native cleanup verified; no semantic verdict or C on the first segment. | Same slot resumed candidate 9fdc0fbf34048ace5841fbcbf8594013159d9737 with a focused guard brief. SCRIPTED_C in 50.26 s additional active time, four observed actions and four retained PNGs, one total WORK. Keyboard evidence stayed limited. Full elapsed 910.10 s and at least 71,371 fresh-plus-output tokens. | Round 3 ShelfLife one WORK and one JUDGE, no pipe or deadline fault; SCRIPTED_C with five observed actions and three distinct PNGs in 377.35 s. Usage 71,539 against 48,000 target. C records keyboard-operability and source-completeness limitations."
     },
     {
       "id": "T-277",
@@ -3577,7 +3577,7 @@
       "area": "Lead guard",
       "family": "First-pass proof misses the user boundary",
       "direction": "leadGuardC: Lead gives the guard every B subject. C names subjects the guard cannot independently observe. A failed-check citation must identify a linked check with an actual failure. Remaining exit: guard walks focus traversal and filter selection using keys alone, or C exposes the missing observation.",
-      "evidence": "leadGuardRun-0: Hello r65 and ShelfLife r72 both reached scripted C with verification_complete=false. Both JUDGE replies used retained for passing observations. ShelfLife r59 left empty state, full keyboard path and scope-bound completeness unverified despite two real headless screenshots. | FAULT SELDON + DESIGN: representative walk left accepted paths out. FAULT SELDON + BUG: retained was a return label even for passing checks. | leadGuardC-0: 3/3 stored verified SCRIPTED_C, with one WORK each and no retained label. ShelfLife replayed the retained browser witness and added live empty-state proof and source inspection. Its quality:accessible-use was marked observed although browser.cjs sets focus programmatically and selects the filter with selectOption. Tab traversal and keyboard filter operation were not observed."
+      "evidence": "leadGuardRun-0: Hello r65 and ShelfLife r72 both reached scripted C with verification_complete=false. Both JUDGE replies used retained for passing observations. ShelfLife r59 left empty state, full keyboard path and scope-bound completeness unverified despite two real headless screenshots. | FAULT SELDON + DESIGN: representative walk left accepted paths out. FAULT SELDON + BUG: retained was a return label even for passing checks. | leadGuardC-0: 3/3 stored verified SCRIPTED_C, with one WORK each and no retained label. ShelfLife replayed the retained browser witness and added live empty-state proof and source inspection. Its quality:accessible-use was marked observed although browser.cjs sets focus programmatically and selects the filter with selectOption. Tab traversal and keyboard filter operation were not observed. | FAULT SELDON + BUG: leadGuardC ShelfLife marked accessible-use observed using programmatic focus and filter selection; Tab and keyboard filter operation absent. leadGuardCovers instructs partial coverage disclosure; native walk pending. | gcShelf gc01 and gc02 explicitly disclosed incomplete keyboard traversal; both verification_complete=false, no verified C. | leadGuardThorough-0 gtShelf: all three Terra-medium guards recorded Tab and keyboard actions, measured rendered contrast and directly queried SQLite. All stored outcome flags verification_complete=true with no open coverage limits. See REPORT.md."
     },
     {
       "id": "T-279",
@@ -3589,7 +3589,7 @@
       "area": "Golden gate",
       "family": "Rig gives false signals",
       "direction": "leadGuardC: Run the complete gate before any native exit and record runtime.",
-      "evidence": "leadGuardRun-0/gate.log: 173 passed in 841.56 s vs leadWalk 173 in 459.62 s. Live exits overlapped the gate. Cause is unestablished. | leadGuardC-0/gate.log: 173 passed in 562.17 s. No overlap with native runs; a different lane gate overlapped part of it."
+      "evidence": "leadGuardRun-0/gate.log: 173 passed in 841.56 s vs leadWalk 173 in 459.62 s. Live exits overlapped the gate. Cause is unestablished. | leadGuardC-0/gate.log: 173 passed in 562.17 s. No overlap with native runs; a different lane gate overlapped part of it. | leadGuardThorough: first gate overlapped a newly started leadFix1 gate and was aborted. Final monitored exclusive gate 175 passed in 445.25 s, with no SELDON_* env or concurrent validation observed."
     },
     {
       "id": "T-280",
@@ -3601,7 +3601,7 @@
       "area": "Lead guard",
       "family": "First-pass proof misses the user boundary",
       "direction": "Seldon owns disposable folder cleanup; keep guard commands focused on user actions. Exit: fresh native Hello executes the normal and invalid CLI commands and reaches SCRIPTED_C.",
-      "evidence": "leadWalk-0/copy-hello-run hello01. Full-access judge read the guide and source. Policy denied before launch a compound command with CLI invocations and Remove-Item -Recurse -Force. One source inspection, zero actual CLI actions. Stayed at PROVE. Final prompt instructs the guard to leave generated files for Seldon. | Round 3 native hello01 reached verified SCRIPTED_C in 106.65 s with 1 WORK and 1 JUDGE. The direct commands observed greeting, repeat invocation and invalid args. No cleanup command denied. Uncommitted leadWalk lane."
+      "evidence": "leadWalk-0/copy-hello-run hello01. Full-access judge read the guide and source. Policy denied before launch a compound command with CLI invocations and Remove-Item -Recurse -Force. One source inspection, zero actual CLI actions. Stayed at PROVE. Final prompt instructs the guard to leave generated files for Seldon. | Round 3 native hello01 reached verified SCRIPTED_C in 106.65 s with 1 WORK and 1 JUDGE. The direct commands observed greeting, repeat invocation and invalid args. No cleanup command denied. Uncommitted leadWalk lane. | leadPort-0 hello01: direct greeting and both invalid invocations exercised, copy removed, no cleanup command or provider failure. C was SCRIPTED_C with independent base-evidence linkage incomplete."
     },
     {
       "id": "T-281",
@@ -3613,7 +3613,7 @@
       "area": "Provider and proof runner",
       "family": "Proof observes impure state",
       "direction": "leadWalk keeps unnamed capture files in OS runner temp and provider streams in call folders. Exit: land with clean-witness and stream journey evidence.",
-      "evidence": "leadWalk round3-gate had 172 passes and weak-check/lr01 failures. Both ran git status in a supposed clean witness checkout during capture. Moving TemporaryFile out of cwd gives 3/3 affected journeys and final bare gate 174/174 in 425.68 s."
+      "evidence": "leadWalk round3-gate had 172 passes and weak-check/lr01 failures. Both ran git status in a supposed clean witness checkout during capture. Moving TemporaryFile out of cwd gives 3/3 affected journeys and final bare gate 174/174 in 425.68 s. | leadPort-0: 173/173 bare gate. Native golden hello-reopen returned verified scripted C after the same-session timeout, with both streams over 4 MiB and copy removed."
     },
     {
       "id": "T-282",
@@ -3625,7 +3625,91 @@
       "area": "Lead guard",
       "family": "First-pass proof misses the user boundary",
       "direction": "Keep walk negatives tied to B. For a static surface without a separate error flow, exercise an unsupported interaction and judge its actual effect. Exit: Foundation’s valid direct browser walk reaches verified SCRIPTED_C.",
-      "evidence": "leadWalk-0/round3-foundation-run foundation01, candidate 99aeb1925ebdccd61814b98ce1ac9b61e192bdf1. One WORK and one JUDGE. Direct file browser, three independent buttons, reload and keyboard activation, two PNGs; click on the heading correctly changed nothing. Guard still reported tryItGuide pending because the guide has no explicit failure flow. No transport fault."
+      "evidence": "leadWalk-0/round3-foundation-run foundation01, candidate 99aeb1925ebdccd61814b98ce1ac9b61e192bdf1. One WORK and one JUDGE. Direct file browser, three independent buttons, reload and keyboard activation, two PNGs; click on the heading correctly changed nothing. Guard still reported tryItGuide pending because the guide has no explicit failure flow. No transport fault. | leadPort-0 foundation01: one WORK, one JUDGE, three guard actions, two PNGs, no unpromised failure-flow finding. SCRIPTED_C verification incomplete because the shared missing base entry point was not linked to quality:independent-pieces."
+    },
+    {
+      "id": "T-283",
+      "title": "ShelfLife guide walk leaves keyboard and completeness unverified",
+      "severity": "high",
+      "type": "design",
+      "status": "open",
+      "milestone": "Lead micro",
+      "area": "Lead guard",
+      "family": "First-pass proof misses the user boundary",
+      "direction": "Guard should exercise the promised keyboard controls and resolve missing relevant source observations within its walk. Exit: one WORK, first-pass verified SCRIPTED_C with budget recorded.",
+      "evidence": "leadWalk round3 ShelfLife candidate c707a280163e3257472f455f31fee766a422a660. Native C notJudged contains quality:accessible-design and sourceAcceptance. Keyboard Tab established visible focus on search but did not operate remaining controls. One JUDGE, 377.35 s and 71,539 fresh-plus-output tokens."
+    },
+    {
+      "id": "T-284",
+      "title": "Lead receipt requires checks before independent guard walk",
+      "severity": "high",
+      "type": "design",
+      "status": "in_progress",
+      "milestone": "Lead micro",
+      "area": "Lead witness receipts",
+      "family": "First-pass proof misses the user boundary",
+      "direction": "leadGuardCovers removes missing-check block; exit: golden journey and two verified ShelfLife guard walks.",
+      "evidence": "FAULT SELDON + DESIGN: gwShelf gs02 builder and RECEIPT omit per-promise checks; PROVE asks user to supply them instead of guard walking B subjects. Base snapshot 82baad8 golden missing-check RED at PROVE. | leadPort-0 shelf01: one WORK, one RECEIPT, then WAITING at PROVE. The corrected receipt returned proof fault with empty checks and checkPaths. Guard did not launch. | leadGuardCovers golden RED then GREEN; bare gate 174 passed in 503.26s. gc01/gc02 reached unverified scripted C; real verified exit unmet. | wkShelf ws05 WORK supplied all handles with duplicate scopeIn:manage and tryItGuide links. The fresh RECEIPT judge repeated those links and reported proof fault. leadFix1 resumes the builder on the same candidate and names missing, duplicate or unapproved links explicitly. | leadFix1 golden same-session correction now reaches verified scripted C on the same candidate after one WORK. The six native runs used valid receipts on the first WORK and did not exercise correction."
+    },
+    {
+      "id": "T-285",
+      "title": "Lead guard shared missing base entry point loses promise links",
+      "severity": "high",
+      "type": "design",
+      "status": "open",
+      "milestone": "Lead micro",
+      "area": "Lead guard",
+      "family": "First-pass proof misses the user boundary",
+      "direction": "Make the guard link a shared observed base failure to every accepted promise it prevents. Exit: same evidence yields verified C for Hello's error promises and Foundation's independent-pieces promise.",
+      "evidence": "leadPort-0/metrics.jsonl and JUDGE answer.txt for hello01 and foundation01. Both guards explicitly say the absent entry point covers all new paths, but the action carrying it omits some handles. Hello 3e82aece and Foundation d0807479 both finish SCRIPTED_C with verification_complete=false."
+    },
+    {
+      "id": "T-286",
+      "title": "Guard defects become unverified when evidence text does not match action key",
+      "severity": "high",
+      "type": "code",
+      "status": "in_progress",
+      "milestone": "Lead micro",
+      "area": "Lead guard judgment",
+      "family": "First-pass proof misses the user boundary",
+      "direction": "Inspect exact evidence binding and ensure demonstrated B-quoted defects route to repair; exit: real recorded defect reaches owning builder and no false verified C. Lane leadGuardThorough owns the patch.",
+      "evidence": "FAULT SELDON + BUG: gcShelf gc01 guard reports B-quoted oversized API quantity and CSV importer failures, but evidence prose does not equal recorded action key; no lead_failure, SCRIPTED_C with verification_complete=false. See gc01-summary.json and gc01 log. Also gc01/gc02 disclose partial keyboard coverage; no verified C. | wkFound wf02 guard identified the retained walkthrough failure and quoted B, but evidence prose did not match the action/check key. The subsequent PROVE hold crashed while attaching evidence. | leadFix1 native ls01/ls03 supplied B quotes but described A3/A2/A4 in evidence prose rather than using the exact action key; too-large quantities raised SQLite OverflowError in the CSV and API paths. These sessions reached unverified scripted C. ls02 likewise failed to bind A1, then paused for the failed witness. | leadGuardThorough-0, source 206a00f+worktree:c2c76d242fc7: golden RED on d29d82a and verified scripted C after one resumed WORK. gtShelf gt01/gt02 routed reproduced B-quoted API/import faults to the same builder session and reached verified scripted C. gt01 found and repaired an additional browser precision gap."
+    },
+    {
+      "id": "T-287",
+      "title": "Lead PROVE crashes while reporting a failed retained witness",
+      "severity": "high",
+      "type": "code",
+      "status": "in_progress",
+      "milestone": "Lead micro",
+      "area": "Lead proof",
+      "family": "First-pass proof misses the user boundary",
+      "direction": "leadFix1 attaches actual guard and candidate observations. Exit: the failed-witness journey pauses at PROVE with the observed check error and the prior product still published.",
+      "evidence": "56a024e wkFound/wf02 observation r45: unattended walkthrough exited 1 at 320px. Guard r51 recorded the failed guide. Lead PROVE referenced deleted red evidence and masked the failure with NameError. New journey fails on base 56a024e. | leadFix1 d84ee94fe71d real ls02 paused at PROVE with the failed expiry browser check (exit 1) and guard/candidate evidence retained. No NameError. The base golden regression was RED and the lane golden GREEN."
+    },
+    {
+      "id": "T-288",
+      "title": "Lead guard treats guide teardown as a reason to repeat or skip proof",
+      "severity": "high",
+      "type": "design",
+      "status": "in_progress",
+      "milestone": "Lead micro",
+      "area": "Lead guard brief",
+      "family": "First-pass proof misses the user boundary",
+      "direction": "leadFix1 keeps independent user-path walking and uses Seldon's clean-checkout observations for guide commands it already ran. Exit: native Foundation guard judges the guide from these observations and its own walk without leaving a duplicate teardown-related gap.",
+      "evidence": "leadFix1-0 lf01/lf02 on d84ee94fe71d had successful Seldon-run guides and independent browser walks. Both gave a B-quoted tryItGuide uncertainty because the port prohibited running teardown. This supersedes that wording only."
+    },
+    {
+      "id": "T-289",
+      "title": "Lead guard can omit person-style UI feedback before C",
+      "severity": "medium",
+      "type": "design",
+      "status": "open",
+      "milestone": "Lead micro",
+      "area": "Lead guard feedback",
+      "family": "First-pass proof misses the user boundary",
+      "direction": "Coach person-style feedback tied to the screen or step actually used. Verify that a live browser walk records that feedback and C shows it beside the verdict.",
+      "evidence": "FAULT SELDON + DESIGN. leadGuardThorough-0 gtShelf: gt01 guard walks 1 and 3 and gt03 walk 1 returned empty feedback despite exercising the browser. gt03 retained a measured footer contrast note as a finding. ShelfLife verification_complete=true in all three. See REPORT.md and each lead_verdict."
     }
   ]
 }
