@@ -1,0 +1,12 @@
+# Lane leadPlanOne (Sol 6.2 medium), Lead only: micro planning in fewer calls
+Repo: this lane dir is Seldon main 72626ad plus the leadCarryR trial (witness carry and two prompt cuts, gate green). Binding: CHARTER-LEAD.md, BLUEPRINT-LEAD.md v0.4, BLUEPRINT R19 (size first: router by dream size, with the what/how/test ladder at every size).
+Fact (fork-run ShelfLife ×5 on this code, w401-405): median 100.5k fresh+output tokens vs plain 24.2k. Split per slot is planning (ALIGN+MILESTONES+REVIEW) ~30k, WORK ~19-29k, GUARD ~29-42k. MILESTONES alone is 12.3-12.7k. Planning alone costs more than plain's whole run.
+Design input from the lead (Claude):
+- For a dream the size router calls micro (one milestone), the spec IS the brief (leadSpec): what, how and test in words, B lines with "not met if". Draft it in the same call that aligns (ALIGN returns the accepted vision AND the single milestone's spec). MILESTONES is skipped for micro. REVIEW stays as the one independent read of the drafted spec before B, because independence matters.
+- A and B stay the person's approvals, exactly as now. A material edit at A invalidates the draft spec, and the planner redrafts it (in the same fresh call). Nothing is decided for the person.
+- Small/medium/big keep today's path, untouched.
+- Look for what else in the planning prompts is resent or unused by the builder brief (measure from w401-405 under C:/seldon/tests/m1/*witnesscarry4*). Remove what nothing reads.
+- Switch: SELDON_OFF=leadPlanOne restores today's micro path. Default ON in the lane.
+COORDINATION (hard): another session is fixing guard/prove paths in lead.py, judgment.py, proof.py, providers.py. Stay in the planning region (ALIGN/MILESTONES/REVIEW/size routing, and planning prompts in questions.py). Do not edit guard/walk/prove code. Keep the diff small so it rebases.
+Tests: golden/journey only. Do NOT run scripts/gate.sh or cohorts (another session owns them). Run the journeys you touch plus cold imports. Add or extend one journey: a micro dream goes ALIGN (with spec) → REVIEW → B → WORK with no MILESTONES call, and an A edit causes a redraft.
+Report C:/seldon/tests/leadPlanOne-0/REPORT.md, max 15 lines: calls and expected tokens per micro run before/after, net src lines (target ≤ 0: deleting MILESTONES-for-micro code should pay for it), files touched, and the exact cohort command for hello ×1 + ShelfLife ×5. Leave the git diff, do not push. Temp files only under C:/seldon/tests/leadPlanOne-0. Never open desktop windows. Never read C:/seldon/sealed/.

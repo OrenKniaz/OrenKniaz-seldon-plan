@@ -1,0 +1,11 @@
+# Lane leadNoFalseAmend (Sol 6.2 medium), Lead only: stop the three causes of extra ShelfLife rounds
+Repo: this lane dir = main 4f71b6d. Read C:/seldon/tests/goWhy-0/REPORT.md first: it analyses the ShelfLife slots C:/seldon/tests/m1/shelf-goR-6dc9a611-g01 and g02, which took 13 and 16 calls and ~350k tokens against a target of ≤150k and ≤1 repair cycle.
+Three causes, three root fixes. Normalise rather than refuse. No new caps.
+1. False amendment. The first JUDGE emitted kind "amend" for a pure scope restatement ("This walk does not expand the scope to multi-household synchronization..."). That sent the run through B re-planning, another WORK and a full JUDGE. Rule: an amendment exists only when it proposes a concrete change to an accepted promise or its proof standard. A statement that restates or confirms scope is a note. Normalise it at the judge/plan boundary: an "amend" that changes no promise text becomes a note, stays visible, and causes no re-plan. Also coach the judge prompt so the distinction is clear.
+2. Boundaries closed in pieces. SQLite integer range, JSON/JavaScript number precision and ID lifecycle each surfaced in separate rounds. Coaching, not rules:
+   - guard: "when you find a boundary defect, test the same boundary end to end (import → API → storage → browser display) in this walk";
+   - builder repair: "fix the boundary at every layer it crosses and check each layer, including the browser display, before returning".
+3. Extra RECEIPT calls for absolute evidence paths (3 in g02). Normalise absolute paths inside the candidate to relative ones, and drop paths outside it with a note. Never ask for a receipt correction for this.
+Switch: SELDON_OFF=leadNoFalseAmend.
+Tests: golden/journey only. Add or extend journeys: a scope-restating amend → no re-plan; absolute evidence paths → no RECEIPT call. Run the journeys you touch plus cold imports. Do not run gate.sh or cohorts.
+Report C:/seldon/tests/leadNoFalseAmend-0/REPORT.md, max 10 lines: file:line for each fix, net src (aim ≤ 0: deleting the false-amend path should pay for it), and a ShelfLife ×2 cohort command. Leave the diff, do not push. Temp files only under C:/seldon/tests/leadNoFalseAmend-0. Never open desktop windows. Never read C:/seldon/sealed/.

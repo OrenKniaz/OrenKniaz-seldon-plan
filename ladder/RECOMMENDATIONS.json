@@ -248,6 +248,11 @@
       "id": "ACT-07",
       "status": "in progress",
       "change": "P10 planning review 2026-11-13 (Astra; Fable over limit): areas own complete scopes incl. check subtree; contracts are text not order; explicit dependency edges only; DETAIL gets wave goal; bounded repair then actionable stop. Proof: both real recordings reach B. Possible blueprint wording for R4 ('a contract enables parallel work; it does not order it') to propose after validation."
+    },
+    {
+      "id": "leadBuildThrough-trial",
+      "status": "open",
+      "change": "Lead trial deviation from C12/C15/C17 requested by Oren 2026-11-23. The Lead owns a single M2 evaluation with continuous builder ownership and cumulative proof at requested check-ins and C. Expires 2026-11-30. Use the existing default cadence after expiry unless Oren ratifies a change. Restore by leaving SELDON_ON unset for new Lead runs. T-314."
     }
   ],
   "statusValues": {

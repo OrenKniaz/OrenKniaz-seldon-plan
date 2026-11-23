@@ -1,0 +1,11 @@
+# Lane leadImports (Sol 6.2 medium) — Lead only, Astra change 6 "narrow Lead imports"
+Repo: this lane dir = Seldon main 34d9378. Binding: CHARTER-LEAD.md, BLUEPRINT-LEAD.md v0.4. Strategy (Oren 11-22): only Lead matters; Orchestrator is paused, its code stays, but Lead must not need it.
+Fact (static import graph, measured by the lead): Lead's entry (frontdoor -> lead) reaches 22 of 30 modules, ~6.8k of 7.9k src lines, incl. orchestrator-only machinery (architecture, plan, questions 1.2k lines, decisions, fixups, processes, recovery, features...). Target: Lead reaches ~2.5-3k lines.
+Design input from the lead (Claude):
+- The rule is "Lead imports only what a Lead run executes". Find it by evidence: trace which functions a real Lead run calls (instrument once, e.g. sys.setprofile/coverage over a recorded or scripted Lead journey in tests/seldon/test_journey.py), not by guessing.
+- Move the few helpers Lead really uses out of orchestrator modules into small focused modules (or into the module that owns that concept); Orchestrator imports them from there. No god files, no re-export shims, no duplicate code.
+- Import-time only for Orchestrator from frontdoor: Lead path must not import orchestrator modules at all (lazy import at the orchestrator branch is fine).
+- Delete Lead-path code that the trace shows is never reached by Lead AND not used by Orchestrator. Net src lines must go DOWN.
+COORDINATION (hard): another session is fixing Quiet Bench faults in src/seldon/lead.py, judgment.py, proof.py, providers.py, tests/seldon/test_journey.py. In those files touch ONLY import lines and moved-function call sites; no logic edits. Keep the diff small there so it rebases.
+Tests: golden/journey only, no unit tests. Do NOT run scripts/gate.sh or any cohort (another session owns all gates/cohorts); run only the journey tests you touch plus a cold import of every module (pkgutil.walk_packages) and `python -X importtime -c "import seldon.frontdoor"` before/after.
+Report C:/seldon/tests/leadImports-0/REPORT.md <=25 lines: reachable lines before/after (same static method: transitive `from . import`/`from .x import` from frontdoor in Lead mode), src lines net, files touched, anything left for Orchestrator. Leave git diff, do not push. Temp only under C:/seldon/tests/leadImports-0. Never open desktop windows.

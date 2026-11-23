@@ -1,11 +1,221 @@
 {
-  "updated": "2026-11-22",
+  "updated": "2026-11-23",
   "lead": "Opus 5.5 (Fable at its 5-hour limit until ~03:10 Jerusalem; Astra covers design consults)",
-  "main": "6419fc5",
-  "docs": "charter v1.8, blueprint v1.15, Lead charter v1.1, Lead blueprint v0.3",
+  "main": "441c0d2",
+  "docs": "Public main Lead Blueprint v0.5; round-4 local checkout remains at v0.4.",
   "milestone": "Lead-only micro; code changes held for Astra design review",
-  "now": "Lead-only is the current strategy: Orchestrator lanes, cohorts and fixes are paused, and Lead code changes wait for Astra's review. CC records hello 5/5, Foundation 5/5 and ShelfLife 4/5 scripted C on 6419fc5; final oracle census and exact-patch HIGH qualification remain outstanding.",
+  "now": "Round 4 stopped at the binding-document boundary. Local main is clean at 8d19a35; origin/main is 441c0d2 and includes Lead Blueprint v0.5.",
   "lanes": [
+    {
+      "name": "leadBuildThrough",
+      "owner": "Sol 6.2 medium",
+      "state": "diff ready for lead review",
+      "what": "T-314. 42 journeys, 4 focused reruns, an owner check-in variant and 31 cold imports passed. Net +84 src. Live M2 pending. C:/seldon/tests/leadBuildThrough-0/REPORT.md"
+    },
+    {
+      "name": "leadHonestLimits",
+      "owner": "Sol 6.2 medium",
+      "state": "diff ready for lead review",
+      "what": "T-313. 40 affected tests in 265.71 s and 32 cold imports passed. Net +34 src. Scripted C discloses the device limit. Live DoorCount replay pending. C:/seldon/tests/leadHonestLimits-0/REPORT.md"
+    },
+    {
+      "name": "leadPlausibleGuard",
+      "owner": "Sol 6.2 medium",
+      "state": "diff ready for lead review",
+      "what": "Exact 989c515 tree. 36 Lead goldens, six final focused reruns and 33 cold imports passed. Net +29 src. ShelfLife x2 and S1-doorcount x1 pending. C:/seldon/tests/leadPlausibleGuard-0/REPORT.md"
+    },
+    {
+      "name": "leadThinBrief",
+      "owner": "Sol 6.2 medium",
+      "state": "diff and blind DoorCount experiment ready for review",
+      "what": "T-310. DoorCount 15,383 to 9,493 B, golden Hello micro 5,209 to 2,487 B. Full-access Terra 2×2 scored old maintainability 6/5, thin 7/7. All four old-night retries passed; delayed close old 1/2, thin 2/2. 34 journeys and 31 imports passed. C:/seldon/tests/leadThinBrief-0/REPORT.md"
+    },
+    {
+      "name": "leadNoFalseAmend",
+      "owner": "Sol 6.2 medium",
+      "state": "diff ready for lead review",
+      "what": "Six Lead golden journeys and 33 cold imports passed. Net +32 src. ShelfLife x2 remains pending. C:/seldon/tests/leadNoFalseAmend-0/REPORT.md"
+    },
+    {
+      "name": "leadSeldonOwns",
+      "owner": "Sol 6.2 medium",
+      "state": "diff ready for lead review",
+      "what": "T-308. 30 Lead golden journeys and 31 cold imports passed. d01 receipt fixture reached verified scripted C without a recovery question. Live replay pending. C:/seldon/tests/leadSeldonOwns-0/REPORT.md."
+    },
+    {
+      "name": "leadGuardOnce",
+      "owner": "Sol 6.2 medium",
+      "state": "diff ready for lead review",
+      "what": "T-295, T-307. All 24 Lead golden journeys and 33 cold imports passed. The new golden reached verified scripted C after two defects, one resumed WORK and one scoped re-walk. ShelfLife x2 and S1 x1 remain pending. C:/seldon/tests/leadGuardOnce-0/REPORT.md."
+    },
+    {
+      "name": "leadKeepBuilding",
+      "owner": "Sol 6.2 medium",
+      "state": "live continuation proven; full exit blocked by cohort watchdog",
+      "what": "T-305, T-306. 188 gate passes, net -4 source. kbM2 k01 observed nine same-session continuations without BUILD input. Cohort stopped WORK #10 while the candidate was advancing. C and verified false. C:/seldon/tests/leadKeepBuilding-0/REPORT.md."
+    },
+    {
+      "name": "leadAskWell",
+      "owner": "Sol 6.2 medium",
+      "state": "replayed; lead review pending",
+      "what": "T-303. Base tree e7cebe4d from d822514 snapshot. Five Terra pairs, blind preference 4/5; Friday CSV inclusion still unresolved. C:/seldon/tests/leadAskWell-0/REPORT.md"
+    },
+    {
+      "name": "leadHumanGuide",
+      "owner": "Sol 6.2 medium",
+      "state": "diff ready for lead review",
+      "what": "T-302. Exact d822514 base tree, net -1 src. Verified scripted C from the guard walk and two standalone regression checks. 31 cold imports passed. Next live evidence is ShelfLife x3 and DoorCount x1. C:/seldon/tests/leadHumanGuide-0/REPORT.md"
+    },
+    {
+      "name": "leadGuardOwner",
+      "owner": "Sol 6.2 medium",
+      "state": "trials complete; diff ready for lead review",
+      "what": "Both slots reached scripted C with verification_complete=false. DoorCount repaired the cross-night double count (r78/r85). ShelfLife repaired integer quantity and unknown-ID API faults (r109/r141/r148). Final gate 186 passed in 485.04 s. C:/seldon/tests/leadGuardOwner-0/REPORT.md."
+    },
+    {
+      "name": "leadGuardR2",
+      "owner": "Sol 6.2 medium",
+      "state": "real exit running",
+      "what": "Exact 943def4 base tree; lane tree 7b425bfb. 31 cold imports and exclusive 182 passed in 464.57 s. Headless Terra medium runs in gr2Shelf (x3), gr2Found and gr2S1 (x1 each). Net production +74 is above the assignment budget."
+    },
+    {
+      "name": "leadSizeByBuilder",
+      "owner": "Sol 6.2 medium",
+      "state": "journeys passed; diff ready for lead review",
+      "what": "T-300. Base snapshot a6e017c, net +35 src. Seven focused golden cases passed and three sizing cases verified on the final patch. Next evidence is S1-doorcount and S2-rehearsalkeys cohorts. C:/seldon/tests/leadSizeByBuilder-0/REPORT.md"
+    },
+    {
+      "name": "leadLeanBuilder",
+      "owner": "Sol 6.2 medium",
+      "state": "journeys passed; diff ready for lead review",
+      "what": "Track B. Main 441c0d2 plus leadPlanOne. Net src -1. Twenty-three Lead journeys and 31 cold imports passed. A guide-only micro reaches verified scripted C through the guard walk. Planning and B still show legacy guide boilerplate. Next proof is fork-owned ShelfLife x5. C:/seldon/tests/leadLeanBuilder-0/REPORT.md."
+    },
+    {
+      "name": "leadGuardReuse",
+      "owner": "Sol 6.2 medium",
+      "state": "trial complete; ShelfLife exit unmet",
+      "what": "T-299. 181 journeys in 555.61 s, 31 cold imports. ShelfLife 3 scripted C, 0 verified, guard 213/67/136 s. Foundation verified scripted C, 48 s. C:/seldon/tests/leadGuardReuse-0/REPORT.md."
+    },
+    {
+      "name": "leadPlanOne",
+      "owner": "Sol 6.2 medium",
+      "state": "follow-up journeys passed; diff ready for cohort",
+      "what": "T-298 on 620d540 plus uncommitted lane diff, net +40 source. Coaching on/off exercised. 30 journeys and 31 cold imports passed. Next: fork-owned hello x1 and ShelfLife x5. C:/seldon/tests/leadPlanOne-0/REPORT2.md."
+    },
+    {
+      "name": "coord4-keep-staging",
+      "owner": "Sol 6.2 medium",
+      "state": "deferred at v0.5 boundary",
+      "what": "Patch unlanded on 8d19a35. Focused golden RED 4.45 s and GREEN 10.51 s. Full gate did not start. Reconcile against chosen base."
+    },
+    {
+      "name": "coord4Quiet",
+      "owner": "Codex coordinator",
+      "state": "complete",
+      "what": "8d19a35: 2/5 verified, 3/5 scripted C. T-294 repeated all five; T-295, T-296, T-297 retained. Node 20.20.2 job PATH."
+    },
+    {
+      "name": "coord4FoundO",
+      "owner": "Codex coordinator",
+      "state": "complete",
+      "what": "5/5 verified scripted C, all first pass, no Seldon faults. Step 1 15/15 on one source commit."
+    },
+    {
+      "name": "coord4HelloO",
+      "owner": "Codex coordinator",
+      "state": "complete",
+      "what": "5/5 verified scripted C, one WORK and JUDGE each, zero Seldon faults."
+    },
+    {
+      "name": "coord4ShelfO",
+      "owner": "Codex coordinator",
+      "state": "complete",
+      "what": "5/5 verified SCRIPTED_C, three first pass. All five kept guard feedback and had no unresolved plan or coverage limit. Median 98,714 fresh+output tokens, largest JUDGE 32,693 bytes."
+    },
+    {
+      "name": "leadImports",
+      "owner": "Sol 6.2 medium",
+      "state": "round 2 verified; diff ready for review",
+      "what": "Snapshot e6055c5, uncommitted: Lead startup reach 7927 to 5166 lines, total src 7928 to 7926. 46 affected journey cases and 30 cold imports passed; all 19 Lead cases made zero Orchestrator import attempts. See C:/seldon/tests/leadImports-0/REPORT2.md."
+    },
+    {
+      "name": "coord4-guard-observe",
+      "owner": "Terra 6.1 medium",
+      "state": "landed",
+      "what": "8d19a35 pushed, 179 gate cases in 439.35 s, cold imports 32/32, src 8092 to 8091. Native qualification pending."
+    },
+    {
+      "name": "coord4-review-scope",
+      "owner": "Terra 6.1 medium",
+      "state": "landed",
+      "what": "e590f38 pushed, 179 gate cases in 471.76 s, cold imports 32/32, src 8090 to 8092. Live validation pending."
+    },
+    {
+      "name": "coord4ShelfB",
+      "owner": "Codex coordinator",
+      "state": "complete",
+      "what": "5/5 scripted C, 0/5 verification_complete. T-286 route verified; T-278 across all five, T-291 in csb02 and csb05."
+    },
+    {
+      "name": "coord4-bound-defect",
+      "owner": "Sol 6.2 medium",
+      "state": "landed",
+      "what": "34d9378 pushed. Main gate 179 passed in 478 s. src 8057 to 8090. Live candidate-bound defect and green check with invalid witness verification pending."
+    },
+    {
+      "name": "coord4ShelfR",
+      "owner": "Codex coordinator",
+      "state": "complete",
+      "what": "4/5 verified SCRIPTED_C; csr05 unverified due T-286, csr03 repaired a real CSV defect."
+    },
+    {
+      "name": "coord4FoundR",
+      "owner": "Codex coordinator",
+      "state": "complete",
+      "what": "cfr01–cfr05 5/5 verified scripted C and 5/5 show screen/action-specific feedback in C. T-289 validated."
+    },
+    {
+      "name": "coord4HelloR",
+      "owner": "Codex coordinator",
+      "state": "complete",
+      "what": "chr01–chr05 5/5 verified scripted C, all one WORK / one JUDGE, five valid first B requests. T-290 validated."
+    },
+    {
+      "name": "coord4-bound-review",
+      "owner": "Sol 6.2 medium",
+      "state": "landed",
+      "what": "847bf02 pushed, main gate 177 passed in 399.41 s, cold imports 32/32, src 8054 to 8057. Live Hello verification next."
+    },
+    {
+      "name": "coord4-guard-feedback",
+      "owner": "Terra 6.1 medium",
+      "state": "landed",
+      "what": "dcd771c pushed with 177 gate cases in 407.24 s; src 8053 to 8054. Real qualification pending."
+    },
+    {
+      "name": "coord4Found",
+      "owner": "Codex coordinator",
+      "state": "complete",
+      "what": "5/5 verified scripted C, no Builder repairs. cf01/cf04 final feedback empty (T-289)."
+    },
+    {
+      "name": "coord4Hello",
+      "owner": "Codex coordinator",
+      "state": "complete",
+      "what": "5/5 verified scripted C, four first pass. ch05 exposed contradictory B text, T-290."
+    },
+    {
+      "name": "coord4Shelf",
+      "owner": "Codex coordinator",
+      "state": "complete",
+      "what": "5/5 verified scripted C; four first-pass. cs01 one demonstrated product defect repaired; cs01/cs03 final verdict feedback missing (T-289)."
+    },
+    {
+      "name": "leadPort1",
+      "owner": "Codex",
+      "state": "landed",
+      "what": "09735e5 pushed. Main gate 176 in 405.81 s; cold imports 32/32; src 8058 to 8053. Lane pilot 3/3 verified scripted C; T-289 remains open."
+    },
     {
       "name": "leadNoRecovery",
       "owner": "Codex",
@@ -725,190 +935,202 @@
       "owner": "Codex",
       "state": "patch delivered; native exit met",
       "what": "Lead-only d29d82a patch, 0 net production lines. 175 passed/445.25 s exclusive gate. gtShelf 3/3 verified scripted C, with 2/1/0 repairs using one builder session each. T-289 tracks omitted guard feedback. Report and lane.diff in C:/seldon/tests/leadGuardThorough-0."
+    },
+    {
+      "name": "leadJudgeTokens",
+      "owner": "Codex",
+      "state": "round-four diff ready for fork rerun",
+      "what": "REPORT4.md and lane4.diff under C:/seldon/tests/leadJudgeTokens-0. wc04 recovery explained and fixed locally. C uses current-candidate linked guard proof and retains other limits. Eight focused journeys passed, including one fully verified C with carried proof. Live rerun pending."
+    },
+    {
+      "name": "leadResumeKilled",
+      "owner": "Sol 6.2 medium",
+      "state": "diff ready for lead review",
+      "what": "T-312. Verified scripted C after both WORK kill cases. Native copy completed WORK and JUDGE and stopped in PROVE. C:/seldon/tests/leadResumeKilled-0/REPORT.md"
     }
   ],
-  "next": "CC owns the scheduled 15:03 Jerusalem Astra 6.2 HIGH read-only Lead-vs-plain review after checking quota reset (reported reset 14:51 Jerusalem). Hold all Lead code changes until its report; only cheap census of bpShelf/bpFound/bpHello meanwhile. Then CC briefs Lead-only work from ranked findings; no Orchestrator Quiet Bench rerun. Treat overnight cohort wall times as confounded and use measured per-call evidence; do not infer proved sleep causation.",
+  "next": "NEEDS-LEAD: Confirm governing rules and base. Reconcile T-294 and T-295–T-297 before the next Quiet Bench gate/cohort, then oracle comparison, promise memory and cost.",
   "decisionsForOren": [],
   "recentRuns": [
     {
-      "date": "2026-11-22",
-      "run": "shelf-gt-206a00f-gt01",
-      "commit": "206a00f",
-      "outcome": "SCRIPTED_C",
-      "furthest": "C",
-      "repairs": "2",
-      "gaps": "0",
-      "uncertain": "0",
-      "wall": "660.004",
-      "flags": "2"
-    },
-    {
-      "date": "2026-11-22",
-      "run": "shelf-gt-206a00f-gt02",
-      "commit": "206a00f",
+      "date": "2026-11-23",
+      "run": "door-honest-b3307b4-d01",
+      "commit": "b3307b4",
       "outcome": "SCRIPTED_C",
       "furthest": "C",
       "repairs": "1",
       "gaps": "0",
       "uncertain": "0",
-      "wall": "546.229",
+      "wall": "571.857",
       "flags": "1"
     },
     {
-      "date": "2026-11-22",
-      "run": "shelf-gt-206a00f-gt03",
-      "commit": "206a00f",
+      "date": "2026-11-23",
+      "run": "shelf-plaus-70f3dfe-s01",
+      "commit": "70f3dfe",
       "outcome": "SCRIPTED_C",
       "furthest": "C",
-      "repairs": "0",
+      "repairs": "2",
       "gaps": "0",
       "uncertain": "0",
-      "wall": "492.484",
-      "flags": "0"
+      "wall": "890.202",
+      "flags": "2"
+    },
+    {
+      "date": "2026-11-23",
+      "run": "shelf-plaus-70f3dfe-s02",
+      "commit": "70f3dfe",
+      "outcome": "SCRIPTED_C",
+      "furthest": "C",
+      "repairs": "3",
+      "gaps": "0",
+      "uncertain": "0",
+      "wall": "835.234",
+      "flags": "3"
     },
     {
       "date": "2026-11-22",
-      "run": "shelf-gc-82baad8-gc02",
-      "commit": "82baad8",
-      "outcome": "SCRIPTED_C",
-      "furthest": "C",
-      "repairs": "0",
+      "run": "m2-4f71-6dc9a611-k01",
+      "commit": "6dc9a61",
+      "outcome": "BUILD",
+      "furthest": "PROVE",
+      "repairs": "16",
       "gaps": "0",
       "uncertain": "0",
-      "wall": "380.638",
-      "flags": "0"
+      "wall": "11710.437",
+      "flags": "24"
+    },
+    {
+      "date": "2026-11-23",
+      "run": "door-plaus-70f3dfe-d01",
+      "commit": "70f3dfe",
+      "outcome": "BUILD",
+      "furthest": "B",
+      "repairs": "3",
+      "gaps": "0",
+      "uncertain": "0",
+      "wall": "430.082",
+      "flags": "4"
+    },
+    {
+      "date": "2026-11-23",
+      "run": "shelf-989c-6dc9a611-s01",
+      "commit": "6dc9a61",
+      "outcome": "SCRIPTED_C",
+      "furthest": "C",
+      "repairs": "6",
+      "gaps": "0",
+      "uncertain": "0",
+      "wall": "1928.807",
+      "flags": "11"
+    },
+    {
+      "date": "2026-11-23",
+      "run": "door-989c-6dc9a611-d01",
+      "commit": "6dc9a61",
+      "outcome": "SCRIPTED_C",
+      "furthest": "C",
+      "repairs": "3",
+      "gaps": "0",
+      "uncertain": "0",
+      "wall": "1349.277",
+      "flags": "4"
+    },
+    {
+      "date": "2026-11-23",
+      "run": "shelf-989c-6dc9a611-s02",
+      "commit": "6dc9a61",
+      "outcome": "SCRIPTED_C",
+      "furthest": "C",
+      "repairs": "3",
+      "gaps": "0",
+      "uncertain": "0",
+      "wall": "1050.302",
+      "flags": "3"
     },
     {
       "date": "2026-11-22",
-      "run": "shelf-gc-82baad8-gc01",
-      "commit": "82baad8",
-      "outcome": "SCRIPTED_C",
-      "furthest": "C",
+      "run": "m2-4f71-6dc9a611-k01",
+      "commit": "6dc9a61",
+      "outcome": "BUILD",
+      "furthest": "B",
       "repairs": "0",
       "gaps": "0",
       "uncertain": "0",
-      "wall": "360.017",
-      "flags": "0"
+      "wall": "3186.426",
+      "flags": "2"
     },
     {
       "date": "2026-11-22",
-      "run": "shelf-wk-56a024e-ws02",
-      "commit": "56a024e",
+      "run": "shelf-nfa-ef26ae4-s01",
+      "commit": "ef26ae4",
       "outcome": "SCRIPTED_C",
       "furthest": "C",
-      "repairs": "0",
+      "repairs": "4",
       "gaps": "0",
       "uncertain": "0",
-      "wall": "588.328",
-      "flags": "1"
+      "wall": "1699.290",
+      "flags": "4"
     },
     {
       "date": "2026-11-22",
-      "run": "shelf-wk-56a024e-ws03",
-      "commit": "56a024e",
+      "run": "shelf-nfa-ef26ae4-s02",
+      "commit": "ef26ae4",
       "outcome": "SCRIPTED_C",
       "furthest": "C",
-      "repairs": "0",
+      "repairs": "2",
       "gaps": "0",
       "uncertain": "0",
-      "wall": "473.050",
-      "flags": "0"
+      "wall": "1042.466",
+      "flags": "2"
     },
     {
       "date": "2026-11-22",
-      "run": "shelf-wk-56a024e-ws01",
-      "commit": "56a024e",
+      "run": "door-4f71-6dc9a611-d01",
+      "commit": "6dc9a61",
       "outcome": "SCRIPTED_C",
       "furthest": "C",
-      "repairs": "0",
+      "repairs": "3",
       "gaps": "0",
       "uncertain": "0",
-      "wall": "386.752",
-      "flags": "0"
+      "wall": "862.508",
+      "flags": "3"
     },
     {
       "date": "2026-11-22",
-      "run": "shelf-wk-56a024e-ws04",
-      "commit": "56a024e",
-      "outcome": "SCRIPTED_C",
-      "furthest": "C",
-      "repairs": "0",
-      "gaps": "0",
-      "uncertain": "0",
-      "wall": "335.273",
-      "flags": "0"
-    },
-    {
-      "date": "2026-11-22",
-      "run": "shelf-wk-56a024e-ws05",
-      "commit": "56a024e",
+      "run": "m2kb-6dc9a611-k01",
+      "commit": "6dc9a61",
       "outcome": "PROVE",
       "furthest": "BUILD",
-      "repairs": "0",
+      "repairs": "3",
       "gaps": "0",
       "uncertain": "0",
-      "wall": "295.633",
-      "flags": "1"
+      "wall": "2494.269",
+      "flags": "4"
     },
     {
       "date": "2026-11-22",
-      "run": "found-wk-56a024e-wf01",
-      "commit": "56a024e",
+      "run": "shelf-goR-6dc9a611-g01",
+      "commit": "6dc9a61",
       "outcome": "SCRIPTED_C",
       "furthest": "C",
-      "repairs": "0",
+      "repairs": "2",
       "gaps": "0",
       "uncertain": "0",
-      "wall": "273.707",
-      "flags": "0"
+      "wall": "1500.669",
+      "flags": "2"
     },
     {
       "date": "2026-11-22",
-      "run": "found-wk-56a024e-wf04",
-      "commit": "56a024e",
+      "run": "shelf-goR-6dc9a611-g02",
+      "commit": "6dc9a61",
       "outcome": "SCRIPTED_C",
       "furthest": "C",
-      "repairs": "0",
+      "repairs": "2",
       "gaps": "0",
       "uncertain": "0",
-      "wall": "262.434",
-      "flags": "0"
-    },
-    {
-      "date": "2026-11-22",
-      "run": "found-wk-56a024e-wf02",
-      "commit": "56a024e",
-      "outcome": "PROVE",
-      "furthest": "BUILD",
-      "repairs": "0",
-      "gaps": "0",
-      "uncertain": "0",
-      "wall": "256.171",
-      "flags": "1"
-    },
-    {
-      "date": "2026-11-22",
-      "run": "found-wk-56a024e-wf03",
-      "commit": "56a024e",
-      "outcome": "SCRIPTED_C",
-      "furthest": "C",
-      "repairs": "0",
-      "gaps": "0",
-      "uncertain": "0",
-      "wall": "252.297",
-      "flags": "0"
-    },
-    {
-      "date": "2026-11-22",
-      "run": "found-wk-56a024e-wf05",
-      "commit": "56a024e",
-      "outcome": "SCRIPTED_C",
-      "furthest": "C",
-      "repairs": "0",
-      "gaps": "0",
-      "uncertain": "0",
-      "wall": "244.656",
-      "flags": "0"
+      "wall": "1364.328",
+      "flags": "2"
     }
   ]
 }
